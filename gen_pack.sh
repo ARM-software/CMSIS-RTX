@@ -1,24 +1,33 @@
-#!/bin/bash
-# Version: 2.5
-# Date: 2023-03-22
+#!/usr/bin/env bash
+# Version: 2.7
+# Date: 2023-05-22
 # This bash script generates a CMSIS Software Pack:
 #
 
 set -o pipefail
 
 # Set version of gen pack library
-REQUIRED_GEN_PACK_LIB="0.8.2"
+# For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
+# Use the tag name without the prefix "v", e.g., 0.7.0
+REQUIRED_GEN_PACK_LIB="0.8.3"
 
 # Set default command line arguments
 DEFAULT_ARGS=(-c "v")
 
 # Pack warehouse directory - destination
-PACK_OUTPUT=./output
+# Default: ./output
+#
+# PACK_OUTPUT=./output
 
-# Temporary pack build directory
-PACK_BUILD=./build
+# Temporary pack build directory,
+# Default: ./build
+#
+# PACK_BUILD=./build
 
 # Specify directory names to be added to pack base directory
+# An empty list defaults to all folders next to this script.
+# Default: empty (all folders)
+#
 PACK_DIRS="
     CMSIS/Documentation
     CMSIS/RTOS2/RTX/Config
@@ -31,22 +40,38 @@ PACK_DIRS="
 "
 
 # Specify file names to be added to pack base directory
+# Default: empty
+#
 PACK_BASE_FILES="
   LICENSE
   CMSIS/RTOS2/RTX/RTX5.scvd
 "
 
 # Specify file names to be deleted from pack build directory
-PACK_DELETE_FILES=""
+# Default: empty
+#
+# PACK_DELETE_FILES="
+#   <list files here>
+# "
 
 # Specify patches to be applied
-PACK_PATCH_FILES=""
+# Default: empty
+#
+# PACK_PATCH_FILES="
+#     <list patches here>
+# "
 
 # Specify addition argument to packchk
-PACKCHK_ARGS=()
+# Default: empty
+#
+# PACKCHK_ARGS=()
 
 # Specify additional dependencies for packchk
-PACKCHK_DEPS=""
+# Default: empty
+#
+# PACKCHK_DEPS="
+#   <list pdsc files here>
+# "
 
 # Optional: restrict fallback modes for changelog generation
 # Default: full
@@ -54,6 +79,7 @@ PACKCHK_DEPS=""
 # - full      Tag annotations, release descriptions, or commit messages (in order)
 # - release   Tag annotations, or release descriptions (in order)
 # - tag       Tag annotations only
+#
 PACK_CHANGELOG_MODE="tag"
 
 #
@@ -86,7 +112,14 @@ function postprocess() {
 
 function install_lib() {
   local URL="https://github.com/Open-CMSIS-Pack/gen-pack/archive/refs/tags/v$1.tar.gz"
-  echo "Downloading gen-pack lib to '$2'"
+  local STATUS=$(curl -sLI "${URL}" | grep "^HTTP" | tail -n 1 | cut -d' ' -f2 || echo "$((600+$?))")
+  if [[ $STATUS -ge 400 ]]; then
+    echo "Wrong/unavailable gen-pack lib version '$1'!" >&2
+    echo "Check REQUIRED_GEN_PACK_LIB variable."  >&2
+    echo "For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags." >&2
+    exit 1
+  fi
+  echo "Downloading gen-pack lib version '$1' to '$2' ..."
   mkdir -p "$2"
   curl -L "${URL}" -s | tar -xzf - --strip-components 1 -C "$2" || exit 1
 }

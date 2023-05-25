@@ -1,7 +1,7 @@
-#!/bin/bash
-# Version: 2.1
-# Date: 2022-12-15
-# This bash script generates CMSIS-View documentation
+#!/usr/bin/env bash
+# Version: 2.7
+# Date: 2023-05-22
+# This bash script generates CMSIS-RTX documentation
 #
 # Pre-requisites:
 # - bash shell (for Windows: install git for Windows)
@@ -11,7 +11,9 @@
 set -o pipefail
 
 # Set version of gen pack library
-REQUIRED_GEN_PACK_LIB="0.8.2"
+# For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
+# Use the tag name without the prefix "v", e.g., 0.7.0
+REQUIRED_GEN_PACK_LIB="0.8.3"
 
 DIRNAME=$(dirname $(readlink -f $0))
 REQ_DXY_VERSION="1.9.2"
@@ -21,7 +23,14 @@ REQ_MSCGEN_VERSION="0.20"
 
 function install_lib() {
   local URL="https://github.com/Open-CMSIS-Pack/gen-pack/archive/refs/tags/v$1.tar.gz"
-  echo "Downloading gen-pack lib to '$2'"
+  local STATUS=$(curl -sLI "${URL}" | grep "^HTTP" | tail -n 1 | cut -d' ' -f2 || echo "$((600+$?))")
+  if [[ $STATUS -ge 400 ]]; then
+    echo "Wrong/unavailable gen-pack lib version '$1'!" >&2
+    echo "Check REQUIRED_GEN_PACK_LIB variable."  >&2
+    echo "For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags." >&2
+    exit 1
+  fi
+  echo "Downloading gen-pack lib version '$1' to '$2' ..."
   mkdir -p "$2"
   curl -L "${URL}" -s | tar -xzf - --strip-components 1 -C "$2" || exit 1
 }

@@ -46,7 +46,7 @@ CMSIS-RTX $ ./CMSIS/DoxyGen/check_links.sh
 
 Prerequisites for these scripts to succeed are:
 
-- Doxygen 1.9.2
+- Doxygen 1.9.6
 - Python 3.9 or later with linkchecker package installed
   `pip install linkchecker`
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Version: 2.7
-# Date: 2023-05-22
+# Version: 2.8
+# Date: 2023-06-06
 # This bash script generates CMSIS-RTX documentation
 #
 # Pre-requisites:
 # - bash shell (for Windows: install git for Windows)
-# - doxygen 1.9.2
+# - doxygen 1.9.6
 # - mscgen 0.20
 
 set -o pipefail
@@ -16,7 +16,7 @@ set -o pipefail
 REQUIRED_GEN_PACK_LIB="0.8.3"
 
 DIRNAME=$(dirname $(readlink -f $0))
-REQ_DXY_VERSION="1.9.2"
+REQ_DXY_VERSION="1.9.6"
 REQ_MSCGEN_VERSION="0.20"
 
 ############ DO NOT EDIT BELOW ###########

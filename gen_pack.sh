@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Version: 2.7
-# Date: 2023-05-22
+# Date: 2023-06-06
 # This bash script generates a CMSIS Software Pack:
 #
 
@@ -29,14 +29,14 @@ DEFAULT_ARGS=(-c "v")
 # Default: empty (all folders)
 #
 PACK_DIRS="
-    CMSIS/Documentation
-    CMSIS/RTOS2/RTX/Config
-    CMSIS/RTOS2/RTX/Examples
-    CMSIS/RTOS2/RTX/Examples_IAR
-    CMSIS/RTOS2/RTX/Include
-    CMSIS/RTOS2/RTX/Source
-    CMSIS/RTOS2/RTX/Template
-    CMSIS/RTOS2/Source
+  CMSIS/Documentation
+  CMSIS/RTOS2/RTX/Config
+  CMSIS/RTOS2/RTX/Examples
+  CMSIS/RTOS2/RTX/Examples_IAR
+  CMSIS/RTOS2/RTX/Include
+  CMSIS/RTOS2/RTX/Source
+  CMSIS/RTOS2/RTX/Template
+  CMSIS/RTOS2/Source
 "
 
 # Specify file names to be added to pack base directory
@@ -50,16 +50,12 @@ PACK_BASE_FILES="
 # Specify file names to be deleted from pack build directory
 # Default: empty
 #
-# PACK_DELETE_FILES="
-#   <list files here>
-# "
+# PACK_DELETE_FILES=""
 
 # Specify patches to be applied
 # Default: empty
 #
-# PACK_PATCH_FILES="
-#     <list patches here>
-# "
+# PACK_PATCH_FILES=""
 
 # Specify addition argument to packchk
 # Default: empty
@@ -69,9 +65,7 @@ PACK_BASE_FILES="
 # Specify additional dependencies for packchk
 # Default: empty
 #
-# PACKCHK_DEPS="
-#   <list pdsc files here>
-# "
+PACKCHK_DEPS=" "
 
 # Optional: restrict fallback modes for changelog generation
 # Default: full

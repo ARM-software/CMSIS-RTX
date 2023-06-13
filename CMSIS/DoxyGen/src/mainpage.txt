@@ -73,6 +73,11 @@ Directory                    | Content
 \b CMSIS/RTOS2/RTX           | CMSIS-RTOS2 reference implementation based on RTX version 5
 \b CMSIS/RTOS2/Source        | Generic <b>OS tick</b> implementations for various processors based on \ref rtos_os_tick_api
 \b CMSIS/RTOS2/Template      | Compatibility layer to <a class="el" href="../../RTOS/html/index.html">CMSIS-RTOS v1</a>
+
+\section license License
+
+CMSIS-RTX is provided free of charge by Arm under the <a href="https://raw.githubusercontent.com/ARM-software/CMSIS-RTX/main/LICENSE">Apache 2.0 License</a>.
+
 */
 
 

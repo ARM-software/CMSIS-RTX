@@ -6,10 +6,10 @@
 
 The RTX5 kernel can be customized for different application requirements:
 
-- The function \ref osRtxIdleThread implements the idle thread and allows set the system into sleep modes for \ref lowPower or
+- The function \b osRtxIdleThread implements the idle thread and allows set the system into sleep modes for \ref lowPower or
   \ref TickLess for ultra-low power operation.
   
-- The function \ref osRtxErrorNotify may be extended to handle system runtime errors.
+- The function \b osRtxErrorNotify may be extended to handle system runtime errors.
 
 RTX5 interfaces to the <a href="https://www.keil.com/pack/doc/compiler/EventRecorder/html/index.html" target="_blank"><b>Event Recorder</b></a> 
 and provides event information that helps to analyze the operation. Refer to \ref rtx_evr for more information.
@@ -31,7 +31,7 @@ and provides event information that helps to analyze the operation. Refer to \re
 \brief Thread Control Block size
 \details
 This macro exposes the minimum amount of memory needed for an RTX5 Thread Control Block,
-see osThreadAttr_t::cb_mem and \ref osThreadAttr_t::cb_size.
+see osThreadAttr_t::cb_mem and \b osThreadAttr_t::cb_size.
 
 Example:
 \code
@@ -46,7 +46,7 @@ static uint32_t thread_cb[osRtxThreadCbSize/4U];
 \brief Timer Control Block size
 \details
 This macro exposes the minimum amount of memory needed for an RTX5 Timer Control Block,
-see osTimerAttr_t::cb_mem and \ref osTimerAttr_t::cb_size.
+see osTimerAttr_t::cb_mem and \b osTimerAttr_t::cb_size.
 
 Example:
 \code
@@ -61,7 +61,7 @@ static uint32_t timer_cb[osRtxTimerCbSize/4U];
 \brief Event Flags Control Block size
 \details
 This macro exposes the minimum amount of memory needed for an RTX5 Event Flags Control Block,
-see osEventFlagsAttr_t::cb_mem and \ref osEventFlagsAttr_t::cb_size.
+see osEventFlagsAttr_t::cb_mem and \b osEventFlagsAttr_t::cb_size.
 
 Example:
 \code
@@ -76,7 +76,7 @@ static uint32_t evflags_cb[osRtxEventFlagsCbSize/4U];
 \brief Mutex Control Block size
 \details
 This macro exposes the minimum amount of memory needed for an RTX5 Mutex Control Block,
-see osMutexAttr_t::cb_mem and \ref osMutexAttr_t::cb_size.
+see osMutexAttr_t::cb_mem and \b osMutexAttr_t::cb_size.
 
 Example:
 \code
@@ -189,7 +189,7 @@ static uint32_t mq_mem[osRtxMessageQueueMemSize(MSG_COUNT, sizeof(msg_item_t))/4
 \def osRtxErrorStackOverflow
 \brief Stack overflow, i.e. stack pointer below its lower memory limit for descending stacks.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 detects a thread stack overflow.
+This error identifier is used with \b osRtxErrorNotify when RTX5 detects a thread stack overflow.
 The object_id announced along this error can be used to identify the affected thread.
 
 \ref threadConfig_watermark used together with larger stack sizes can help to figure out actual
@@ -203,7 +203,7 @@ memory requirements for threads.
 \def osRtxErrorISRQueueOverflow
 \brief ISR Queue overflow detected when inserting object.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 detects an overflow of the
+This error identifier is used with \b osRtxErrorNotify when RTX5 detects an overflow of the
 interrupt post processing message queue. The object_id can be used to identify the affected
 object.
 
@@ -215,7 +215,7 @@ object.
 \def osRtxErrorTimerQueueOverflow
 \brief User Timer Callback Queue overflow detected for timer.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 detects an overflow of the
+This error identifier is used with \b osRtxErrorNotify when RTX5 detects an overflow of the
 timer callback queue. The object_id can be used to identify the affected timer.
 
 \attention Whenever this error identifier is signaled a timer callback is already lost.
@@ -226,7 +226,7 @@ timer callback queue. The object_id can be used to identify the affected timer.
 \def osRtxErrorClibSpace
 \brief Standard C/C++ library libspace not available.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 detects usage of libspace
+This error identifier is used with \b osRtxErrorNotify when RTX5 detects usage of libspace
 but not enough memory was reserved using \c OS_THREAD_LIBSPACE_NUM.
 */
 
@@ -235,7 +235,7 @@ but not enough memory was reserved using \c OS_THREAD_LIBSPACE_NUM.
 \def osRtxErrorClibMutex
 \brief Standard C/C++ library mutex initialization failed.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 fails to create mutexes needed
+This error identifier is used with \b osRtxErrorNotify when RTX5 fails to create mutexes needed
 to lock global C/C++ library resources.
 */
 
@@ -244,7 +244,7 @@ to lock global C/C++ library resources.
 \def osRtxErrorSVC
 \brief Invalid SVC function called.
 \details
-This error identifier is used with \ref osRtxErrorNotify when RTX5 detects SVC function pointer that is not properly aligned
+This error identifier is used with \b osRtxErrorNotify when RTX5 detects SVC function pointer that is not properly aligned
 or is located outside of the RTX5 SVC function table.
 */
 
@@ -271,12 +271,12 @@ error function \b osRtxErrorNotify for an object specified by parameter \a objec
 The parameter \a code passes the actual error code to this function:
 | Error Code                        | Description                                                                       |
 |-----------------------------------|-----------------------------------------------------------------------------------|
-| \ref osRtxErrorStackOverflow      | Stack overflow detected for thread (thread_id=object_id)                          |
-| \ref osRtxErrorISRQueueOverflow   | ISR Queue overflow detected when inserting object (object_id)                     |
-| \ref osRtxErrorTimerQueueOverflow | User Timer Callback Queue overflow detected for timer (timer_id=object_id)        |
-| \ref osRtxErrorClibSpace          | Standard C/C++ library libspace not available: increase \c OS_THREAD_LIBSPACE_NUM |
-| \ref osRtxErrorClibMutex          | Standard C/C++ library mutex initialization failed                                |
-| \ref osRtxErrorSVC                | Invalid SVC function called (function=object_id)                                  |
+| \b osRtxErrorStackOverflow      | Stack overflow detected for thread (thread_id=object_id)                          |
+| \b osRtxErrorISRQueueOverflow   | ISR Queue overflow detected when inserting object (object_id)                     |
+| \b osRtxErrorTimerQueueOverflow | User Timer Callback Queue overflow detected for timer (timer_id=object_id)        |
+| \b osRtxErrorClibSpace          | Standard C/C++ library libspace not available: increase \c OS_THREAD_LIBSPACE_NUM |
+| \b osRtxErrorClibMutex          | Standard C/C++ library mutex initialization failed                                |
+| \b osRtxErrorSVC                | Invalid SVC function called (function=object_id)                                  |
 
 The function \b osRtxErrorNotify must contain an infinite loop to prevent further program execution. You can use an emulator
 to step over the infinite loop and trace into the code introducing a runtime error. For the overflow errors this means you
@@ -335,8 +335,8 @@ The idle thread should never be blocked nor terminated!
 <b>Do not</b> call
 <ul>
   <li>blocking functions,</li>
-  <li>\ref osThreadTerminate, or </li>
-  <li>\ref osThreadExit</li>
+  <li>\b osThreadTerminate, or </li>
+  <li>\b osThreadExit</li>
 </ul>
 and <b>do not</b> return from this function when providing a user defined implementation.
 

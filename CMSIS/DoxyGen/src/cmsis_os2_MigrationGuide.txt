@@ -2,7 +2,7 @@
 
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
 /**
-\page os2MigrationGuide RTX Migration Guide
+\page os2MigrationGuide Migration Guide
 
 RTX5 supplies both API layers: CMSIS-RTOS v1 and CMSIS-RTOS v2. This allows a gradient transition from version 1 to 2. A
 modified v1 header and a special v1 compatibility module enable existing code to run on a v2 implementation with almost no
@@ -16,17 +16,17 @@ Only a few incompatibilities and limitations exist:
     In CMSIS-RTOS v2 the Kernel needs be initialized by calling osKernelInitialize() and must be started by calling
     osKernelStart().
 - OS tick\n
-  RTX5 uses the \ref CMSIS_RTOS_TickAPI to configure the tick interrupts. The interval calculation is typically based on
-  \c SystemCoreClock variable. Thus one has to assure this variable is set correctly before calling \ref osKernelStart.
+  RTX5 uses the [CMSIS-RTOS2 Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html) to configure the tick interrupts. The interval calculation is typically based on
+  \c SystemCoreClock variable. Thus one has to assure this variable is set correctly before calling \b osKernelStart.
 - The function \c osWait is deprecated.
 - Error code incompatibility\n
   CMSIS-RTOS v1 used two different error codes for invalid parameters: \c osErrorParameter and \c osErrorValue. The new
-  version only uses a common \ref osErrorParameter code. Therefore, code relying on osErrorValue is not compatible. The
+  version only uses a common \b osErrorParameter code. Therefore, code relying on osErrorValue is not compatible. The
   following functions are affected:
-  - \ref osThreadSetPriority returns \ref osErrorParameter instead of osErrorValue when priority is out of range
-  - \ref osMemoryPoolFree (previously \c osPoolFree) returns \ref osErrorParameter instead of osErrorValue when block to be
+  - \b osThreadSetPriority returns \b osErrorParameter instead of osErrorValue when priority is out of range
+  - \b osMemoryPoolFree (previously \c osPoolFree) returns \b osErrorParameter instead of osErrorValue when block to be
     returned is invalid
-- The \ref osDelay return code has changed from osErrorTimeout to \ref osOK.
+- The \b osDelay return code has changed from osErrorTimeout to \b osOK.
 
 The level of migration depends on the project's phase in its life cycle:
 - The \ref MigL1 "first level" of migration is to migrate to RTX5 without changing the API level.
@@ -87,7 +87,8 @@ int main (void) {
 \note In RTOS API v1 all timings were specified in milliseconds. RTX5 defines all times in kernel ticks.
 To match both it is recommended to set the Kernel Tick Frequency to 1000 Hz in the \ref systemConfig.
 
-To validate the correct operation of your RTOS after migration you can temporarily integrate the \ref rtosValidation
+To validate the correct operation of your RTOS after migration you can temporarily integrate the
+[CMSIS-RTOS2 Validation](https://arm-software.github.io/CMSIS-RTOS2_Validation/main/)
 component into your project.
 
 
@@ -175,13 +176,13 @@ The following steps are recommended as a rough guide-line:
 - Identify all references to the API v1 and replace with the appropriate calls in v2. You might want to use the Error List
   window in uVision to identify the related code passages quickly. 
 
-\note See \ref os2MigrationFunctions for details in differences.
+\note See \b os2MigrationFunctions for details in differences.
 
 Generally there are no longer os*Def macros to declare OS objects. 
 
 \note
 - Signal Events have been replaced. Use the functions listed under Thread Flags and Event Flags instead. 
 - The Mail Queue RTOS v1 functions have been deprecated. Use the functionality of the Message Queue instead. Differences are
-  listed under \ref mig_msgQueue.
+  listed under [Message Queue](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
  

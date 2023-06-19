@@ -504,7 +504,7 @@ If you require some of the RTX specific functions in your application code, \#in
 \include rtx_os.h
 
 
-\section CMSIS_RTOS_TimeOutValue Timeout Value   
+\section CMSIS_RTOS_TimeOutValue Timeout Value
 
 Timeout values are an argument to several \b osXxx functions to allow time for resolving a request. A timeout value of \b 0
 means that the RTOS does not wait and the function returns instantly, even when no resource is available. A timeout value of
@@ -697,9 +697,9 @@ Kernel Tick Frequency (Hz)                  | \c OS_TICK_FREQ          | Defines
 \ref systemConfig_rr                        | \c OS_ROBIN_ENABLE       | Enables Round-Robin Thread switching. Default value is \token{1} (enabled).
 &nbsp;&nbsp;&nbsp;Round-Robin Timeout       | \c OS_ROBIN_TIMEOUT      | Defines how long a thread will execute before a thread switch. Default value is \token{5}. Value range is \token{[1-1000]}.
 \ref safetyConfig_safety                    | \c OS_SAFETY_FEATURES    | Enables safety-related features as configured in this group. Default value is \token{1} (enabled).
-&nbsp;&nbsp;&nbsp;Safety class              | \c OS_SAFETY_CLASS       | Enables \ref rtos_process_isolation_safety_class functionality. Default value is \token{1} (enabled).
-&nbsp;&nbsp;&nbsp;MPU Protected Zone        | \c OS_EXECUTION_ZONE     | Enables \ref rtos_process_isolation_mpu. Default value is \token{1} (enabled).
-&nbsp;&nbsp;&nbsp;Thread Watchdog           | \c OS_THREAD_WATCHDOG    | Enables \ref rtos_process_isolation_thread_wdt functionality. Default value is \token{1} (enabled).
+&nbsp;&nbsp;&nbsp;Safety class              | \c OS_SAFETY_CLASS       | Enables [Safety Classes](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__safety__class.html) functionality. Default value is \token{1} (enabled).
+&nbsp;&nbsp;&nbsp;MPU Protected Zone        | \c OS_EXECUTION_ZONE     | Enables [MPU Protected Zones](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__mpu.html). Default value is \token{1} (enabled).
+&nbsp;&nbsp;&nbsp;Thread Watchdog           | \c OS_THREAD_WATCHDOG    | Enables [Thread Watchdogs](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__thread__wdt.html) functionality. Default value is \token{1} (enabled).
 &nbsp;&nbsp;&nbsp;Object Pointer checking   | \c OS_OBJ_PTR_CHECK | Enables verification of object pointer alignment and memory region. Default value is \token{0} (disabled).
 &nbsp;&nbsp;&nbsp;SVC Function Pointer checking | \c OS_SVC_PTR_CHECK | Enables verification of SVC function pointer alignment and memory region. Default value is \token{0} (disabled).
 \ref systemConfig_isr_fifo                  | \c OS_ISR_FIFO_QUEUE     | RTOS Functions called from ISR store requests to this buffer. Default value is \token{16 entries}. Value range is \token{[4-256]} entries in multiples of \token{4}.
@@ -738,7 +738,7 @@ It also includes:
 - Thread functions: \b osThreadProtectPrivileged
 
 <b>MPU Protected Zone</b><br>
-Enables \ref rtos_process_isolation_mpu functionality in the system. This includes:
+Enables [MPU Protected Zones](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__mpu.html) functionality in the system. This includes:
 - Thread attributes: \b osThreadZone
 - Thread functions: \b osThreadGetZone, \b osThreadTerminateZone
 - Zone Management: \b osZoneSetup_Callback
@@ -748,7 +748,7 @@ When enabled, the MPU Protected Zone values also need to be specified for the th
 - For Timer thread in \ref timerConfig
 
 <b>Safety class</b><br>
-Enables \ref rtos_process_isolation_safety_class functionality in the system RTOS. This includes:
+Enables [Safety Classes](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__safety__class.html) functionality in the system RTOS. This includes:
 - Object attributes: \b osSafetyClass
 - Kernel functions: \b osKernelProtect, \b osKernelDestroyClass
 - Thread functions: \b osThreadGetClass, \b osThreadSuspendClass, \b osThreadResumeClass
@@ -758,7 +758,7 @@ When enabled, the safety class values need to be specified for threads created  
 - For Timer thread in \ref timerConfig
 
 <b>Thread Watchdog</b><br>
-Enables \ref rtos_process_isolation_thread_wdt functionality in the system RTOS. This includes:
+Enables [Thread Watchdogs](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__thread__wdt.html) functionality in the system RTOS. This includes:
 - Thread functions: \b osThreadFeedWatchdog
 - Handler functions: \b osWatchdogAlarm_Handler
 
@@ -811,8 +811,8 @@ Total Stack size [bytes] for user Threads with user-provided Stack size    | \c 
 Default Thread Stack size [bytes]                        | \c OS_STACK_SIZE    | Defines stack size for threads with zero stack size specified. Default value is \token{3072}. Value range is \token{[96-1073741824]} Bytes, in multiples of \token{8}. 
 Idle Thread Stack size [bytes]                           | \c OS_IDLE_THREAD_STACK_SIZE              | Defines stack size for Idle thread. Default value is \token{512}. Value range is \token{[72-1073741824]} bytes, in multiples of \token{8}. 
 Idle Thread TrustZone Module ID                          | \c OS_IDLE_THREAD_TZ_MOD_ID    | Defines the \b osThreadAttr_t::tz_module "TrustZone Module ID" the Idle Thread shall use. This needs to be set to a non-zero value if the Idle Thread need to call secure functions. Default value is \token{0}.
-Idle Thread Safety Class                                 | \c OS_IDLE_THREAD_CLASS        | Defines the the \ref rtos_process_isolation_safety_class "Safety Class" for the Idle thread. Applied only if Safety Class functionality is enabled in \ref systemConfig. Default value is \token{0}.
-Idle Thread Zone                                         | \c OS_IDLE_THREAD_ZONE         | Defines the \ref rtos_process_isolation_mpu "MPU Protected Zone" for the Idle thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
+Idle Thread Safety Class                                 | \c OS_IDLE_THREAD_CLASS        | Defines the the [Safety Classes](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__safety__class.html) "Safety Class" for the Idle thread. Applied only if Safety Class functionality is enabled in \ref systemConfig. Default value is \token{0}.
+Idle Thread Zone                                         | \c OS_IDLE_THREAD_ZONE         | Defines the [MPU Protected Zones](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__mpu.html) "MPU Protected Zone" for the Idle thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
 Stack overrun checking                                   | \c OS_STACK_CHECK   | Enable stack overrun checks at thread switch. 
 Stack usage watermark                                    | \c OS_STACK_WATERMARK    | Initialize thread stack with watermark pattern for analyzing stack usage. Enabling this option increases significantly the execution time of thread creation.
 Processor mode for Thread execution                      | \c OS_PRIVILEGE_MODE     | Controls the default processor mode when not specified through thread attributes \b osThreadUnprivileged or \b osThreadPrivileged. Default value is \token{Unprivileged} mode. Value range is \token{[0=Unprivileged; 1=Privileged]} mode.
@@ -884,8 +884,8 @@ Number of Timer objects                | \c OS_TIMER_NUM          | Defines maxi
 Timer Thread Priority                  | \c OS_TIMER_THREAD_PRIO        | Defines priority for timer thread. Default value is \token{40}. Value range is \token{[8-48]}, in multiples of \token{8}. The numbers have the following priority correlation: \token{8=Low}; \token{16=Below Normal}; \token{24=Normal}; \token{32=Above Normal}; \token{40=High}; \token{48=Realtime} 
 Timer Thread Stack size [bytes]        | \c OS_TIMER_THREAD_STACK_SIZE  | Defines stack size for Timer thread. May be set to 0 when timers are not used. Default value is \token{512}. Value range is \token{[0-1073741824]}, in multiples of \token{8}.
 Timer Thread TrustZone Module ID       | \c OS_TIMER_THREAD_TZ_MOD_ID   | Defines the \b osThreadAttr_t::tz_module "TrustZone Module ID" the Timer Thread shall use. This needs to be set to a non-zero value if any Timer Callbacks need to call secure functions. Default value is \token{0}.
-Timer Thread Safety Class              | \c OS_TIMER_THREAD_CLASS        | Defines the the \ref rtos_process_isolation_safety_class "Safety Class" for the Timer thread. Applied only if Safety class functionality is enabled in \ref systemConfig. Default value is \token{0}.
-Timer Thread Zone                      | \c OS_TIMER_THREAD_ZONE         | Defines the \ref rtos_process_isolation_mpu "MPU Protected Zone" for the Timer thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
+Timer Thread Safety Class              | \c OS_TIMER_THREAD_CLASS        | Defines the the [Safety Classes](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__safety__class.html) "Safety Class" for the Timer thread. Applied only if Safety class functionality is enabled in \ref systemConfig. Default value is \token{0}.
+Timer Thread Zone                      | \c OS_TIMER_THREAD_ZONE         | Defines the [MPU Protected Zones](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__rtos__process__isolation__mpu.html) "MPU Protected Zone" for the Timer thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
 Timer Callback Queue entries           | \c OS_TIMER_CB_QUEUE           | Number of concurrent active timer callback functions. May be set to 0 when timers are not used. Default value is \token{4}. Value range is \token{[0-256]}.
 
 \subsection timerConfig_obj Object-specific memory allocation

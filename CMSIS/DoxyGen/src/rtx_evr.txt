@@ -100,7 +100,7 @@ The event \b MemoryBlockFree is generated when deallocation of a fixed size memo
 /**
 \fn void EvrRtxKernelError (int32_t status)
 \details
-The event \b KernelError is generated when \ref CMSIS_RTOS_KernelCtrl routines complete their execution due to an error.
+The event \b KernelError is generated when [Kernel Information and Control](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__KernelCtrl.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -348,7 +348,7 @@ The event \b KernelDestroyClass is generated when the function \b osKernelDestro
 /**
 \fn void EvrRtxThreadError (osThreadId_t thread_id, int32_t status)
 \details
-The event \b ThreadError is generated when \ref CMSIS_RTOS_ThreadMgmt routines complete their execution due to an error.
+The event \b ThreadError is generated when [Thread Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -746,7 +746,7 @@ The event \b ThreadWatchdogExpired is generated when the thread watchdog timer e
 /**
 \fn void EvrRtxDelayError (int32_t status)
 \details
-The event \b DelayError is generated when \ref CMSIS_RTOS_Wait routines complete their execution due to an error.
+The event \b DelayError is generated when [Generic Wait](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Wait.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -834,7 +834,7 @@ The event \b DelayCompleted is generated when \b osDelay or \b osDelayUntil dela
 /**
 \fn void EvrRtxThreadFlagsError (osThreadId_t thread_id, int32_t status)
 \details
-The event \b ThreadFlagsError is generated when \ref CMSIS_RTOS_ThreadFlagsMgmt routines complete their execution due to an error.
+The event \b ThreadFlagsError is generated when [Thread Flags](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadFlagsMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -978,7 +978,7 @@ The event \b ThreadFlagsWaitNotCompleted is generated when the function \b osThr
 /**
 \fn void EvrRtxEventFlagsError (osEventFlagsId_t ef_id, int32_t status)
 \details
-The event \b EventFlagsError is generated when \ref CMSIS_RTOS_EventFlags routines complete their execution due to an error.
+The event \b EventFlagsError is generated when [Event Flags](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlagsMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -1174,7 +1174,7 @@ The event \b EventFlagsDestroyed is generated when the function \b osEventFlagsD
 /**
 \fn void EvrRtxTimerError (osTimerId_t timer_id, int32_t status)
 \details
-The event \b TimerError is generated when \ref CMSIS_RTOS_TimerMgmt routines complete their execution due to an error.
+The event \b TimerError is generated when [Timer Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -1324,7 +1324,7 @@ The event \b TimerDestroyed is generated when the function \b osTimerDelete succ
 /**
 \fn void EvrRtxMutexError (osMutexId_t mutex_id, int32_t status)
 \details
-The event \b MutexError is generated when \ref CMSIS_RTOS_MutexMgmt routines complete their execution due to an error.
+The event \b MutexError is generated when [Mutex Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -1491,7 +1491,7 @@ The event \b MutexDestroyed is generated when the function \b osMutexDelete succ
 /**
 \fn void EvrRtxSemaphoreError (osSemaphoreId_t semaphore_id, int32_t status)
 \details
-The event \b SemaphoreError is generated when \ref CMSIS_RTOS_SemaphoreMgmt routines complete their execution due to an error.
+The event \b SemaphoreError is generated when [Semaphore Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -1660,7 +1660,7 @@ The event \b SemaphoreDestroyed is generated when the function \b osSemaphoreDel
 /**
 \fn void EvrRtxMemoryPoolError (osMemoryPoolId_t mp_id, int32_t status)
 \details
-The event \b MemoryPoolError is generated when \ref CMSIS_RTOS_PoolMgmt routines complete their execution due to an error.
+The event \b MemoryPoolError is generated when [Memory Pool](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.
@@ -1870,7 +1870,7 @@ The event \b MemoryPoolDestroyed is generated when the function \b osMemoryPoolD
 /**
 \fn void EvrRtxMessageQueueError (osMessageQueueId_t mq_id, int32_t status)
 \details
-The event \b MessageQueueError is generated when \ref CMSIS_RTOS_Message routines complete their execution due to an error.
+The event \b MessageQueueError is generated when [Message Queue](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html) routines complete their execution due to an error.
 
 The status parameter indicates the execution status and can be one of the \b osStatus_t "osStatus_t codes" or one
 of the extended execution status codes which are summarized in the table below.

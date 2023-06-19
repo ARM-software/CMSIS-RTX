@@ -260,7 +260,7 @@ In contrast to the dynamic memory allocations, the static memory allocation requ
 \image html MemAllocStat.png "Statically allocated memory for all objects"
 
 Static memory allocation can be achieved by providing user-defined memory using attributes at object creation,
-see \ref CMSIS_RTOS_MemoryMgmt_Manual. Please take special note of the following restrictions:
+see [Memory Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MemoryMgmt.html). Please take special note of the following restrictions:
 
 Memory type                                  | Requirements
 ---------------------------------------------|-------------------------------------------------------------------------------
@@ -400,10 +400,10 @@ void osRtxIdleThread (void) {
 
 \section kernelTimer RTX Kernel Timer Tick
 
-RTX uses the generic \ref CMSIS_RTOS_TickAPI to configure and control its periodic Kernel Tick.
+RTX uses the generic [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html) to configure and control its periodic Kernel Tick.
 
 To use an alternative timer as the Kernel Tick Timer one simply needs to implement a custom version
-of the \ref CMSIS_RTOS_TickAPI.
+of the OS Tick API.
 
 \note The OS Tick implementation provided must assure that the used timer interrupt uses the same (low) priority group 
 as the service interrupts, i.e. interrupts used by RTX must not preempt each other. Refer to the \ref Scheduler section
@@ -657,14 +657,14 @@ The default, Arm C libraries use mutex functions to
 The file "RTX_Config.h" defines the configuration parameters of CMSIS-RTOS RTX and must be part of every project that is
 using the CMSIS-RTOS RTX kernel. The configuration options are explained in detail in the following sections:
 - \ref systemConfig covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.
-- \ref threadConfig provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
-- \ref timerConfig provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
-- \ref eventFlagsConfig provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
-- \ref mutexConfig provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
-- \ref semaphoreConfig provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
-- \ref memPoolConfig provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
-- \ref msgQueueConfig provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
-- \ref evtrecConfig provides several parameters to configure RTX for usage with <a href="https://www.keil.com/pack/doc/compiler/EventRecorder/html/index.html" target="_blank"><b>Event Recorder</b></a>.
+- \ref threadConfig provides several parameters to configure the [Thread Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) functions.
+- \ref timerConfig provides several parameters to configure the [Timer Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html) functions.
+- \ref eventFlagsConfig provides several parameters to configure the [Event Flags](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html) functions.
+- \ref mutexConfig provides several parameters to configure the [Mutex Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html) functions.
+- \ref semaphoreConfig provides several parameters to configure the [Semaphore Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html) functions.
+- \ref memPoolConfig provides several parameters to configure the [Memory Pool Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html) functions.
+- \ref msgQueueConfig provides several parameters to configure the [Message Queue](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html) functions.
+- \ref evtrecConfig provides several parameters to configure RTX for usage with [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html).
 
 The file "RTX_Config.c" contains default implementations of the functions \b osRtxIdleThread and \b osRtxErrorNotify. Both functions
 can simply be overwritten with a customized behavior by redefining them as part of the user code.
@@ -796,7 +796,7 @@ not allowed in this case.
 
 \section threadConfig Thread Configuration
 
-The RTX5 provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
+The RTX5 provides several parameters to configure the [Thread Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) functions.
 
 <b>Thread Configuration Options</b>
 \image html config_wizard_threads.png "RTX_Config.h: Thread Configuration"
@@ -872,7 +872,7 @@ In \b privileged processor mode, the application software can use all the instru
 
 \section timerConfig Timer Configuration
 
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
+RTX5 provides several parameters to configure the [Timer Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html) functions.
 
 <b>Timer Configuration Options</b>
 \image html config_wizard_timer.png "RTX_Config.h: Timer Configuration"
@@ -900,7 +900,7 @@ satisfy the stack requirements of the callback function with the highest stack u
 
 \section eventFlagsConfig Event Flags Configuration
 
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
+RTX5 provides several parameters to configure the [Event Flags](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html) functions.
 
 <b>Event Configuration Options</b>
 \image html config_wizard_eventFlags.png "RTX_Config.h: Event Flags Configuration"
@@ -916,7 +916,7 @@ When object-specific memory is used, the pool size for all Event objects is spec
 
 
 \section mutexConfig Mutex Configuration
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
+RTX5 provides several parameters to configure the [Mutex Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html) functions.
 
 <b>Mutex Configuration Options</b>
 \image html config_wizard_mutex.png "RTX_Config.h: Mutex Configuration"
@@ -934,7 +934,7 @@ When object-specific memory is used, the pool size for all Mutex objects is spec
 
 \section semaphoreConfig Semaphore Configuration
 
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
+RTX5 provides several parameters to configure the [Semaphore Management](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html) functions.
 
 <b>Semaphore Configuration Options</b>
 \image html config_wizard_semaphore.png "RTX_Config.h: Semaphore Configuration"
@@ -952,7 +952,7 @@ When Object-specific Memory is used, the pool size for all Semaphore objects is 
 
 \section memPoolConfig Memory Pool Configuration
 
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
+RTX5 provides several parameters to configure the [Memory Pool](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Pool.html) functions.
 
 <b>Memory Pool Configuration Options</b>
 \image html config_wizard_memPool.png "RTX_Config.h: Memory Pool Configuration"
@@ -970,7 +970,7 @@ total storage size reserved for all pools is configured in \c OS_MEMPOOL_DATA_SI
 
 \section msgQueueConfig Message Queue Configuration
 
-RTX5 provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
+RTX5 provides several parameters to configure the [Message Queue](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html) functions.
 
 <b>MessageQueue Configuration Options</b>
 \image html config_wizard_msgQueue.png "RTX_Config.h: Message Queue Configuration"
@@ -1237,7 +1237,7 @@ RTX assumes a fully functionable processor and uses the following hardware featu
 
 Hardware Requirement       | Description
 :--------------------------|:------------------------------------------------------
-SysTick timer              | The SysTick timer generates the kernel tick interrupts and the interface is implemented in %os_systick.c using the \ref CMSIS_RTOS_TickAPI
+SysTick timer              | The SysTick timer generates the kernel tick interrupts and the interface is implemented in %os_systick.c using the [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html)
 Exception Handler          | RTX implements exception handlers for SVC, PendSV, and SysTick interrupt
 Core Registers             | The processor status is read using the following core registers: CONTROL, IPSR, PRIMASK
 System Control Block (SBC) | To control and setup the processor exceptions including PendSV and SVC
@@ -1249,7 +1249,7 @@ The RTX implements interfaces to the processor hardware in following files:
  - <b>%irq_armv8mbl.S</b> defines exception handlers for Cortex-M23
 \endif 
  - <b>%rtx_core_cm.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - <b>%os_tick.h</b> is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
+ - <b>%os_tick.h</b> is the [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html) that defines the interface functions to the SysTick timer.
 
 \note
  - The CMSIS-Core variable \c SystemCoreClock is used by RTX to configure the SysTick timer. 
@@ -1277,7 +1277,7 @@ The interface files to the processor hardware are:
  - <b>%irq_armv8mml.S</b> defines exception handlers for Cortex-M33/M35P
 \endif
  - <b>%rtx_core_cm.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - <b>%os_tick.h</b> is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
+ - <b>%os_tick.h</b> is the [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html) that defines the interface functions to the SysTick timer.
 
 \note
  - The CMSIS-Core variable \c SystemCoreClock is used by RTX to configure the SysTick timer.
@@ -1287,7 +1287,7 @@ The interface files to the processor hardware are:
 
 Hardware Requirement       | Description
 :--------------------------|:------------------------------------------------------
-Timer Peripheral           | An arbitrary timer peripheral generates the kernel tick interrupts. The interfaces for Cortex-A Generic Timer and Private Timer are implemented in %os_tick_gtim.c and %os_tick_ptim.c using the \ref CMSIS_RTOS_TickAPI
+Timer Peripheral           | An arbitrary timer peripheral generates the kernel tick interrupts. The interfaces for Cortex-A Generic Timer and Private Timer are implemented in %os_tick_gtim.c and %os_tick_ptim.c using the [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html)
 Exception Handler          | RTX implements exception handlers for SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction interrupt.
 Core Registers             | The processor status is read using the following core registers: CPSR, CPACR and FPSCR.
 LDREX, STREX instruction   | Atomic execution avoids the requirement to disable interrupts and is implemented via exclusive access instructions.
@@ -1296,7 +1296,7 @@ Interrupt Controller       | An interrupt controller interface is required to se
 The interface files to the processor hardware are: 
  - <b>%irq_armv7a.S</b> defines SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction exception handlers.
  - <b>%rtx_core_ca.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - <b>%os_tick.h</b> is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the timer peripheral.
+ - <b>%os_tick.h</b> is the [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html) that defines the interface functions to the timer peripheral.
  - <b>%irq_ctrl.h</b> is the <a class="el" href="../../Core_A/html/group__irq__ctrl__gr.html">IRQ Controller API</a> that defines the interface functions to the interrupt controller.
 
 \note
@@ -1355,15 +1355,15 @@ Refer to \ref StaticObjectMemory for more information.
 
 The following table lists the control block sizes:
 
-Category                      | Control Block Size Attribute      | Size       | \#define symbol
-:-----------------------------|:----------------------------------|:-----------|:--------------------
-\ref CMSIS_RTOS_ThreadMgmt    | \b osThreadAttr_t::cb_mem       | 80 bytes   | \b osRtxThreadCbSize
-\ref CMSIS_RTOS_TimerMgmt     | \b osTimerAttr_t::cb_mem        | 32 bytes   | \b osRtxTimerCbSize
-\ref CMSIS_RTOS_EventFlags    | \b osEventFlagsAttr_t::cb_mem   | 16 bytes   | \b osRtxEventFlagsCbSize
-\ref CMSIS_RTOS_MutexMgmt     | \b osMutexAttr_t::cb_mem        | 28 bytes   | \b osRtxMutexCbSize
-\ref CMSIS_RTOS_SemaphoreMgmt | \b osSemaphoreAttr_t::cb_mem    | 16 bytes   | \b osRtxSemaphoreCbSize
-\ref CMSIS_RTOS_PoolMgmt      | \b osMemoryPoolAttr_t::cb_mem   | 36 bytes   | \b osRtxMemoryPoolCbSize
-\ref CMSIS_RTOS_Message       | \b osMessageQueueAttr_t::cb_mem | 52 bytes   | \b osRtxMessageQueueCbSize
+Category             | Control Block Size Attribute    | Size       | \#define symbol
+:--------------------|:--------------------------------|:-----------|:--------------------
+Thread Management    | \b osThreadAttr_t::cb_mem       | 80 bytes   | \b osRtxThreadCbSize
+Timer Management     | \b osTimerAttr_t::cb_mem        | 32 bytes   | \b osRtxTimerCbSize
+Event Flags          | \b osEventFlagsAttr_t::cb_mem   | 16 bytes   | \b osRtxEventFlagsCbSize
+Mutex Management     | \b osMutexAttr_t::cb_mem        | 28 bytes   | \b osRtxMutexCbSize
+Semaphore Management | \b osSemaphoreAttr_t::cb_mem    | 16 bytes   | \b osRtxSemaphoreCbSize
+Memory Pool          | \b osMemoryPoolAttr_t::cb_mem   | 36 bytes   | \b osRtxMemoryPoolCbSize
+Message Queue        | \b osMessageQueueAttr_t::cb_mem | 52 bytes   | \b osRtxMessageQueueCbSize
 
 
 \page pDirectory_Files Directory Structure and File Overview
@@ -1383,11 +1383,12 @@ The CMSIS-RTOS RTX v5 is delivered in source code and several examples are provi
     </tr>
     <tr>
       <td>Include</td>
-      <td>Header files: \b %cmsis_os2.h for \ref rtos_api2 and \b %os_tick.h for \ref rtos_os_tick_api.</td>
+      <td>Header files: \b %cmsis_os2.h for [RTOS API v2](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS.html)
+       and \b %os_tick.h for [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html).</td>
     </tr>
     <tr>
       <td>Source</td>
-      <td>Generic <b>OS tick</b> implementations for various processors based on \ref rtos_os_tick_api.</td>
+      <td>Generic <b>OS tick</b> implementations for various processors based on [OS Tick API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html).</td>
     </tr>
 \ifnot FuSaRTS
     <tr>

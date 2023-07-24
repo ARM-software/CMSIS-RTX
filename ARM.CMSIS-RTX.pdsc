@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+<package schemaVersion="1.7.27" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.27/schema/PACK.xsd">
   <name>CMSIS-RTX</name>
   <description>RTX RTOS implementation of CMSIS-RTOS2 API</description>
   <vendor>ARM</vendor>
@@ -68,6 +68,7 @@
     <condition id="GNUASM">
       <accept Tcompiler="ARMCC" Toptions="AC6"/>
       <accept Tcompiler="GCC"/>
+      <accept Tcompiler="CLANG"/>
     </condition>
 
     <condition id="IARASM">

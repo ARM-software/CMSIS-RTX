@@ -1,7 +1,7 @@
 function writeHeader() {
-    document.write('Version 1.0.0-dev6');
+    document.write('Version 1.0.0-dev7');
 };
 
 function writeFooter()  {
-    document.write('Generated on Tue Jun 13 2023 07:50:22 for RTX RTOS 1.0.0-dev6+g18c77f7. Copyright &copy; 2023 Arm Limited (or its affiliates). All rights reserved.');
+    document.write('Generated on Thu Jul 27 2023 10:17:19 for RTX RTOS 1.0.0-dev7+g11d1f10. Copyright &copy; 2023 Arm Limited (or its affiliates). All rights reserved.');
 };

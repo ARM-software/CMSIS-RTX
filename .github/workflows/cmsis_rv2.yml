@@ -1,0 +1,201 @@
+name: RTOS2 Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }}
+
+jobs:
+  build-and-run:
+    strategy:
+      fail-fast: true
+      matrix:
+        compiler: [AC6, GCC, Clang]
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - working-directory: /home/runner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -d CMSIS_6 ]; then
+            cd CMSIS_6
+            git fetch origin main
+            git checkout -f origin/main
+          else
+            gh repo clone ARM-software/CMSIS_6
+          fi
+
+      - working-directory: /home/runner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -d CMSIS-RTOS2_Validation ]; then
+            cd CMSIS-RTOS2_Validation
+            git fetch origin main
+          else
+            gh repo clone ARM-software/CMSIS-RTOS2_Validation
+            cd CMSIS-RTOS2_Validation
+          fi
+          git checkout -f 5c27a1f
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'    
+
+      - name: Install system packages
+        run: |
+          sudo add-apt-repository ppa:deadsnakes/ppa
+          sudo apt-get install libpython3.9 libtinfo5
+
+      - name: Python requirements
+        run: |
+          pip install -r /home/runner/CMSIS-RTOS2_Validation/Project/requirements.txt
+
+      - name: Cache packs
+        uses: actions/cache@v3
+        with:
+          key: packs-${{ github.run_id }}-${{ matrix.compiler }}-${{ matrix.rtos }}
+          restore-keys: |
+              packs-
+          path: /home/runner/.cache/arm/packs
+        
+      - name: Cache vcpkg
+        uses: actions/cache@v3
+        with:
+          key: vcpkg-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}-${{ matrix.compiler }}-${{ matrix.rtos }}
+          restore-keys: |
+              vcpkg-${{ runner.os }}-${{ runner.arch }}-
+          path: /home/runner/.vcpkg
+
+      - name: Prepare vcpkg env
+        working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
+        run: |  
+          . <(curl https://aka.ms/vcpkg-init.sh -L)
+          vcpkg x-update-registry --all
+          vcpkg activate
+          
+          echo "Fix library search path for VHT models"
+          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(dirname $(which VHT_MPS2_Cortex-M3))" >> $GITHUB_ENV
+
+          echo "Fix execute permissions for VHT models"
+          chmod +x $(dirname $(which VHT_MPS2_Cortex-M3))/VHT_*
+
+          echo "Patch CMSIS-Toolbox"
+          pushd $(dirname $(which cbuild))/../etc
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/AC6.6.18.0.cmake
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/GCC.10.3.1.cmake
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/CLANG.16.0.0.cmake
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/IAR.9.32.1.cmake
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/CMSIS-Build-Utils.cmake
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/projmgr/templates/cdefault.yml
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/projmgr/templates/ac6_linker_script.sct
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/projmgr/templates/clang_linker_script.ld
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/projmgr/templates/gcc_linker_script.ld
+          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/projmgr/templates/iar_linker_script.ifc
+          popd
+
+      - name: Activate Arm tool license
+        working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
+              armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+          else
+              armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
+          fi
+
+      - uses: ammaraskar/gcc-problem-matcher@master
+        if: matrix.compiler == 'GCC'
+      
+      - name: Initialize CodeQL
+        if: matrix.compiler == 'GCC'
+        uses: github/codeql-action/init@v2
+        with:
+          languages: cpp
+          queries: security-and-quality
+  
+      - name: Build
+        working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+
+          echo "Register local packs"
+          cpackget add /home/runner/CMSIS_6/ARM.CMSIS.pdsc
+          cpackget add ${{ github.workspace }}/ARM.CMSIS-RTX.pdsc
+
+          echo "Build test projects ..."
+          ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} build || echo "::warning::=== Some configurations failed to build! ==="
+
+      - name: Execute
+        if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
+        working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+      
+          echo "Run test projects ..."
+          ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} run || echo "::warning::==== Some configurations failed to run! ==="
+
+      - name: Deactivate Arm tool license
+        if: always()
+        working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
+                  armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+              else
+                  armlm deactivate --product KEMDK-COM0
+              fi
+    
+      - name: Perform CodeQL Analysis
+        if: matrix.compiler == 'GCC'
+        uses: github/codeql-action/analyze@v2
+
+      - name: Upload Test Reports
+        if: ${{ !cancelled() && env.ARM_UBL_ACTIVATION_CODE }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.compiler }}
+          path: /home/runner/CMSIS-RTOS2_Validation/Project/*.junit
+
+
+  publish-test-results:
+    needs: [build-and-run]
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'pull_request'
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+    steps:
+      - name: Download Test Reports
+        if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Publish Test Results
+        if: ${{ env.ARM_UBL_ACTIVATION_CODE && env.GITHUB_TOKEN }}
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          commit: ${{ github.event.workflow_run.head_sha }}
+          event_file: ${{ github.event_path }}
+          report_individual_runs: true
+          event_name: ${{ github.event.workflow_run.event }}
+          files: "artifacts/**/*.junit"
+  

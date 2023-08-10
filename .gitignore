@@ -3,4 +3,4 @@ CMSIS/Documentation/html
 CMSIS/DoxyGen/rtx.dxy
 build
 output
-.DS_Store
+**.DS_STORE

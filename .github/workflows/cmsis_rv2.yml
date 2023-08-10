@@ -125,8 +125,9 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: cpp
-          queries: security-and-quality
-  
+          queries: security-and-quality,
+            github/codeql-coding-standards/c/misra/src/codeql-suites/misra-default.qls@v2.21.0
+
       - name: Build
         working-directory: /home/runner/CMSIS-RTOS2_Validation/Project
         run: |

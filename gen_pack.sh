@@ -9,7 +9,7 @@ set -o pipefail
 # Set version of gen pack library
 # For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
 # Use the tag name without the prefix "v", e.g., 0.7.0
-REQUIRED_GEN_PACK_LIB="0.8.3"
+REQUIRED_GEN_PACK_LIB="0.8.4"
 
 # Set default command line arguments
 DEFAULT_ARGS=(-c "v")
@@ -50,7 +50,10 @@ PACK_BASE_FILES="
 # Specify file names to be deleted from pack build directory
 # Default: empty
 #
-# PACK_DELETE_FILES=""
+PACK_DELETE_FILES="
+  .gitignore
+  gen_pack.sh
+"
 
 # Specify patches to be applied
 # Default: empty

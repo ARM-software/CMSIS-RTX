@@ -1,6 +1,4 @@
-﻿/*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
-/**
-\page rtos2_tutorial Tutorial
+﻿# Tutorial {#rtos2_tutorial}
 
 This tutorial is an introduction to using a small footprint real-time operating system on an Arm Cortex-M microcontroller.
 If you are used to writing procedural-based 'C' code on small 8-/16-bit microcontrollers, you may be doubtful about the need
@@ -29,7 +27,7 @@ consider them running as parallel concurrent objects. In the second section, we 
 threads. In this section the key concept is synchronization of the concurrent threads.
 
 
-\section rtos2_tutorial_pre Prerequisites
+## Prerequisites {#rtos2_tutorial_pre}
 
 It is assumed that you have Keil MDK installed on your PC. For download and installation instructions, please visit
 the <a href="https://www2.keil.com/mdk5/install/" target="_blank">Getting Started</a> page. Once you have set up the tool,
@@ -140,12 +138,12 @@ void thread2 (void);
 osThreadId thrdID1, thrdID2;
 \endcode
 Once the processor leaves the reset vector, we will enter the \c main() function as normal. Once in \c main(), we must call
-\b osKernelInitialize() to setup the RTOS. It is not possible to call any RTOS function before the
-\b osKernelInitialize() function has successfully completed. Once \b osKernelInitialize() has completed, we can create
+\ref osKernelInitialize() to setup the RTOS. It is not possible to call any RTOS function before the
+\ref osKernelInitialize() function has successfully completed. Once \ref osKernelInitialize() has completed, we can create
 further threads and other RTOS objects. This can be done by creating a launcher thread, in the example below this is called
 \c app_main(). Inside the \c app_main() thread, we create all the RTOS threads and objects we need to start our application
 running. As we will see later, it is also possible to dynamically create and destroy RTOS objects as the application is
-running. Next, we can call \b osKernelStart() to start the RTOS and the scheduler task switching. You can run any
+running. Next, we can call \ref osKernelStart() to start the RTOS and the scheduler task switching. You can run any
 initializing code you want before starting the RTOS to setup peripherals and initialize the hardware.
 \code
 void app_main(void *argument) {
@@ -182,7 +180,7 @@ Open <a href="https://www2.keil.com/mdk5/packinstaller" target="_blank">Pack Ins
 \section rtos2_tutorial_thread_create Creating Threads
 
 Once the RTOS is running, there are a number of system calls that are used to manage and control the active threads. The
-CMSIS-RTOS2 documentation lists [all thread management functions](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
+documentation lists \ref CMSIS_RTOS_ThreadMgmt "all thread management functions".
 
 As we saw in the first example, the \c app_main() thread is used as a launcher thread to create the application threads.
 This is done in two stages. First a thread structure is defined; this allows us to define the thread operating parameters.
@@ -202,7 +200,7 @@ static const osThreadAttr_t threadAttr_thread1 = {
 The thread structure requires us to define the name of the thread function, its thread priority, any special attribute bits,
 its TrustZone_ID and its memory allocation. This is quite a lot of detail to go through but we will cover everything by the
 end of this application note. Once the thread structure has been defined, the thread can be created using the
-\b osThreadNew() API call. Then the thread is created from within the application code, this is often the within the
+\ref osThreadNew() API call. Then the thread is created from within the application code, this is often the within the
 \c app_main() thread but a thread can be created at any point within any thread.
 \code
 thread1_id = osThreadNew(name_Of_C_Function, argument,&threadAttr_thread1);
@@ -230,7 +228,7 @@ should be scheduled to run. If a number of threads are ready to run, the thread 
 the run state. If a high priority thread becomes ready to run it will preempt a running thread of lower priority.
 Importantly, a high priority thread running on the CPU will not stop running unless it blocks on an RTOS API call or is
 preempted by a higher priority thread. A thread's priority is defined in the thread structure and the following priority
-definitions are available. The default priority is \b osPriorityNormal. The \b osPriority_t value specifies the priority
+definitions are available. The default priority is `osPriorityNormal`. The \ref osPriority_t value specifies the priority
 for a thread.
 
 Once the threads are running, there are a small number of RTOS system calls which are used to manage the running threads. It
@@ -337,7 +335,7 @@ Open <a href="https://www2.keil.com/mdk5/packinstaller" target="_blank">Pack Ins
 \section rtos2_tutorial_thread_join Joinable Threads
 
 A new feature in CMSIS-RTOS2 is the ability to create threads in a 'joinable' state. This allows a thead to be created and
-executed as a standard thread. In addition, a second thread can join it by calling \b osThreadJoin(). This will cause the
+executed as a standard thread. In addition, a second thread can join it by calling \ref osThreadJoin(). This will cause the
 second thread to deschedule and remain in a waiting state until the thread which has been joined is terminated. This allows
 a temporary joinable thread to be created, which would acquire a block of memory from the global memory pool, this thread
 could perform some processing and then terminate, releasing the memory back to the memory pool. A joinable thread can be
@@ -352,7 +350,7 @@ join it by using the OS call:
 \code
 osThreadJoin(<joinable_thread_handle>);
 \endcode
-Once \b osThreadJoin() has been called, the thread will deschedule and enter a waiting state until the joinable thread has
+Once \ref osThreadJoin() has been called, the thread will deschedule and enter a waiting state until the joinable thread has
 terminated.
 
 
@@ -391,20 +389,20 @@ thread of the same priority is ready to run.
 
 \subsection rtos2_tutorial_abs_time_delay Absolute Time Delay
 
-In addition to the \b osDelay() function which gives a relative time delay starting from the instant it is called, there
+In addition to the \ref osDelay() function which gives a relative time delay starting from the instant it is called, there
 is also a delay function which halts a thread until a specific point in time:
 \code
 osStatus osDelayUntil (uint32_t ticks)	 
 \endcode
-The \b osDelayUntil() function will halt a thread until a specific value of kernel timer ticks is reached. There are a
+The \ref osDelayUntil() function will halt a thread until a specific value of kernel timer ticks is reached. There are a
 number of kernel functions that allow you to read both the current SysTick count and the kernel ticks count.
 
 | Kernel timer functions |
 |------------------------|
-| uint64_t \b osKernelGetTickCount(void)     |
-| uint32_t \b osKernelGetTickFreq(void)      |
-| uint32_t \b osKernelGetSysTimerCount(void) |
-| uint32_t \b osKernelGetSysTimerFreq(void)  |
+| uint64_t \ref osKernelGetTickCount(void)     |
+| uint32_t \ref osKernelGetTickFreq(void)      |
+| uint32_t \ref osKernelGetSysTimerCount(void) |
+| uint32_t \ref osKernelGetSysTimerFreq(void)  |
 
 
 \subsection rtos2_tutorial_ex6 Exercise 6 - Time Management
@@ -435,7 +433,7 @@ thread providing a pointer to the callback function and its parameter.:
 osTimerId_t timer0_handle;
 timer0_handle = osTimerNew(&callback, osTimerPeriodic,(void *)<parameter>, &timerAttr_timer0);
 \endcode
-This creates the timer and defines it as a periodic timer or a single shot timer (\b osTimerOnce()). The next parameter
+This creates the timer and defines it as a periodic timer or a single shot timer (\ref osTimerOnce()). The next parameter
 passes an argument to the call back function when the timer expires:
 \code
 osTimerStart (timer0_handle,0x100);
@@ -508,10 +506,10 @@ Keil RTX5 supports up to thirty two thread flags for each thread. These thread f
 It is possible to halt the execution of a thread until a particular thread flag or group of thread flags are set by another
 thread in the system.
 
-The \b osThreadFlagsWait() system calls will suspend execution of the thread and place it into the wait_evnt state.
-Execution of the thread will not start until at least one the flags set in the \b osThreadFlagsWait() API call have been
+The \ref osThreadFlagsWait() system calls will suspend execution of the thread and place it into the wait_evnt state.
+Execution of the thread will not start until at least one the flags set in the \ref osThreadFlagsWait() API call have been
 set. It is also possible to define a periodic timeout after which the waiting thread will move back to the ready state, so
-that it can resume execution when selected by the scheduler. A value of \b osWaitForever (0xFFFF) defines an infinite
+that it can resume execution when selected by the scheduler. A value of \ref osWaitForever (0xFFFF) defines an infinite
 timeout period.
 \code
 osEvent osThreadFlagsWait (int32_t flags,int32_t options,uint32_t timeout);
@@ -519,12 +517,12 @@ osEvent osThreadFlagsWait (int32_t flags,int32_t options,uint32_t timeout);
 The thread flag options are as follows:
 | Options             | Description |
 |---------------------|-------------|
-| \b osFlagsWaitAny | Wait for any flag to be set(default) |
-| \b osFlagsWaitAll | Wait for all flags to be set |
-| \b osFlagsNoClear | Do not clear flags that have been specified to wait for |
+| \ref osFlagsWaitAny | Wait for any flag to be set(default) |
+| \ref osFlagsWaitAll | Wait for all flags to be set |
+| \ref osFlagsNoClear | Do not clear flags that have been specified to wait for |
 
 If a pattern of flags is specified, the thread will resume execution when any one of the specified flags is set (Logic OR).
-If the \b osFlagsWaitAll option is used, then all the flags in the pattern must be set (Logic AND). Any thread can set a
+If the \ref osFlagsWaitAll option is used, then all the flags in the pattern must be set (Logic AND). Any thread can set a
 flag on any other thread and a thread may clear its own flags:
 \code
 int32_t osThredFlagsSet (osThreadId_t  thread_id, int32_t flags);
@@ -565,7 +563,7 @@ Then we can create the event flag object:
 \code
 EventFlag_LED = osEventFlagsNew(&EventFlagAttr_LED);
 \endcode
-Refer to [Event Flags](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html) for more information.
+Refer to \ref CMSIS_RTOS_EventFlags for more information.
 
 
 \subsubsection rtos2_tutorial_ex10 Exercise 10 - Event Flags
@@ -621,7 +619,7 @@ initialise a semaphore with zero tokens and then use one thread to create tokens
 removes them. This allows you to design threads as producer and consumer threads.
 
 Once the semaphore is initialized, tokens may be acquired and sent to the semaphore in a similar fashion to event flags. The
-\b osSemaphoreAcquire() call is used to block a thread until a semaphore token is available. A timeout period may also be
+\ref osSemaphoreAcquire() call is used to block a thread until a semaphore token is available. A timeout period may also be
 specified with 0xFFFF being an infinite wait.
 \code
 osStatus osSemaphoreAcquire(osSemaphoreId_t semaphore_id, uint32_t ticks);
@@ -630,7 +628,7 @@ Once the thread has finished using the semaphore resource, it can send a token t
 \code
 osStatus osSemaphoreRelease(osSemaphoreId_t semaphore_id);
 \endcode
-All semaphore functions are listed in the [CMSIS-RTOS2 API reference](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
+All semaphore functions are listed in the \ref CMSIS_RTOS_SemaphoreMgmt "reference".
 
 
 \subsubsection rtos2_tutorial_sem_usage Using Semaphores
@@ -849,9 +847,9 @@ osMutexAttr_t {
 When a mutex is created its functionality can be modified by setting the following attribute bits:
 | Bitmask                 | Description |
 |-------------------------|-------------|
-| \b osMutexRecursive   | The same thread can consume a mutex multiple times without locking itself.        |
-| \b osMutexPrioInherit | While a thread owns the mutex it cannot be preempted by a higher priority thread. |
-| \b osMutexRobust      | Notify threads that acquire a mutex that the previous owner was terminated.       |
+| \ref osMutexRecursive   | The same thread can consume a mutex multiple times without locking itself.        |
+| \ref osMutexPrioInherit | While a thread owns the mutex it cannot be preempted by a higher priority thread. |
+| \ref osMutexRobust      | Notify threads that acquire a mutex that the previous owner was terminated.       |
 
 Once declared the mutex must be created in a thread.
 \code
@@ -882,7 +880,7 @@ Open <a href="https://www2.keil.com/mdk5/packinstaller" target="_blank">Pack Ins
 
 Clearly, you must take care to return the mutex token when you are finished with the chip resource, or you will have
 effectively prevented any other thread from accessing it. You must also be extremely careful about using the
-\b osThreadTerminate() call on functions which control a mutex token. Keil RTX5 is designed to be a small footprint RTOS
+\ref osThreadTerminate() call on functions which control a mutex token. Keil RTX5 is designed to be a small footprint RTOS
 so that it can run on even the very small Cortex-M microcontrollers. Consequently, there is no thread deletion safety. This
 means that if you delete a thread which is controlling a mutex token, you will destroy the mutex token and prevent any
 further access to the guarded peripheral.
@@ -1095,10 +1093,10 @@ For object specific memory allocation, we must define the maximum number of user
 or timer threads) which will be running. We must also define the number of threads which have a default stack size and also
 the total amount of memory required by threads with custom tack sizes. Once we have defined the memory used by user threads,
 we can allocate memory to the idle thread. During development, CMSIS-RTOS can trap stack overflows. When this option is
-enabled, an overflow of a thread stack space will cause the RTOS kernel to call the \b osRtxErrorNotify() function which
+enabled, an overflow of a thread stack space will cause the RTOS kernel to call the \ref osRtxErrorNotify() function which
 is located in the RTX_Config.c file. This function gets an error code and then sits in an infinite loop. The stack checking
 option is intended for use during debugging and should be disabled on the final application to minimize the kernel overhead.
-However, it is possible to modify the \b osRtxErrorNotify() function if enhanced error protection is required in the final
+However, it is possible to modify the \ref osRtxErrorNotify() function if enhanced error protection is required in the final
 release.
 \code
 // OS Error Callback function
@@ -1144,12 +1142,10 @@ run time errors or attempts at intrusion.
 
 The default timer for use with CMSIS-RTOS is the Cortex-M SysTick timer which is present on nearly all Cortex-M processors.
 The input to the SysTick timer will generally be the CPU clock. It is possible to use a different timer by overloading the
-kernel timer functions as outlined explained in the
-[CMSIS-RTOS2 Tick API documentation](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html).
+kernel timer functions as outlined explained in the \ref CMSIS_RTOS_TickAPI documentation.
 
 
 \section rtos2_tutorial_conclusion Conclusion
 
 In this tutorial, we have worked our way through the CMSIS-RTOS2 API and introduced some of the key concepts associated with
 using an RTOS. The only real way to learn how to develop with an RTOS is to actually use one in a real project. 
-*/

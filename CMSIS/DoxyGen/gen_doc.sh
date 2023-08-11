@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Version: 2.8
+# Version: 2.3
 # Date: 2023-06-06
 # This bash script generates CMSIS-RTX documentation
 #
@@ -13,9 +13,10 @@ set -o pipefail
 # Set version of gen pack library
 # For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
 # Use the tag name without the prefix "v", e.g., 0.7.0
-REQUIRED_GEN_PACK_LIB="0.8.3"
+REQUIRED_GEN_PACK_LIB="0.8.4"
 
 DIRNAME=$(dirname $(readlink -f $0))
+GENDIR=../Documentation
 REQ_DXY_VERSION="1.9.6"
 REQ_MSCGEN_VERSION="0.20"
 
@@ -83,15 +84,16 @@ sed -e "s/{projectNumber}/${projectNumber}/" rtx.dxy.in > rtx.dxy
 echo "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 "${UTILITY_DOXYGEN}" rtx.dxy
 
-mkdir -p "${DIRNAME}/../Documentation/search/"
-cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/../Documentation/html/search/"
+mkdir -p "${DIRNAME}/../Documentation/html/search/"
+cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/${GENDIR}/html/search/"
+cp -f "${DIRNAME}/Doxygen_Templates/navtree.js" "${DIRNAME}/${GENDIR}/html/"
 
 sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/Doxygen_Templates/footer.js.in" \
   | sed -e "s/{year}/${year}/" \
   | sed -e "s/{projectName}/${projectName}/" \
   | sed -e "s/{projectNumber}/${projectNumber}/" \
   | sed -e "s/{projectNumberFull}/${projectNumberFull}/" \
-  > "${DIRNAME}/../Documentation/html/footer.js"
+  > "${DIRNAME}/${GENDIR}/html/footer.js"
 
 popd > /dev/null
 

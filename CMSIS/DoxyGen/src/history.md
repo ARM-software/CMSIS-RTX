@@ -1,5 +1,4 @@
-/**
-\page rtx_revisionHistory Revision History
+# Revision History {#RTX5RevisionHistory}
 
 <table class="cmtable" summary="Revision History">
     <tr>
@@ -28,7 +27,7 @@
        - Fixed potential register R1 corruption when calling OS functions from threads multiple times with same arguments (when using high level compiler optimizations).
        - Fixed timer interval when periodic timer is restarted.
        - Added Floating-point initialization for Arm C Library.
-       - Minor code optimizations in osMessageQueuePut/Get.
+       - Minor code optimizations in \ref osMessageQueuePut / \ref osMessageQueueGet.
       </td>
     </tr>
     <tr>
@@ -36,13 +35,13 @@
       <td>
        - CVE-2021-27431 vulnerability mitigation.
        - Added OS Initialization for IAR.
-       - Fixed osDelay/osDelayUntil error handling.
+       - Fixed \ref osDelay / \ref osDelayUntil error handling.
        - Fixed Round-Robin (timeout value is not reset when switching to higher priority threads).
-       - Fixed osThreadJoin (when terminating thread which is waiting to be joined).
+       - Fixed \ref osThreadJoin (when terminating thread which is waiting to be joined).
        - Fixed Message Queue Data allocation size when using object specific memory allocation.
        - Fixed Mutex priority inversion (when mixing mutexes with and without priority inherit).
        - Enhanced stack overrun checking.
-       - Updated osKernelResume handling (processing past sleep ticks).
+       - Updated \ref osKernelResume handling (processing past sleep ticks).
        - Updated configuration (Event Recorder).
        - Reorganized and optimized IRQ modules.
       </td>
@@ -59,8 +58,8 @@
     <tr>
       <td>V5.5.1</td>
       <td>
-       - Fixed osMutexRelease issue (thread owning multiple mutexes).
-       - Improved osThreadJoin robustness (user programing errors).
+       - Fixed \ref osMutexRelease issue (thread owning multiple mutexes).
+       - Improved \ref osThreadJoin robustness (user programing errors).
       </td>
     </tr>
     <tr>
@@ -150,4 +149,3 @@
       </td>
     </tr>
 </table>
-*/

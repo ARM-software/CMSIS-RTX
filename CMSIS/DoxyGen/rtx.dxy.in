@@ -246,13 +246,13 @@ MULTILINE_CPP_IS_BRIEF = YES
 # documentation blocks is shown as doxygen documentation.
 # The default value is: YES.
 
-PYTHON_DOCSTRING       = YES
+PYTHON_DOCSTRING       = NO
 
 # If the INHERIT_DOCS tag is set to YES then an undocumented member inherits the
 # documentation from any documented member that it re-implements.
 # The default value is: YES.
 
-INHERIT_DOCS           = NO
+INHERIT_DOCS           = YES
 
 # If the SEPARATE_MEMBER_PAGES tag is set to YES then doxygen will produce a new
 # page for each member. If set to NO, the documentation of a member will be part
@@ -1294,7 +1294,7 @@ CLANG_DATABASE_PATH    =
 # classes, structs, unions or interfaces.
 # The default value is: YES.
 
-ALPHABETICAL_INDEX     = YES
+ALPHABETICAL_INDEX     = NO
 
 # The IGNORE_PREFIX tag can be used to specify a prefix (or a list of prefixes)
 # that should be ignored while generating the index headers. The IGNORE_PREFIX
@@ -2443,6 +2443,7 @@ SKIP_FUNCTION_MACROS   = NO
 
 TAGFILES               = "./cmsis_rtos2.tag=https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/" \
                          "./cmsis_core_m.tag=https://arm-software.github.io/CMSIS_6/latest/Core/html/"
+
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.

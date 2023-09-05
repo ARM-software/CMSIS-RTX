@@ -1,17 +1,31 @@
+/**
+\addtogroup rtos2_api CMSIS-RTOS2 API
+\details
 
-/** 
+<b>CMSIS-RTOS2 API</b> is the native interface to the RTX5 RTOS.
+
+Please refer to the \ref CMSIS_RTOS "CMSIS-RTOS2 API reference" for its detailed documentation.
+
+*/
+
+/**
 \addtogroup rtx5_specific RTX v5 Specific API
 \brief RTX v5 implementation specific definitions and functions defined in <b>%rtx_os.h</b>.
 \details
+
+The RTX v5 implementation is using the following **Namespace** prefixes for public symbol definitions:
+  - \c osRtx for all general definitions and function names that relate to the RTX kernel.
+  - \c osRtx with postfix \c _t for all typedefs.
+  - \c OS_Tick_ for interface functions to the hardware system tick timer.
+  - \c EvrRtx for event function annotations that interface to the Event Recorder.
 
 The RTX5 kernel can be customized for different application requirements:
 
 - The function \ref osRtxIdleThread implements the idle thread and allows set the system into sleep modes for \ref lowPower or
   \ref TickLess for ultra-low power operation.
-  
 - The function \ref osRtxErrorNotify may be extended to handle system runtime errors.
 
-RTX5 interfaces to the <a href="https://www.keil.com/pack/doc/compiler/EventRecorder/html/index.html" target="_blank"><b>Event Recorder</b></a> 
+RTX5 interfaces to the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank"><b>Event Recorder</b></a>
 and provides event information that helps to analyze the operation. Refer to \ref rtx_evr for more information.
 
 

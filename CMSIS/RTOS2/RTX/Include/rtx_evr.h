@@ -296,7 +296,7 @@ extern void EvrRtxKernelUnlocked (int32_t lock);
 
 /**
   \brief  Event on RTOS Kernel scheduler lock state restore (API)
-  \param[in]  lock          lock state obtained by \ref osKernelLock or \ref osKernelUnlock.
+  \param[in]  lock          lock state obtained by [osKernelLock](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__KernelCtrl.html) or [osKernelUnlock](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__KernelCtrl.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_KERNEL != 0) && !defined(EVR_RTX_KERNEL_RESTORE_LOCK_DISABLE))
 extern void EvrRtxKernelRestoreLock (int32_t lock);
@@ -438,7 +438,7 @@ extern void EvrRtxKernelDestroyClass (uint32_t safety_class, uint32_t mode);
 
 /**
   \brief  Event on thread error (Error)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId or NULL when ID is unknown.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_ERROR_DISABLE))
@@ -461,7 +461,7 @@ extern void EvrRtxThreadNew (osThreadFunc_t func, void *argument, const osThread
 
 /**
   \brief  Event on successful thread create (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  thread_addr   thread entry address.
   \param[in]  name          pointer to thread object name.
 */
@@ -473,7 +473,7 @@ extern void EvrRtxThreadCreated (osThreadId_t thread_id, uint32_t thread_addr, c
 
 /**
   \brief  Event on thread name retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  name          pointer to thread object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_NAME_DISABLE))
@@ -484,7 +484,7 @@ extern void EvrRtxThreadGetName (osThreadId_t thread_id, const char *name);
 
 /**
   \brief  Event on thread safety class retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  safety_class  thread safety class.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_CLASS_DISABLE))
@@ -495,7 +495,7 @@ extern void EvrRtxThreadGetClass (osThreadId_t thread_id, uint32_t safety_class)
 
 /**
   \brief  Event on thread zone retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  zone          thread zone.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_ZONE_DISABLE))
@@ -506,7 +506,7 @@ extern void EvrRtxThreadGetZone (osThreadId_t thread_id, uint32_t zone);
 
 /**
   \brief  Event on current running thread ID retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_ID_DISABLE))
 extern void EvrRtxThreadGetId (osThreadId_t thread_id);
@@ -516,7 +516,7 @@ extern void EvrRtxThreadGetId (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread state retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  state         current thread state of the specified thread.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_STATE_DISABLE))
@@ -527,7 +527,7 @@ extern void EvrRtxThreadGetState (osThreadId_t thread_id, osThreadState_t state)
 
 /**
   \brief  Event on thread stack size retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  stack_size    stack size in bytes.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_STACK_SIZE_DISABLE))
@@ -538,7 +538,7 @@ extern void EvrRtxThreadGetStackSize (osThreadId_t thread_id, uint32_t stack_siz
 
 /**
   \brief  Event on available stack space retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  stack_space   remaining stack space in bytes.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_STACK_SPACE_DISABLE))
@@ -549,7 +549,7 @@ extern void EvrRtxThreadGetStackSpace (osThreadId_t thread_id, uint32_t stack_sp
 
 /**
   \brief  Event on thread priority set (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  priority      new priority value for the thread function.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_SET_PRIORITY_DISABLE))
@@ -560,7 +560,7 @@ extern void EvrRtxThreadSetPriority (osThreadId_t thread_id, osPriority_t priori
 
 /**
   \brief  Event on thread priority updated (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  priority      new priority value for the thread function.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_PRIORITY_UPDATED_DISABLE))
@@ -571,7 +571,7 @@ extern void EvrRtxThreadPriorityUpdated (osThreadId_t thread_id, osPriority_t pr
 
 /**
   \brief  Event on thread priority retrieve (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  priority      current priority value of the specified thread.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_GET_PRIORITY_DISABLE))
@@ -591,7 +591,7 @@ extern void EvrRtxThreadYield (void);
 
 /**
   \brief  Event on thread suspend (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_SUSPEND_DISABLE))
 extern void EvrRtxThreadSuspend (osThreadId_t thread_id);
@@ -601,7 +601,7 @@ extern void EvrRtxThreadSuspend (osThreadId_t thread_id);
 
 /**
   \brief  Event on successful thread suspend (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_SUSPENDED_DISABLE))
 extern void EvrRtxThreadSuspended (osThreadId_t thread_id);
@@ -611,7 +611,7 @@ extern void EvrRtxThreadSuspended (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread resume (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_RESUME_DISABLE))
 extern void EvrRtxThreadResume (osThreadId_t thread_id);
@@ -621,7 +621,7 @@ extern void EvrRtxThreadResume (osThreadId_t thread_id);
 
 /**
   \brief  Event on successful thread resume (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_RESUMED_DISABLE))
 extern void EvrRtxThreadResumed (osThreadId_t thread_id);
@@ -631,7 +631,7 @@ extern void EvrRtxThreadResumed (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread detach (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_DETACH_DISABLE))
 extern void EvrRtxThreadDetach (osThreadId_t thread_id);
@@ -641,7 +641,7 @@ extern void EvrRtxThreadDetach (osThreadId_t thread_id);
 
 /**
   \brief  Event on successful thread detach (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_DETACHED_DISABLE))
 extern void EvrRtxThreadDetached (osThreadId_t thread_id);
@@ -651,7 +651,7 @@ extern void EvrRtxThreadDetached (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread join (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_JOIN_DISABLE))
 extern void EvrRtxThreadJoin (osThreadId_t thread_id);
@@ -661,7 +661,7 @@ extern void EvrRtxThreadJoin (osThreadId_t thread_id);
 
 /**
   \brief  Event on pending thread join (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_JOIN_PENDING_DISABLE))
 extern void EvrRtxThreadJoinPending (osThreadId_t thread_id);
@@ -671,7 +671,7 @@ extern void EvrRtxThreadJoinPending (osThreadId_t thread_id);
 
 /**
   \brief  Event on successful thread join (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_JOINED_DISABLE))
 extern void EvrRtxThreadJoined (osThreadId_t thread_id);
@@ -681,7 +681,7 @@ extern void EvrRtxThreadJoined (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread execution block (Detail)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_BLOCKED_DISABLE))
@@ -692,7 +692,7 @@ extern void EvrRtxThreadBlocked (osThreadId_t thread_id, uint32_t timeout);
 
 /**
   \brief  Event on thread execution unblock (Detail)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  ret_val       extended execution status of the thread.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_UNBLOCKED_DISABLE))
@@ -703,7 +703,7 @@ extern void EvrRtxThreadUnblocked (osThreadId_t thread_id, uint32_t ret_val);
 
 /**
   \brief  Event on running thread pre-emption (Detail)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_PREEMPTED_DISABLE))
 extern void EvrRtxThreadPreempted (osThreadId_t thread_id);
@@ -713,7 +713,7 @@ extern void EvrRtxThreadPreempted (osThreadId_t thread_id);
 
 /**
   \brief  Event on running thread switch (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_SWITCHED_DISABLE))
 extern void EvrRtxThreadSwitched (osThreadId_t thread_id);
@@ -732,7 +732,7 @@ extern void EvrRtxThreadExit (void);
 
 /**
   \brief  Event on thread terminate (API)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_TERMINATE_DISABLE))
 extern void EvrRtxThreadTerminate (osThreadId_t thread_id);
@@ -742,7 +742,7 @@ extern void EvrRtxThreadTerminate (osThreadId_t thread_id);
 
 /**
   \brief  Event on successful thread terminate (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_DESTROYED_DISABLE))
 extern void EvrRtxThreadDestroyed (osThreadId_t thread_id);
@@ -843,7 +843,7 @@ extern void EvrRtxThreadTerminateZone (uint32_t zone);
 
 /**
   \brief  Event on thread watchdog expired (Error)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THREAD != 0) && !defined(EVR_RTX_THREAD_WATCHDOG_EXPIRED_DISABLE))
 extern void EvrRtxThreadWatchdogExpired (osThreadId_t thread_id);
@@ -856,7 +856,7 @@ extern void EvrRtxThreadWatchdogExpired (osThreadId_t thread_id);
 
 /**
   \brief  Event on thread flags error (Error)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId or NULL when ID is unknown.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THFLAGS != 0) && !defined(EVR_RTX_THREAD_FLAGS_ERROR_DISABLE))
@@ -867,7 +867,7 @@ extern void EvrRtxThreadFlagsError (osThreadId_t thread_id, int32_t status);
 
 /**
   \brief  Event on thread flags set (API)
-  \param[in]   thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]   thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]   flags         flags of the thread that shall be set.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THFLAGS != 0) && !defined(EVR_RTX_THREAD_FLAGS_SET_DISABLE))
@@ -878,7 +878,7 @@ extern void EvrRtxThreadFlagsSet (osThreadId_t thread_id, uint32_t flags);
 
 /**
   \brief  Event on successful thread flags set (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
   \param[in]  thread_flags  thread flags after setting.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THFLAGS != 0) && !defined(EVR_RTX_THREAD_FLAGS_SET_DONE_DISABLE))
@@ -943,7 +943,7 @@ extern void EvrRtxThreadFlagsWaitPending (uint32_t flags, uint32_t options, uint
 
 /**
   \brief  Event on wait timeout for thread flags (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THFLAGS != 0) && !defined(EVR_RTX_THREAD_FLAGS_WAIT_TIMEOUT_DISABLE))
 extern void EvrRtxThreadFlagsWaitTimeout (osThreadId_t thread_id);
@@ -956,7 +956,7 @@ extern void EvrRtxThreadFlagsWaitTimeout (osThreadId_t thread_id);
   \param[in]  flags         flags to wait for.
   \param[in]  options       flags options (osFlagsXxxx).
   \param[in]  thread_flags  thread flags before clearing.
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_THFLAGS != 0) && !defined(EVR_RTX_THREAD_FLAGS_WAIT_COMPLETED_DISABLE))
 extern void EvrRtxThreadFlagsWaitCompleted (uint32_t flags, uint32_t options, uint32_t thread_flags, osThreadId_t thread_id);
@@ -1030,7 +1030,7 @@ extern void EvrRtxDelayUntilStarted (uint32_t ticks);
 
 /**
   \brief  Event on delay completed (Op)
-  \param[in]  thread_id     thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  thread_id     thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_WAIT != 0) && !defined(EVR_RTX_DELAY_COMPLETED_DISABLE))
 extern void EvrRtxDelayCompleted (osThreadId_t thread_id);
@@ -1043,7 +1043,7 @@ extern void EvrRtxDelayCompleted (osThreadId_t thread_id);
 
 /**
   \brief  Event on timer error (Error)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew or NULL when ID is unknown.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_ERROR_DISABLE))
@@ -1078,7 +1078,7 @@ extern void EvrRtxTimerNew (osTimerFunc_t func, osTimerType_t type, void *argume
 
 /**
   \brief  Event on successful timer create (Op)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
   \param[in]  name          pointer to timer object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_CREATED_DISABLE))
@@ -1089,7 +1089,7 @@ extern void EvrRtxTimerCreated (osTimerId_t timer_id, const char *name);
 
 /**
   \brief  Event on timer name retrieve (API)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
   \param[in]  name          pointer to timer object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_GET_NAME_DISABLE))
@@ -1100,7 +1100,7 @@ extern void EvrRtxTimerGetName (osTimerId_t timer_id, const char *name);
 
 /**
   \brief  Event on timer start (API)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
   \param[in]  ticks         \ref CMSIS_RTOS_TimeOutValue "time ticks" value of the timer.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_START_DISABLE))
@@ -1111,7 +1111,7 @@ extern void EvrRtxTimerStart (osTimerId_t timer_id, uint32_t ticks);
 
 /**
   \brief  Event on successful timer start (Op)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_STARTED_DISABLE))
 extern void EvrRtxTimerStarted (osTimerId_t timer_id);
@@ -1121,7 +1121,7 @@ extern void EvrRtxTimerStarted (osTimerId_t timer_id);
 
 /**
   \brief  Event on timer stop (API)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_STOP_DISABLE))
 extern void EvrRtxTimerStop (osTimerId_t timer_id);
@@ -1131,7 +1131,7 @@ extern void EvrRtxTimerStop (osTimerId_t timer_id);
 
 /**
   \brief  Event on successful timer stop (Op)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_STOPPED_DISABLE))
 extern void EvrRtxTimerStopped (osTimerId_t timer_id);
@@ -1141,7 +1141,7 @@ extern void EvrRtxTimerStopped (osTimerId_t timer_id);
 
 /**
   \brief  Event on timer running state check (API)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
   \param[in]  running       running state: 0 not running, 1 running.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_IS_RUNNING_DISABLE))
@@ -1152,7 +1152,7 @@ extern void EvrRtxTimerIsRunning (osTimerId_t timer_id, uint32_t running);
 
 /**
   \brief  Event on timer delete (API)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_DELETE_DISABLE))
 extern void EvrRtxTimerDelete (osTimerId_t timer_id);
@@ -1162,7 +1162,7 @@ extern void EvrRtxTimerDelete (osTimerId_t timer_id);
 
 /**
   \brief  Event on successful timer delete (Op)
-  \param[in]  timer_id      timer ID obtained by \ref osTimerNew.
+  \param[in]  timer_id      timer ID obtained by [osTimerNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TimerMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_TIMER != 0) && !defined(EVR_RTX_TIMER_DESTROYED_DISABLE))
 extern void EvrRtxTimerDestroyed (osTimerId_t timer_id);
@@ -1175,7 +1175,7 @@ extern void EvrRtxTimerDestroyed (osTimerId_t timer_id);
 
 /**
   \brief  Event on event flags error (Error)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew or NULL when ID is unknown.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_ERROR_DISABLE))
@@ -1196,7 +1196,7 @@ extern void EvrRtxEventFlagsNew (const osEventFlagsAttr_t *attr);
 
 /**
   \brief  Event on successful event flags create (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  name          pointer to event flags object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_CREATED_DISABLE))
@@ -1207,7 +1207,7 @@ extern void EvrRtxEventFlagsCreated (osEventFlagsId_t ef_id, const char *name);
 
 /**
   \brief  Event on event flags name retrieve (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  name          pointer to event flags object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_GET_NAME_DISABLE))
@@ -1218,7 +1218,7 @@ extern void EvrRtxEventFlagsGetName (osEventFlagsId_t ef_id, const char *name);
 
 /**
   \brief  Event on event flags set (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags that shall be set.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_SET_DISABLE))
@@ -1229,7 +1229,7 @@ extern void EvrRtxEventFlagsSet (osEventFlagsId_t ef_id, uint32_t flags);
 
 /**
   \brief  Event on successful event flags set (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  event_flags   event flags after setting.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_SET_DONE_DISABLE))
@@ -1240,7 +1240,7 @@ extern void EvrRtxEventFlagsSetDone (osEventFlagsId_t ef_id, uint32_t event_flag
 
 /**
   \brief  Event on event flags clear (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags that shall be cleared.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_CLEAR_DISABLE))
@@ -1251,7 +1251,7 @@ extern void EvrRtxEventFlagsClear (osEventFlagsId_t ef_id, uint32_t flags);
 
 /**
   \brief  Event on successful event flags clear (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  event_flags   event flags before clearing.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_CLEAR_DONE_DISABLE))
@@ -1262,7 +1262,7 @@ extern void EvrRtxEventFlagsClearDone (osEventFlagsId_t ef_id, uint32_t event_fl
 
 /**
   \brief  Event on event flags retrieve (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  event_flags   current event flags.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_GET_DISABLE))
@@ -1273,7 +1273,7 @@ extern void EvrRtxEventFlagsGet (osEventFlagsId_t ef_id, uint32_t event_flags);
 
 /**
   \brief  Event on wait for event flags (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags to wait for.
   \param[in]  options       flags options (osFlagsXxxx).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
@@ -1286,7 +1286,7 @@ extern void EvrRtxEventFlagsWait (osEventFlagsId_t ef_id, uint32_t flags, uint32
 
 /**
   \brief  Event on pending wait for event flags (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags to wait for.
   \param[in]  options       flags options (osFlagsXxxx).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
@@ -1299,7 +1299,7 @@ extern void EvrRtxEventFlagsWaitPending (osEventFlagsId_t ef_id, uint32_t flags,
 
 /**
   \brief  Event on wait timeout for event flags (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_WAIT_TIMEOUT_DISABLE))
 extern void EvrRtxEventFlagsWaitTimeout (osEventFlagsId_t ef_id);
@@ -1309,7 +1309,7 @@ extern void EvrRtxEventFlagsWaitTimeout (osEventFlagsId_t ef_id);
 
 /**
   \brief  Event on successful wait for event flags (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags to wait for.
   \param[in]  options       flags options (osFlagsXxxx).
   \param[in]  event_flags   event flags before clearing or 0 if specified flags have not been set.
@@ -1322,7 +1322,7 @@ extern void EvrRtxEventFlagsWaitCompleted (osEventFlagsId_t ef_id, uint32_t flag
 
 /**
   \brief  Event on unsuccessful wait for event flags (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
   \param[in]  flags         flags to wait for.
   \param[in]  options       flags options (osFlagsXxxx).
 */
@@ -1334,7 +1334,7 @@ extern void EvrRtxEventFlagsWaitNotCompleted (osEventFlagsId_t ef_id, uint32_t f
 
 /**
   \brief  Event on event flags delete (API)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_DELETE_DISABLE))
 extern void EvrRtxEventFlagsDelete (osEventFlagsId_t ef_id);
@@ -1344,7 +1344,7 @@ extern void EvrRtxEventFlagsDelete (osEventFlagsId_t ef_id);
 
 /**
   \brief  Event on successful event flags delete (Op)
-  \param[in]  ef_id         event flags ID obtained by \ref osEventFlagsNew.
+  \param[in]  ef_id         event flags ID obtained by [osEventFlagsNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__EventFlags.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_EVFLAGS != 0) && !defined(EVR_RTX_EVENT_FLAGS_DESTROYED_DISABLE))
 extern void EvrRtxEventFlagsDestroyed (osEventFlagsId_t ef_id);
@@ -1357,7 +1357,7 @@ extern void EvrRtxEventFlagsDestroyed (osEventFlagsId_t ef_id);
 
 /**
   \brief  Event on mutex error (Error)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew or NULL when ID is unknown.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html) or NULL when ID is unknown.
   \param[in]  status    extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_ERROR_DISABLE))
@@ -1378,7 +1378,7 @@ extern void EvrRtxMutexNew (const osMutexAttr_t *attr);
 
 /**
   \brief  Event on successful mutex create (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  name      pointer to mutex object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_CREATED_DISABLE))
@@ -1389,7 +1389,7 @@ extern void EvrRtxMutexCreated (osMutexId_t mutex_id, const char *name);
 
 /**
   \brief  Event on mutex name retrieve (API)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  name      pointer to mutex object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_GET_NAME_DISABLE))
@@ -1400,7 +1400,7 @@ extern void EvrRtxMutexGetName (osMutexId_t mutex_id, const char *name);
 
 /**
   \brief  Event on mutex acquire (API)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  timeout   \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_ACQUIRE_DISABLE))
@@ -1411,7 +1411,7 @@ extern void EvrRtxMutexAcquire (osMutexId_t mutex_id, uint32_t timeout);
 
 /**
   \brief  Event on pending mutex acquire (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  timeout   \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_ACQUIRE_PENDING_DISABLE))
@@ -1422,7 +1422,7 @@ extern void EvrRtxMutexAcquirePending (osMutexId_t mutex_id, uint32_t timeout);
 
 /**
   \brief  Event on mutex acquire timeout (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_ACQUIRE_TIMEOUT_DISABLE))
 extern void EvrRtxMutexAcquireTimeout (osMutexId_t mutex_id);
@@ -1432,7 +1432,7 @@ extern void EvrRtxMutexAcquireTimeout (osMutexId_t mutex_id);
 
 /**
   \brief  Event on successful mutex acquire (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  lock      current number of times mutex object is locked.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_ACQUIRED_DISABLE))
@@ -1443,7 +1443,7 @@ extern void EvrRtxMutexAcquired (osMutexId_t mutex_id, uint32_t lock);
 
 /**
   \brief  Event on unsuccessful mutex acquire (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_NOT_ACQUIRED_DISABLE))
 extern void EvrRtxMutexNotAcquired (osMutexId_t mutex_id);
@@ -1453,7 +1453,7 @@ extern void EvrRtxMutexNotAcquired (osMutexId_t mutex_id);
 
 /**
   \brief  Event on mutex release (API)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_RELEASE_DISABLE))
 extern void EvrRtxMutexRelease (osMutexId_t mutex_id);
@@ -1463,7 +1463,7 @@ extern void EvrRtxMutexRelease (osMutexId_t mutex_id);
 
 /**
   \brief  Event on successful mutex release (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
   \param[in]  lock      current number of times mutex object is locked.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_RELEASED_DISABLE))
@@ -1474,8 +1474,8 @@ extern void EvrRtxMutexReleased (osMutexId_t mutex_id, uint32_t lock);
 
 /**
   \brief  Event on mutex owner retrieve (API)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
-  \param[in]  thread_id thread ID obtained by \ref osThreadNew or \ref osThreadGetId.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
+  \param[in]  thread_id thread ID obtained by [osThreadNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html) or [osThreadGetId](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_GET_OWNER_DISABLE))
 extern void EvrRtxMutexGetOwner (osMutexId_t mutex_id, osThreadId_t thread_id);
@@ -1485,7 +1485,7 @@ extern void EvrRtxMutexGetOwner (osMutexId_t mutex_id, osThreadId_t thread_id);
 
 /**
   \brief  Event on mutex delete (API)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_DELETE_DISABLE))
 extern void EvrRtxMutexDelete (osMutexId_t mutex_id);
@@ -1495,7 +1495,7 @@ extern void EvrRtxMutexDelete (osMutexId_t mutex_id);
 
 /**
   \brief  Event on successful mutex delete (Op)
-  \param[in]  mutex_id  mutex ID obtained by \ref osMutexNew.
+  \param[in]  mutex_id  mutex ID obtained by [osMutexNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MUTEX != 0) && !defined(EVR_RTX_MUTEX_DESTROYED_DISABLE))
 extern void EvrRtxMutexDestroyed (osMutexId_t mutex_id);
@@ -1508,7 +1508,7 @@ extern void EvrRtxMutexDestroyed (osMutexId_t mutex_id);
 
 /**
   \brief  Event on semaphore error (Error)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew or NULL when ID is unknown.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_ERROR_DISABLE))
@@ -1531,7 +1531,7 @@ extern void EvrRtxSemaphoreNew (uint32_t max_count, uint32_t initial_count, cons
 
 /**
   \brief  Event on successful semaphore create (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  name          pointer to semaphore object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_CREATED_DISABLE))
@@ -1542,7 +1542,7 @@ extern void EvrRtxSemaphoreCreated (osSemaphoreId_t semaphore_id, const char *na
 
 /**
   \brief  Event on semaphore name retrieve (API)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  name          pointer to semaphore object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_GET_NAME_DISABLE))
@@ -1553,7 +1553,7 @@ extern void EvrRtxSemaphoreGetName (osSemaphoreId_t semaphore_id, const char *na
 
 /**
   \brief  Event on semaphore acquire (API)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_ACQUIRE_DISABLE))
@@ -1564,7 +1564,7 @@ extern void EvrRtxSemaphoreAcquire (osSemaphoreId_t semaphore_id, uint32_t timeo
 
 /**
   \brief  Event on pending semaphore acquire (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_ACQUIRE_PENDING_DISABLE))
@@ -1575,7 +1575,7 @@ extern void EvrRtxSemaphoreAcquirePending (osSemaphoreId_t semaphore_id, uint32_
 
 /**
   \brief  Event on semaphore acquire timeout (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_ACQUIRE_TIMEOUT_DISABLE))
 extern void EvrRtxSemaphoreAcquireTimeout (osSemaphoreId_t semaphore_id);
@@ -1585,7 +1585,7 @@ extern void EvrRtxSemaphoreAcquireTimeout (osSemaphoreId_t semaphore_id);
 
 /**
   \brief  Event on successful semaphore acquire (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  tokens        number of available tokens.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_ACQUIRED_DISABLE))
@@ -1596,7 +1596,7 @@ extern void EvrRtxSemaphoreAcquired (osSemaphoreId_t semaphore_id, uint32_t toke
 
 /**
   \brief  Event on unsuccessful semaphore acquire (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_NOT_ACQUIRED_DISABLE))
 extern void EvrRtxSemaphoreNotAcquired (osSemaphoreId_t semaphore_id);
@@ -1606,7 +1606,7 @@ extern void EvrRtxSemaphoreNotAcquired (osSemaphoreId_t semaphore_id);
 
 /**
   \brief  Event on semaphore release (API)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_RELEASE_DISABLE))
 extern void EvrRtxSemaphoreRelease (osSemaphoreId_t semaphore_id);
@@ -1616,7 +1616,7 @@ extern void EvrRtxSemaphoreRelease (osSemaphoreId_t semaphore_id);
 
 /**
   \brief  Event on successful semaphore release (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  tokens        number of available tokens.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_RELEASED_DISABLE))
@@ -1627,7 +1627,7 @@ extern void EvrRtxSemaphoreReleased (osSemaphoreId_t semaphore_id, uint32_t toke
 
 /**
   \brief  Event on semaphore token count retrieval (API)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
   \param[in]  count         current number of available tokens.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_GET_COUNT_DISABLE))
@@ -1638,7 +1638,7 @@ extern void EvrRtxSemaphoreGetCount (osSemaphoreId_t semaphore_id, uint32_t coun
 
 /**
   \brief  Event on semaphore delete (API)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_DELETE_DISABLE))
 extern void EvrRtxSemaphoreDelete (osSemaphoreId_t semaphore_id);
@@ -1648,7 +1648,7 @@ extern void EvrRtxSemaphoreDelete (osSemaphoreId_t semaphore_id);
 
 /**
   \brief  Event on successful semaphore delete (Op)
-  \param[in]  semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+  \param[in]  semaphore_id  semaphore ID obtained by [osSemaphoreNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__SemaphoreMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_SEMAPHORE != 0) && !defined(EVR_RTX_SEMAPHORE_DESTROYED_DISABLE))
 extern void EvrRtxSemaphoreDestroyed (osSemaphoreId_t semaphore_id);
@@ -1661,7 +1661,7 @@ extern void EvrRtxSemaphoreDestroyed (osSemaphoreId_t semaphore_id);
 
 /**
   \brief  Event on memory pool error (Error)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew or NULL when ID is unknown.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ERROR_DISABLE))
@@ -1684,7 +1684,7 @@ extern void EvrRtxMemoryPoolNew (uint32_t block_count, uint32_t block_size, cons
 
 /**
   \brief  Event on successful memory pool create (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  name          pointer to memory pool object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_CREATED_DISABLE))
@@ -1695,7 +1695,7 @@ extern void EvrRtxMemoryPoolCreated (osMemoryPoolId_t mp_id, const char *name);
 
 /**
   \brief  Event on memory pool name retrieve (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  name          pointer to memory pool object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_GET_NAME_DISABLE))
@@ -1706,7 +1706,7 @@ extern void EvrRtxMemoryPoolGetName (osMemoryPoolId_t mp_id, const char *name);
 
 /**
   \brief  Event on memory pool allocation (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ALLOC_DISABLE))
@@ -1717,7 +1717,7 @@ extern void EvrRtxMemoryPoolAlloc (osMemoryPoolId_t mp_id, uint32_t timeout);
 
 /**
   \brief  Event on pending memory pool allocation (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ALLOC_PENDING_DISABLE))
@@ -1728,7 +1728,7 @@ extern void EvrRtxMemoryPoolAllocPending (osMemoryPoolId_t mp_id, uint32_t timeo
 
 /**
   \brief  Event on memory pool allocation timeout (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ALLOC_TIMEOUT_DISABLE))
 extern void EvrRtxMemoryPoolAllocTimeout (osMemoryPoolId_t mp_id);
@@ -1738,7 +1738,7 @@ extern void EvrRtxMemoryPoolAllocTimeout (osMemoryPoolId_t mp_id);
 
 /**
   \brief  Event on successful memory pool allocation (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  block         address of the allocated memory block.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ALLOCATED_DISABLE))
@@ -1749,7 +1749,7 @@ extern void EvrRtxMemoryPoolAllocated (osMemoryPoolId_t mp_id, void *block);
 
 /**
   \brief  Event on unsuccessful memory pool allocation (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_ALLOC_FAILED_DISABLE))
 extern void EvrRtxMemoryPoolAllocFailed (osMemoryPoolId_t mp_id);
@@ -1759,7 +1759,7 @@ extern void EvrRtxMemoryPoolAllocFailed (osMemoryPoolId_t mp_id);
 
 /**
   \brief  Event on memory pool free (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  block         address of the allocated memory block to be returned to the memory pool.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_FREE_DISABLE))
@@ -1770,7 +1770,7 @@ extern void EvrRtxMemoryPoolFree (osMemoryPoolId_t mp_id, void *block);
 
 /**
   \brief  Event on successful memory pool free (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  block         address of the allocated memory block to be returned to the memory pool.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_DEALLOCATED_DISABLE))
@@ -1781,7 +1781,7 @@ extern void EvrRtxMemoryPoolDeallocated (osMemoryPoolId_t mp_id, void *block);
 
 /**
   \brief  Event on unsuccessful memory pool free (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  block         address of the allocated memory block to be returned to the memory pool.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_FREE_FAILED_DISABLE))
@@ -1792,7 +1792,7 @@ extern void EvrRtxMemoryPoolFreeFailed (osMemoryPoolId_t mp_id, void *block);
 
 /**
   \brief  Event on memory pool capacity retrieve (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  capacity      maximum number of memory blocks.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_GET_CAPACITY_DISABLE))
@@ -1803,7 +1803,7 @@ extern void EvrRtxMemoryPoolGetCapacity (osMemoryPoolId_t mp_id, uint32_t capaci
 
 /**
   \brief  Event on memory pool block size retrieve (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  block_size    memory block size in bytes.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_GET_BLOCK_SZIE_DISABLE))
@@ -1814,7 +1814,7 @@ extern void EvrRtxMemoryPoolGetBlockSize (osMemoryPoolId_t mp_id, uint32_t block
 
 /**
   \brief  Event on used memory pool blocks retrieve (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  count         number of memory blocks used.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_GET_COUNT_DISABLE))
@@ -1825,7 +1825,7 @@ extern void EvrRtxMemoryPoolGetCount (osMemoryPoolId_t mp_id, uint32_t count);
 
 /**
   \brief  Event on available memory pool blocks retrieve (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
   \param[in]  space         number of memory blocks available.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_GET_SPACE_DISABLE))
@@ -1836,7 +1836,7 @@ extern void EvrRtxMemoryPoolGetSpace (osMemoryPoolId_t mp_id, uint32_t space);
 
 /**
   \brief  Event on memory pool delete (API)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_DELETE_DISABLE))
 extern void EvrRtxMemoryPoolDelete (osMemoryPoolId_t mp_id);
@@ -1846,7 +1846,7 @@ extern void EvrRtxMemoryPoolDelete (osMemoryPoolId_t mp_id);
 
 /**
   \brief  Event on successful memory pool delete (Op)
-  \param[in]  mp_id         memory pool ID obtained by \ref osMemoryPoolNew.
+  \param[in]  mp_id         memory pool ID obtained by [osMemoryPoolNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__PoolMgmt.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MEMPOOL != 0) && !defined(EVR_RTX_MEMORY_POOL_DESTROYED_DISABLE))
 extern void EvrRtxMemoryPoolDestroyed (osMemoryPoolId_t mp_id);
@@ -1859,7 +1859,7 @@ extern void EvrRtxMemoryPoolDestroyed (osMemoryPoolId_t mp_id);
 
 /**
   \brief  Event on message queue error (Error)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew or NULL when ID is unknown.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html) or NULL when ID is unknown.
   \param[in]  status        extended execution status.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_ERROR_DISABLE))
@@ -1882,7 +1882,7 @@ extern void EvrRtxMessageQueueNew (uint32_t msg_count, uint32_t msg_size, const 
 
 /**
   \brief  Event on successful message queue create (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  name          pointer to message queue object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_CREATED_DISABLE))
@@ -1893,7 +1893,7 @@ extern void EvrRtxMessageQueueCreated (osMessageQueueId_t mq_id, const char *nam
 
 /**
   \brief  Event on message queue name retrieve(API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  name          pointer to message queue object name.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_NAME_DISABLE))
@@ -1904,7 +1904,7 @@ extern void EvrRtxMessageQueueGetName (osMessageQueueId_t mq_id, const char *nam
 
 /**
   \brief  Event on message put (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer with message to put into a queue.
   \param[in]  msg_prio      message priority.
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
@@ -1917,7 +1917,7 @@ extern void EvrRtxMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr
 
 /**
   \brief  Event on pending message put (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer with message to put into a queue.
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
@@ -1929,7 +1929,7 @@ extern void EvrRtxMessageQueuePutPending (osMessageQueueId_t mq_id, const void *
 
 /**
   \brief  Event on message put timeout (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_PUT_TIMEOUT_DISABLE))
 extern void EvrRtxMessageQueuePutTimeout (osMessageQueueId_t mq_id);
@@ -1939,7 +1939,7 @@ extern void EvrRtxMessageQueuePutTimeout (osMessageQueueId_t mq_id);
 
 /**
   \brief  Event on pending message insert (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer with message to put into a queue.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_INSERT_PENDING_DISABLE))
@@ -1950,7 +1950,7 @@ extern void EvrRtxMessageQueueInsertPending (osMessageQueueId_t mq_id, const voi
 
 /**
   \brief  Event on successful message insert (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer with message to put into a queue.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_INSERTED_DISABLE))
@@ -1961,7 +1961,7 @@ extern void EvrRtxMessageQueueInserted (osMessageQueueId_t mq_id, const void *ms
 
 /**
   \brief  Event on unsuccessful message insert (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer with message to put into a queue.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_NOT_INSERTED_DISABLE))
@@ -1972,7 +1972,7 @@ extern void EvrRtxMessageQueueNotInserted (osMessageQueueId_t mq_id, const void 
 
 /**
   \brief  Event on message get (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer for message to get from a queue.
   \param[in]  msg_prio      message priority.
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
@@ -1985,7 +1985,7 @@ extern void EvrRtxMessageQueueGet (osMessageQueueId_t mq_id, void *msg_ptr, uint
 
 /**
   \brief  Event on pending message get (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer for message to get from a queue.
   \param[in]  timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
 */
@@ -1997,7 +1997,7 @@ extern void EvrRtxMessageQueueGetPending (osMessageQueueId_t mq_id, void *msg_pt
 
 /**
   \brief  Event on message get timeout (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_TIMEOUT_DISABLE))
 extern void EvrRtxMessageQueueGetTimeout (osMessageQueueId_t mq_id);
@@ -2007,7 +2007,7 @@ extern void EvrRtxMessageQueueGetTimeout (osMessageQueueId_t mq_id);
 
 /**
   \brief  Event on successful message get (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer for message to get from a queue.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_RETRIEVED_DISABLE))
@@ -2018,7 +2018,7 @@ extern void EvrRtxMessageQueueRetrieved (osMessageQueueId_t mq_id, void *msg_ptr
 
 /**
   \brief  Event on unsuccessful message get (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_ptr       pointer to buffer for message to get from a queue.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_NOT_RETRIEVED_DISABLE))
@@ -2029,7 +2029,7 @@ extern void EvrRtxMessageQueueNotRetrieved (osMessageQueueId_t mq_id, void *msg_
 
 /**
   \brief  Event on message queue capacity retrieve (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  capacity      maximum number of messages.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_CAPACITY_DISABLE))
@@ -2040,7 +2040,7 @@ extern void EvrRtxMessageQueueGetCapacity (osMessageQueueId_t mq_id, uint32_t ca
 
 /**
   \brief  Event on message queue message size retrieve (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  msg_size      maximum message size in bytes.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_MSG_SIZE_DISABLE))
@@ -2051,7 +2051,7 @@ extern void EvrRtxMessageQueueGetMsgSize (osMessageQueueId_t mq_id, uint32_t msg
 
 /**
   \brief  Event on message queue message count retrieve (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  count         number of queued messages.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_COUNT_DISABLE))
@@ -2062,7 +2062,7 @@ extern void EvrRtxMessageQueueGetCount (osMessageQueueId_t mq_id, uint32_t count
 
 /**
   \brief  Event on message queue message slots retrieve (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
   \param[in]  space         number of available slots for messages.
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_GET_SPACE_DISABLE))
@@ -2073,7 +2073,7 @@ extern void EvrRtxMessageQueueGetSpace (osMessageQueueId_t mq_id, uint32_t space
 
 /**
   \brief  Event on message queue reset (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_RESET_DISABLE))
 extern void EvrRtxMessageQueueReset (osMessageQueueId_t mq_id);
@@ -2083,7 +2083,7 @@ extern void EvrRtxMessageQueueReset (osMessageQueueId_t mq_id);
 
 /**
   \brief  Event on successful message queue reset (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_RESET_DONE_DISABLE))
 extern void EvrRtxMessageQueueResetDone (osMessageQueueId_t mq_id);
@@ -2093,7 +2093,7 @@ extern void EvrRtxMessageQueueResetDone (osMessageQueueId_t mq_id);
 
 /**
   \brief  Event on message queue delete (API)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_DELETE_DISABLE))
 extern void EvrRtxMessageQueueDelete (osMessageQueueId_t mq_id);
@@ -2103,7 +2103,7 @@ extern void EvrRtxMessageQueueDelete (osMessageQueueId_t mq_id);
 
 /**
   \brief  Event on successful message queue delete (Op)
-  \param[in]  mq_id         message queue ID obtained by \ref osMessageQueueNew.
+  \param[in]  mq_id         message queue ID obtained by [osMessageQueueNew](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html).
 */
 #if (!defined(EVR_RTX_DISABLE) && (OS_EVR_MSGQUEUE != 0) && !defined(EVR_RTX_MESSAGE_QUEUE_DESTROYED_DISABLE))
 extern void EvrRtxMessageQueueDestroyed (osMessageQueueId_t mq_id);

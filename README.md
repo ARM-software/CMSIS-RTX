@@ -5,13 +5,13 @@
 ```txt
   📦
   ┣ 📂 .github/workflows         GitHub Action workflows
-     ┣ 📂 gh-pages.yml           Deployment of static documentation from gh-pages branch to GitHub Pages
-     ┗ 📂 pack.yml               Generation/publish of the pack and documentation
+     ┣ 📄 gh-pages.yml           Deployment of static documentation from gh-pages branch to GitHub Pages
+     ┗ 📄 pack.yml               Generation/publish of the pack and documentation
   ┣ 📂 CMSIS                     CClass CMSIS files
      ┣ 📂 Documentation          Target directory for generated documentation
      ┣ 📂 DoxyGen                Source directory for documentation
-        ┣ 📂 check_links.sh      Script to check generated html documentation for broken links
-        ┗ 📂 gen_doc.sh          Documentation generation script
+        ┣ 📄 check_links.sh      Script to check generated html documentation for broken links
+        ┗ 📄 gen_doc.sh          Documentation generation script
      ┗ 📂 RTOS2                  CGroup RTOS2 files
         ┣ 📂 RTX                 RTX implementation
            ┣ 📂 Config           Configuration file templates
@@ -22,8 +22,8 @@
            ┣ 📂 Source           Private header and source files of RTX software component
            ┗ 📂 Template         User code template files
         ┗ 📂 Source              Generic RTOS2 source files
-  ┣ 📂 ARM.CMSIS-RTX.pdsc        Pack description file
-  ┗ 📂 gen_pack.sh               Pack generations script, see below
+  ┣ 📄 ARM.CMSIS-RTX.pdsc        Pack description file
+  ┗ 📄 gen_pack.sh               Pack generations script, see below
 ```
 
 ## Generating Software Pack

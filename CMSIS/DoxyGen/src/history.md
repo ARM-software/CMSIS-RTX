@@ -1,115 +1,4 @@
-/**
-\page rtos_revisionHistory Revision History
-
-\section GenRTOS2Rev CMSIS-RTOS API Version 2
-
-<table class="cmtable" summary="Revision History">
-    <tr>
-      <th>Version</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>V2.2.0</td>
-      <td>
-        Added support for Process Isolation (Functional Safety):
-         - Kernel Management: \ref osKernelProtect, \ref osKernelDestroyClass
-         - Thread Management: \ref osThreadGetClass, \ref osThreadGetZone,<br>
-           \ref osThreadSuspendClass, \ref osThreadResumeClass, \ref osThreadTerminateZone,<br>
-           \ref osThreadFeedWatchdog, \ref osThreadProtectPrivileged
-         - Thread attributes: \ref osThreadZone, \ref osThreadUnprivileged, \ref osThreadPrivileged
-         - Object attributes: \ref osSafetyClass
-         - Handler functions: \ref osWatchdogAlarm_Handler
-         - Zone Management: \ref osZoneSetup_Callback
-         - Exception Faults: \ref osFaultResume
-
-        Additional functions allowed to be called from Interrupt Service Routines:
-         - \ref osThreadGetName, \ref osEventFlagsGetName, \ref osTimerGetName, \ref osMutexGetName, \ref osSemaphoreGetName, \ref osMemoryPoolGetName, \ref osMessageQueueGetName
-      </td>
-    </tr>
-    <tr>
-      <td>V2.1.3</td>
-      <td>
-        Additional functions allowed to be called from Interrupt Service Routines:
-         - \ref osThreadGetId
-     </td>
-    </tr>
-    <tr>
-      <td>V2.1.2</td>
-      <td>
-        Additional functions allowed to be called from Interrupt Service Routines:
-         - \ref osKernelGetInfo, \ref osKernelGetState
-     </td>
-    </tr>
-    <tr>
-      <td>V2.1.1</td>
-      <td>
-        Additional functions allowed to be called from Interrupt Service Routines:
-         - \ref osKernelGetTickCount, \ref osKernelGetTickFreq
-         
-        Changed Kernel Tick type to uint32_t:
-         - updated: \ref osKernelGetTickCount, \ref osDelayUntil
-     </td>
-    </tr>
-    <tr>
-      <td>V2.1.0</td>
-      <td>
-        Support for critical and uncritical sections (nesting safe):
-         - updated: \ref osKernelLock, \ref osKernelUnlock
-         - added: \ref osKernelRestoreLock
-
-        Updated \ref CMSIS_RTOS_ThreadFlagsMgmt "Thread Flags" and \ref CMSIS_RTOS_EventFlags "Event Flags":
-         - changed flags parameter and return type from int32_t to uint32_t
-     </td>
-    </tr>
-    <tr>
-      <td>V2.0.0</td>
-      <td>
-        New API Version 2.0 available. 
-         - See \ref rtos_api2 for a detailed function reference.
-         - See \ref os2Migration for details on the migration process from API Version 1.
-     </td>
-    </tr>
-    <tr>
-      <td>V1.02 - only documentation changes</td>
-      <td>
-      Added: Overview of the \ref rtosValidation "CMSIS-RTOS Validation" Software Pack.\n
-      Clarified: Behavior of \ref CMSIS_RTOS_TimeOutValue.
-     </td>
-    </tr>
-    <tr>
-      <td>V1.02</td>
-      <td>Added: New control functions for short timeouts in microsecond resolution \b osKernelSysTick,
-      \b osKernelSysTickFrequency, \b osKernelSysTickMicroSec.\n
-      Removed: osSignalGet.
-     </td>
-    </tr>fv
-    <tr>
-      <td>V1.01</td>
-      <td>Added capabilities for C++, kernel initialization and object deletion.\n
-      Prepared for C++ class interface. In this context to \em const attribute has been moved from osXxxxDef_t typedefs to
-      the osXxxxDef macros.\n
-      Added: \ref osTimerDelete, \ref osMutexDelete, \ref osSemaphoreDelete.\n
-      Added: \ref osKernelInitialize that prepares the kernel for object creation.\n
-      </td>
-    </tr>
-    <tr>
-      <td>
-      V1.00</td>
-      <td>First official Release.\n
-      Added: \ref osKernelStart; starting 'main' as a thread is now an optional feature.\n
-      Semaphores have now the standard behavior.\n
-      \b osTimerCreate does no longer start the timer. Added: \ref osTimerStart (replaces osTimerRestart).\n
-      Changed: osThreadPass is renamed to \ref osThreadYield.
-      </td>
-    </tr>
-    <tr>
-      <td>V0.02</td>
-      <td>Preview Release.</td>
-    </tr>
-</table>
-
-
-\section RTX5RevisionHistory CMSIS-RTOS RTX Version 5
+# Revision History {#RTX5RevisionHistory}
 
 <table class="cmtable" summary="Revision History">
     <tr>
@@ -138,7 +27,7 @@
        - Fixed potential register R1 corruption when calling OS functions from threads multiple times with same arguments (when using high level compiler optimizations).
        - Fixed timer interval when periodic timer is restarted.
        - Added Floating-point initialization for Arm C Library.
-       - Minor code optimizations in osMessageQueuePut/Get.
+       - Minor code optimizations in \ref osMessageQueuePut / \ref osMessageQueueGet.
       </td>
     </tr>
     <tr>
@@ -146,13 +35,13 @@
       <td>
        - CVE-2021-27431 vulnerability mitigation.
        - Added OS Initialization for IAR.
-       - Fixed osDelay/osDelayUntil error handling.
+       - Fixed \ref osDelay / \ref osDelayUntil error handling.
        - Fixed Round-Robin (timeout value is not reset when switching to higher priority threads).
-       - Fixed osThreadJoin (when terminating thread which is waiting to be joined).
+       - Fixed \ref osThreadJoin (when terminating thread which is waiting to be joined).
        - Fixed Message Queue Data allocation size when using object specific memory allocation.
        - Fixed Mutex priority inversion (when mixing mutexes with and without priority inherit).
        - Enhanced stack overrun checking.
-       - Updated osKernelResume handling (processing past sleep ticks).
+       - Updated \ref osKernelResume handling (processing past sleep ticks).
        - Updated configuration (Event Recorder).
        - Reorganized and optimized IRQ modules.
       </td>
@@ -169,8 +58,8 @@
     <tr>
       <td>V5.5.1</td>
       <td>
-       - Fixed osMutexRelease issue (thread owning multiple mutexes).
-       - Improved osThreadJoin robustness (user programing errors).
+       - Fixed \ref osMutexRelease issue (thread owning multiple mutexes).
+       - Improved \ref osThreadJoin robustness (user programing errors).
       </td>
     </tr>
     <tr>
@@ -260,4 +149,3 @@
       </td>
     </tr>
 </table>
-*/

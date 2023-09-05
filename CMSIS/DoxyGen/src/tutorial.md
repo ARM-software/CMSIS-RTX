@@ -1,6 +1,4 @@
-﻿/*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
-/**
-\page rtos2_tutorial Tutorial
+﻿# Tutorial {#rtos2_tutorial}
 
 This tutorial is an introduction to using a small footprint real-time operating system on an Arm Cortex-M microcontroller.
 If you are used to writing procedural-based 'C' code on small 8-/16-bit microcontrollers, you may be doubtful about the need
@@ -29,7 +27,7 @@ consider them running as parallel concurrent objects. In the second section, we 
 threads. In this section the key concept is synchronization of the concurrent threads.
 
 
-\section rtos2_tutorial_pre Prerequisites
+## Prerequisites {#rtos2_tutorial_pre}
 
 It is assumed that you have Keil MDK installed on your PC. For download and installation instructions, please visit
 the <a href="https://www2.keil.com/mdk5/install/" target="_blank">Getting Started</a> page. Once you have set up the tool,
@@ -230,7 +228,7 @@ should be scheduled to run. If a number of threads are ready to run, the thread 
 the run state. If a high priority thread becomes ready to run it will preempt a running thread of lower priority.
 Importantly, a high priority thread running on the CPU will not stop running unless it blocks on an RTOS API call or is
 preempted by a higher priority thread. A thread's priority is defined in the thread structure and the following priority
-definitions are available. The default priority is \ref osPriorityNormal. The \ref osPriority_t value specifies the priority
+definitions are available. The default priority is `osPriorityNormal`. The \ref osPriority_t value specifies the priority
 for a thread.
 
 Once the threads are running, there are a small number of RTOS system calls which are used to manage the running threads. It
@@ -1151,4 +1149,3 @@ kernel timer functions as outlined explained in the \ref CMSIS_RTOS_TickAPI docu
 
 In this tutorial, we have worked our way through the CMSIS-RTOS2 API and introduced some of the key concepts associated with
 using an RTOS. The only real way to learn how to develop with an RTOS is to actually use one in a real project. 
-*/

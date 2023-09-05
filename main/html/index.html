@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTX RTOS: Main Page</title>
+<title>CMSIS-RTX: Overview</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
@@ -43,16 +43,16 @@
  <tr style="height: 55px;">
   <td id="projectlogo" style="padding: 1.5em;"><img alt="Logo" src="cmsis_logo_white_small.png"/></td>
   <td style="padding-left: 1em; padding-bottom: 1em;padding-top: 1em;">
-   <div id="projectname">RTX RTOS
+   <div id="projectname">CMSIS-RTX
    &#160;<span id="projectnumber"><script type="text/javascript">
      <!--
      writeHeader.call(this);
-     writeVersionDropdown.call(this, "RTX RTOS");
+     writeVersionDropdown.call(this, "CMSIS-RTX");
      //-->
     </script>
    </span>
    </div>
-   <div id="projectbrief">Real-Time Operating System: API and RTX Reference Implementation</div>
+   <div id="projectbrief">Keil RTX5 Real-Time Operating System</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -123,14 +123,65 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">RTX RTOS Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Overview </div></div>
 </div><!--header-->
 <div class="contents">
-<ul><li><a href="index.html"><span>Main&#160;Page</span></a>
-</li><li><a href="pages.html"><span>Usage&#160;and&#160;Description</span></a>
-</li><li><a href="modules.html"><span>API&#160;Reference</span></a>
-</li></ul>
+<div class="textblock"><p><a class="anchor" id="mainpage"></a> Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/index.html">CMSIS-RTOS2 API</a> as its native interface.</p>
+<p>The following sections provide further details:</p><ul>
+<li><a class="el" href="RTX5RevisionHistory.html">Revision History</a> lists the explains how to setup an RTX v5 project in Keil MDK.</li>
+<li><a class="el" href="rtx_system_reqs.html">System Requirements</a> lists hardware, software, and resource requirements, as well as supported toolchains.</li>
+<li><a class="el" href="theory_of_operation.html">Theory of Operation</a> provides general information about the operation of CMSIS-RTOS RTX v5.</li>
+<li><a class="el" href="config_rtx5.html">Configure RTX v5</a> describes configuration parameters of CMSIS-RTOS RTX v5.</li>
+<li><a class="el" href="cre_rtx_proj.html">Create an RTX5 Project</a> explains how to setup an RTX v5 project in Keil MDK. </li>
+<li><a class="el" href="cre_rtx_proj.html#creating_RTX5_LIB">Building the RTX5 Library</a> explains how to build your own CMSIS-RTOS RTX v5 library. </li>
+<li><a class="el" href="misraCompliance5.html">MISRA C:2012 Compliance</a> describes the violations to the MISRA standard.</li>
+<li><a class="el" href="rtos2_tutorial.html">Tutorial</a> is an introduction into the usage of Keil RTX5 based on real-life examples.</li>
+</ul>
+<h1><a class="anchor" id="rtx_access"></a>
+Access to CMSIS-RTX</h1>
+<p>CMSIS-RTX kernel is actively maintained in <a href="https://github.com/ARM-software/CMSIS-RTX"><b>CMSIS-RTX GitHub repository</b></a> and is also provided as a standalone delivery in <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html">CMSIS-Pack format</a>.</p>
+<p>The table below explains the content of the <b>ARM::CMSIS-RTX</b> Pack.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">File/Directory   </th><th class="markdownTableHeadLeft">Content    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">📄 ARM.CMSIS-RTX.pdsc   </td><td class="markdownTableBodyLeft">Pack description file in CMSIS-Pack format    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">📄 LICENSE   </td><td class="markdownTableBodyLeft">License Agreement (Apache 2.0)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">📂 CMSIS   </td><td class="markdownTableBodyLeft">Software components folder    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">┣ 📂 Documentation   </td><td class="markdownTableBodyLeft">A local copy of this documentation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">┗ 📂 RTOS2   </td><td class="markdownTableBodyLeft">RTOS implementation files    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&#160; ┣ 📂 RTX   </td><td class="markdownTableBodyLeft">Directory with RTX specific files.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Config   </td><td class="markdownTableBodyLeft">RTX configuration files <b>RTX_Config.h</b> and <b>RTX_Config.c</b>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Examples   </td><td class="markdownTableBodyLeft">Keil MDK uVision example projects    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Examples_IAR   </td><td class="markdownTableBodyLeft">IAR Embedded Workbench Example projects    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Include   </td><td class="markdownTableBodyLeft">Public header files of RTX software component    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Library   </td><td class="markdownTableBodyLeft">Project files to build pre-built libraries    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Source   </td><td class="markdownTableBodyLeft">Private header and source files of RTX software component    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┣ 📂 Template   </td><td class="markdownTableBodyLeft">User code templates for creating application projects with CMSIS-RTX    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┗ 📄 RTX5.scvd   </td><td class="markdownTableBodyLeft">SCVD file for RTOS-aware debugging with <a href="https://arm-software.github.io/CMSIS-View/latest/index.html">Component Viewer and Event Recorder</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">&emsp;&#160; ┗ 📂 Source   </td><td class="markdownTableBodyLeft">Generic RTOS2 source files    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">&emsp;&emsp;&#160; ┗ 📄 os_systick.c   </td><td class="markdownTableBodyLeft">OS tick implementation using Cortex-M SysTick timer   </td></tr>
+</table>
+<h1><a class="anchor" id="rtx_license"></a>
+License</h1>
+<p>CMSIS-RTX is provided free of charge by Arm under the <a href="https://raw.githubusercontent.com/ARM-software/CMSIS-RTX/main/LICENSE">Apache 2.0 License</a>. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

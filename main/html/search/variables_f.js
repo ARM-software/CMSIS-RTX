@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['thread_0',['thread',['../rtx__os_8h.html#a6f7fcc252ea4f38383023590423c5fd1',1,'osRtxInfo_t']]],
-  ['thread_5faddr_1',['thread_addr',['../rtx__os_8h.html#adf2ebf46aa7018845582f1c70de83598',1,'osRtxThread_t']]],
-  ['thread_5fflags_2',['thread_flags',['../rtx__os_8h.html#ae757685e50b875e953f4aff67ac24b1b',1,'osRtxThread_t']]],
-  ['thread_5fjoin_3',['thread_join',['../rtx__os_8h.html#a83ec0540c50d4e79bed99f1b384bd2b9',1,'osRtxThread_t']]],
-  ['thread_5flist_4',['thread_list',['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxEventFlags_t::thread_list()'],['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxMutex_t::thread_list()'],['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxSemaphore_t::thread_list()'],['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxMemoryPool_t::thread_list()'],['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxMessageQueue_t::thread_list()'],['../rtx__os_8h.html#a8afd5feb676df99867375957b0587451',1,'osRtxObject_t::thread_list()']]],
-  ['thread_5fnext_5',['thread_next',['../rtx__os_8h.html#a421971e8ae94fe0bd86b85a90445e71e',1,'osRtxThread_t']]],
-  ['thread_5fprev_6',['thread_prev',['../rtx__os_8h.html#aa230a0d899f6c0750e6d454af3ef9b05',1,'osRtxThread_t']]],
-  ['thread_5fstack_5fsize_7',['thread_stack_size',['../structosRtxConfig__t.html#a6aa2c0bcb2024f1e4c38f9e8f6769c09',1,'osRtxConfig_t']]],
-  ['tick_8',['tick',['../rtx__os_8h.html#a260e06ce96c2e4deebccaedeb059dc0b',1,'osRtxTimer_t']]],
-  ['tick_5ffreq_9',['tick_freq',['../structosRtxConfig__t.html#a5973e7102782a9936a5e0d1417863675',1,'osRtxConfig_t']]],
-  ['tick_5firqn_10',['tick_irqn',['../rtx__os_8h.html#ad88a39594ffe6ab1016cf59517219e21',1,'osRtxInfo_t']]],
-  ['timer_11',['timer',['../rtx__os_8h.html#a735b504b0ea76f1722a00f315a868341',1,'osRtxInfo_t']]],
-  ['timer_5fmq_5fattr_12',['timer_mq_attr',['../structosRtxConfig__t.html#a3e07bcf21ce5250f3dc0f1ec4ebc938d',1,'osRtxConfig_t']]],
-  ['timer_5fmq_5fmcnt_13',['timer_mq_mcnt',['../structosRtxConfig__t.html#a3d6d4ee231cd6db41ee358a5676b1a9d',1,'osRtxConfig_t']]],
-  ['timer_5fsetup_14',['timer_setup',['../structosRtxConfig__t.html#a9ad2a321be2c8accc5c857899259b31e',1,'osRtxConfig_t']]],
-  ['timer_5fthread_15',['timer_thread',['../structosRtxConfig__t.html#ac30da0b0de7bbd8e661e47badd64d175',1,'osRtxConfig_t']]],
-  ['timer_5fthread_5fattr_16',['timer_thread_attr',['../structosRtxConfig__t.html#a310b3e01cc8e274529353210db5a78c3',1,'osRtxConfig_t']]],
-  ['tokens_17',['tokens',['../rtx__os_8h.html#a4e2e4e1126848f81d9e943147e07f0e0',1,'osRtxSemaphore_t']]],
-  ['tz_5fmemory_18',['tz_memory',['../rtx__os_8h.html#adaa6c424a231e5f6c788532675f33e16',1,'osRtxThread_t']]]
+  ['q_0',['Q',['https://arm-software.github.io/CMSIS_6/latest/Core/html/unionAPSR__Type.html#a22d10913489d24ab08bd83457daa88de',1,'APSR_Type::Q()'],['https://arm-software.github.io/CMSIS_6/latest/Core/html/unionxPSR__Type.html#add7cbd2b0abd8954d62cd7831796ac7c',1,'xPSR_Type::Q()']]]
 ];

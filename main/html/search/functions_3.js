@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['svc_5fhandler_0',['SVC_Handler',['../rtx__os_8h.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce',1,'rtx_os.h']]],
-  ['systick_5fhandler_1',['SysTick_Handler',['../rtx__os_8h.html#ab5e09814056d617c521549e542639b7e',1,'rtx_os.h']]]
+  ['itm_5fcheckchar_0',['ITM_CheckChar',['https://arm-software.github.io/CMSIS_6/latest/Core/html/group__ITM__Debug__gr.html#ga7f9bbabd9756d1a7eafb2d9bf27e0535',1,]]],
+  ['itm_5freceivechar_1',['ITM_ReceiveChar',['https://arm-software.github.io/CMSIS_6/latest/Core/html/group__ITM__Debug__gr.html#ga37b8f41cae703b5ff6947e271065558c',1,]]],
+  ['itm_5fsendchar_2',['ITM_SendChar',['https://arm-software.github.io/CMSIS_6/latest/Core/html/group__ITM__Debug__gr.html#gaaa7c716331f74d644bf6bf25cd3392d1',1,]]]
 ];

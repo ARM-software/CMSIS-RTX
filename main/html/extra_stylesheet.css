@@ -131,7 +131,12 @@ html {
 	--nav-menu-toggle-color: rgba(255, 255, 255, 0.5);
 	--nav-arrow-color: var(--arm_blue);
 	--nav-arrow-selected-color: var(--arm_blue);
-	
+	--nav_tabs-text-color:var(--arm_dark_gray);
+	--nav_tabs-text-active-color:white;
+	--nav_tabs-background-color:var(--arm_black2);
+	--nav_tabs-background-active-color:var(--arm_dark_gray);
+	--nav_tabs-border-color:var(--arm_dark_gray);
+
 	/* table of contents */
 	--toc-background-color: var(--nav-background-color); 
 	--toc-foreground-color: var(--nav-foreground-color); 
@@ -186,6 +191,7 @@ html {
 	--tooltip-declaration-color: #006318;
 	--tooltip-link-color: #4665A2;
 	--tooltip-shadow: 1px 1px 7px gray;
+	--tile-hover-border-coler: var(--arm_dark_gray);
 	
 	/** font-family */
 	--font-family-normal: Lato, Calibri, sans-serif;
@@ -299,6 +305,11 @@ html.dark-mode {
 	--nav-menu-toggle-color: rgba(255, 255, 255, 0.2);
 	--nav-arrow-color: var(--arm_blue);
 	--nav-arrow-selected-color: var(--arm_blue);
+	--nav_tabs-text-color:var(--arm_dark_gray);
+	--nav_tabs-text-active-color:white;
+	--nav_tabs-background-color:var(--arm_black2);
+	--nav_tabs-background-active-color:var(--arm_dark_gray);
+	--nav_tabs-border-color:var(--arm_dark_gray);
 	
 	/* table of contents */
 	--toc-background-color: var(--nav-background-color);
@@ -354,6 +365,7 @@ html.dark-mode {
 	--tooltip-declaration-color: #20C348;
 	--tooltip-link-color: #79C0FF;
 	--tooltip-shadow: none;
+	--tile-hover-border-coler: var(--arm_light_gray);
 	
 
 	/** font-family */
@@ -372,6 +384,65 @@ body, table, div, p, dl {
 	font-size: 16px;
 	line-height: 22px;
 }
+
+
+.tiles {
+  width: 950;
+  font-size: 0;
+  margin: 0 auto;
+}
+
+.tile {
+  width: calc(1000px / 5);
+  height: 130px;
+  display: inline-grid;
+  padding-inline: 5px;
+  padding-bottom: 5px;
+  vertical-align:text-top;
+  text-align:center;
+  margin: 2px;
+  background-color: var(--group-header-separator-color);
+}
+
+.tile:hover {
+ border-color: var(--tile-hover-border-coler);
+ border-style: solid;
+ border-width: 1px;
+ height: 130px;
+ margin:1px;
+ margin-bottom:0px;
+ padding-inline: 5px;
+ padding-bottom: 3px;
+}
+	
+.tile h2 {
+  font-size: 17px;
+  margin-top:5px;
+  margin-bottom:0px;
+  text-align:center;
+}
+
+.tile .tileh {
+  font-size: 17px;
+  font-weight:bold;
+  margin-top:5px;
+  margin-bottom:0px;
+  text-align:center;
+  color:var(--page-link-color);
+}
+
+.tiletxt {
+	font-size: 15px;
+	color:var(--page-foreground-color);
+	margin:0px;
+	padding:0px;
+}
+
+.tilelinks {
+	font-size: 14px;
+    align-self: end;
+}
+
 
 /* styles */
 
@@ -1648,4 +1719,3 @@ tr.heading h2 {
     display:inline;
   }
 }
-

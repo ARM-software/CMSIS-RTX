@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['sp_0',['sp',['../rtx__os_8h.html#a382a07e24a852d580d7548b8d517384c',1,'osRtxThread_t']]],
-  ['stack_5fframe_1',['stack_frame',['../rtx__os_8h.html#a1071334ebd46d95b9ab1dcad788b2adc',1,'osRtxThread_t']]],
-  ['stack_5fmem_2',['stack_mem',['../rtx__os_8h.html#a447dbb69b4c036e118b3b1b8bd22fe60',1,'osRtxThread_t']]],
-  ['stack_5fsize_3',['stack_size',['../rtx__os_8h.html#ad63716408aae5b50857ca8ce74e3a3ff',1,'osRtxThread_t']]],
-  ['state_4',['state',['../rtx__os_8h.html#a0b57aa10271a66f3dc936bba1d2f3830',1,'osRtxThread_t::state()'],['../rtx__os_8h.html#a0b57aa10271a66f3dc936bba1d2f3830',1,'osRtxTimer_t::state()'],['../rtx__os_8h.html#a0b57aa10271a66f3dc936bba1d2f3830',1,'osRtxObject_t::state()']]]
+  ['padding_0',['padding',['../namespace_3globalScope_4.html#a735ef00341a84c02ba561c66de3d20af',1,'osRtxMutex_t']]],
+  ['pcsr_1',['PCSR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a6353ca1d1ad9bc1be05d3b5632960113',1,'DWT_Type']]],
+  ['pendsv_5firqn_2',['PendSV_IRQn',['https://arm-software.github.io/CMSIS_6/latest/Core/html/group__NVIC__gr.html#gga7e1129cd8a196f4284d41db3e82ad5c8a03c3cc89984928816d81793fc7bce4a2',1,]]],
+  ['pfr_3',['PFR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structSCB__Type.html#a681c9d9e518b217976bef38c2423d83d',1,'SCB_Type']]],
+  ['pid0_4',['PID0',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#ab4a4cc97ad658e9c46cf17490daffb8a',1,'ITM_Type']]],
+  ['pid1_5',['PID1',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#a89ea1d805a668d6589b22d8e678eb6a4',1,'ITM_Type']]],
+  ['pid2_6',['PID2',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#a8471c4d77b7107cf580587509da69f38',1,'ITM_Type']]],
+  ['pid3_7',['PID3',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#af317d5e2d946d70e6fb67c02b92cc8a3',1,'ITM_Type']]],
+  ['pid4_8',['PID4',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#aad5e11dd4baf6d941bd6c7450f60a158',1,'ITM_Type']]],
+  ['pid5_9',['PID5',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#af9085648bf18f69b5f9d1136d45e1d37',1,'ITM_Type']]],
+  ['pid6_10',['PID6',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#ad34dbe6b1072c77d36281049c8b169f6',1,'ITM_Type']]],
+  ['pid7_11',['PID7',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#a2bcec6803f28f30d5baf5e20e3517d3d',1,'ITM_Type']]],
+  ['pidr0_12',['PIDR0',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#afe7c3069b9a30d54e5e30166a2281bd7',1,'PMU_Type']]],
+  ['pidr1_13',['PIDR1',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#a8a764266e9b41e7c100a9853889d94ab',1,'PMU_Type']]],
+  ['pidr2_14',['PIDR2',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#a2f7053542f392f435ad51930d0504622',1,'PMU_Type']]],
+  ['pidr3_15',['PIDR3',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#a831a9b4e2e07eef0b93713beb26a6516',1,'PMU_Type']]],
+  ['pidr4_16',['PIDR4',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#abe4612a6387c5be0e56898bfa6b16902',1,'PMU_Type']]],
+  ['port_17',['PORT',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structITM__Type.html#a9e10e79a6a287ebb2439153e27a4e15d',1,'ITM_Type']]],
+  ['post_5fprocess_18',['post_process',['../namespace_3globalScope_4.html#a0fa46b4a47d4cdecfe1e408abb4560d4',1,'osRtxInfo_t']]],
+  ['prev_19',['prev',['../namespace_3globalScope_4.html#ac8953ebf7df8aaf724cb12876ac8fb1a',1,'osRtxTimer_t::prev()'],['../namespace_3globalScope_4.html#ad2b4e6d37acc8020701610f54c0c8910',1,'osRtxMessage_t::prev()']]],
+  ['priority_20',['priority',['https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#a6a5183df4c54c3e28dc8dc704f2487d5',1,'osThreadAttr_t::priority()'],['../namespace_3globalScope_4.html#a81659cc4c01e54e2424022728d9effc7',1,'osRtxThread_t::priority()'],['../namespace_3globalScope_4.html#a0ad043071ccc7a261d79a759dc9c6f0c',1,'osRtxMessage_t::priority()']]],
+  ['priority_5fbase_21',['priority_base',['../namespace_3globalScope_4.html#ac67f8858081fb7a6e5a4ee8d2de3b348',1,'osRtxThread_t']]],
+  ['pvd_5fstm_5firqn_22',['PVD_STM_IRQn',['https://arm-software.github.io/CMSIS_6/latest/Core/html/group__NVIC__gr.html#gga7e1129cd8a196f4284d41db3e82ad5c8a853e0f318108110e0527f29733d11f86',1,]]]
 ];

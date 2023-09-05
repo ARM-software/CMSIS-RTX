@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deprecated_20list_0',['Deprecated List',['../deprecated.html',1,'']]]
+  ['basic_20cmsis_20example_0',['Basic CMSIS Example',['https://arm-software.github.io/CMSIS_6/latest/Core/html/using_CMSIS.html',1,'']]]
 ];

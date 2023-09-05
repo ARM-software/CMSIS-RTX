@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTX RTOS: Functions</title>
+<title>CMSIS-RTX: Functions</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
@@ -43,16 +43,16 @@
  <tr style="height: 55px;">
   <td id="projectlogo" style="padding: 1.5em;"><img alt="Logo" src="cmsis_logo_white_small.png"/></td>
   <td style="padding-left: 1em; padding-bottom: 1em;padding-top: 1em;">
-   <div id="projectname">RTX RTOS
+   <div id="projectname">CMSIS-RTX
    &#160;<span id="projectnumber"><script type="text/javascript">
      <!--
      writeHeader.call(this);
-     writeVersionDropdown.call(this, "RTX RTOS");
+     writeVersionDropdown.call(this, "CMSIS-RTX");
      //-->
     </script>
    </span>
    </div>
-   <div id="projectbrief">Real-Time Operating System: API and RTX Reference Implementation</div>
+   <div id="projectbrief">Keil RTX5 Real-Time Operating System</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -143,6 +143,7 @@ Functions</h2></td></tr>
 <tr class="separator:ga074068b8efa7074cee68a71481d0b072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
+<p>RTX5 functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gaf1745a88f9cc60b609ab1c8076bd346d" name="gaf1745a88f9cc60b609ab1c8076bd346d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaf1745a88f9cc60b609ab1c8076bd346d">&#9670;&#160;</a></span>osRtxErrorNotify()</h2>
@@ -169,6 +170,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>OS Error Callback function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>The code to identify the error condition. </td></tr>
@@ -194,28 +197,28 @@ Functions</h2></td></tr>
 <td class="markdownTableBodyNone"><a class="el" href="group__rtx5__specific__defines.html#ga5ebf507d79cc3fdd69e951db0416249d">osRtxErrorSVC</a>   </td><td class="markdownTableBodyNone">Invalid SVC function called (function=object_id)   </td></tr>
 </table>
 <p>The function <b>osRtxErrorNotify</b> must contain an infinite loop to prevent further program execution. You can use an emulator to step over the infinite loop and trace into the code introducing a runtime error. For the overflow errors this means you need to increase the size of the object causing an overflow.</p>
-<p><b>Code Example</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rtx__os_8h.html">rtx_os.h</a>&quot;</span></div>
+<p><b>Code Example</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;rtx_os.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line">uint32_t <a class="code hl_function" href="group__rtx5__specific__functions.html#gaf1745a88f9cc60b609ab1c8076bd346d">osRtxErrorNotify</a> (uint32_t code, <span class="keywordtype">void</span> *object_id) {</div>
+<div class="line">uint32_t <a class="code hl_function" href="group__rtx5__specific__functions.html#gaf1745a88f9cc60b609ab1c8076bd346d" title="OS Error Callback function.">osRtxErrorNotify</a> (uint32_t code, <span class="keywordtype">void</span> *object_id) {</div>
 <div class="line">  (void)object_id;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">switch</span> (code) {</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga0663254070f9f9cd402d735715aa1904">osRtxErrorStackOverflow</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga0663254070f9f9cd402d735715aa1904" title="Stack overflow, i.e. stack pointer below its lower memory limit for descending stacks.">osRtxErrorStackOverflow</a>:</div>
 <div class="line">      <span class="comment">// Stack overflow detected for thread (thread_id=object_id)</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga7377235f9fa3cedee06f682cd93f3e88">osRtxErrorISRQueueOverflow</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga7377235f9fa3cedee06f682cd93f3e88" title="ISR Queue overflow detected when inserting object.">osRtxErrorISRQueueOverflow</a>:</div>
 <div class="line">      <span class="comment">// ISR Queue overflow detected when inserting object (object_id)</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#gaad420018f26e751ec55d3922a283beb0">osRtxErrorTimerQueueOverflow</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#gaad420018f26e751ec55d3922a283beb0" title="User Timer Callback Queue overflow detected for timer.">osRtxErrorTimerQueueOverflow</a>:</div>
 <div class="line">      <span class="comment">// User Timer Callback Queue overflow detected for timer (timer_id=object_id)</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga14a24724f6e87744ba84674ef76e4256">osRtxErrorClibSpace</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga14a24724f6e87744ba84674ef76e4256" title="Standard C/C++ library libspace not available.">osRtxErrorClibSpace</a>:</div>
 <div class="line">      <span class="comment">// Standard C/C++ library libspace not available: increase OS_THREAD_LIBSPACE_NUM</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#gac749c24b9cf6c49b392b015ed0517cfc">osRtxErrorClibMutex</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#gac749c24b9cf6c49b392b015ed0517cfc" title="Standard C/C++ library mutex initialization failed.">osRtxErrorClibMutex</a>:</div>
 <div class="line">      <span class="comment">// Standard C/C++ library mutex initialization failed</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
-<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga5ebf507d79cc3fdd69e951db0416249d">osRtxErrorSVC</a>:</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="code hl_define" href="group__rtx5__specific__defines.html#ga5ebf507d79cc3fdd69e951db0416249d" title="Invalid SVC function called.">osRtxErrorSVC</a>:</div>
 <div class="line">      <span class="comment">// Invalid SVC function called (function=object_id)</span></div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    <span class="keywordflow">default</span>:</div>
@@ -224,14 +227,6 @@ Functions</h2></td></tr>
 <div class="line">  <span class="keywordflow">for</span> (;;) {}</div>
 <div class="line"><span class="comment">//return 0U;</span></div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_ga0663254070f9f9cd402d735715aa1904"><div class="ttname"><a href="group__rtx5__specific__defines.html#ga0663254070f9f9cd402d735715aa1904">osRtxErrorStackOverflow</a></div><div class="ttdeci">#define osRtxErrorStackOverflow</div><div class="ttdoc">Stack overflow, i.e. stack pointer below its lower memory limit for descending stacks.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:407</div></div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_ga14a24724f6e87744ba84674ef76e4256"><div class="ttname"><a href="group__rtx5__specific__defines.html#ga14a24724f6e87744ba84674ef76e4256">osRtxErrorClibSpace</a></div><div class="ttdeci">#define osRtxErrorClibSpace</div><div class="ttdoc">Standard C/C++ library libspace not available.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:410</div></div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_ga5ebf507d79cc3fdd69e951db0416249d"><div class="ttname"><a href="group__rtx5__specific__defines.html#ga5ebf507d79cc3fdd69e951db0416249d">osRtxErrorSVC</a></div><div class="ttdeci">#define osRtxErrorSVC</div><div class="ttdoc">Invalid SVC function called.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:412</div></div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_ga7377235f9fa3cedee06f682cd93f3e88"><div class="ttname"><a href="group__rtx5__specific__defines.html#ga7377235f9fa3cedee06f682cd93f3e88">osRtxErrorISRQueueOverflow</a></div><div class="ttdeci">#define osRtxErrorISRQueueOverflow</div><div class="ttdoc">ISR Queue overflow detected when inserting object.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:408</div></div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_gaad420018f26e751ec55d3922a283beb0"><div class="ttname"><a href="group__rtx5__specific__defines.html#gaad420018f26e751ec55d3922a283beb0">osRtxErrorTimerQueueOverflow</a></div><div class="ttdeci">#define osRtxErrorTimerQueueOverflow</div><div class="ttdoc">User Timer Callback Queue overflow detected for timer.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:409</div></div>
-<div class="ttc" id="agroup__rtx5__specific__defines_html_gac749c24b9cf6c49b392b015ed0517cfc"><div class="ttname"><a href="group__rtx5__specific__defines.html#gac749c24b9cf6c49b392b015ed0517cfc">osRtxErrorClibMutex</a></div><div class="ttdeci">#define osRtxErrorClibMutex</div><div class="ttdoc">Standard C/C++ library mutex initialization failed.</div><div class="ttdef"><b>Definition:</b> rtx_os.h:411</div></div>
-<div class="ttc" id="agroup__rtx5__specific__functions_html_gaf1745a88f9cc60b609ab1c8076bd346d"><div class="ttname"><a href="group__rtx5__specific__functions.html#gaf1745a88f9cc60b609ab1c8076bd346d">osRtxErrorNotify</a></div><div class="ttdeci">uint32_t osRtxErrorNotify(uint32_t code, void *object_id)</div><div class="ttdoc">OS Error Callback function.</div></div>
-<div class="ttc" id="artx__os_8h_html"><div class="ttname"><a href="rtx__os_8h.html">rtx_os.h</a></div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -250,6 +245,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>OS Idle Thread. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">argument</td><td>Unused parameter, always set to <span class="XML-Token">NULL</span>.</td></tr>
@@ -257,25 +254,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <p>The function <b>osRtxIdleThread</b> is executed by the RTX kernel when no other threads are ready to run.</p>
-<p>By default, this thread is an empty end-less loop that does nothing. It only waits until another task becomes ready to run. You may change the code of the <b>osRtxIdleThread</b> function to put the CPU into a power-saving or idle mode, see TickLess.</p>
-<p>The default stack size for this thread is defined in the file RTX_Config.h. Refer to threadConfig.</p>
+<p>By default, this thread is an empty end-less loop that does nothing. It only waits until another task becomes ready to run. You may change the code of the <b>osRtxIdleThread</b> function to put the CPU into a power-saving or idle mode, see <a class="el" href="theory_of_operation.html#TickLess">Tick-less Low-Power Operation</a>.</p>
+<p>The default stack size for this thread is defined in the file RTX_Config.h. Refer to <a class="el" href="config_rtx5.html#threadConfig">Thread Configuration</a>.</p>
 <dl class="section attention"><dt>Attention</dt><dd>The idle thread should never be blocked nor terminated! <b>Do not</b> call <ul>
 <li>
 blocking functions, </li>
 <li>
-osThreadTerminate, or  </li>
+<a class="elRef" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#ga2f8ba6dba6e9c065a6e236ffd410d74a">osThreadTerminate</a>, or  </li>
 <li>
-osThreadExit </li>
+<a class="elRef" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#gaddaa452dd7610e4096647a566d3556fc">osThreadExit</a> </li>
 </ul>
 and <b>do not</b> return from this function when providing a user defined implementation.</dd></dl>
-<p><b>Code Example</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rtx__os_8h.html">rtx_os.h</a>&quot;</span></div>
+<p><b>Code Example</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;rtx_os.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line">__NO_RETURN <span class="keywordtype">void</span> <a class="code hl_function" href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072">osRtxIdleThread</a> (<span class="keywordtype">void</span> *argument) {</div>
+<div class="line"><a class="code hl_defineRef" href="https://arm-software.github.io/CMSIS_6/latest/Core/html/group__compiler__conntrol__gr.html#ga153a4a31b276a9758959580538720a51">__NO_RETURN</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072" title="OS Idle Thread.">osRtxIdleThread</a> (<span class="keywordtype">void</span> *argument) {</div>
 <div class="line">  (void)argument;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">for</span> (;;) {}</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__rtx5__specific__functions_html_ga074068b8efa7074cee68a71481d0b072"><div class="ttname"><a href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072">osRtxIdleThread</a></div><div class="ttdeci">void osRtxIdleThread(void *argument)</div><div class="ttdoc">OS Idle Thread.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

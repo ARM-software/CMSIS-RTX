@@ -1,6 +1,21 @@
 var searchData=
 [
-  ['id_0',['id',['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxThread_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxTimer_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxEventFlags_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxMutex_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxSemaphore_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxMemoryPool_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxMessage_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxMessageQueue_t::id()'],['../rtx__os_8h.html#a1e6927fa1486224044e568f9c370519b',1,'osRtxObject_t::id()']]],
-  ['idle_5fthread_5fattr_1',['idle_thread_attr',['../structosRtxConfig__t.html#a694e5f79185db270e087e94719177ca0',1,'osRtxConfig_t']]],
-  ['isr_5fqueue_2',['isr_queue',['../rtx__os_8h.html#ad7b45254899fd2bf838a2f048d87c128',1,'osRtxInfo_t::isr_queue()'],['../structosRtxConfig__t.html#a1990532940da0e0c882814277f9e6c34',1,'osRtxConfig_t::isr_queue()']]]
+  ['ffcr_0',['FFCR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structTPI__Type.html#a3f68b6e73561b4849ebf953a894df8d2',1,'TPI_Type']]],
+  ['ffsr_1',['FFSR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structTPI__Type.html#a6c47a0b4c7ffc66093ef993d36bb441c',1,'TPI_Type']]],
+  ['fifo0_2',['FIFO0',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structTPI__Type.html#aa4d7b5cf39dff9f53bf7f69bc287a814',1,'TPI_Type']]],
+  ['fifo1_3',['FIFO1',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structTPI__Type.html#a061372fcd72f1eea871e2d9c1be849bc',1,'TPI_Type']]],
+  ['finfo_4',['finfo',['../namespace_3globalScope_4.html#ab415a6615c5ddf5365ed86e58a1e1809',1,'osRtxTimer_t']]],
+  ['flags_5',['flags',['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxObject_t::flags()'],['../structosRtxConfig__t.html#a773b39d480759f67926cb18ae2219281',1,'osRtxConfig_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMessageQueue_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMessage_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMemoryPool_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMutex_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxEventFlags_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxTimer_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxThread_t::flags()'],['../namespace_3globalScope_4.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxSemaphore_t::flags()']]],
+  ['flags_5foptions_6',['flags_options',['../namespace_3globalScope_4.html#a87c898585d0aeffdcf67c9e1b3befefe',1,'osRtxThread_t']]],
+  ['foldcnt_7',['FOLDCNT',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a1cfc48384ebd8fd8fb7e5d955aae6c97',1,'DWT_Type']]],
+  ['fpca_8',['FPCA',['https://arm-software.github.io/CMSIS_6/latest/Core/html/unionCONTROL__Type.html#ac62cfff08e6f055e0101785bad7094cd',1,'CONTROL_Type']]],
+  ['fpcar_9',['FPCAR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structFPU__Type.html#a55263b468d0f8e11ac77aec9ff87c820',1,'FPU_Type']]],
+  ['fpccr_10',['FPCCR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structFPU__Type.html#af1b708c5e413739150df3d16ca3b7061',1,'FPU_Type']]],
+  ['fpdscr_11',['FPDSCR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structFPU__Type.html#a58d1989664a06db6ec2e122eefa9f04a',1,'FPU_Type']]],
+  ['fscr_12',['FSCR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structTPI__Type.html#ad6901bfd8a0089ca7e8a20475cf494a8',1,'TPI_Type']]],
+  ['func_13',['func',['../namespace_3globalScope_4.html#aaf8577e5ddcbff356a1d27310baa8a1f',1,'osRtxTimerFinfo_t']]],
+  ['function0_14',['FUNCTION0',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a579ae082f58a0317b7ef029b20f52889',1,'DWT_Type']]],
+  ['function1_15',['FUNCTION1',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a8dfcf25675f9606aa305c46e85182e4e',1,'DWT_Type']]],
+  ['function2_16',['FUNCTION2',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#ab1b60d6600c38abae515bab8e86a188f',1,'DWT_Type']]],
+  ['function3_17',['FUNCTION3',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a52d4ff278fae6f9216c63b74ce328841',1,'DWT_Type']]]
 ];

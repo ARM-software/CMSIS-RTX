@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['finfo_0',['finfo',['../rtx__os_8h.html#ab415a6615c5ddf5365ed86e58a1e1809',1,'osRtxTimer_t']]],
-  ['flags_1',['flags',['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxThread_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxTimer_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxEventFlags_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMutex_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxSemaphore_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMemoryPool_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMessage_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxMessageQueue_t::flags()'],['../rtx__os_8h.html#aa2585d779da0ab21273a8d92de9a0ebe',1,'osRtxObject_t::flags()'],['../structosRtxConfig__t.html#a773b39d480759f67926cb18ae2219281',1,'osRtxConfig_t::flags()']]],
-  ['flags_5foptions_2',['flags_options',['../rtx__os_8h.html#a87c898585d0aeffdcf67c9e1b3befefe',1,'osRtxThread_t']]],
-  ['func_3',['func',['../rtx__os_8h.html#aaf8577e5ddcbff356a1d27310baa8a1f',1,'osRtxTimerFinfo_t']]]
+  ['evcntr_0',['EVCNTR',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#a08f877e8edcb1c19b81ebcf95f85e2f7',1,'PMU_Type']]],
+  ['event_5fflags_1',['event_flags',['../namespace_3globalScope_4.html#a7044be0679894b5daf72f19f9dd06e03',1,'osRtxEventFlags_t']]],
+  ['evtyper_2',['EVTYPER',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structPMU__Type.html#a27682a8d2fe09d2052a4295d5b4a243b',1,'PMU_Type']]],
+  ['exccnt_3',['EXCCNT',['https://arm-software.github.io/CMSIS_6/latest/Core/html/structDWT__Type.html#a9fe20c16c5167ca61486caf6832686d1',1,'DWT_Type']]]
 ];

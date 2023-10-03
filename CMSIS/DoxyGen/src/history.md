@@ -11,7 +11,8 @@
        - Based on CMSIS-RTOS API V2.2.0.
        - Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.
        - Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).
-      </td>
+       - Fixed osMessageQueueGetSpace when called from ISR after osMessageQueuePut and before returning from ISR.
+       </td>
     </tr>
     <tr>
       <td>V5.5.5</td>

@@ -743,7 +743,7 @@ static uint32_t svcRtxMessageQueueGetSpace (osMessageQueueId_t mq_id) {
 
   EvrRtxMessageQueueGetSpace(mq, mq->mp_info.max_blocks - mq->msg_count);
 
-  return (mq->mp_info.max_blocks - mq->msg_count);
+  return (mq->mp_info.max_blocks - mq->mp_info.used_blocks);
 }
 
 /// Reset a Message Queue to initial empty state.

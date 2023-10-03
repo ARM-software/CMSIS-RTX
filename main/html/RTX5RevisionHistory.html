@@ -134,7 +134,8 @@ $(document).ready(function(){initNavTree('RTX5RevisionHistory.html',''); initRes
 <td>V5.7.0 </td><td><ul>
 <li>Based on CMSIS-RTOS API V2.2.0.</li>
 <li>Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.</li>
-<li>Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).   </li>
+<li>Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).</li>
+<li>Fixed osMessageQueueGetSpace when called from ISR after osMessageQueuePut and before returning from ISR.   </li>
 </ul>
 </td></tr>
 <tr>

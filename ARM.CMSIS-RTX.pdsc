@@ -105,22 +105,31 @@
     </condition>
 
     <!-- Supported compilers/assembly modes -->
+    <condition id="Compiler">
+      <accept  Tcompiler="ARMCC"/>
+      <accept  Tcompiler="GCC"/>
+      <accept  Tcompiler="CLANG"/>
+      <accept  Tcompiler="IAR"/>
+    </condition>
+    <condition id="ARMASM">
+      <require Tcompiler="ARMCC" Toptions="AC5"/>
+    </condition>
     <condition id="GNUASM">
-      <accept Tcompiler="ARMCC" Toptions="AC6"/>
-      <accept Tcompiler="ARMCC" Toptions="AC6LTO"/>
-      <accept Tcompiler="GCC"/>
-      <accept Tcompiler="CLANG"/>
+      <accept  Tcompiler="ARMCC" Toptions="AC6"/>
+      <accept  Tcompiler="ARMCC" Toptions="AC6LTO"/>
+      <accept  Tcompiler="GCC"/>
+      <accept  Tcompiler="CLANG"/>
     </condition>
     <condition id="IARASM">
-      <accept Tcompiler="IAR"/>
+      <require Tcompiler="IAR"/>
     </condition>
 
-    <condition id="Compiler">
-      <accept condition="GNUASM"/>
-      <accept condition="IARASM"/>
+    <!-- Assembly for architecture -->
+    <condition id="ARMASM ARMv6-M">
+      <description>Arm Assembler for Armv6-M architecture</description>
+      <require condition="ARMASM"/>
+      <require condition="ARMv6-M Device"/>
     </condition>
-
-    <!-- Assembly modes -->
     <condition id="GNUASM ARMv6-M">
       <description>GNU Assembler for Armv6-M architecture</description>
       <require condition="GNUASM"/>
@@ -132,6 +141,11 @@
       <require condition="ARMv6-M Device"/>
     </condition>
 
+    <condition id="ARMASM ARMv7-M">
+      <description>Arm Assembler for Armv7-M architecture</description>
+      <require condition="ARMASM"/>
+      <require condition="ARMv7-M Device"/>
+    </condition>
     <condition id="GNUASM ARMv7-M">
       <description>GNU Assembler for Armv7-M architecture</description>
       <require condition="GNUASM"/>
@@ -167,6 +181,11 @@
       <accept  condition="ARMv81-MML Device"/>
     </condition>
 
+    <condition id="ARMASM ARMv7-A">
+      <description>Arm Assembler for Armv7-A architecture</description>
+      <require condition="ARMASM"/>
+      <require condition="ARMv7-A Device"/>
+    </condition>
     <condition id="GNUASM ARMv7-A">
       <description>GNU Assembler for Armv7-A architecture</description>
       <require condition="GNUASM"/>
@@ -251,6 +270,11 @@
 
         <!-- RTX sources (library configuration) -->
         <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+
+        <!-- RTX sources (handlers ARMASM) -->
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/ARM/irq_armv6m.s"   condition="ARMASM ARMv6-M"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/ARM/irq_armv7m.s"   condition="ARMASM ARMv7-M"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/ARM/irq_armv7a.s"   condition="ARMASM ARMv7-A"/>
 
         <!-- RTX sources (handlers GAS) -->
         <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv6m.S"   condition="GNUASM ARMv6-M"/>

@@ -13,6 +13,12 @@
     </release>
   </releases>
 
+  <requirements>
+    <packages>
+      <package vendor="ARM" name="CMSIS" version="6.0.0-0"/>
+    </packages>
+  </requirements>
+
   <conditions>
     <!-- TrustZone -->
     <condition id="No TrustZone">

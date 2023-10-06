@@ -31,7 +31,7 @@
 #include "cmsis_compiler.h"
 #endif
 
-#ifdef    RTE_Compiler_EventRecorder
+#ifdef    RTE_CMSIS_View_EventRecorder
 #include "EventRecorder.h"
 #include "EventRecorderConf.h"
 #endif
@@ -373,7 +373,7 @@ __attribute__((section(".bss.os.msgqueue.mem")));
 
 #if (defined(OS_EVR_INIT) && (OS_EVR_INIT != 0))
 
-#ifdef RTE_Compiler_EventRecorder
+#ifdef RTE_CMSIS_View_EventRecorder
 
 // Event Recorder Initialize
 __STATIC_INLINE void evr_initialize (void) {

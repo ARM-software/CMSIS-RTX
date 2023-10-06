@@ -40,7 +40,7 @@
 #include "RTE_Components.h"
 #endif
 
-#ifdef    RTE_Compiler_EventRecorder
+#ifdef    RTE_CMSIS_View_EventRecorder
 
 //lint -emacro((835,845),EventID) [MISRA Note 13]
 
@@ -75,7 +75,7 @@
 #define EvtRtxMemoryPoolNo              (0xF9U)
 #define EvtRtxMessageQueueNo            (0xFAU)
 
-#endif  // RTE_Compiler_EventRecorder
+#endif  // RTE_CMSIS_View_EventRecorder
 
 
 /// Extended Status codes

@@ -14,6 +14,27 @@
   </releases>
 
   <conditions>
+    <!-- TrustZone -->
+    <condition id="No TrustZone">
+      <description>No TrustZone</description>
+      <require Dtz="NO_TZ"/>
+    </condition>
+    <condition id="TZ Disabled">
+      <description>TrustZone (Disabled)</description>
+      <require Dtz="TZ"/>
+      <require Dsecure="TZ-disabled"/>
+    </condition>
+    <condition id="TZ Secure">
+      <description>TrustZone (Secure)</description>
+      <require Dtz="TZ"/>
+      <require Dsecure="Secure"/>
+    </condition>
+    <condition id="TZ Non-secure">
+      <description>TrustZone (Non-secure)</description>
+      <require Dtz="TZ"/>
+      <require Dsecure="Non-secure"/>
+    </condition>
+
     <!-- Arm architecture -->
     <condition id="ARMv6-M Device">
       <description>Armv6-M architecture based device</description>
@@ -47,6 +68,35 @@
       <accept Dcore="Cortex-M55"/>
       <accept Dcore="Cortex-M85"/>
     </condition>
+
+    <condition id="ARMv8-M Device">
+      <description>Armv8-M architecture based device</description>
+      <accept condition="ARMv8-MBL Device"/>
+      <accept condition="ARMv8-MML Device"/>
+      <accept condition="ARMv81-MML Device"/>
+    </condition>
+
+    <condition id="ARMv8-M Device without TrustZone">
+      <description>Armv8-M architecture based device without TrustZone</description>
+      <require condition="ARMv8-M Device"/>
+      <require condition="No TrustZone"/>
+    </condition>
+    <condition id="ARMv8-M Device with TZ Disabled">
+      <description>Armv8-M architecture based device with TrustZone (Disabled)</description>
+      <require condition="ARMv8-M Device"/>
+      <require condition="TZ Disabled"/>
+    </condition>
+    <condition id="ARMv8-M Device with TZ Secure">
+      <description>Armv8-M architecture based device with TrustZone (Secure)</description>
+      <require condition="ARMv8-M Device"/>
+      <require condition="TZ Secure"/>
+    </condition>
+    <condition id="ARMv8-M Device with TZ Non-secure">
+      <description>Armv8-M architecture based device with TrustZone (Non-secure)</description>
+      <require condition="ARMv8-M Device"/>
+      <require condition="TZ Non-secure"/>
+    </condition>
+
     <condition id="ARMv7-A Device">
       <description>Armv7-A architecture based device</description>
       <accept Dcore="Cortex-A5"/>
@@ -54,23 +104,13 @@
       <accept Dcore="Cortex-A9"/>
     </condition>
 
-    <!-- Supported architectures/devices -->
-    <condition id="Device">
-      <accept condition="ARMv6-M Device"/>
-      <accept condition="ARMv7-M Device"/>
-      <accept condition="ARMv8-MBL Device"/>
-      <accept condition="ARMv8-MML Device"/>
-      <accept condition="ARMv81-MML Device"/>
-      <accept condition="ARMv7-A Device"/>
-    </condition>
-
     <!-- Supported compilers/assembly modes -->
     <condition id="GNUASM">
       <accept Tcompiler="ARMCC" Toptions="AC6"/>
+      <accept Tcompiler="ARMCC" Toptions="AC6LTO"/>
       <accept Tcompiler="GCC"/>
       <accept Tcompiler="CLANG"/>
     </condition>
-
     <condition id="IARASM">
       <accept Tcompiler="IAR"/>
     </condition>
@@ -80,77 +120,90 @@
       <accept condition="IARASM"/>
     </condition>
 
+    <!-- Assembly modes -->
+    <condition id="GNUASM ARMv6-M">
+      <description>GNU Assembler for Armv6-M architecture</description>
+      <require condition="GNUASM"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+    <condition id="IARASM ARMv6-M">
+      <description>IAR Assembler for Armv6-M architecture</description>
+      <require condition="IARASM"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+
+    <condition id="GNUASM ARMv7-M">
+      <description>GNU Assembler for Armv7-M architecture</description>
+      <require condition="GNUASM"/>
+      <require condition="ARMv7-M Device"/>
+    </condition>
+    <condition id="IARASM ARMv7-M">
+      <description>IAR Assembler for Armv7-M architecture</description>
+      <require condition="IARASM"/>
+      <require condition="ARMv7-M Device"/>
+    </condition>
+
+    <condition id="GNUASM ARMv8-MBL">
+      <description>GNU Assembler for Armv8-M base line architecture</description>
+      <require condition="GNUASM"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+    <condition id="IARASM ARMv8-MBL">
+      <description>IAR Assembler for Armv8-M base line architecture</description>
+      <require condition="IARASM"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+
+    <condition id="GNUASM ARMv8-MML">
+      <description>GNU Assembler for Armv8-M/Armv8.1-M main line architecture</description>
+      <require condition="GNUASM"/>
+      <accept  condition="ARMv8-MML Device"/>
+      <accept  condition="ARMv81-MML Device"/>
+    </condition>
+    <condition id="IARASM ARMv8-MML">
+      <description>IAR Assembler for Armv8-M/Armv8.1-M main line architecture</description>
+      <require condition="IARASM"/>
+      <accept  condition="ARMv8-MML Device"/>
+      <accept  condition="ARMv81-MML Device"/>
+    </condition>
+
+    <condition id="GNUASM ARMv7-A">
+      <description>GNU Assembler for Armv7-A architecture</description>
+      <require condition="GNUASM"/>
+      <require condition="ARMv7-A Device"/>
+    </condition>
+    <condition id="IARASM ARMv7-A">
+      <description>IAR Assembler for Armv7-A architecture</description>
+      <require condition="IARASM"/>
+      <require condition="ARMv7-A Device"/>
+    </condition>
+
     <!-- Component dependencies -->
-    <condition id="RTX">
-      <description>Components required for RTX</description>
-      <require condition="Device"/>
+    <condition id="RTX5">
+      <description>Components required for RTX5</description>
+      <accept  condition="ARMv6-M Device"/>
+      <accept  condition="ARMv7-M Device"/>
+      <accept  condition="ARMv8-M Device without TrustZone"/>
+      <accept  condition="ARMv8-M Device with TZ Disabled"/>
+      <accept  condition="ARMv8-M Device with TZ Secure"/>
+      <accept  condition="ARMv7-A Device"/>
       <require condition="Compiler"/>
       <require Cclass="CMSIS"  Cgroup="CORE"/>
       <require Cclass="Device" Cgroup="Startup"/>
       <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
-
-    <!-- Assembly modes -->
-    <condition id="GNUASM ARMv6-M">
-        <description>GNU Assembler for Armv6-M architecture</description>
-        <require condition="GNUASM"/>
-        <require condition="ARMv6-M Device"/>
-    </condition>
-    <condition id="IARASM ARMv6-M">
-        <description>IAR Assembler for Armv6-M architecture</description>
-        <require condition="IARASM"/>
-        <require condition="ARMv6-M Device"/>
-    </condition>
-
-    <condition id="GNUASM ARMv7-M">
-        <description>GNU Assembler for Armv7-M architecture</description>
-        <require condition="GNUASM"/>
-        <require condition="ARMv7-M Device"/>
-    </condition>
-    <condition id="IARASM ARMv7-M">
-        <description>IAR Assembler for Armv7-M architecture</description>
-        <require condition="IARASM"/>
-        <require condition="ARMv7-M Device"/>
-    </condition>
-
-    <condition id="GNUASM ARMv8-MBL">
-        <description>GNU Assembler for Armv8-M base line architecture</description>
-        <require condition="GNUASM"/>
-        <require condition="ARMv8-MBL Device"/>
-    </condition>
-    <condition id="IARASM ARMv8-MBL">
-        <description>IAR Assembler for Armv8-M base line architecture</description>
-        <require condition="IARASM"/>
-        <require condition="ARMv8-MBL Device"/>
-    </condition>
-
-    <condition id="GNUASM ARMv8-MML">
-        <description>GNU Assembler for Armv8-M/Armv8.1-M main line architecture</description>
-        <require condition="GNUASM"/>
-        <accept condition="ARMv8-MML Device"/>
-        <accept condition="ARMv81-MML Device"/>
-    </condition>
-    <condition id="IARASM ARMv8-MML">
-        <description>IAR Assembler for Armv8-M/Armv8.1-M main line architecture</description>
-        <require condition="IARASM"/>
-        <accept condition="ARMv8-MML Device"/>
-        <accept condition="ARMv81-MML Device"/>
-    </condition>
-
-    <condition id="GNUASM ARMv7-A">
-        <description>GNU Assembler for Armv7-A architecture</description>
-        <require condition="GNUASM"/>
-        <require condition="ARMv7-A Device"/>
-    </condition>
-    <condition id="IARASM ARMv7-A">
-        <description>IAR Assembler for Armv7-A architecture</description>
-        <require condition="IARASM"/>
-        <require condition="ARMv7-A Device"/>
+    <condition id="RTX5 NS">
+      <description>Components required for RTX5 in Non-secure domain</description>
+      <require condition="ARMv8-M Device with TZ Non-secure"/>
+      <require condition="Compiler"/>
+      <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <require Cclass="Device" Cgroup="Startup"/>
+      <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
   </conditions>
 
   <components>
-      <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX">
+      <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
       <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -212,6 +265,64 @@
         <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
         <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
         <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
+      </files>
+    </component>
+      <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
+      <description>CMSIS-RTOS2 RTX5 for Armv8-M/Armv8.1-M Non-secure domain (Source)</description>
+      <RTE_Components_h>
+        <!-- the following content goes into file 'RTE_Components.h' -->
+        #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
+        #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
+        #define RTE_CMSIS_RTOS2_RTX5_SOURCE     /* CMSIS-RTOS2 Keil RTX5 Source */
+        #define RTE_CMSIS_RTOS2_RTX5_ARMV8M_NS  /* CMSIS-RTOS2 Keil RTX5 Armv8-M Non-secure domain */
+      </RTE_Components_h>
+      <files>
+        <!-- RTX documentation -->
+        <file category="doc"    name="CMSIS/Documentation/index.html"/>
+
+        <!-- RTX header files -->
+        <file category="header" name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+
+        <!-- RTX configuration -->
+        <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
+        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
+
+        <!-- RTX templates -->
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/main.c"      version="2.1.0" select="RTX 'main' function"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Events.c"    version="2.0.0" select="RTX Events"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  version="2.0.0" select="RTX Message Queue"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     version="2.0.0" select="RTX Mutex"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Thread.c"    version="2.0.0" select="RTX Thread"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Timer.c"     version="2.0.1" select="RTX Timer"/>
+        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  version="1.0.0" select="RTX SVC User Table"/>
+        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+
+        <!-- RTX sources (core) -->
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_kernel.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_thread.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_delay.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_timer.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evflags.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mutex.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_semaphore.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_memory.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mempool.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_msgqueue.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_system.c"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evr.c"/>
+
+        <!-- RTX sources (library configuration) -->
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+
+        <!-- RTX sources (handlers GAS) -->
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mbl.S" condition="GNUASM ARMv8-MBL"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mml.S" condition="GNUASM ARMv8-MML"/>
+
+        <!-- RTX sources (handlers IAR) -->
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
       </files>
     </component>
   </components>

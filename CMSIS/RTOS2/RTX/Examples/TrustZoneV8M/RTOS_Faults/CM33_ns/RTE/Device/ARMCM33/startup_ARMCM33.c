@@ -1,11 +1,11 @@
 /******************************************************************************
  * @file     startup_ARMCM33.c
  * @brief    CMSIS-Core Device Startup File for Cortex-M33 Device
- * @version  V2.1.0
- * @date     16. December 2020
+ * @version  V3.0.0
+ * @date     06. April 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -24,12 +24,6 @@
 
 #if defined (ARMCM33)
   #include "ARMCM33.h"
-#elif defined (ARMCM33_TZ)
-  #include "ARMCM33_TZ.h"
-#elif defined (ARMCM33_DSP_FP)
-  #include "ARMCM33_DSP_FP.h"
-#elif defined (ARMCM33_DSP_FP_TZ)
-  #include "ARMCM33_DSP_FP_TZ.h"
 #else
   #error device not specified!
 #endif

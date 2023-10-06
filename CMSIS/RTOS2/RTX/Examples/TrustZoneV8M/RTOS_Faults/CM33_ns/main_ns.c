@@ -116,7 +116,7 @@ void thread_stack_overflow (void) {
   for (i=0; i<1024; i++)  {
     foo[i] = i+i;
   }
-}  
+}
 
 
 /*
@@ -144,7 +144,7 @@ void div_by_zero( void )
   a = 1;
   b = 0;
   c = a / b;
-}  
+}
 
 
 /*
@@ -155,7 +155,7 @@ void getdata_attack (void);
 void getdata_attack (void) {
   /* provide pointer outsite of non-secure memory */
   GetIncidentLog_s ((IncidentLog_t *) (0x20200000 - 0x10));
-}  
+}
 
 
 /*
@@ -170,7 +170,7 @@ __NO_RETURN void play_dead( void )
   {
     __NOP( );
   }
-}  
+}
 
 
 typedef struct  {

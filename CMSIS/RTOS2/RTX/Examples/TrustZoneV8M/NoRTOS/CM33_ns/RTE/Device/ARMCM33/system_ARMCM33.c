@@ -2,11 +2,11 @@
  * @file     system_ARMCM33.c
  * @brief    CMSIS Device System Source File for
  *           ARMCM33 Device
- * @version  V1.0.1
- * @date     15. November 2019
+ * @version  V2.0.0
+ * @date     06. Aril 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -25,17 +25,6 @@
 
 #if defined (ARMCM33)
   #include "ARMCM33.h"
-#elif defined (ARMCM33_TZ)
-  #include "ARMCM33_TZ.h"
-
-  #if defined (__ARM_FEATURE_CMSE) &&  (__ARM_FEATURE_CMSE == 3U)
-    #include "partition_ARMCM33.h"
-  #endif
-#elif defined (ARMCM33_DSP_FP)
-  #include "ARMCM33_DSP_FP.h"
-#elif defined (ARMCM33_DSP_FP_TZ)
-  #include "ARMCM33_DSP_FP_TZ.h"
-
   #if defined (__ARM_FEATURE_CMSE) &&  (__ARM_FEATURE_CMSE == 3U)
     #include "partition_ARMCM33.h"
   #endif

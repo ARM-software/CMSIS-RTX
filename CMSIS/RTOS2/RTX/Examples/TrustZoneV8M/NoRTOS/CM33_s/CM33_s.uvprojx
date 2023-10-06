@@ -10,20 +10,20 @@
       <TargetName>FVP Simulation Model</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>ARMCM33_DSP_FP_TZ</Device>
+          <Device>ARMCM33</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
-          <PackURL>http://www.keil.com/pack/</PackURL>
+          <PackID>ARM.CMSIS_DFP.1.0.0</PackID>
+          <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IRAM2(0x20200000,0x00020000) IROM(0x00000000,0x00200000) IROM2(0x00200000,0x00200000) CPUTYPE("Cortex-M33") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD20000000 -FC1000)</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:ARMCM33_DSP_FP_TZ$Device\ARM\ARMCM33\Include\ARMCM33_DSP_FP_TZ.h</RegisterFile>
+          <RegisterFile>$$Device:ARMCM33$Device\ARMCM33\Include\ARMCM33.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:ARMCM33_DSP_FP_TZ$Device\ARM\SVD\ARMCM33.svd</SFDFile>
+          <SFDFile></SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -186,6 +186,7 @@
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>1</hadIROM2>
             <StupSel>8</StupSel>
@@ -193,8 +194,8 @@
             <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>1</nSecure>
-            <RoSelD>3</RoSelD>
-            <RwSelD>3</RwSelD>
+            <RoSelD>4</RoSelD>
+            <RwSelD>4</RwSelD>
             <CodeSel>0</CodeSel>
             <OptFeed>0</OptFeed>
             <NoZi1>0</NoZi1>
@@ -206,12 +207,12 @@
             <Ro2Chk>0</Ro2Chk>
             <Ro3Chk>0</Ro3Chk>
             <Ir1Chk>1</Ir1Chk>
-            <Ir2Chk>0</Ir2Chk>
+            <Ir2Chk>1</Ir2Chk>
             <Ra1Chk>0</Ra1Chk>
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
             <Im1Chk>1</Im1Chk>
-            <Im2Chk>0</Im2Chk>
+            <Im2Chk>1</Im2Chk>
             <OnChipMemories>
               <Ocm1>
                 <Type>0</Type>
@@ -370,7 +371,7 @@
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\RTE\Device\ARMCM33_DSP_FP_TZ\ARMCM33_ac6_s.sct</ScatterFile>
+            <ScatterFile>.\RTE\Device\ARMCM33\ARMCM33_ac6_s.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc>--import-cmse-lib-out="..\CM33_s\Objects\CM33_s_CMSE_Lib.o"</Misc>
@@ -423,48 +424,40 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.2.0" condition="ARMv6_7_8-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.5.2-dev5"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.7.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS" isDefaultVariant="1">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+      <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS">
+        <package name="CMSIS_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </component>
     </components>
     <files>
-      <file attr="config" category="linkerScript" condition="TZ Secure ARMCC6" name="Device\ARM\ARMCM33\Source\ARM\ARMCM33_ac6_s.sct" version="1.1.0">
-        <instance index="0">RTE\Device\ARMCM33_DSP_FP_TZ\ARMCM33_ac6_s.sct</instance>
+      <file attr="config" category="header" condition="TZ Secure" name="Device\ARMCM33\Config\partition_ARMCM33.h" version="1.1.1">
+        <instance index="0">RTE\Device\ARMCM33\partition_ARMCM33.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <package name="CMSIS_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </file>
-      <file attr="config" category="header" condition="TZ Secure" name="Device\ARM\ARMCM33\Include\Template\partition_ARMCM33.h" version="1.1.1">
-        <instance index="0">RTE\Device\ARMCM33_DSP_FP_TZ\partition_ARMCM33.h</instance>
+      <file attr="config" category="sourceC" name="Device\ARMCM33\Source\startup_ARMCM33.c" version="3.0.0">
+        <instance index="0">RTE\Device\ARMCM33\startup_ARMCM33.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <package name="CMSIS_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </file>
-      <file attr="config" category="sourceC" name="Device\ARM\ARMCM33\Source\startup_ARMCM33.c" version="2.1.0">
-        <instance index="0">RTE\Device\ARMCM33_DSP_FP_TZ\startup_ARMCM33.c</instance>
+      <file attr="config" category="sourceC" name="Device\ARMCM33\Source\system_ARMCM33.c" version="2.0.0">
+        <instance index="0">RTE\Device\ARMCM33\system_ARMCM33.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
-        <targetInfos>
-          <targetInfo name="FVP Simulation Model"/>
-        </targetInfos>
-      </file>
-      <file attr="config" category="sourceC" name="Device\ARM\ARMCM33\Source\system_ARMCM33.c" version="1.0.1">
-        <instance index="0">RTE\Device\ARMCM33_DSP_FP_TZ\system_ARMCM33.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.1.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <package name="CMSIS_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>

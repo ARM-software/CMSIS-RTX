@@ -21,7 +21,6 @@
            ┣ 📂 Library          Project files to build pre-built libraries
            ┣ 📂 Source           Private header and source files of RTX software component
            ┗ 📂 Template         User code template files
-        ┗ 📂 Source              Generic RTOS2 source files
   ┣ 📄 ARM.CMSIS-RTX.pdsc        Pack description file
   ┗ 📄 gen_pack.sh               Pack generations script, see below
 ```

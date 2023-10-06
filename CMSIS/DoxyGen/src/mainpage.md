@@ -36,8 +36,6 @@ File/Directory                        | Content
 &emsp;&emsp;&nbsp; ┣ 📂 Source        | Private header and source files of RTX software component
 &emsp;&emsp;&nbsp; ┣ 📂 Template      | User code templates for creating application projects with CMSIS-RTX
 &emsp;&emsp;&nbsp; ┗ 📄 RTX5.scvd     | SCVD file for RTOS-aware debugging with [Component Viewer and Event Recorder](https://arm-software.github.io/CMSIS-View/latest/index.html)
-&emsp;&nbsp; ┗ 📂 Source               | Generic RTOS2 source files
-&emsp;&emsp;&nbsp; ┗ 📄 os_systick.c   | OS tick implementation using Cortex-M SysTick timer
 
 
 ## License {#rtx_license}

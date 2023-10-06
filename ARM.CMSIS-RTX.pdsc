@@ -151,7 +151,7 @@
 
   <components>
       <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX">
-      <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300, ARMv8-M, ARMv8.1-M (Source)</description>
+      <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
         #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
@@ -168,6 +168,7 @@
         <!-- RTX configuration -->
         <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
         <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
+        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/handlers.c"    version="5.1.0" condition="ARMv7-A Device"/>
 
         <!-- RTX templates -->
         <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/main.c"      version="2.1.0" select="RTX 'main' function"/>
@@ -213,6 +214,5 @@
         <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
       </files>
     </component>
-
   </components>
 </package>

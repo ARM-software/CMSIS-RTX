@@ -696,7 +696,7 @@ Thread Configuration</h2>
 <div class="line">  (void)object_id;</div>
 <div class="line"> </div>
 <div class="line">  switch (code) {</div>
-<div class="line">    case osRtxErrorStackUnderflow:</div>
+<div class="line">    case osRtxErrorStackOverflow:</div>
 <div class="line">      // Stack overflow detected for thread (thread_id=object_id)</div>
 <div class="line">      break;</div>
 <div class="line">    case osRtxErrorISRQueueOverflow:</div>
@@ -708,8 +708,8 @@ Thread Configuration</h2>
 <div class="line">    case osRtxErrorClibSpace:</div>
 <div class="line">      // Standard C/C++ library libspace not available: increase OS_THREAD_LIBSPACE_NUM</div>
 <div class="line">      break;</div>
-<div class="line">    case osRtxErrorClibMutex:</div>
-<div class="line">      // Standard C/C++ library mutex initialization failed</div>
+<div class="line">    case osRtxErrorSVC:</div>
+<div class="line">      // Invalid SVC function called (function=object_id)</div>
 <div class="line">      break;</div>
 <div class="line">    default:</div>
 <div class="line">      // Reserved</div>

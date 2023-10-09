@@ -408,7 +408,7 @@ extern osRtxObjectMemUsage_t osRtxMessageQueueMemUsage;
 #define osRtxErrorISRQueueOverflow      2U  ///< ISR Queue overflow detected when inserting object.
 #define osRtxErrorTimerQueueOverflow    3U  ///< User Timer Callback Queue overflow detected for timer.
 #define osRtxErrorClibSpace             4U  ///< Standard C/C++ library libspace not available: increase \c OS_THREAD_LIBSPACE_NUM.
-#define osRtxErrorClibMutex             5U  ///< Standard C/C++ library mutex initialization failed.
+#define osRtxErrorClibMutex             5U  ///< \deprecated Standard C/C++ library mutex initialization failed.
 #define osRtxErrorSVC                   6U  ///< Invalid SVC function called.
  
 /// OS Error Callback function

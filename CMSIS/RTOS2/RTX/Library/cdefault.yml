@@ -1,0 +1,23 @@
+default:
+
+  compiler: GCC
+
+  misc:
+    - for-compiler: AC6
+      C:
+        - -fshort-enums
+        - -fshort-wchar
+
+    - for-compiler: GCC
+      C:
+        - -fomit-frame-pointer
+        - -ffunction-sections
+        - -fdata-sections
+
+    - for-compiler: CLANG
+      C:
+        - -fomit-frame-pointer
+        - -ffunction-sections
+        - -fdata-sections
+
+    - for-compiler: IAR

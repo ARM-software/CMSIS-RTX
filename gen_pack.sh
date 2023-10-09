@@ -36,7 +36,6 @@ PACK_DIRS="
   CMSIS/RTOS2/RTX/Include
   CMSIS/RTOS2/RTX/Source
   CMSIS/RTOS2/RTX/Template
-  CMSIS/RTOS2/Source
 "
 
 # Specify file names to be added to pack base directory

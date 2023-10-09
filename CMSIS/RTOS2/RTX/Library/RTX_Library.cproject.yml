@@ -1,0 +1,172 @@
+project:
+
+  packs:
+    - pack: ARM::CMSIS@>=6.0.0-0
+
+  language-C: c99
+
+  define:
+    - EVR_RTX_DISABLE
+
+  add-path:
+    - ../Include
+
+  groups:
+    - group: Configuration
+      files:
+        - file: ./RTX_Config.h
+    - group: Core
+      files:
+        - file: ../Source/rtx_kernel.c
+        - file: ../Source/rtx_thread.c
+        - file: ../Source/rtx_delay.c
+        - file: ../Source/rtx_timer.c
+        - file: ../Source/rtx_evflags.c
+        - file: ../Source/rtx_mutex.c
+        - file: ../Source/rtx_semaphore.c
+        - file: ../Source/rtx_memory.c
+        - file: ../Source/rtx_mempool.c
+        - file: ../Source/rtx_msgqueue.c
+        - file: ../Source/rtx_system.c
+        - file: ../Source/rtx_evr.c
+    - group: Handlers (GCC)
+      for-compiler:
+        - AC6
+        - GCC
+        - CLANG
+      files:
+        - file: ../Source/GCC/irq_armv6m.S
+          for-context:
+            - +ARMv6M
+        - file: ../Source/GCC/irq_armv7m.S
+          for-context:
+            - +ARMv7M
+            - +ARMv7M_FP
+        - file: ../Source/GCC/irq_armv8mbl.S
+          for-context:
+            - +ARMv8MBL
+            - +ARMv8MBL_NS
+        - file: ../Source/GCC/irq_armv8mml.S
+          for-context:
+            - +ARMv8MML
+            - +ARMv8MML_FP
+            - +ARMv8MML_NS
+            - +ARMv8MML_FP_NS
+        - file: ../Source/GCC/irq_armv7a.S
+          for-context:
+            - +ARMv7A
+    - group: Handlers (IAR)
+      for-compiler:
+        - IAR
+      files:
+        - file: ../Source/IAR/irq_armv6m.s
+          for-context:
+            - +ARMv6M
+        - file: ../Source/IAR/irq_armv7m.s
+          for-context:
+            - +ARMv7M
+            - +ARMv7M_FP
+        - file: ../Source/IAR/irq_armv8mbl.s
+          for-context:
+            - +ARMv8MBL
+            - +ARMv8MBL_NS
+        - file: ../Source/IAR/irq_armv8mml.s
+          for-context:
+            - +ARMv8MML
+            - +ARMv8MML_FP
+            - +ARMv81MML
+            - +ARMv81MML_FP
+            - +ARMv8MML_NS
+            - +ARMv8MML_FP_NS
+            - +ARMv81MML_NS
+            - +ARMv81MML_FP_NS
+        - file: ../Source/IAR/irq_armv7a.s
+          for-context:
+            - +ARMv7A
+
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: ARM::Device:OS Tick:SysTick
+      not-for-context:
+        - +ARMv7A
+    - component: ARM::Device:OS Tick:Private Timer
+      for-context:
+        - +ARMv7A
+    - component: ARM::Device:IRQ Controller:GIC
+      for-context:
+        - +ARMv7A
+
+  output:
+    type: lib
+
+  setups:
+    - setup: ARMv6M
+      for-context:
+        - +ARMv6M
+      output:
+        base-name: RTX_V6M
+    - setup: ARMv7M
+      for-context:
+        - +ARMv7M
+      output:
+        base-name: RTX_V7M
+    - setup: ARMv7M_FP
+      for-context:
+        - +ARMv7M_FP
+      output:
+        base-name: RTX_V7MF
+    - setup: ARMv8MBL
+      for-context:
+        - +ARMv8MBL
+      output:
+        base-name: RTX_V8MB
+    - setup: ARMv8MML
+      for-context:
+        - +ARMv8MML
+      output:
+        base-name: RTX_V8MM
+    - setup: ARMv8MML_FP
+      for-context:
+        - +ARMv8MML_FP
+      output:
+        base-name: RTX_V8MMF
+    - setup: ARMv81MML
+      for-context:
+        - +ARMv81MML
+      output:
+        base-name: RTX_V81MM
+    - setup: ARMv81MML_FP
+      for-context:
+        - +ARMv81MML_FP
+      output:
+        base-name: RTX_V81MMF
+    - setup: ARMv8MBL_NS
+      for-context:
+        - +ARMv8MBL_NS
+      output:
+        base-name: RTX_V8MBN
+    - setup: ARMv8MML_NS
+      for-context:
+        - +ARMv8MML_NS
+      output:
+        base-name: RTX_V8MMN
+    - setup: ARMv8MML_FP_NS
+      for-context:
+        - +ARMv8MML_FP_NS
+      output:
+        base-name: RTX_V8MMFN
+    - setup: ARMv81MML_NS
+      for-context:
+        - +ARMv81MML_NS
+      output:
+        base-name: RTX_V81MMN
+    - setup: ARMv81MML_FP_NS
+      for-context:
+        - +ARMv81MML_FP_NS
+      output:
+        base-name: RTX_V81MMFN
+    - setup: ARMv7A
+      for-context:
+        - +ARMv7A
+      output:
+        base-name: RTX_V7A

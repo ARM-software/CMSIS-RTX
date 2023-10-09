@@ -10,6 +10,7 @@
       <td>
        - Based on CMSIS-RTOS API V2.2.0.
        - Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.
+       - Requires Device:OS Tick:SysTick component.
        - Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).
        - Fixed osMessageQueueGetSpace when called from ISR after osMessageQueuePut and before returning from ISR.
        </td>

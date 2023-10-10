@@ -49,6 +49,7 @@
       <accept Dcore="Cortex-M0+"/>
       <accept Dcore="SC000"/>
     </condition>
+
     <condition id="ARMv7-M Device">
       <description>Armv7-M architecture based device</description>
       <accept Dcore="Cortex-M3"/>
@@ -56,11 +57,25 @@
       <accept Dcore="Cortex-M7"/>
       <accept Dcore="SC300"/>
     </condition>
+
+    <condition id="ARMv7-M Device without FPU">
+      <description>Armv7-M architecture based device without FPU</description>
+      <require condition="ARMv7-M Device"/>
+      <require Dfpu="NO_FPU"/>
+    </condition>
+    <condition id="ARMv7-M Device with FPU">
+      <description>Armv7-M architecture based device with FPU</description>
+      <require condition="ARMv7-M Device"/>
+      <accept  Dfpu="SP_FPU"/>
+      <accept  Dfpu="DP_FPU"/>
+    </condition>
+
     <condition id="ARMv8-MBL Device">
       <description>Armv8-M base line architecture based device</description>
       <accept Dcore="ARMV8MBL"/>
       <accept Dcore="Cortex-M23"/>
     </condition>
+
     <condition id="ARMv8-MML Device">
       <description>Armv8-M main line architecture based device</description>
       <accept Dcore="ARMV8MML"/>
@@ -68,11 +83,42 @@
       <accept Dcore="Cortex-M35P"/>
       <accept Dcore="Star-MC1"/>
     </condition>
+
+    <condition id="ARMv8-MML Device without FPU/MVE">
+      <description>Armv8-M main line architecture based device without FPU/MVE</description>
+      <require condition="ARMv8-MML Device"/>
+      <require Dfpu="NO_FPU"/>
+      <require Dmve="NO_MVE"/>
+    </condition>
+    <condition id="ARMv8-MML Device with FPU/MVE">
+      <description>Armv8-M main line architecture based device with FPU/MVE</description>
+      <require condition="ARMv8-MML Device"/>
+      <accept Dfpu="SP_FPU"/>
+      <accept Dfpu="DP_FPU"/>
+      <accept Dmve="MVE"/>
+      <accept Dmve="FP_MVE"/>
+    </condition>
+
     <condition id="ARMv81-MML Device">
       <description>Armv8.1-M main line architecture based device</description>
       <accept Dcore="ARMV81MML"/>
       <accept Dcore="Cortex-M55"/>
       <accept Dcore="Cortex-M85"/>
+    </condition>
+
+    <condition id="ARMv81-MML Device without FPU/MVE">
+      <description>Armv8.1-M main line architecture based device without FPU/MVE</description>
+      <require condition="ARMv81-MML Device"/>
+      <require Dfpu="NO_FPU"/>
+      <require Dmve="NO_MVE"/>
+    </condition>
+    <condition id="ARMv81-MML Device with FPU/MVE">
+      <description>Armv8.1-M main line architecture based device with FPU/MVE</description>
+      <require condition="ARMv81-MML Device"/>
+      <accept Dfpu="SP_FPU"/>
+      <accept Dfpu="DP_FPU"/>
+      <accept Dmve="MVE"/>
+      <accept Dmve="FP_MVE"/>
     </condition>
 
     <condition id="ARMv8-M Device">
@@ -118,6 +164,19 @@
       <accept  Tcompiler="CLANG"/>
       <accept  Tcompiler="IAR"/>
     </condition>
+    <condition id="ARMCC">
+      <accept  Tcompiler="ARMCC" Toptions="AC6"/>
+      <accept  Tcompiler="ARMCC" Toptions="AC6LTO"/>
+    </condition>
+    <condition id="GCC">
+      <require Tcompiler="GCC"/>
+    </condition>
+    <condition id="CLANG">
+      <require Tcompiler="CLANG"/>
+    </condition>
+    <condition id="IAR">
+      <require Tcompiler="IAR"/>
+    </condition>
     <condition id="GNUASM">
       <accept  Tcompiler="ARMCC" Toptions="AC6"/>
       <accept  Tcompiler="ARMCC" Toptions="AC6LTO"/>
@@ -126,6 +185,161 @@
     </condition>
     <condition id="IARASM">
       <require Tcompiler="IAR"/>
+    </condition>
+
+    <!-- Compiler for architecture -->
+    <condition id="ARMCC ARMv6-M">
+      <description>Arm Compiler for Armv6-M architecture</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+    <condition id="GCC ARMv6-M">
+      <description>GCC Compiler for Armv6-M architecture</description>
+      <require condition="GCC"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+    <condition id="CLANG ARMv6-M">
+      <description>CLANG Compiler for Armv6-M architecture</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+    <condition id="IAR ARMv6-M">
+      <description>IAR Compiler for Armv6-M architecture</description>
+      <require condition="IAR"/>
+      <require condition="ARMv6-M Device"/>
+    </condition>
+
+    <condition id="ARMCC ARMv7-M NOFP">
+      <description>Arm Compiler for Armv7-M architecture without FPU</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv7-M Device without FPU"/>
+    </condition>
+    <condition id="GCC ARMv7-M NOFP">
+      <description>GCC Compiler for Armv7-M architecture without FPU</description>
+      <require condition="GCC"/>
+      <require condition="ARMv7-M Device without FPU"/>
+    </condition>
+    <condition id="CLANG ARMv7-M NOFP">
+      <description>CLANG Compiler for Armv7-M architecture without FPU</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv7-M Device without FPU"/>
+    </condition>
+    <condition id="IAR ARMv7-M NOFP">
+      <description>IAR Compiler for Armv7-M architecture without FPU</description>
+      <require condition="IAR"/>
+      <require condition="ARMv7-M Device without FPU"/>
+    </condition>
+
+    <condition id="ARMCC ARMv7-M FP">
+      <description>Arm Compiler for Armv7-M architecture with FPU</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv7-M Device with FPU"/>
+    </condition>
+    <condition id="GCC ARMv7-M FP">
+      <description>GCC Compiler for Armv7-M architecture with FPU</description>
+      <require condition="GCC"/>
+      <require condition="ARMv7-M Device with FPU"/>
+    </condition>
+    <condition id="CLANG ARMv7-M FP">
+      <description>CLANG Compiler for Armv7-M architecture with FPU</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv7-M Device with FPU"/>
+    </condition>
+    <condition id="IAR ARMv7-M FP">
+      <description>IAR Compiler for Armv7-M architecture with FPU</description>
+      <require condition="IAR"/>
+      <require condition="ARMv7-M Device with FPU"/>
+    </condition>
+
+    <condition id="ARMCC ARMv8-MBL">
+      <description>Arm Compiler for Armv8-M base line architecture</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+    <condition id="GCC ARMv8-MBL">
+      <description>GCC Compiler for Armv8-M base line architecture</description>
+      <require condition="GCC"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+    <condition id="CLANG ARMv8-MBL">
+      <description>CLANG Compiler for Armv8-M base line architecture</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+    <condition id="IAR ARMv8-MBL">
+      <description>IAR Compiler for Armv8-M base line architecture</description>
+      <require condition="IAR"/>
+      <require condition="ARMv8-MBL Device"/>
+    </condition>
+
+    <condition id="ARMCC ARMv8-MML NOFP">
+      <description>Arm Compiler for Armv8-M main line architecture without FPU/MVE</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv8-MML Device without FPU/MVE"/>
+    </condition>
+    <condition id="GCC ARMv8-MML NOFP">
+      <description>GCC Compiler for Armv8-M main line architecture without FPU/MVE</description>
+      <require condition="GCC"/>
+      <require condition="ARMv8-MML Device without FPU/MVE"/>
+    </condition>
+    <condition id="CLANG ARMv8-MML NOFP">
+      <description>CLANG Compiler for Armv8-M main line architecture without FPU/MVE</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv8-MML Device without FPU/MVE"/>
+    </condition>
+    <condition id="IAR ARMv8-MML NOFP">
+      <description>IAR Compiler for Armv8-M main line architecture without FPU/MVE</description>
+      <require condition="IAR"/>
+      <require condition="ARMv8-MML Device without FPU/MVE"/>
+    </condition>
+
+    <condition id="ARMCC ARMv8-MML FP">
+      <description>Arm Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv8-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="GCC ARMv8-MML FP">
+      <description>GCC Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="GCC"/>
+      <require condition="ARMv8-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="CLANG ARMv8-MML FP">
+      <description>CLANG Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="CLANG"/>
+      <require condition="ARMv8-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="IAR ARMv8-MML FP">
+      <description>IAR Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="IAR"/>
+      <require condition="ARMv8-MML Device with FPU/MVE"/>
+    </condition>
+
+    <condition id="IAR ARMv81-MML NOFP">
+      <description>IAR Compiler for Armv8.1-M main line architecture without FPU/MVE</description>
+      <require condition="IAR"/>
+      <require condition="ARMv81-MML Device without FPU/MVE"/>
+    </condition>
+
+    <condition id="IAR ARMv81-MML FP">
+      <description>IAR Compiler for Armv8.1-M main line architecture with FPU/MVE</description>
+      <require condition="IAR"/>
+      <require condition="ARMv81-MML Device with FPU/MVE"/>
+    </condition>
+
+    <condition id="ARMCC ARMv7-A">
+      <description>Arm Compiler for Armv7-A architecture</description>
+      <require condition="ARMCC"/>
+      <require condition="ARMv7-A Device"/>
+    </condition>
+    <condition id="GCC ARMv7-A">
+      <description>GCC Compiler for Armv7-A architecture</description>
+      <require condition="GCC"/>
+      <require condition="ARMv7-A Device"/>
+    </condition>
+    <condition id="IAR ARMv7-A">
+      <description>IAR Compiler for Armv7-A architecture</description>
+      <require condition="IAR"/>
+      <require condition="ARMv7-A Device"/>
     </condition>
 
     <!-- Assembly for architecture -->
@@ -211,7 +425,140 @@
   </conditions>
 
   <components>
-      <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
+      <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Library)</description>
+      <RTE_Components_h>
+        <!-- the following content goes into file 'RTE_Components.h' -->
+        #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
+        #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
+      </RTE_Components_h>
+      <files>
+        <!-- RTX documentation -->
+        <file category="doc"     name="CMSIS/Documentation/index.html"/>
+
+        <!-- RTX system view description -->
+        <file category="other"   name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+
+        <!-- RTX header files -->
+        <file category="header"  name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+
+        <!-- RTX configuration -->
+        <file category="header"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
+
+        <!-- RTX templates -->
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+
+        <!-- RTX sources (library configuration) -->
+        <file category="source"  name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+
+        <!-- RTX libraries (ARMCC) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V6M.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv6-M"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7M.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-M NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7MF.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-M FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MB.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MM.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMF.lib"    src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7A.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-A"/>
+
+        <!-- RTX libraries (GCC) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V6M.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv6-M"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7M.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-M NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7MF.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-M FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MB.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MM.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMF.a"   src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7A.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-A"/>
+
+        <!-- RTX libraries (CLANG) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V6M.a"   src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv6-M"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V7M.a"   src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv7-M NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V7MF.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv7-M FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MB.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MM.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMF.a" src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML FP"/>
+
+        <!-- RTX libraries (IAR) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V6M.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv6-M"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7M.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-M NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7MF.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-M FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MB.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MM.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMF.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MM.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMF.a"     src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7A.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-A"/>
+      </files>
+    </component>
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
+      <description>CMSIS-RTOS2 RTX5 for Armv8-M/Armv8.1-M Non-secure domain (Library)</description>
+      <RTE_Components_h>
+        <!-- the following content goes into file 'RTE_Components.h' -->
+        #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
+        #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
+        #define RTE_CMSIS_RTOS2_RTX5_ARMV8M_NS  /* CMSIS-RTOS2 Keil RTX5 Armv8-M Non-secure domain */
+      </RTE_Components_h>
+      <files>
+        <!-- RTX documentation -->
+        <file category="doc"     name="CMSIS/Documentation/index.html"/>
+
+        <!-- RTX system view description -->
+        <file category="other"   name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+
+        <!-- RTX header files -->
+        <file category="header"  name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+
+        <!-- RTX configuration -->
+        <file category="header"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+
+        <!-- RTX templates -->
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source"  name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+
+        <!-- RTX sources (library configuration) -->
+        <file category="source"  name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+
+        <!-- RTX libraries (ARMCC) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MBN.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMN.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMFN.lib"    src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML FP"/>
+
+        <!-- RTX libraries (GCC) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MBN.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMN.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMFN.a"   src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML FP"/>
+
+        <!-- RTX libraries (CLANG) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MBN.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMN.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMFN.a" src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML FP"/>
+
+        <!-- RTX libraries (IAR) -->
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MBN.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MBL"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMN.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMFN.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML FP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMN.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML NOFP"/>
+        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMFN.a"     src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML FP"/>
+      </files>
+    </component>
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
       <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->

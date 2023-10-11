@@ -38,7 +38,7 @@ typedef struct msg_s {
 static osMessageQueueId_t msgQueue;
 
 static const osThreadAttr_t msgAttr = {
-  .stack_size = 400U
+  .stack_size = 512U
 };
 
 /*----------------------------------------------------------------------------

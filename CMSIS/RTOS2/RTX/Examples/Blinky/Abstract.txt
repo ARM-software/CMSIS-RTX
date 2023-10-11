@@ -23,7 +23,7 @@ CW rotation direction.
 
 The BLINKY example program is available for one target:
 
-  Simulation:          configured for a simulated on-chip Flash
+  Simulator:           configured for a simulated on-chip Flash
 
 The example is compatible with other Cortex-M class devices.
 Simply open the project settings, navigate to Device tab and

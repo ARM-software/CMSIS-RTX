@@ -39,7 +39,7 @@ static osMessageQueueId_t msgQueue;
 static osMemoryPoolId_t memPool;
 
 static const osThreadAttr_t msgAttr = {
-  .stack_size = 400U
+  .stack_size = 512U
 };
 
 /*----------------------------------------------------------------------------

@@ -1,0 +1,6 @@
+# Parameters:
+# instance.parameter=value       #(type, mode) default = 'def value' : description : [min..max]
+#----------------------------------------------------------------------------------------------
+fvp_mps2.mps2_visualisation.disable-visualisation=1   # (bool  , init-time) default = '0'      : Enable/disable visualisation
+fvp_mps2.telnetterminal0.start_telnet=0               # (bool  , init-time) default = '1'      : Start telnet if nothing connected
+#----------------------------------------------------------------------------------------------

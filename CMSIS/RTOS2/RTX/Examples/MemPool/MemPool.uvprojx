@@ -382,7 +382,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>Source Files</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>

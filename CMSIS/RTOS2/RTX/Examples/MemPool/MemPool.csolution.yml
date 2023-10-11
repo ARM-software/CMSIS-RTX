@@ -1,0 +1,14 @@
+solution:
+  created-for: CMSIS-Toolbox@2.0.0
+
+  cdefault:
+
+  target-types:
+    - type: Simulator
+      device: ARMCM3
+
+  optimize: size
+  debug: on
+
+  projects:
+    - project: MemPool.cproject.yml

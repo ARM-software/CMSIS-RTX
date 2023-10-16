@@ -410,9 +410,6 @@
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
-          <GroupName>::CMSIS-Compiler</GroupName>
-        </Group>
-        <Group>
           <GroupName>::Device</GroupName>
         </Group>
       </Groups>
@@ -421,12 +418,6 @@
 
   <RTE>
     <apis>
-      <api Capiversion="1.0.0" Cclass="CMSIS-Compiler" Cgroup="OS Interface" condition="ARMCC CortexDevice" exclusive="1">
-        <package name="CMSIS-Compiler" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
-        <targetInfos>
-          <targetInfo name="FVP Simulation Model"/>
-        </targetInfos>
-      </api>
       <api Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" exclusive="1">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
@@ -441,12 +432,6 @@
       </api>
     </apis>
     <components>
-      <component Capiversion="1.0.0" Cclass="CMSIS-Compiler" Cgroup="OS Interface" Csub="CMSIS-RTOS2" Cvendor="ARM" Cversion="1.1.0" condition="ARMCC CortexDevice CMSIS-RTOS2">
-        <package name="CMSIS-Compiler" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
-        <targetInfos>
-          <targetInfo name="FVP Simulation Model"/>
-        </targetInfos>
-      </component>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.7.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
@@ -473,7 +458,7 @@
       </component>
     </components>
     <files>
-      <file attr="config" category="source" name="CMSIS\RTOS2\RTX\Config\RTX_Config.c" version="5.3.0">
+      <file attr="config" category="source" name="CMSIS\RTOS2\RTX\Config\RTX_Config.c" version="5.2.0">
         <instance index="0">RTE\CMSIS\RTX_Config.c</instance>
         <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5 NS"/>
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>

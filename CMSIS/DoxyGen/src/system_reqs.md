@@ -22,7 +22,6 @@ Active development is currently tested with:
 **Arm Compiler (Arm/Keil MDK, uVision5)**
   - Arm Compiler 6.19
   - Arm Compiler 6.6.4 (Long Term Maintenance)
-  - Arm Compiler 5.06 Update 7
 
 **IAR Embedded Workbench**
   - IAR Embedded Workbench 8.20.1
@@ -141,15 +140,6 @@ Optimization         | RTX Kernel  | RTX Kernel + Event Recorder
 -O1 (Debug)          | 152 bytes   | 280 bytes   
 -Os (Balanced)       | 120 bytes   | 256 bytes
 -Oz (Size)           | 112 bytes   | 248 bytes
-
-**Arm Compiler ARMCC V5.06**: Main Stack requirements for PendSV/SysTick/SVC
-
-Optimization         | RTX Kernel  | RTX Kernel + Event Recorder
-:--------------------|:------------|:--------------------------------
--O0 (Debug)          | 176 bytes   | 360 bytes   
--O1                  | 112 bytes   | 248 bytes
--O2                  | 112 bytes   | 256 bytes
--O3                  | 112 bytes   | 248 bytes
 
 \endif
 

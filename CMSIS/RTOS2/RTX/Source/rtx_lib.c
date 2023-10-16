@@ -608,8 +608,7 @@ __WEAK void osZoneSetup_Callback (uint32_t zone) {
 // OS Sections
 // ===========
 
-#if  defined(__CC_ARM) || \
-    (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
+#if (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
 // Initialized through linker
 //lint -esym(728,  __os_thread_cb_start__,    __os_thread_cb_end__)
 //lint -esym(728,  __os_timer_cb_start__,     __os_timer_cb_end__)
@@ -678,8 +677,7 @@ __attribute__((section(".rodata"))) =
 // OS Initialization
 // =================
 
-#if  defined(__CC_ARM) || \
-    (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
+#if (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
 
 #ifndef __MICROLIB
 //lint -esym(714,_platform_post_stackheap_init) "Referenced by C library"
@@ -725,14 +723,13 @@ void osRtxKernelBeforeInit (void) {
 // C/C++ Standard Library Floating-point Initialization
 // ====================================================
 
-#if ( !defined(RTX_NO_FP_INIT_CLIB) && \
-     ( defined(__CC_ARM) || \
-      (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))) && \
-      !defined(__MICROLIB))
+#if (!defined(RTX_NO_FP_INIT_CLIB) && \
+     (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)) && \
+     !defined(__MICROLIB))
 
-#if  (!defined(__ARM_ARCH_7A__) && \
-      (defined(__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
-      (defined(__FPU_USED   ) && (__FPU_USED    == 1U)))
+#if (!defined(__ARM_ARCH_7A__) && \
+     (defined(__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
+     (defined(__FPU_USED   ) && (__FPU_USED    == 1U)))
 
 extern void $Super$$_fp_init (void);
 
@@ -750,10 +747,9 @@ void $Sub$$_fp_init (void) {
 // C/C++ Standard Library Multithreading Interface
 // ===============================================
 
-#if ( !defined(RTX_NO_MULTITHREAD_CLIB) && \
-     ( defined(__CC_ARM) || \
-      (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))) && \
-      !defined(__MICROLIB))
+#if (!defined(RTX_NO_MULTITHREAD_CLIB) && \
+     (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)) && \
+     !defined(__MICROLIB))
 
 #if (!defined(RTE_CMSIS_Compiler_OS_Interface_RTOS2_LIBSPACE) && \
      !defined(RTE_CMSIS_Compiler_OS_Interface_RTOS2_LOCKS))

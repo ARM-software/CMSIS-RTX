@@ -55,8 +55,7 @@
 
 //  ==== Library sections ====
 
-#if  defined(__CC_ARM) || \
-    (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
+#if (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))
 // Referenced through linker
 //lint -esym(528,  __os_thread_cb_start__,    __os_thread_cb_length__)
 //lint -esym(528,  __os_timer_cb_start__,     __os_timer_cb_length__)

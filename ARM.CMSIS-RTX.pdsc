@@ -223,25 +223,27 @@
         <!-- RTX documentation -->
         <file category="doc"    name="CMSIS/Documentation/index.html"/>
 
+        <!-- RTX system view description -->
+        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+
         <!-- RTX header files -->
         <file category="header" name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
-        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
-        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/handlers.c"    version="5.1.0" condition="ARMv7-A Device"/>
+        <file category="header" name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
 
         <!-- RTX templates -->
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/main.c"      version="2.1.0" select="RTX 'main' function"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Events.c"    version="2.0.0" select="RTX Events"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  version="2.0.0" select="RTX Message Queue"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     version="2.0.0" select="RTX Mutex"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Thread.c"    version="2.0.0" select="RTX Thread"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Timer.c"     version="2.0.1" select="RTX Timer"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  version="1.0.0" select="RTX SVC User Table"/>
-        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (core) -->
         <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_kernel.c"/>
@@ -275,7 +277,7 @@
         <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
       </files>
     </component>
-      <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
       <description>CMSIS-RTOS2 RTX5 for Armv8-M/Armv8.1-M Non-secure domain (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -288,24 +290,26 @@
         <!-- RTX documentation -->
         <file category="doc"    name="CMSIS/Documentation/index.html"/>
 
+        <!-- RTX system view description -->
+        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+
         <!-- RTX header files -->
         <file category="header" name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
-        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
+        <file category="header" name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
 
         <!-- RTX templates -->
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/main.c"      version="2.1.0" select="RTX 'main' function"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Events.c"    version="2.0.0" select="RTX Events"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  version="2.0.0" select="RTX Message Queue"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     version="2.0.0" select="RTX Mutex"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Thread.c"    version="2.0.0" select="RTX Thread"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/Timer.c"     version="2.0.1" select="RTX Timer"/>
-        <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  version="1.0.0" select="RTX SVC User Table"/>
-        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (core) -->
         <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_kernel.c"/>

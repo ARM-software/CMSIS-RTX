@@ -1116,6 +1116,9 @@ __WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
     case osRtxErrorClibSpace:
       // Standard C/C++ library libspace not available: increase OS_THREAD_LIBSPACE_NUM
       break;
+    case osRtxErrorClibMutex:
+      // Standard C/C++ library mutex initialization failed
+      break;
     case osRtxErrorSVC:
       // Invalid SVC function called (function=object_id)
       break;

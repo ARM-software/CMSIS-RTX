@@ -755,19 +755,8 @@ void $Sub$$_fp_init (void) {
       (defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))) && \
       !defined(__MICROLIB))
 
-#define LIBSPACE_SIZE 96
-
-//lint -esym(714,__user_perthread_libspace,_mutex_*) "Referenced by C library"
-//lint -esym(765,__user_perthread_libspace,_mutex_*) "Global scope"
-//lint -esym(9003, os_libspace*) "variables 'os_libspace*' defined at module scope"
-
-// Memory for libspace
-static uint32_t os_libspace[OS_THREAD_LIBSPACE_NUM+1][LIBSPACE_SIZE/4] \
-__attribute__((section(".bss.os.libspace")));
-
-// Thread IDs for libspace
-static osThreadId_t os_libspace_id[OS_THREAD_LIBSPACE_NUM] \
-__attribute__((section(".bss.os.libspace")));
+#if (!defined(RTE_CMSIS_Compiler_OS_Interface_RTOS2_LIBSPACE) && \
+     !defined(RTE_CMSIS_Compiler_OS_Interface_RTOS2_LOCKS))
 
 // Check if Kernel has been started
 static uint32_t os_kernel_is_active (void) {
@@ -780,6 +769,24 @@ static uint32_t os_kernel_is_active (void) {
   }
   return (uint32_t)os_kernel_active;
 }
+
+#endif
+
+#ifndef RTE_CMSIS_Compiler_OS_Interface_RTOS2_LIBSPACE
+
+#define LIBSPACE_SIZE 96
+
+//lint -esym(714,__user_perthread_libspace) "Referenced by C library"
+//lint -esym(765,__user_perthread_libspace) "Global scope"
+//lint -esym(9003, os_libspace*) "variables 'os_libspace*' defined at module scope"
+
+// Memory for libspace
+static uint32_t os_libspace[OS_THREAD_LIBSPACE_NUM+1][LIBSPACE_SIZE/4] \
+__attribute__((section(".bss.os.libspace")));
+
+// Thread IDs for libspace
+static osThreadId_t os_libspace_id[OS_THREAD_LIBSPACE_NUM] \
+__attribute__((section(".bss.os.libspace")));
 
 // Provide libspace for current thread
 void *__user_perthread_libspace (void);
@@ -825,5 +832,64 @@ void osRtxThreadBeforeFree (osThreadId_t id);
 void osRtxThreadBeforeFree (osThreadId_t id) {
   user_perthread_libspace_free(id);
 }
+
+#endif
+
+#ifndef RTE_CMSIS_Compiler_OS_Interface_RTOS2_LOCKS
+
+// Mutex identifier
+typedef void *mutex;
+
+//lint -esym(714,_mutex_*) "Referenced by C library"
+//lint -esym(765,_mutex_*) "Global scope"
+
+//lint -save "Function prototypes defined in C library"
+//lint -e970 "Use of 'int' outside of a typedef"
+//lint -e818 "Pointer 'm' could be declared as pointing to const"
+
+// Initialize mutex
+__USED
+int _mutex_initialize(mutex *m);
+int _mutex_initialize(mutex *m) {
+  int result;
+
+  *m = osMutexNew(NULL);
+  if (*m != NULL) {
+    result = 1;
+  } else {
+    result = 0;
+    (void)osRtxKernelErrorNotify(osRtxErrorClibMutex, m);
+  }
+  return result;
+}
+
+// Acquire mutex
+__USED
+void _mutex_acquire(mutex *m);
+void _mutex_acquire(mutex *m) {
+  if (os_kernel_is_active() != 0U) {
+    (void)osMutexAcquire(*m, osWaitForever);
+  }
+}
+
+// Release mutex
+__USED
+void _mutex_release(mutex *m);
+void _mutex_release(mutex *m) {
+  if (os_kernel_is_active() != 0U) {
+    (void)osMutexRelease(*m);
+  }
+}
+
+// Free mutex
+__USED
+void _mutex_free(mutex *m);
+void _mutex_free(mutex *m) {
+  (void)osMutexDelete(*m);
+}
+
+//lint -restore
+
+#endif
 
 #endif

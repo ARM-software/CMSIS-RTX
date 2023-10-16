@@ -15,9 +15,7 @@
 
   <requirements>
     <packages>
-      <package vendor="ARM" name="CMSIS"          version="6.0.0-0"/>
-      <package vendor="ARM" name="CMSIS-Compiler" version="1.1.0-0"/>
-      <package vendor="ARM" name="CMSIS-View"     version="1.0.0-0"/>
+      <package vendor="ARM" name="CMSIS" version="6.0.0-0"/>
     </packages>
   </requirements>
 
@@ -215,19 +213,17 @@
       <accept  condition="ARMv8-M Device with TZ Secure"/>
       <accept  condition="ARMv7-A Device"/>
       <require condition="Compiler"/>
-      <require Cclass="CMSIS"          Cgroup="CORE"/>
-      <require Cclass="CMSIS-Compiler" Cgroup="OS Interface" Csub="CMSIS-RTOS2" Cversion="1.1.0"/>
-      <require Cclass="Device"         Cgroup="OS Tick"/>
-      <require Cclass="Device"         Cgroup="Startup"/>
+      <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <require Cclass="Device" Cgroup="Startup"/>
+      <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
     <condition id="RTX5 NS">
       <description>Components required for RTX5 in Non-secure domain</description>
       <require condition="ARMv8-M Device with TZ Non-secure"/>
       <require condition="Compiler"/>
-      <require Cclass="CMSIS"          Cgroup="CORE"/>
-      <require Cclass="CMSIS-Compiler" Cgroup="OS Interface" Csub="CMSIS-RTOS2" Cversion="1.1.0"/>
-      <require Cclass="Device"         Cgroup="OS Tick"/>
-      <require Cclass="Device"         Cgroup="Startup"/>
+      <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <require Cclass="Device" Cgroup="Startup"/>
+      <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
   </conditions>
 
@@ -249,7 +245,7 @@
 
         <!-- RTX configuration -->
         <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
-        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.3.0"/>
+        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
         <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/handlers.c"    version="5.1.0" condition="ARMv7-A Device"/>
 
         <!-- RTX templates -->
@@ -319,7 +315,7 @@
 
         <!-- RTX configuration -->
         <file category="header" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  version="5.6.0"/>
-        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.3.0"/>
+        <file category="source" attr="config"   name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  version="5.2.0"/>
 
         <!-- RTX templates -->
         <file category="source" attr="template" name="CMSIS/RTOS2/RTX/Template/main.c"      version="2.1.0" select="RTX 'main' function"/>

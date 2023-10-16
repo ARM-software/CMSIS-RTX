@@ -246,6 +246,15 @@ but not enough memory was reserved using \c OS_THREAD_LIBSPACE_NUM.
 
 /*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
 /**
+\def osRtxErrorClibMutex
+\brief Standard C/C++ library mutex initialization failed.
+\details
+This error identifier is used with \ref osRtxErrorNotify when RTX5 fails to create mutexes needed
+to lock global C/C++ library resources.
+*/
+
+/*=======0=========1=========2=========3=========4=========5=========6=========7=========8=========9=========0=========1====*/
+/**
 \def osRtxErrorSVC
 \brief Invalid SVC function called.
 \details
@@ -280,6 +289,7 @@ The parameter \a code passes the actual error code to this function:
 | \ref osRtxErrorISRQueueOverflow   | ISR Queue overflow detected when inserting object (object_id)                     |
 | \ref osRtxErrorTimerQueueOverflow | User Timer Callback Queue overflow detected for timer (timer_id=object_id)        |
 | \ref osRtxErrorClibSpace          | Standard C/C++ library libspace not available: increase \c OS_THREAD_LIBSPACE_NUM |
+| \ref osRtxErrorClibMutex          | Standard C/C++ library mutex initialization failed                                |
 | \ref osRtxErrorSVC                | Invalid SVC function called (function=object_id)                                  |
 
 The function \b osRtxErrorNotify must contain an infinite loop to prevent further program execution. You can use an emulator
@@ -305,6 +315,9 @@ uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
       break;
     case osRtxErrorClibSpace:
       // Standard C/C++ library libspace not available: increase OS_THREAD_LIBSPACE_NUM
+      break;
+    case osRtxErrorClibMutex:
+      // Standard C/C++ library mutex initialization failed
       break;
     case osRtxErrorSVC:
       // Invalid SVC function called (function=object_id)

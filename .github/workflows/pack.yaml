@@ -34,7 +34,7 @@ jobs:
           packchk-version: 1.4.1
           gen-doc-script: ./CMSIS/DoxyGen/gen_doc.sh
           check-links-script: ./CMSIS/DoxyGen/check_links.sh
-          doc-path: ./CMSIS/Documentation
+          doc-path: ./CMSIS/Documentation/html
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output
           gh-pages-branch: gh-pages

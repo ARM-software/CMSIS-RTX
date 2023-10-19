@@ -1,0 +1,100 @@
+name: Build RTX5 libraries
+on:
+  workflow_dispatch:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+    
+env:
+  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }}
+  
+jobs:
+  libs:
+    if: |
+      github.event_name != 'release' ||
+      (github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v'))
+    name: Build libraries
+    runs-on: ubuntu-22.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Install system packages
+        run: |
+          sudo apt-get install libtinfo5
+
+      - name: Cache packs
+        uses: actions/cache@v3
+        with:
+          key: packs-${{ github.run_id }}
+          restore-keys: |
+              packs-
+          path: /home/runner/.cache/arm/packs
+
+      - name: Cache vcpkg
+        uses: actions/cache@v3
+        with:
+          key: vcpkg-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}
+          restore-keys: |
+              vcpkg-${{ runner.os }}-${{ runner.arch }}-
+          path: /home/runner/.vcpkg
+
+      - name: Prepare vcpkg env
+        working-directory: ./CMSIS/RTOS2/RTX/Library
+        run: |  
+          . <(curl https://aka.ms/vcpkg-init.sh -L)
+          vcpkg x-update-registry --all
+          vcpkg activate
+
+      - name: Activate Arm tool license
+        working-directory: ./CMSIS/RTOS2/RTX/Library
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
+              armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+          else
+              armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
+          fi
+
+      - name: Build libraries
+        working-directory: ./CMSIS/RTOS2/RTX/Library
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+
+          curl -sLO https://github.com/ARM-software/CMSIS_6/releases/download/dev%2Fv6.0.0-dev35/packlist.txt
+          cpackget add -a -f packlist.txt 
+  
+          ./build.sh -t AC6 
+          ./build.sh -t GCC
+          ./build.sh -t CLANG 
+          # ./build.sh -t IAR
+
+      - name: Deactivate Arm tool license
+        if: always()
+        working-directory: ./CMSIS/RTOS2/RTX/Library
+        run: |
+          . /home/runner/.vcpkg/vcpkg-init
+          vcpkg activate
+          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
+              armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+          else
+              armlm deactivate --product KEMDK-COM0
+          fi
+    
+      - name: Archive libraries
+        working-directory: ./CMSIS/RTOS2/RTX/Library
+        run: |
+          tar -cvjf RTX_Lib.tar.bz2 ARM/* GCC/* CLANG/*
+    
+      - name: Upload Library archive
+        uses: actions/upload-artifact@v3
+        with:
+          name: RTX_Lib
+          path: ./CMSIS/RTOS2/RTX/Library/RTX_Lib.tar.bz2

@@ -4,3 +4,7 @@ CMSIS/DoxyGen/rtx.dxy
 build
 output
 **.DS_STORE
+*.tar.bz2
+*.lib
+*.a
+.clangd

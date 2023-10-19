@@ -86,10 +86,10 @@ project:
 
   components:
     - component: ARM::CMSIS:CORE
-    - component: ARM::Device:OS Tick:SysTick
+    - component: ARM::CMSIS:OS Tick:SysTick
       not-for-context:
         - +ARMv7A
-    - component: ARM::Device:OS Tick:Private Timer
+    - component: ARM::CMSIS:OS Tick:Private Timer
       for-context:
         - +ARMv7A
     - component: ARM::Device:IRQ Controller:GIC

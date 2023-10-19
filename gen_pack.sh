@@ -53,6 +53,7 @@ PACK_BASE_FILES="
 PACK_DELETE_FILES="
   .gitignore
   gen_pack.sh
+  CMSIS/RTOS2/RTX/Library/fetch_libs.sh
 "
 
 # Specify patches to be applied

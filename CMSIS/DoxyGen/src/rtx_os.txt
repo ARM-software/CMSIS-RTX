@@ -267,6 +267,65 @@ or is located outside of the RTX5 SVC function table.
 */
 
 /**
+\defgroup rtx5_specific_types Types
+\brief RTX5 types
+\details
+The RTX5 types listed in this section define \ref pControlBlockSizes "RTX Object Control Blocks" and are mostly meant for use internally in the RTX implementation.
+
+To obtain the size of a control block for use in \ref StaticObjectMemory it is best to use corresponding \ref rtx5_specific_defines.
+
+@{
+*/
+
+/**
+\struct osRtxEventFlags_t
+*/
+
+/**
+\struct osRtxMemoryPool_t
+*/
+
+/**
+\struct osRtxMessage_t
+*/
+
+/**
+\struct osRtxMessageQueue_t
+*/
+
+/**
+\struct osRtxMpInfo_t
+*/
+
+/**
+\struct osRtxMutex_t
+*/
+
+/**
+\struct osRtxObject_t
+*/
+
+/**
+\struct osRtxSemaphore_t
+*/
+
+/**
+\struct osRtxTimer_t
+*/
+
+/**
+\struct osRtxTimerFinfo_t
+*/
+
+/**
+\struct osRtxThread_t
+*/
+
+/**
+@}
+*/
+
+/**
 \defgroup rtx5_specific_functions Functions
 \brief RTX5 functions 
 \details

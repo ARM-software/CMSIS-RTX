@@ -37,15 +37,15 @@ The steps to create a microcontroller application using RTX5 are:
 
 Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to 
 M-class devices. Thus RTX requires additional components when an A-class device is used, namely
-<a href="../../Core_A/html/group__irq__ctrl__gr.html"><b>IRQ Controller (API)</b></a> and \ref CMSIS_RTOS_TickAPI "OS Tick (API)"
+<a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html"><b>CMSIS-Core IRQ Controller (API)</b></a> and \ref CMSIS_RTOS_TickAPI "OS Tick (API)"
 implementations. 
 
 \image html manage_rte_cortex-a.png
 
 The default implementations provided along with CMSIS are 
-- Arm <a href="../../Core_A/html/group__GIC__functions.html">Generic Interrupt Controller (GIC)</a>
-- Arm Cortex-A5, Cortex-A9 <a href="../../Core_A/html/group__PTM__timer__functions.html">Private Timer (PTIM)</a>
-- Arm Cortex-A7 <a href="../../Core_A/html/group__PL1__timer__functions.html">Generic Physical Timer (GTIM)</a>
+- Arm <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__GIC__functions.html">Generic Interrupt Controller (GIC)</a>
+- Arm Cortex-A5, Cortex-A9 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PTM__timer__functions.html">Private Timer (PTIM)</a>
+- Arm Cortex-A7 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/Core_A/html/group__PL1__timer__functions.html">Generic Physical Timer (GTIM)</a>
 
 For devices not implementing GIC, PTIM nor GTIM please refer to the according device family pack and select the
 proper implementations.

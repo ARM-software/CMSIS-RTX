@@ -6,6 +6,7 @@
   📦
   ┣ 📂 .github/workflows         GitHub Action workflows
      ┣ 📄 gh-pages.yml           Deployment of static documentation from gh-pages branch to GitHub Pages
+     ┣ 📄 libs.yml               Build of the RTX libraries
      ┗ 📄 pack.yml               Generation/publish of the pack and documentation
   ┣ 📂 CMSIS                     CClass CMSIS files
      ┣ 📂 Documentation          Target directory for generated documentation
@@ -62,7 +63,7 @@ Prerequisites for this script to succeed are:
 - Generated documentation (see above)
 - 7z
 - packchk
-- xmllint (optional)
+- xmllint
 
 ### Version and Changelog Inference
 

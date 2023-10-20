@@ -306,7 +306,7 @@ void osRtxIdleThread (void) {
 
 \note
 `__WFE()` is not available in every Arm Cortex-M implementation. Check device manuals for availability. 
-The alternative using `__WFI()` has other issues, please take note of https://www.keil.com/support/docs/3591.htm as well.
+The alternative using `__WFI()` has other issues, explained in the Arm Knowledge Based Article [Low Power RTX Applications on Cortex-M Devices](https://developer.arm.com/documentation/ka002948/latest).
 
 ## Timeout Value {#CMSIS_RTOS_TimeOutValue}
 
@@ -459,17 +459,17 @@ To implement SVC functions in your Keil RTX5 project, you need to:
 \ifnot FuSaRTS
 ## Arm C library multi-threading protection {#cre_rtx_proj_clib_arm}
 
-RTX5 provides an interface to the [Arm C libraries](https://developer.arm.com/docs/dui0475/m/the-arm-c-and-c-libraries/multithreaded-support-in-arm-c-libraries)
+RTX5 provides an interface to the [Arm C libraries](https://developer.arm.com/documentation/100073)
 to ensure static data protection in a multi-threaded application.
 
-The Arm C libraries use static data to store errno, floating-point status word for software floating-point operations, a pointer to the base of the heap, and other variables. The Arm C micro-library (i.e. microlib) does not support protection for multi-threaded applications. See the [limitations and differences](https://developer.arm.com/docs/dui0475/m/the-arm-c-micro-library/differences-between-microlib-and-the-default-c-library) between microlib and the default C library.
+The Arm C libraries use static data to store errno, floating-point status word for software floating-point operations, a pointer to the base of the heap, and other variables. The Arm C micro-library (i.e. microlib) does not support protection for multi-threaded applications. See the [Differences between microlib and the default C library](https://developer.arm.com/documentation/100073/latest/The-Arm-C-Micro-library/Differences-between-microlib-and-the-default-C-library).
 
 By default, RTX5 uses the Arm C libraries multi-thread protection for:
 - all user threads if \ref threadConfig "Object specific Memory allocation" is enabled.
 - the number of threads defined by `OS_THREAD_LIBSPACE_NUM` if \ref threadConfig "Object specific Memory allocation" is disabled. The definition `OS_THREAD_LIBSPACE_NUM` defines the number of threads that can safely call Arm C library functions and can be found in `RTX_Config.h` file or can be defined on the global scope.
 
 The default, Arm C libraries use mutex functions to
-[protect shared resources from concurrent access](https://developer.arm.com/docs/dui0475/m/the-arm-c-and-c-libraries/multithreaded-support-in-arm-c-libraries/management-of-locks-in-multithreaded-applications). RTX5 implements these functions and uses resources from the \ref systemConfig "Global Dynamic Memory" to allocate mutex objects.
+[protect shared resources from concurrent access](https://developer.arm.com/documentation/100073/0621/The-Arm-C-and-C---Libraries/Multithreaded-support-in-Arm-C-libraries/Management-of-locks-in-multithreaded-applications). RTX5 implements these functions and uses resources from the \ref systemConfig "Global Dynamic Memory" to allocate mutex objects.
 
 \endif
 

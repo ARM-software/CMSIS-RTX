@@ -1,10 +1,10 @@
 # MISRA C:2012 Compliance {#misraCompliance5}
 
-The RTX5 C source files use [MISRA C:2012](http://www.misra.org.uk) guidelines as underlying coding standard.
+The RTX5 C source files use [MISRA C:2012](https://www.misra.org.uk) guidelines as underlying coding standard.
 
-For MISRA validation, <b><a class=el href="http://www.gimpel.com/" target="_blank">PC-lint</a></b> V9.00L is used with configuration for Arm Compiler V6.19.
+For MISRA validation, <b><a class=el href="https://pclintplus.com" target="_blank">PC-lint</a></b> V9.00L is used with configuration for Arm Compiler V6.19.
 The PC-Lint validation setup is part of the project file <b>.\\CMSIS\\RTOS2\\RTX\\Library\\ARM\\MDK\\RTX_CM.uvprojx</b> as shown below. 
-Refer to <b><a class=el href="https://www.keil.com/support/man/docs/uv4/uv4_ut_pclint_validation.htm" target="_blank">Setup for PC-Lint</a></b> for more information.
+Refer to <b><a class=el href="https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation" target="_blank">Setup for PC-Lint</a></b> for more information.
 
 ![Running PC-Lint within MDK - uVision](./images/PC-Lint.png)
 
@@ -100,7 +100,7 @@ All locations in the source code are marked with:
 
 In the RTX5 implementation the required pointer conversions are implemented in the header file rtx_lib.h with the following inline functions:
 
-```
+```c
 osRtxThread_t       *osRtxThreadId (osThread_t thread_id);
 osRtxTimer_t        *osRtxTimerId (osTimer_t timer_id);
 osRtxEventFlags_t   *osRtxEventFlagsId (osEventFlags_t ef_id);

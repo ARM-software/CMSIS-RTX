@@ -90,6 +90,7 @@ function preprocess() {
   # add custom steps here to be executed
   # before populating the pack build folder
   ./CMSIS/DoxyGen/gen_doc.sh
+  ./CMSIS/RTOS2/RTX/Library/fetch_libs.sh
   return 0
 }
 

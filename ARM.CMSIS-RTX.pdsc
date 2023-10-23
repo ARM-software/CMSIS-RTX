@@ -411,16 +411,16 @@
       <accept  condition="ARMv7-A Device"/>
       <require condition="Compiler"/>
       <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <require Cclass="CMSIS"  Cgroup="OS Tick"/>
       <require Cclass="Device" Cgroup="Startup"/>
-      <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
     <condition id="RTX5 NS">
       <description>Components required for RTX5 in Non-secure domain</description>
       <require condition="ARMv8-M Device with TZ Non-secure"/>
       <require condition="Compiler"/>
       <require Cclass="CMSIS"  Cgroup="CORE"/>
+      <require Cclass="CMSIS"  Cgroup="OS Tick"/>
       <require Cclass="Device" Cgroup="Startup"/>
-      <require Cclass="Device" Cgroup="OS Tick"/>
     </condition>
   </conditions>
 

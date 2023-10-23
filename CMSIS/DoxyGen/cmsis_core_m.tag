@@ -90,14 +90,59 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>MISRA.txt</name>
+    <name>core_device_files.md</name>
     <path>src/</path>
-    <filename>MISRA_8txt.html</filename>
+    <filename>core__device__files_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>Overview.txt</name>
+    <name>core_device_h.md</name>
     <path>src/</path>
-    <filename>Overview_8txt.html</filename>
+    <filename>core__device__h_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_files_in_packs.md</name>
+    <path>src/</path>
+    <filename>core__files__in__packs_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_linker_sct.md</name>
+    <path>src/</path>
+    <filename>core__linker__sct_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_partition_device_h.md</name>
+    <path>src/</path>
+    <filename>core__partition__device__h_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_startup_c.md</name>
+    <path>src/</path>
+    <filename>core__startup__c_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_std_files.md</name>
+    <path>src/</path>
+    <filename>core__std__files_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>core_system_files.md</name>
+    <path>src/</path>
+    <filename>core__system__files_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>history.md</name>
+    <path>src/</path>
+    <filename>history_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>mainpage.md</name>
+    <path>src/</path>
+    <filename>mainpage_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>misra.md</name>
+    <path>src/</path>
+    <filename>misra_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>Ref_cm4_simd.txt</name>
@@ -1060,9 +1105,9 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>Ref_CoreReg.txt</name>
+    <name>Ref_CoreRegister.txt</name>
     <path>src/</path>
-    <filename>Ref__CoreReg_8txt.html</filename>
+    <filename>Ref__CoreRegister_8txt.html</filename>
     <member kind="function">
       <type>uint32_t</type>
       <name>__get_CONTROL</name>
@@ -1296,6 +1341,214 @@
       <name>ITM_RxBuffer</name>
       <anchorfile>group__ITM__Debug__gr.html</anchorfile>
       <anchor>ga12e68e55a7badc271b948d6c7230b2a8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Ref_DevCaps.txt</name>
+    <path>src/</path>
+    <filename>Ref__DevCaps_8txt.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM0_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga905517438930a3f13cbc632e52990534</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM0PLUS_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga2b7180ed347a0e902c5765deb46e650e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM1_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga71248e1e7db00ff28754b6fd80807654</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM3_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gac6a3f185c4640e06443c18b3c8d93f53</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM4_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga45a97e4bb8b6ce7c334acc5f45ace3ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM7_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga8eb40c0d30a09a0ae388e56b21d8f22c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__SC000_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gaf293b060f9c15592d18e6b0b977194bf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__SC300_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga3029728b4fc64727b43bcfd853a7180b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM23_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga0f6c2b504ee424a7895fd7a420acdd0e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM33_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga178e7a57b608f3e20d1c0cf18a2c2ac3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM35P_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gadd339c07b13a763dda6e83f4c05122f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM55_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gaea2d16e963063038cde86cee33c4ef37</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__CM85_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gab1efd620a97f291faa1092e10e693bd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__ARMv8MBL_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga645c9be694a2d5b5a5b772a0102c727a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__ARMv8MML_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gadb7d425f5ad0389b0eb1c6a69f8eb214</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__ARMv81MML_REV</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga4dd7b69d473733e59cd99fc786174cd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__NVIC_PRIO_BITS</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gae3fe3587d5100c787e02102ce3944460</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__Vendor_SysTickConfig</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gab58771b4ec03f9bdddc84770f7c95c68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__VTOR_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gaddbae1a1b57539f398eb5546a17de8f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__MPU_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga4127d1b31aaf336fab3d7329d117f448</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__FPU_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gac1ba8a48ca926bddc88be9bfd7d42641</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__FPU_DP</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga2a528de57b6217f9fc9d4487d0db6328</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__DSP_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga165f052f5641898a02bb07096dc177b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__SAUREGION_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gadae9d54c744e525135b097c618bae3c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__PMU_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga1c6eba273d4d6189eee91c6cbe7ec289</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__PMU_NUM_EVENTCNT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga9d4c51d9ca3eae58635d1040a3fb5fd2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__ICACHE_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga3580fa1aeb7c2ed580904f8f70f8a919</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__DCACHE_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>ga11d3ac679daeb58d0cec0a4e6ca59010</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>__DTCM_PRESENT</name>
+      <anchorfile>group__device__config.html</anchorfile>
+      <anchor>gacbb998663708df6626abb09378303019</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3839,227 +4092,19 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>RegMap_CMSIS2ARM_Doc.txt</name>
+    <name>register_mapping.md</name>
     <path>src/</path>
-    <filename>RegMap__CMSIS2ARM__Doc_8txt.html</filename>
+    <filename>register__mapping_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>Template.txt</name>
+    <name>using.md</name>
     <path>src/</path>
-    <filename>Template_8txt.html</filename>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM0_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga905517438930a3f13cbc632e52990534</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM0PLUS_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga2b7180ed347a0e902c5765deb46e650e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM1_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga71248e1e7db00ff28754b6fd80807654</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM3_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gac6a3f185c4640e06443c18b3c8d93f53</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM4_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga45a97e4bb8b6ce7c334acc5f45ace3ba</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM7_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga8eb40c0d30a09a0ae388e56b21d8f22c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__SC000_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gaf293b060f9c15592d18e6b0b977194bf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__SC300_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga3029728b4fc64727b43bcfd853a7180b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM23_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga0f6c2b504ee424a7895fd7a420acdd0e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM33_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga178e7a57b608f3e20d1c0cf18a2c2ac3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM35P_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gadd339c07b13a763dda6e83f4c05122f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM55_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gaea2d16e963063038cde86cee33c4ef37</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__CM85_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gab1efd620a97f291faa1092e10e693bd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__ARMv8MBL_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga645c9be694a2d5b5a5b772a0102c727a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__ARMv8MML_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gadb7d425f5ad0389b0eb1c6a69f8eb214</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__ARMv81MML_REV</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga4dd7b69d473733e59cd99fc786174cd3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__NVIC_PRIO_BITS</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gae3fe3587d5100c787e02102ce3944460</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__Vendor_SysTickConfig</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gab58771b4ec03f9bdddc84770f7c95c68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__VTOR_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gaddbae1a1b57539f398eb5546a17de8f6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__MPU_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga4127d1b31aaf336fab3d7329d117f448</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__FPU_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gac1ba8a48ca926bddc88be9bfd7d42641</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__FPU_DP</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga2a528de57b6217f9fc9d4487d0db6328</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__DSP_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga165f052f5641898a02bb07096dc177b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__SAUREGION_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gadae9d54c744e525135b097c618bae3c4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__PMU_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga1c6eba273d4d6189eee91c6cbe7ec289</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__PMU_NUM_EVENTCNT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga9d4c51d9ca3eae58635d1040a3fb5fd2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__ICACHE_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga3580fa1aeb7c2ed580904f8f70f8a919</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__DCACHE_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>ga11d3ac679daeb58d0cec0a4e6ca59010</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>__DTCM_PRESENT</name>
-      <anchorfile>group__device__config.html</anchorfile>
-      <anchor>gacbb998663708df6626abb09378303019</anchor>
-      <arglist></arglist>
-    </member>
+    <filename>using_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>Using.txt</name>
+    <name>using_tz.md</name>
     <path>src/</path>
-    <filename>Using_8txt.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>UsingTrustZone.txt</name>
-    <path>src/</path>
-    <filename>UsingTrustZone_8txt.html</filename>
+    <filename>using__tz_8md.html</filename>
   </compound>
   <compound kind="union">
     <name>APSR_Type</name>
@@ -9598,34 +9643,27 @@
   </compound>
   <compound kind="page">
     <name>core_revisionHistory</name>
-    <title>Revision History of CMSIS-Core (Cortex-M)</title>
+    <title>Revision History</title>
     <filename>core_revisionHistory.html</filename>
+    <docanchor file="core_revisionHistory.html">md_src_history</docanchor>
   </compound>
   <compound kind="page">
     <name>using_pg</name>
-    <title>Using CMSIS in Embedded Applications</title>
+    <title>Using CMSIS-Core</title>
     <filename>using_pg.html</filename>
-  </compound>
-  <compound kind="page">
-    <name>using_CMSIS</name>
-    <title>Basic CMSIS Example</title>
-    <filename>using_CMSIS.html</filename>
-  </compound>
-  <compound kind="page">
-    <name>using_VTOR_pg</name>
-    <title>Using Interrupt Vector Remap</title>
-    <filename>using_VTOR_pg.html</filename>
-  </compound>
-  <compound kind="page">
-    <name>using_ARM_pg</name>
-    <title>Using CMSIS with generic Arm Processors</title>
-    <filename>using_ARM_pg.html</filename>
-    <docanchor file="using_ARM_pg.html" title="Create generic Libraries with CMSIS">using_ARM_Lib_sec</docanchor>
+    <docanchor file="using_pg.html">md_src_using</docanchor>
+    <docanchor file="using_pg.html" title="Usage in CMSIS-Packs">using_packs</docanchor>
+    <docanchor file="using_pg.html" title="Usage Examples">usage_examples</docanchor>
+    <docanchor file="using_pg.html" title="Basic CMSIS Example">using_basic</docanchor>
+    <docanchor file="using_pg.html" title="Using Interrupt Vector Remap">using_vtor</docanchor>
+    <docanchor file="using_pg.html" title="Use generic Arm Devices">using_arm</docanchor>
+    <docanchor file="using_pg.html" title="Create generic libraries">using_ARM_Lib_sec</docanchor>
   </compound>
   <compound kind="page">
     <name>using_TrustZone_pg</name>
     <title>Using TrustZone for Armv8-M</title>
     <filename>using_TrustZone_pg.html</filename>
+    <docanchor file="using_TrustZone_pg.html">md_src_using_tz</docanchor>
     <docanchor file="using_TrustZone_pg.html" title="Simplified Use Case with TrustZone">useCase_TrustZone</docanchor>
     <docanchor file="using_TrustZone_pg.html">SimpleUseCase</docanchor>
     <docanchor file="using_TrustZone_pg.html" title="Program Examples">Example_TrustZone</docanchor>
@@ -9637,53 +9675,59 @@
     <docanchor file="using_TrustZone_pg.html" title="RTOS Thread Context Management">RTOS_TrustZone</docanchor>
   </compound>
   <compound kind="page">
-    <name>templates_pg</name>
-    <title>CMSIS-Core Device Templates</title>
-    <filename>templates_pg.html</filename>
-    <docanchor file="templates_pg.html" title="CMSIS-Core Processor Files">CMSIS_Processor_files</docanchor>
-    <docanchor file="templates_pg.html" title="Device Examples">device_examples</docanchor>
-    <docanchor file="templates_pg.html" title="Template Files">template_files_sec</docanchor>
+    <name>cmsis_core_files</name>
+    <title>CMSIS-Core Files</title>
+    <filename>cmsis_core_files.html</filename>
+    <docanchor file="cmsis_core_files.html">md_src_core_std_files</docanchor>
+    <docanchor file="cmsis_core_files.html" title="CMSIS-Core Standard Files">cmsis_standard_files</docanchor>
+    <docanchor file="cmsis_core_files.html" title="CMSIS-Core Processor Files">cmsis_processor_files</docanchor>
+    <docanchor file="cmsis_core_files.html" title="CMSIS-Core Compiler Files">cmsis_compiler_files</docanchor>
+    <docanchor file="cmsis_core_files.html" title="CMSIS-Core Architecture Feature Files">cmsis_feature_files</docanchor>
+    <docanchor file="cmsis_core_files.html" title="CMSIS Version and Processor Information">core_version_sect</docanchor>
   </compound>
   <compound kind="page">
-    <name>startup_c_pg</name>
-    <title>Startup File startup_&amp;lt;device&amp;gt;.c</title>
-    <filename>startup_c_pg.html</filename>
-    <docanchor file="startup_c_pg.html" title="startup_Device.c Template File">startup_c_sec</docanchor>
-    <docanchor file="startup_c_pg.html" title="startup_Device.c Template File (Armv8-M/v8.1-M)">startup_c_sec_v8</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>startup_s_pg</name>
-    <title>Startup File startup_&amp;lt;device&amp;gt;.s (deprecated)</title>
-    <filename>startup_s_pg.html</filename>
-    <docanchor file="startup_s_pg.html" title="startup_Device.S Template File">startup_s_sec</docanchor>
-  </compound>
-  <compound kind="page">
-    <name>linker_sct_pg</name>
-    <title>Scatter-Loading description file &amp;lt;device&amp;gt;_ac&lt;5|6&gt;.sct</title>
-    <filename>linker_sct_pg.html</filename>
-    <docanchor file="linker_sct_pg.html" title="Preprocessor command">linker_sct_preproc_sec</docanchor>
+    <name>cmsis_device_files</name>
+    <title>CMSIS-Core Device Files</title>
+    <filename>cmsis_device_files.html</filename>
+    <docanchor file="cmsis_device_files.html">md_src_core_device_files</docanchor>
+    <docanchor file="cmsis_device_files.html" title="Device Template Files">cmsis_template_files</docanchor>
   </compound>
   <compound kind="page">
     <name>system_c_pg</name>
-    <title>System Configuration Files system_&lt;device&gt;.c and system_&lt;device&gt;.h</title>
+    <title>System Configuration Files system_&lt;Device&gt;.c and system_&lt;Device&gt;.h</title>
     <filename>system_c_pg.html</filename>
-    <docanchor file="system_c_pg.html" title="system_Device.c Template File">system_Device_sec</docanchor>
-    <docanchor file="system_c_pg.html" title="system_Device.h Template File">system_Device_h_sec</docanchor>
+    <docanchor file="system_c_pg.html">md_src_core_system_files</docanchor>
+    <docanchor file="system_c_pg.html" title="system_Device Template Files">system_Device_sec</docanchor>
   </compound>
   <compound kind="page">
     <name>device_h_pg</name>
-    <title>Device Header File &lt;device.h&gt;</title>
+    <title>Device Header File &lt;Device.h&gt;</title>
     <filename>device_h_pg.html</filename>
+    <docanchor file="device_h_pg.html">md_src_core_device_h</docanchor>
     <docanchor file="device_h_pg.html" title="Interrupt Number Definition">interrupt_number_sec</docanchor>
     <docanchor file="device_h_pg.html" title="Configuration of the Processor and Core Peripherals">core_config_sect</docanchor>
-    <docanchor file="device_h_pg.html" title="CMSIS Version and Processor Information">core_version_sect</docanchor>
     <docanchor file="device_h_pg.html" title="Device Peripheral Access Layer">device_access</docanchor>
     <docanchor file="device_h_pg.html" title="Device.h Template File">device_h_sec</docanchor>
   </compound>
   <compound kind="page">
+    <name>startup_c_pg</name>
+    <title>Startup File startup_&amp;lt;Device&amp;gt;.c</title>
+    <filename>startup_c_pg.html</filename>
+    <docanchor file="startup_c_pg.html">md_src_core_startup_c</docanchor>
+    <docanchor file="startup_c_pg.html" title="startup_Device.c Template File">startup_c_sec</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>linker_sct_pg</name>
+    <title>Scatter-Loading description file &amp;lt;device&amp;gt;_ac6.sct</title>
+    <filename>linker_sct_pg.html</filename>
+    <docanchor file="linker_sct_pg.html">md_src_core_linker_sct</docanchor>
+    <docanchor file="linker_sct_pg.html" title="Preprocessor command">linker_sct_preproc_sec</docanchor>
+  </compound>
+  <compound kind="page">
     <name>partition_h_pg</name>
-    <title>TrustZone setup: partition_&lt;device&gt;.h</title>
+    <title>TrustZone setup: partition_&lt;Device&gt;.h</title>
     <filename>partition_h_pg.html</filename>
+    <docanchor file="partition_h_pg.html">md_src_core_partition_device_h</docanchor>
     <docanchor file="partition_h_pg.html" title="SAU CTRL register settings">sau_ctrlregister_sec</docanchor>
     <docanchor file="partition_h_pg.html" title="Configuration of Sleep and Exception behaviour">sau_sleepexception_sec</docanchor>
     <docanchor file="partition_h_pg.html" title="Configuration of Floating Point Unit">sau_fpu_sec</docanchor>
@@ -9692,22 +9736,32 @@
     <docanchor file="partition_h_pg.html" title="Configuration of Interrupt Target settings">sau_interrupttarget_sec</docanchor>
   </compound>
   <compound kind="page">
+    <name>cmsis_files_dfps</name>
+    <title>Delivery in CMSIS-Packs</title>
+    <filename>cmsis_files_dfps.html</filename>
+    <docanchor file="cmsis_files_dfps.html">md_src_core_files_in_packs</docanchor>
+    <docanchor file="cmsis_files_dfps.html" title="Device Examples">device_examples</docanchor>
+  </compound>
+  <compound kind="page">
     <name>coreMISRA_Exceptions_pg</name>
     <title>MISRA-C Deviations</title>
     <filename>coreMISRA_Exceptions_pg.html</filename>
+    <docanchor file="coreMISRA_Exceptions_pg.html">md_src_misra</docanchor>
   </compound>
   <compound kind="page">
     <name>regMap_pg</name>
     <title>Register Mapping</title>
     <filename>regMap_pg.html</filename>
+    <docanchor file="regMap_pg.html">md_src_register_mapping</docanchor>
   </compound>
   <compound kind="page">
     <name>index</name>
     <title>Overview</title>
     <filename>index.html</filename>
+    <docanchor file="index.html">mainpage</docanchor>
     <docanchor file="index.html" title="Processor Support">ref_v6-v8M</docanchor>
-    <docanchor file="index.html" title="Cortex-M Generic User Guides">ref_man_sec</docanchor>
-    <docanchor file="index.html" title="Armv8-M and Armv8.1-M Architecture">ARMv8M</docanchor>
+    <docanchor file="index.html">ref_man_sec</docanchor>
+    <docanchor file="index.html">ARMv8M</docanchor>
     <docanchor file="index.html" title="Tested and Verified Toolchains">tested_tools_sec</docanchor>
   </compound>
 </tagfile>

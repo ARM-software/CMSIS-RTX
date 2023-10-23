@@ -21,4 +21,5 @@ cpu0.LOCK_NS_MPU=0                                    # (bool  , init-time) defa
 cpu0.CPIF=1                                           # (bool  , init-time) default = '1'      : Specifies whether the external coprocessor interface is included
 cpu0.SECEXT=1                                         # (bool  , init-time) default = '1'      : Whether the ARMv8-M Security Extensions are included
 fvp_mps2.DISABLE_GATING=1                             # (bool  , init-time) default = '0'      : Disable Memory gating logic
+fvp_mps2.mps2_visualisation.disable-visualisation=1   # (bool  , init-time) default = '0'      : Enable/disable visualisation
 #----------------------------------------------------------------------------------------------

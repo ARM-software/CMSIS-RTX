@@ -37,6 +37,7 @@ File/Directory                        | Content
 &emsp;&emsp;&nbsp; ┣ 📂 Template      | User code templates for creating application projects with CMSIS-RTX
 &emsp;&emsp;&nbsp; ┗ 📄 RTX5.scvd     | SCVD file for RTOS-aware debugging with [Component Viewer and Event Recorder](https://arm-software.github.io/CMSIS-View/latest/index.html)
 
+See [CMSIS Documentation](https://arm-software.github.io/CMSIS_6/) for an overview of CMSIS software components, tools and specifications.
 
 ## License {#rtx_license}
 

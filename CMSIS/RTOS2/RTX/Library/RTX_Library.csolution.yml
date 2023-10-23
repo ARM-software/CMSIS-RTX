@@ -37,7 +37,7 @@ solution:
     - type: ARMv81MML_FP
       device: ARMCM55
       processor:
-        fpu: on
+        # fpu: on
         trustzone: off
     - type: ARMv8MBL_NS
       device: ARMCM23
@@ -69,7 +69,7 @@ solution:
     - type: ARMv81MML_FP_NS
       device: ARMCM55
       processor:
-        fpu: on
+        # fpu: on
         trustzone: non-secure
       define:
         - DOMAIN_NS: 1

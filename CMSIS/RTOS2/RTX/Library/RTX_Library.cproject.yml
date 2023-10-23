@@ -3,7 +3,7 @@ project:
   packs:
     - pack: ARM::CMSIS@>=6.0.0-0
 
-  language-C: c99
+  # language-C: c99
 
   define:
     - EVR_RTX_DISABLE

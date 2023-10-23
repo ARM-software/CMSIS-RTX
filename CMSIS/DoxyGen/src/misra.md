@@ -3,7 +3,7 @@
 The RTX5 C source files use [MISRA C:2012](https://www.misra.org.uk/) guidelines as underlying coding standard.
 
 For MISRA validation, [PC-lint](https://pclintplus.com) V9.00L is used with configuration for Arm Compiler V6.19.
-The PC-Lint validation setup is part of the project file **.\\CMSIS\\RTOS2\\RTX\\Library\\ARM\\MDK\\RTX_CM.uvprojx** as shown below.
+The PC-Lint validation setup is part of the project file `./CMSIS/RTOS2/RTX/Library/ARM/MDK/RTX_CM.uvprojx` as shown below.
 Refer to [Setup for PC-Lint](https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation) for more information.
 
 ![Running PC-Lint within MDK - uVision](./images/PC-Lint.png)

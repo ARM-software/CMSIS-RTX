@@ -225,7 +225,7 @@ thread1_id = osThreadNew(name_Of_C_Function, (uint32_t)startupParameter,&threadA
 
 ### Exercise 2 - Creating and Managing Threads {#rtos2_tutorial_ex2}
 
-Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer)":
+Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 02 Threads** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
@@ -1055,10 +1055,10 @@ memory_block_t *led_data;
 
 and then populate it with data:
 ```c
-	led_data->LED0 = 0;
-	led_data->LED1 = 1;
-	led_data->LED2 = 2;
-	led_data->LED3 = 3;
+    led_data->LED0 = 0;
+    led_data->LED1 = 1;
+    led_data->LED2 = 2;
+    led_data->LED3 = 3;
 ```
 
 It is then possible to place the pointer to the memory block in a message queue:

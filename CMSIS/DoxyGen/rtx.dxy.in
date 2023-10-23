@@ -1754,7 +1754,7 @@ TREEVIEW_WIDTH         = 250
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-EXT_LINKS_IN_WINDOW    = NO
+EXT_LINKS_IN_WINDOW    = YES
 
 # If the OBFUSCATE_EMAILS tag is set to YES, doxygen will obfuscate email
 # addresses.

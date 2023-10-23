@@ -124,13 +124,15 @@ RTX does not implement any confidence test for memory validation. This should be
 
 ## Stack Requirements {#pStackRequirements}
 
-Keil RTX v5 kernel functions are executed in handler mode (using PendSV/SysTick/SVC) and the tables below lists the maximum stack requirements for the Main Stack (MSP) that the user should consider.
+Keil RTX v5 kernel functions are executed in handler mode (using PendSV/SysTick/SVC) and the table below lists the maximum stack requirements for the Main Stack (MSP) that the user should consider.
 
-The stack for the \ref osKernelStart function is referred as "Startup" and RTX v5 uses 32 bytes (with Arm Compiler). However the user should also consider additional stack that might be allocated by the 'main' function of the embedded application. The following picture shows a worst-case memory allocation of the Main Stack.
+The stack for the \ref osKernelStart function is referred as "Startup" and RTX v5 uses 32 bytes (with Arm Compiler). However the user should also consider additional stack that might be allocated by the `main` function of the embedded application. The following picture shows a worst-case memory allocation of the Main Stack.
 
 ![Main Stack usage of RTX v5 applications](./images/KernelStackUsage.png)
 
-The stack requirements depend on the compiler and the optimization level.  RTX v5 supports event annotations and this configuration impacts also the stack requirement.
+The stack requirements depend on the compiler and the optimization level. RTX v5 supports event annotations and this configuration impacts also the stack requirement.
+
+Application note [KAN316: Determining the stack usage of applications](https://developer.arm.com/documentation/kan316/latest/) describes the stack usage in RTX applications , explains how to analyze actual stack consumption and find the optimal setting.
 
 \ifnot FuSaRTS
 **Arm Compiler ARMCC V6.10**: Main Stack requirements for PendSV/SysTick/SVC
@@ -145,8 +147,7 @@ Optimization         | RTX Kernel  | RTX Kernel + Event Recorder
 
 ## Control Block Sizes {#pControlBlockSizes}
 
-Keil RTX v5 specific control block definitions (including sizes) as well as memory pool and message queue memory requirements
-are defined in the header file **rtx_os.h**:
+Keil RTX v5 specific control block definitions (including sizes) as well as memory pool and message queue memory requirements are defined in the header file **rtx_os.h**:
 
 If you provide memory for the RTOS objects, you need to know the size that is required for each object control block.
 The memory of the control block is provided by the parameter `attr` of the related`osXxxxNew` function.

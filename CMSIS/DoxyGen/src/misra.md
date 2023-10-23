@@ -1,6 +1,6 @@
 # MISRA C:2012 Compliance {#misraCompliance5}
 
-The RTX5 C source files use [MISRA C:2012](https://www.misra.org.uk/) guidelines as underlying coding standard.
+The RTX5 C source files use [MISRA C:2012](https://misra.org.uk/) guidelines as underlying coding standard.
 
 For MISRA validation, [PC-lint](https://pclintplus.com) V9.00L is used with configuration for Arm Compiler V6.19.
 The PC-Lint validation setup is part of the project file `./CMSIS/RTOS2/RTX/Library/ARM/MDK/RTX_CM.uvprojx` as shown below.

@@ -32,7 +32,6 @@ PACK_DIRS="
   CMSIS/Documentation
   CMSIS/RTOS2/RTX/Config
   CMSIS/RTOS2/RTX/Examples
-  CMSIS/RTOS2/RTX/Examples_IAR
   CMSIS/RTOS2/RTX/Include
   CMSIS/RTOS2/RTX/Library
   CMSIS/RTOS2/RTX/Source

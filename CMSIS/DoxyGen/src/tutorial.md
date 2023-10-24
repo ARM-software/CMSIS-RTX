@@ -36,7 +36,8 @@ open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Crea
 - On the **Packs** tab, download and install the latest **Keil:STM32F1xx_DFP** pack and the latest
   **Hitex:CMSIS_RTOS2_Turorial** pack.
 
-\note It is assumed that you are familiar with Arm Keil MDK and have basic 'C' programming knowledge.
+> **Note**
+> - It is assumed that you are familiar with Arm Keil MDK and have basic 'C' programming knowledge.
 
 
 ## First Steps with Keil RTX5 {#rtos2_tutorial_first_steps}

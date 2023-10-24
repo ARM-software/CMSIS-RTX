@@ -61,8 +61,8 @@ The RTX implements interfaces to the processor hardware in following files:
  - **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
  - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
 
-\note
- - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
+> **Note**
+> - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
 
 \if ARMv8M 
 ###  Cortex-M3/M4/M7/M33/M35P/M55/M85 device {#tpCortexM3_M4_M7_M33_M35P}
@@ -91,8 +91,8 @@ The interface files to the processor hardware are:
  - **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
  - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
 
-\note
- - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
+> **Note**
+> - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
 
 \if ARMCA 
 ### Cortex-A5/A7/A9 target processor {#tpCortexA5_A7_A9}
@@ -111,8 +111,9 @@ The interface files to the processor hardware are:
  - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the timer peripheral.
  - **irq_ctrl.h** is the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html) that defines the interface functions to the interrupt controller.
 
-\note
- - The CMSIS-Core variable `SystemCoreClock` is used by RTX to configure the timer peripheral.
+> **Note**
+> - The CMSIS-Core variable `SystemCoreClock` is used by RTX to configure the timer peripheral.
+
 \endif
 
 ### Device Memory Requirements {#rMemory}

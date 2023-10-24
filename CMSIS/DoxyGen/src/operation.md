@@ -181,8 +181,8 @@ int main (void) {
 
 For Cortex-M processors without floating point unit the thread context requires 64 bytes on the local stack.
 
-\note For Cortex-M4/M7 with FP the thread context requires 200 bytes on the local stack. For these devices the default stack
-space should be increased to a minimum of 300 bytes.
+> **Note**
+> - For Cortex-M4/M7 with FP the thread context requires 200 bytes on the local stack. For these devices the default stack space should be increased to a minimum of 300 bytes.
 
 Each thread is provided with a separate stack that holds the thread context and stack space for automatic variables and
 return addresses for function call nesting. The stack sizes of RTX threads are flexibly configurable as explained in the
@@ -209,8 +209,8 @@ void osRtxIdleThread (void) {
 }
 ```
 
-\note
-`__WFE()` is not available in every Cortex-M implementation. Check device manuals for availability.
+> **Note**
+> - `__WFE()` is not available in every Cortex-M implementation. Check device manuals for availability.
 
 
 ## RTX Kernel Timer Tick {#kernelTimer}
@@ -220,9 +220,8 @@ RTX uses the generic \ref CMSIS_RTOS_TickAPI to configure and control its period
 To use an alternative timer as the Kernel Tick Timer one simply needs to implement a custom version
 of the \ref CMSIS_RTOS_TickAPI.
 
-\note The OS Tick implementation provided must assure that the used timer interrupt uses the same (low) priority group 
-as the service interrupts, i.e. interrupts used by RTX must not preempt each other. Refer to the \ref rtx_scheduler section
-for more details.
+> **Note**
+> - The OS Tick implementation provided must assure that the used timer interrupt uses the same (low) priority group as the service interrupts, i.e. interrupts used by RTX must not preempt each other. Refer to the \ref rtx_scheduler section for more details.
 
 ### Tick-less Low-Power Operation {#TickLess}
 
@@ -304,8 +303,8 @@ void osRtxIdleThread (void) {
 }
 ```
 
-\note
-`__WFE()` is not available in every Arm Cortex-M implementation. Check device manuals for availability. 
+> **Note**
+> - `__WFE()` is not available in every Arm Cortex-M implementation. Check device manuals for availability. 
 The alternative using `__WFI()` has other issues, explained in the Arm Knowledge Based Article [Low Power RTX Applications on Cortex-M Devices](https://developer.arm.com/documentation/ka002948/latest).
 
 ## Timeout Value {#CMSIS_RTOS_TimeOutValue}
@@ -376,10 +375,9 @@ Functions that cannot be called from an ISR are verifying the interrupt status a
 case they are called from an ISR context. In some implementations, this condition might be caught using the HARD_FAULT
 vector.
 
-\note
-- RTX does not disable interrupts during critical sections for Armv7-M and Armv8-M architecture based devices, but rather
-  uses atomic operations.
-- Therefore, there is no need to configure interrupt priorities of interrupt service routines that use RTOS functions.
+> **Note**
+> - RTX does not disable interrupts during critical sections for Armv7-M and Armv8-M architecture based devices, but rather uses atomic operations.
+> - Therefore, there is no need to configure interrupt priorities of interrupt service routines that use RTOS functions.
 
 
 ## SVC Functions {#CMSIS_RTOS_svcFunctions}
@@ -451,10 +449,10 @@ To implement SVC functions in your Keil RTX5 project, you need to:
    uint32_t atomic_inc32 (uint32_t *mem) __svc(1);
 ```
 
-\note
-- The SVC function \token{0} is reserved for the Keil RTX5 kernel.
-- Do not leave gaps when numbering SVC functions. They must occupy a continuous range of numbers starting from 1.
-- SVC functions can still be interrupted.
+> **Note**
+> - The SVC function \token{0} is reserved for the Keil RTX5 kernel.
+> - Do not leave gaps when numbering SVC functions. They must occupy a continuous range of numbers starting from 1.
+> - SVC functions can still be interrupted.
 
 \ifnot FuSaRTS
 ## Arm C library multi-threading protection {#cre_rtx_proj_clib_arm}

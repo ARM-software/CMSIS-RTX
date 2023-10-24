@@ -16,8 +16,7 @@
      ┗ 📂 RTOS2                  CGroup RTOS2 files
         ┣ 📂 RTX                 RTX implementation
            ┣ 📂 Config           Configuration file templates
-           ┣ 📂 Examples         MDK uVision Example projects
-           ┣ 📂 Examples_IAR     IAR Embedded Workbench Example projects
+           ┣ 📂 Examples         Example projects (MDK uVision and CMSIS-Toolbox)
            ┣ 📂 Include          Public header files of RTX software component
            ┣ 📂 Library          Project files to build pre-built libraries
            ┣ 📂 Source           Private header and source files of RTX software component

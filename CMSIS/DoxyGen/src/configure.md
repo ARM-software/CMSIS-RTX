@@ -179,30 +179,25 @@ The RTX5 kernel uses a separate stack space for each thread and provides two met
 
 \ref osThreadAttr_t is a parameter of the function \ref osThreadNew.
 
-\note
-Before the RTX kernel is started by the \ref osKernelStart() function, the main stack defined in startup_<i>device</i>.s is
-used. The main stack is also used for:
- - user application calls to RTX functions in \b thread \b mode using SVC calls
- - interrupt/exception handlers.
- 
+> **Note**
+> - Before the RTX kernel is started by the \ref osKernelStart() function, the main stack defined in startup_<i>device</i>.s is used. The main stack is also used for:
+>  - user application calls to RTX functions in \b thread \b mode using SVC calls
+>  - interrupt/exception handlers.
+
 \subsection threadConfig_ovfcheck Stack Overflow Checking
-RTX5 implements a software stack overflow checking that traps stack overruns. Stack is used for return addresses and
-automatic variables. Extensive usage or incorrect stack configuration may cause a stack overflow. Software stack overflow
-checking is controlled with the define \c OS_STACK_CHECK.
+RTX5 implements a software stack overflow checking that traps stack overruns. Stack is used for return addresses and automatic variables. Extensive usage or incorrect stack configuration may cause a stack overflow. Software stack overflow checking is controlled with the define \c OS_STACK_CHECK.
  
-If a stack overflow is detected, the function \ref osRtxErrorNotify with error code \ref osRtxErrorStackOverflow is called. By
-default, this function is implemented as an endless loop and will practically stop code execution.
+If a stack overflow is detected, the function \ref osRtxErrorNotify with error code \ref osRtxErrorStackOverflow is called. By default, this function is implemented as an endless loop and will practically stop code execution.
 
 \subsection threadConfig_watermark Stack Usage Watermark
-RTX5 initializes thread stack with a watermark pattern (0xCC) when a thread is created. This allows the debugger to determine
-the maximum stack usage for each thread. It is typically used during development but removed from the final application.
-Stack usage watermark is controlled with the define \c OS_STACK_WATERMARK.
-  
+
+RTX5 initializes thread stack with a watermark pattern (0xCC) when a thread is created. This allows the debugger to determine the maximum stack usage for each thread. It is typically used during development but removed from the final application. Stack usage watermark is controlled with the define \c OS_STACK_WATERMARK.
+
 Enabling this option significantly increases the execution time of \ref osThreadNew (depends on thread stack size).
- 
+
 \subsection threadConfig_procmode Processor Mode for Thread Execution
-RTX5 allows to execute threads in unprivileged or privileged processor mode. The processor mode is configured for all threads with the
-define \c OS_PRIVILEGE_MODE.
+
+RTX5 allows to execute threads in unprivileged or privileged processor mode. The processor mode is configured for all threads with the define \c OS_PRIVILEGE_MODE.
 
 It is also possible to specify the privilege level for individual threads. For that use \ref osThreadUnprivileged and \ref osThreadPrivileged defines in the \e attr_bits of \ref osThreadAttr_t argument when creating a thread with \ref osThreadNew.
  
@@ -347,9 +342,9 @@ Name                  | \#define        | Description
 Global Initialization | \c OS_EVR_INIT  | Initialize Event Recorder during \ref osKernelInitialize.
 Start Recording       | \c OS_EVR_START | Start event recording after initialization.
 
-\note
-- If <b>Global Initialization (\c OS_EVR_INIT)</b> is set, an explicit call to \c EventRecorderInitialize is not required.
-- If <b>Start Recording (\c OS_EVR_START)</b> is set, an explicit call to \c EventRecorderStart is not required. You may call the function \c EventRecorderStop to stop recording.
+> **Note**
+> - If **Global Initialization** (`OS_EVR_INIT`) is set, an explicit call to \ref EventRecorderInitialize is not required.
+> - If **Start Recording** (`OS_EVR_START`) is set, an explicit call to \ref EventRecorderStart is not required. You may call the function \ref EventRecorderStop to stop recording.
 
 
 <b>Global Event Filter Setup</b>
@@ -367,8 +362,8 @@ API function call events  | \c OS_EVR_LEVEL  | Enable API function call events.
 Operation events          | \c OS_EVR_LEVEL  | Enable operation events.
 Detailed operation events | \c OS_EVR_LEVEL  | Enable detailed operation events.
 
-\note
-You may disable event recording for specific software components by calling the function \c EventRecorderDisable.
+> **Note**
+> - You may disable event recording for specific software components by calling the function \c EventRecorderDisable.
 
 <b>RTOS Event Filter Setup</b>
 
@@ -422,9 +417,8 @@ Semaphore         | \c OS_EVR_SEMAPHORE      | Enables Semaphore events generati
 Memory Pool       | \c OS_EVR_MEMPOOL        | Enables Memory Pool events generation.
 Message Queue     | \c OS_EVR_MSGQUEUE       | Enables Message Queue events generation.
 
-\note
-If event generation for a component is disabled, the code that generates the related events is not included. Thus, \ref evtrecConfigGlobIni "filters" for this
-component will have no effect and the debugger is unable to display any events for the related component group.
+> **Note**
+> - If event generation for a component is disabled, the code that generates the related events is not included. Thus, \ref evtrecConfigGlobIni "filters" for this component will have no effect and the debugger is unable to display any events for the related component group.
 
 
 \subsection systemConfig_event_recording Manual event configuration

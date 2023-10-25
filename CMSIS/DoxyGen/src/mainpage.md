@@ -29,8 +29,7 @@ File/Directory                        | Content
  ┗ 📂 RTOS2                           | RTOS implementation files
 &emsp;&nbsp; ┣ 📂 RTX                 | Directory with RTX specific files.
 &emsp;&emsp;&nbsp; ┣ 📂 Config        | RTX configuration files **RTX_Config.h** and **RTX_Config.c**
-&emsp;&emsp;&nbsp; ┣ 📂 Examples      | Keil MDK uVision example projects
-&emsp;&emsp;&nbsp; ┣ 📂 Examples_IAR  | IAR Embedded Workbench Example projects
+&emsp;&emsp;&nbsp; ┣ 📂 Examples      | Example projects (MDK uVision and CMSIS-Toolbox)
 &emsp;&emsp;&nbsp; ┣ 📂 Include       | Public header files of RTX software component
 &emsp;&emsp;&nbsp; ┣ 📂 Library       | Project files to build pre-built libraries
 &emsp;&emsp;&nbsp; ┣ 📂 Source        | Private header and source files of RTX software component

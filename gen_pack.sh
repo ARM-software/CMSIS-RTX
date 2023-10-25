@@ -68,7 +68,9 @@ PACK_DELETE_FILES="
 # Specify additional dependencies for packchk
 # Default: empty
 #
-PACKCHK_DEPS=" "
+PACKCHK_DEPS="
+  ARM.CMSIS.pdsc
+"
 
 # Optional: restrict fallback modes for changelog generation
 # Default: full

@@ -1,0 +1,26 @@
+project:
+
+  processor:
+    trustzone: secure
+
+  packs:
+    - pack: ARM::Cortex_DFP@>=1.0.0-dev0
+    - pack: ARM::CMSIS@>=6.0.0-dev0
+
+  components:
+    - component: ARM::Device:Startup&C Startup
+    - component: ARM::CMSIS:CORE
+
+  groups:
+    - group: Documentation
+      files:
+        - file: Abstract.txt
+    - group: Secure Code
+      files:
+        - file: main_s.c
+    - group: Interface
+      files:
+        - file: interface.c
+
+  linker:
+    - script: RTE/Device/ARMCM33/ARMCM33_ac6_s.sct

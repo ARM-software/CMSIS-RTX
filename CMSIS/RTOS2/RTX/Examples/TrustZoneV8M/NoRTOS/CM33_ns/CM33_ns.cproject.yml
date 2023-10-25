@@ -1,0 +1,24 @@
+project:
+
+  processor:
+    trustzone: non-secure
+
+  packs:
+    - pack: ARM::Cortex_DFP@>=1.0.0-dev0
+    - pack: ARM::CMSIS@>=6.0.0-dev0
+
+  components:
+    - component: ARM::Device:Startup&C Startup
+    - component: ARM::CMSIS:CORE
+
+  groups:
+    - group: Non-secure Code
+      files:
+        - file: main_ns.c
+    - group: CMSE Library
+      files:
+        - file: ../CM33_s/interface.h
+        - file: $cmse-lib(CM33_s)$
+
+  linker:
+    - script: RTE/Device/ARMCM33/ARMCM33_AC6.sct

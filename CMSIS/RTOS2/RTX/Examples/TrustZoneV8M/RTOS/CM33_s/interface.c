@@ -37,13 +37,13 @@ int func1(int x) __attribute__((cmse_nonsecure_entry)) {
 
 /* Non-secure callable (entry) function, calling a non-secure callback function */
 int func2(funcptr callback, int x)  __attribute__((cmse_nonsecure_entry))	{
-	funcptr_NS callback_NS;               // non-secure callback function pointer
-	int y;
-	
-	/* return function pointer with cleared LSB */
+  funcptr_NS callback_NS;               // non-secure callback function pointer
+  int y;
+
+  /* return function pointer with cleared LSB */
   callback_NS = (funcptr_NS)cmse_nsfptr_create(callback);
-	
-	y = callback_NS (x+1);
-	
-	return (y+2);
+
+  y = callback_NS (x+1);
+
+  return (y+2);
 }

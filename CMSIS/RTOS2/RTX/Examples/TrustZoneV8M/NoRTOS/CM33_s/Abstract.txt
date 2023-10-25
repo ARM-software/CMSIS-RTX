@@ -1,9 +1,9 @@
-This ARM Cortex-M33 secure/non-secure example project that
-shows the setup for TrustZone for ARMv8-M applications.
-The application uses CMSIS and can be executed on a Fixed
+This ARM Cortex-M33 secure/non-secure example project that 
+shows the setup for TrustZone for ARMv8-M applications. 
+The application uses CMSIS and can be executed on a Fixed 
 Virtual Platform (FVP) simulation model.
 
-The application demonstrates function calls between secure
+The application demonstrates function calls between secure 
 and non-secure state.
 
 Secure application:
@@ -14,5 +14,5 @@ Non-secure application:
  - Calls a secure function that call back to a non-secure function.
 
 Output:
-Variables used in this application can be viewed in the Debugger
+Variables used in this application can be viewed in the Debugger 
 Watch window.

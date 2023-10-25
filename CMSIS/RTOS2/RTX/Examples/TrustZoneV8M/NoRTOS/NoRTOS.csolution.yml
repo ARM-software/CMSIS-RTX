@@ -1,0 +1,15 @@
+solution:
+  created-for: CMSIS-Toolbox@2.0.0
+
+  cdefault:
+
+  target-types:
+    - type: FVP
+      device: ARMCM33
+
+  optimize: none
+  debug: on
+
+  projects:
+    - project: CM33_s/CM33_s.cproject.yml
+    - project: CM33_ns/CM33_ns.cproject.yml

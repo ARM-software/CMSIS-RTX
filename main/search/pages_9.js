@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['theory_20of_20operation_0',['Theory of Operation',['../theory_of_operation.html',1,'']]],
-  ['thread_20watchdogs_1',['Thread Watchdogs',['https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/rtos_process_isolation_thread_wdt.html',1,'']]],
-  ['trustzone_20setup_3a_20partition_5f_3cdevice_3e_2eh_2',['TrustZone setup: partition_&lt;device&gt;.h',['https://arm-software.github.io/CMSIS_6/latest/Core/html/partition_h_pg.html',1,'']]],
-  ['tutorial_3',['Tutorial',['../rtos2_tutorial.html',1,'']]]
+  ['using_20cmsis_2dcore_0',['Using CMSIS-Core',['https://arm-software.github.io/CMSIS_6/main/Core/html/using_pg.html',0,'']]],
+  ['using_20cmsis_2drtos2_20interface_1',['Using CMSIS-RTOS2 Interface',['https://arm-software.github.io/CMSIS_6/main/RTOS2/html/usingOS2.html',0,'']]],
+  ['using_20trustzone_20for_20armv8_2dm_2',['Using TrustZone for Armv8-M',['https://arm-software.github.io/CMSIS_6/main/Core/html/using_TrustZone_pg.html',0,'']]]
 ];

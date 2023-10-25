@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['device_20header_20file_20_3cdevice_2eh_3e_0',['Device Header File &lt;device.h&gt;',['https://arm-software.github.io/CMSIS_6/latest/Core/html/device_h_pg.html',1,'']]]
+  ['fault_20handling_0',['Fault Handling',['https://arm-software.github.io/CMSIS_6/main/RTOS2/html/rtos_process_isolation_faults.html',0,'']]]
 ];

@@ -41,7 +41,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 55px;">
-  <td id="projectlogo" style="padding: 1.5em;"><img alt="Logo" src="cmsis_logo_white_small.png"/></td>
+  <td id="projectlogo" style="padding: 1.5em;"><a href="https://www.keil.arm.com/cmsis" target="_blank"><img alt="Logo" src="cmsis_logo_white_small.png"/</a></td>
   <td style="padding-left: 1em; padding-bottom: 1em;padding-top: 1em;">
    <div id="projectname">CMSIS-RTX
    &#160;<span id="projectnumber"><script type="text/javascript">
@@ -130,39 +130,42 @@ $(document).ready(function(){initNavTree('cre_rtx_proj.html',''); initResizable(
 <div class="textblock"><p><a class="anchor" id="md_src_project"></a> </p>
 <p>The steps to create a microcontroller application using RTX5 are:</p><ul>
 <li>Create a new project and select a microcontroller device.</li>
-<li>In the Manage Run-Time Environment window, select <b>CMSIS::CORE</b> and <b>CMSIS::RTOS2 (API)::Keil RTX5</b>. You can choose to either add RTX as a library (Variant: <b>Library</b>) or to add the full source code (Variant: <b>Source</b> - required if using the <a href="https://www.keil.com/pack/doc/compiler/EventRecorder/html/index.html" target="_blank"><b>Event Recorder</b></a>):</li>
+<li>In the Manage Run-Time Environment window, select <b>CMSIS::CORE</b> and <b>CMSIS::RTOS2 (API)::Keil RTX5</b>. You can choose to either add RTX as a library (Variant: <b>Library</b>) or to add the full source code (Variant: <b>Source</b> - required if using the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a>:</li>
 </ul>
 <div class="image">
 <img src="manage_rte_output.png" alt=""/>
-</div>
-<ul>
+<div class="caption">
+Run-Time Environment for RTX5 in Keil uVision</div></div>
+    <ul>
 <li>If the <b>Validation Output</b> requires other components to be present, try to use the <b>Resolve</b> button.</li>
 <li>Click <b>OK</b>. In the <b>Project</b> window, you will see the files that have been automatically added to you project, such as <b>RTX_Config.h</b>, <b>RTX_Config.c</b>, the library or the source code files, as well as the system and startup files:</li>
 </ul>
 <div class="image">
 <img src="project_window.png" alt=""/>
-</div>
-<ul>
-<li>If using the Variant: <b>Source</b> as stated above, you have to assure to use at least C99 compiler mode (Project Options -&gt; C/C++ -&gt; C99 Mode). <br  />
-</li>
+<div class="caption">
+RTX5 Project Window in Keil uVision</div></div>
+    <ul>
+<li>If using the Variant: <b>Source</b> as stated above, you have to assure to use at least C99 compiler mode (Project Options -&gt; C/C++ -&gt; C99 Mode).</li>
 <li>You can add template files to the project by right-clicking on <b>Source Group 1</b> and selecting <b>Add New Item to 'Source Group 1'</b>. In the new window, click on <b>User Code Template</b>. On the right-hand side you will see all available template files for CMSIS-RTOS RTX:</li>
 </ul>
 <div class="image">
 <img src="add_item.png" alt=""/>
-</div>
-<ul>
+<div class="caption">
+Adding RTX template files to the project</div></div>
+    <ul>
 <li><a class="el" href="config_rtx5.html">Configure</a> RTX5 to the application's needs using the <b>RTX_Config.h</b> file.</li>
 </ul>
 <h1><a class="anchor" id="cre_rtx_cortexa"></a>
 Additional requirements for RTX on Cortex-A</h1>
-<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="../../Core_A/html/group__irq__ctrl__gr.html"><b>IRQ Controller (API)</b></a> and <a class="elRef" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
+<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html" target="_blank">CMSIS-Core IRQ Controller (API)</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
 <div class="image">
 <img src="manage_rte_cortex-a.png" alt=""/>
-</div>
-<p>The default implementations provided along with CMSIS are</p><ul>
-<li>Arm <a href="../../Core_A/html/group__GIC__functions.html">Generic Interrupt Controller (GIC)</a></li>
-<li>Arm Cortex-A5, Cortex-A9 <a href="../../Core_A/html/group__PTM__timer__functions.html">Private Timer (PTIM)</a></li>
-<li>Arm Cortex-A7 <a href="../../Core_A/html/group__PL1__timer__functions.html">Generic Physical Timer (GTIM)</a></li>
+<div class="caption">
+Keil uVision Run-Time Environment for RTX5 on Cortex-A</div></div>
+    <p>The default implementations provided along with CMSIS are</p><ul>
+<li>Arm <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__GIC__functions.html" target="_blank">Generic Interrupt Controller (GIC)</a></li>
+<li>Arm Cortex-A5, Cortex-A9 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PTM__timer__functions.html" target="_blank">Private Timer (PTIM)</a></li>
+<li>Arm Cortex-A7 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PL1__timer__functions.html" target="_blank">Generic Physical Timer (GTIM)</a></li>
 </ul>
 <p>For devices not implementing GIC, PTIM nor GTIM please refer to the according device family pack and select the proper implementations.</p>
 <h1><a class="anchor" id="cre_rtx_proj_specifics"></a>
@@ -175,7 +178,7 @@ RTX5 Header File</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;rtx_os.h&quot;</span></div>
 </div><!-- fragment --><h1><a class="anchor" id="cre_rtx_proj_er"></a>
 Add Event Recorder Visibility</h1>
-<p>RTX5 interfaces to the <a href="https://www.keil.com/pack/doc/compiler/EventRecorder/html/index.html" target="_blank"><b>Event Recorder</b></a> to provide event information which helps you to understand and analyze the operation.</p>
+<p>RTX5 interfaces to the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a> to provide event information which helps you to understand and analyze the operation.</p>
 <ul>
 <li>To use the Event Recorder together with RTX5, select the software component <b>Compiler:Event Recorder</b>.</li>
 <li>Select the <b>Source</b> variant of the software component <b>CMSIS:RTOS2 (API):Keil RTX5</b>.</li>
@@ -184,10 +187,11 @@ Add Event Recorder Visibility</h1>
 <img src="event_recorder_rte.png" alt=""/>
 <div class="caption">
 Component selection for Event Recorder</div></div>
-<ul>
+    <ul>
 <li>Enable the related settings under <a class="el" href="config_rtx5.html#evtrecConfig">Event Recorder Configuration</a>.</li>
-<li>Build the application code and download it to the debug hardware.  Once the target application generates event information, it can be viewed in the µVision debugger using the <b>Event</b> <b>Recorder</b>.</li>
+<li>Build the application code and download it to the debug hardware. </li>
 </ul>
+<p>Once the target application generates event information, it can be viewed in the µVision debugger using the EventRecorder.</p>
 <h1><a class="anchor" id="creating_RTX5_LIB"></a>
 Building the RTX5 Library</h1>
 <p>The CMSIS Pack contains a µVision project for building the complete set of RTX5 libraries. This project can also be used as a reference for building the RTX5 libraries using a tool-chain of your choice.</p>
@@ -197,13 +201,13 @@ Building the RTX5 Library</h1>
  The project provides target configuration for all supported Cortex-M targets supported by RTX5.</li>
 <li>You can find out about the required preprocessor defines in the dialogs <b>Options for Target - C/C++</b> and <b>Options for Target - Asm</b>. Note the need to use at least the C99 compiler mode when building RTX from source.</li>
 <li>From the <b>Project</b> window you find the list of source files required for a complete library build.</li>
-<li>Build the library of your choice using <b>Project</b> - <b>Build</b> <b>Target</b> (or press F7).</li>
+<li>Build the library of your choice using <b>Project</b> - <b>Build Target</b> (or press F7).</li>
 </ol>
 <div class="image">
 <img src="own_lib_projwin.png" alt=""/>
 <div class="caption">
 Project with files for Armv8-M Mainline</div></div>
-  </div></div><!-- contents -->
+    </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -41,7 +41,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 55px;">
-  <td id="projectlogo" style="padding: 1.5em;"><img alt="Logo" src="cmsis_logo_white_small.png"/></td>
+  <td id="projectlogo" style="padding: 1.5em;"><a href="https://www.keil.arm.com/cmsis" target="_blank"><img alt="Logo" src="cmsis_logo_white_small.png"/</a></td>
   <td style="padding-left: 1em; padding-bottom: 1em;padding-top: 1em;">
    <div id="projectname">CMSIS-RTX
    &#160;<span id="projectnumber"><script type="text/javascript">
@@ -260,14 +260,14 @@ Functions</h2></td></tr>
 <li>
 blocking functions, </li>
 <li>
-<a class="elRef" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#ga2f8ba6dba6e9c065a6e236ffd410d74a">osThreadTerminate</a>, or  </li>
+<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#ga2f8ba6dba6e9c065a6e236ffd410d74a">osThreadTerminate</a>, or  </li>
 <li>
-<a class="elRef" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#gaddaa452dd7610e4096647a566d3556fc">osThreadExit</a> </li>
+<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#gaddaa452dd7610e4096647a566d3556fc">osThreadExit</a> </li>
 </ul>
 and <b>do not</b> return from this function when providing a user defined implementation.</dd></dl>
 <p><b>Code Example</b> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;rtx_os.h&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_defineRef" href="https://arm-software.github.io/CMSIS_6/latest/Core/html/group__compiler__conntrol__gr.html#ga153a4a31b276a9758959580538720a51">__NO_RETURN</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072" title="OS Idle Thread.">osRtxIdleThread</a> (<span class="keywordtype">void</span> *argument) {</div>
+<div class="line"><a class="code hl_defineRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/Core/html/group__compiler__conntrol__gr.html#ga153a4a31b276a9758959580538720a51">__NO_RETURN</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072" title="OS Idle Thread.">osRtxIdleThread</a> (<span class="keywordtype">void</span> *argument) {</div>
 <div class="line">  (void)argument;</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">for</span> (;;) {}</div>

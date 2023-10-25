@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['cmsis_2dcore_20device_20templates_0',['CMSIS-Core Device Templates',['https://arm-software.github.io/CMSIS_6/latest/Core/html/templates_pg.html',1,'']]],
-  ['configure_20rtx_20v5_1',['Configure RTX v5',['../config_rtx5.html',1,'']]],
-  ['create_20an_20rtx5_20project_2',['Create an RTX5 Project',['../cre_rtx_proj.html',1,'']]]
+  ['delivery_20in_20cmsis_2dpacks_0',['Delivery in CMSIS-Packs',['https://arm-software.github.io/CMSIS_6/main/Core/html/cmsis_files_dfps.html',0,'']]],
+  ['device_20header_20file_20_3cdevice_2eh_3e_1',['Device Header File &lt;Device.h&gt;',['https://arm-software.github.io/CMSIS_6/main/Core/html/device_h_pg.html',0,'']]]
 ];

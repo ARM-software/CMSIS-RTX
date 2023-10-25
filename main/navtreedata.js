@@ -176,8 +176,9 @@ var NAVTREE =
           [ "Message Queue", "rtos2_tutorial.html#rtos2_tutorial_msg_queue", null ],
           [ "Exercise 16 - Message Queue", "rtos2_tutorial.html#rtos2_tutorial_ex16", null ],
           [ "Extended Message Queue", "rtos2_tutorial.html#rtos2_tutorial_ext_msg_queue", null ],
-          [ "Exercise 17 - Message Queue", "rtos2_tutorial.html#rtos2_tutorial_ex17", null ],
-          [ "Memory Pool", "rtos2_tutorial.html#rtos2_tutorial_mem_pool", null ],
+          [ "Exercise 17 - Message Queue {# rtos2_tutorial_ex17}", "rtos2_tutorial.html#autotoc_md0", null ]
+        ] ],
+        [ "Memory Pool", "rtos2_tutorial.html#rtos2_tutorial_mem_pool", [
           [ "Exercise 18 - Zero Copy Mailbox", "rtos2_tutorial.html#rtos2_tutorial_ex18", null ]
         ] ]
       ] ],
@@ -195,7 +196,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "RTX5RevisionHistory.html",
-"group__rtx__evr__wait.html#ga16728292de4e2665248693fff603a2c3"
+"group__rtx__evr__message__queue.html#ga3bbf02128c31e5cc7ef4c78cdbec508c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

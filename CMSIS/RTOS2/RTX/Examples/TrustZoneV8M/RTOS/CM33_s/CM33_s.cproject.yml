@@ -14,7 +14,7 @@ project:
   groups:
     - group: Documentation
       files:
-        - file: Abstract.txt
+        - file: ../Abstract.txt
     - group: Secure Code
       files:
         - file: main_s.c

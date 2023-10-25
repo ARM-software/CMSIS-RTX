@@ -382,6 +382,16 @@
       </TargetOption>
       <Groups>
         <Group>
+          <GroupName>Documentation</GroupName>
+          <Files>
+            <File>
+              <FileName>Abstract.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Abstract.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Secure Code</GroupName>
           <Files>
             <File>
@@ -398,16 +408,6 @@
               <FileName>interface.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\interface.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Documentation</GroupName>
-          <Files>
-            <File>
-              <FileName>Abstract.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Abstract.txt</FilePath>
             </File>
           </Files>
         </Group>
@@ -464,5 +464,14 @@
       </file>
     </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>CM33_s</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

@@ -1783,7 +1783,7 @@
       <Size>100</Size>
       <ActiveTab>0</ActiveTab>
       <Doc>
-        <Name>&lt;1&gt;.\Abstract.txt</Name>
+        <Name>&lt;1&gt;..\Abstract.txt</Name>
         <ColumnNumber>0</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>1</CurrentLine>

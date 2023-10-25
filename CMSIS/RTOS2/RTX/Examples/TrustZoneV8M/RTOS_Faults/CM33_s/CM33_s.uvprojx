@@ -382,13 +382,18 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Secure Code</GroupName>
+          <GroupName>Documentation</GroupName>
           <Files>
             <File>
               <FileName>Abstract.txt</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Abstract.txt</FilePath>
+              <FilePath>..\Abstract.txt</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Secure Code</GroupName>
+          <Files>
             <File>
               <FileName>main_s.c</FileName>
               <FileType>1</FileType>
@@ -400,14 +405,14 @@
               <FilePath>.\Hardfault.c</FilePath>
             </File>
             <File>
-              <FileName>IncidentLog_s.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\IncidentLog_s.c</FilePath>
-            </File>
-            <File>
               <FileName>SysTick_s.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SysTick_s.c</FilePath>
+            </File>
+            <File>
+              <FileName>IncidentLog_s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\IncidentLog_s.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -415,14 +420,14 @@
           <GroupName>Interface</GroupName>
           <Files>
             <File>
-              <FileName>tz_context.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\tz_context.c</FilePath>
-            </File>
-            <File>
               <FileName>interface.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\interface.c</FilePath>
+            </File>
+            <File>
+              <FileName>tz_context.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\tz_context.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -479,5 +484,14 @@
       </file>
     </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>CM33_s</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

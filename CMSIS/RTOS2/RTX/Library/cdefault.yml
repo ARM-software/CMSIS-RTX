@@ -21,3 +21,5 @@ default:
         - -fdata-sections
 
     - for-compiler: IAR
+      C: 
+        - -e

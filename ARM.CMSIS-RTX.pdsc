@@ -20,6 +20,7 @@
   </requirements>
 
   <conditions>
+
     <!-- TrustZone -->
     <condition id="No TrustZone">
       <description>No TrustZone</description>
@@ -422,6 +423,7 @@
       <require Cclass="CMSIS"  Cgroup="OS Tick"/>
       <require Cclass="Device" Cgroup="Startup"/>
     </condition>
+
   </conditions>
 
   <components>
@@ -685,4 +687,93 @@
       </files>
     </component>
   </components>
+
+  <examples>
+
+    <example name="CMSIS-RTOS2 Blinky" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/Blinky">
+      <description>CMSIS-RTOS2 Blinky example</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="Blinky.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-RTOS2 RTX5 Memory Pool" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/MemPool">
+      <description>CMSIS-RTOS2 Memory Pool Example</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="MemPool.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-RTOS2 RTX5 Message Queue" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/MsgQueue">
+      <description>CMSIS-RTOS2 Message Queue Example</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="MsgQueue.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="TrustZone for ARMv8-M No RTOS" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/NoRTOS">
+      <description>Bare-metal secure/non-secure example without RTOS</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="NoRTOS.uvmpw"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="TrustZone for ARMv8-M RTOS" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/RTOS">
+      <description>Secure/non-secure RTOS example with thread context management</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="RTOS.uvmpw"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+    <example name="TrustZone for ARMv8-M RTOS Security Tests" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/RTOS_Faults">
+      <description>Secure/non-secure RTOS example with security test cases and system recovery</description>
+      <board name="uVision Simulator" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="RTOS_Faults.uvmpw"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="CMSIS" Cgroup="RTOS2"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <category>Getting Started</category>
+      </attributes>
+    </example>
+
+  </examples>
+
 </package>

@@ -87,6 +87,7 @@ echo "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 mkdir -p "${DIRNAME}/../Documentation/html/search/"
 cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/${GENDIR}/html/search/"
 cp -f "${DIRNAME}/Doxygen_Templates/navtree.js" "${DIRNAME}/${GENDIR}/html/"
+cp -f "${DIRNAME}/Doxygen_Templates/resize.js" "${DIRNAME}/${GENDIR}/html/"
 
 sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/Doxygen_Templates/footer.js.in" \
   | sed -e "s/{year}/${year}/" \

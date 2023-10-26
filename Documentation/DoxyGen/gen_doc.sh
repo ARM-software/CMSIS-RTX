@@ -16,7 +16,7 @@ set -o pipefail
 REQUIRED_GEN_PACK_LIB="0.8.4"
 
 DIRNAME=$(dirname $(readlink -f $0))
-GENDIR=../Documentation
+GENDIR=../
 REQ_DXY_VERSION="1.9.6"
 REQ_MSCGEN_VERSION="0.20"
 
@@ -84,7 +84,7 @@ sed -e "s/{projectNumber}/${projectNumber}/" rtx.dxy.in > rtx.dxy
 echo "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 "${UTILITY_DOXYGEN}" rtx.dxy
 
-mkdir -p "${DIRNAME}/../Documentation/html/search/"
+mkdir -p "${DIRNAME}/${GENDIR}/html/search/"
 cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/${GENDIR}/html/search/"
 cp -f "${DIRNAME}/Doxygen_Templates/navtree.js" "${DIRNAME}/${GENDIR}/html/"
 cp -f "${DIRNAME}/Doxygen_Templates/resize.js" "${DIRNAME}/${GENDIR}/html/"

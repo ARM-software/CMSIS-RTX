@@ -55,4 +55,4 @@ find_linkchecker
 
 #########################################
 
-check_links "${DIRNAME}/../Documentation/index.html" "${DIRNAME}"
+check_links "${DIRNAME}/../index.html" "${DIRNAME}"

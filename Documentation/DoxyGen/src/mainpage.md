@@ -20,21 +20,18 @@ CMSIS-RTX kernel is actively maintained in [**CMSIS-RTX GitHub repository**](htt
 
 The table below explains the content of the **ARM::CMSIS-RTX** Pack. 
 
-File/Directory                        | Content 
-:-------------------------------------|:---------------------------------------------------------
-📄 ARM.CMSIS-RTX.pdsc                 | Pack description file in CMSIS-Pack format
-📄 LICENSE                            | License Agreement (Apache 2.0)
-📂 CMSIS                              | Software components folder
- ┣ 📂 Documentation                   | A local copy of this documentation
- ┗ 📂 RTOS2                           | RTOS implementation files
-&emsp;&nbsp; ┣ 📂 RTX                 | Directory with RTX specific files.
-&emsp;&emsp;&nbsp; ┣ 📂 Config        | RTX configuration files **RTX_Config.h** and **RTX_Config.c**
-&emsp;&emsp;&nbsp; ┣ 📂 Examples      | Example projects (MDK uVision and CMSIS-Toolbox)
-&emsp;&emsp;&nbsp; ┣ 📂 Include       | Public header files of RTX software component
-&emsp;&emsp;&nbsp; ┣ 📂 Library       | Project files to build pre-built libraries
-&emsp;&emsp;&nbsp; ┣ 📂 Source        | Private header and source files of RTX software component
-&emsp;&emsp;&nbsp; ┣ 📂 Template      | User code templates for creating application projects with CMSIS-RTX
-&emsp;&emsp;&nbsp; ┗ 📄 RTX5.scvd     | SCVD file for RTOS-aware debugging with [Component Viewer and Event Recorder](https://arm-software.github.io/CMSIS-View/latest/index.html)
+File/Directory        | Content 
+:---------------------|:---------------------------------------------------------
+┣ 📂 Config           | RTX configuration files **RTX_Config.h** and **RTX_Config.c**
+┣ 📂 Documentation    | A local copy of this documentation
+┣ 📂 Examples         | Example projects (MDK uVision and CMSIS-Toolbox)
+┣ 📂 Include          | Public header files of RTX software component
+┣ 📂 Library          | Library project files and pre-built libraries
+┣ 📂 Source           | Private header and source files of RTX software component
+┣ 📂 Template         | User code templates for creating application projects with CMSIS-RTX
+📄 ARM.CMSIS-RTX.pdsc | Pack description file in CMSIS-Pack format
+📄 LICENSE            | License Agreement (Apache 2.0)
+📄 RTX5.scvd          | SCVD file for RTOS-aware debugging with [Component Viewer and Event Recorder](https://arm-software.github.io/CMSIS-View/latest/index.html)
 
 See [CMSIS Documentation](https://arm-software.github.io/CMSIS_6/) for an overview of CMSIS software components, tools and specifications.
 

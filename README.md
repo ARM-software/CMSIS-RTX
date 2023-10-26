@@ -4,23 +4,20 @@
 
 ```txt
   📦
-  ┣ 📂 .github/workflows         GitHub Action workflows
+  ┣ 📂 .github/workflows        GitHub Action workflows
      ┣ 📄 gh-pages.yml           Deployment of static documentation from gh-pages branch to GitHub Pages
      ┣ 📄 libs.yml               Build of the RTX libraries
      ┗ 📄 pack.yml               Generation/publish of the pack and documentation
-  ┣ 📂 CMSIS                     CClass CMSIS files
-     ┣ 📂 Documentation          Target directory for generated documentation
-     ┣ 📂 DoxyGen                Source directory for documentation
+  ┣ 📂 Config                   Configuration file templates
+  ┣ 📂 Documentation            Target directory for generated documentation
+     ┗ 📂 DoxyGen                Source directory for documentation
         ┣ 📄 check_links.sh      Script to check generated html documentation for broken links
         ┗ 📄 gen_doc.sh          Documentation generation script
-     ┗ 📂 RTOS2                  CGroup RTOS2 files
-        ┣ 📂 RTX                 RTX implementation
-           ┣ 📂 Config           Configuration file templates
-           ┣ 📂 Examples         Example projects (MDK uVision and CMSIS-Toolbox)
-           ┣ 📂 Include          Public header files of RTX software component
-           ┣ 📂 Library          Project files to build pre-built libraries
-           ┣ 📂 Source           Private header and source files of RTX software component
-           ┗ 📂 Template         User code template files
+  ┣ 📂 Examples                 Example projects (MDK uVision and CMSIS-Toolbox)
+  ┣ 📂 Include                  Public header files of RTX software component
+  ┣ 📂 Library                  Project files to build pre-built libraries
+  ┣ 📂 Source                   Private header and source files of RTX software component
+  ┣ 📂 Template                 User code template files
   ┣ 📄 ARM.CMSIS-RTX.pdsc        Pack description file
   ┗ 📄 gen_pack.sh               Pack generations script, see below
 ```
@@ -34,13 +31,13 @@ Some helper scripts are provided to generate the release artifacts from this rep
 Generating the HTML-formatted documentation from its Doxygen-based source is done via
 
 ```bash
-CMSIS-RTX $ ./CMSIS/DoxyGen/gen_doc.sh
+CMSIS-RTX $ ./Documentation/DoxyGen/gen_doc.sh
 ```
 
 After generating the documentation, one can check the html output for broken links:
 
 ```bash
-CMSIS-RTX $ ./CMSIS/DoxyGen/check_links.sh
+CMSIS-RTX $ ./Documentation/DoxyGen/check_links.sh
 ```
 
 Prerequisites for these scripts to succeed are:

@@ -436,69 +436,69 @@
       </RTE_Components_h>
       <files>
         <!-- RTX documentation -->
-        <file category="doc"     name="CMSIS/Documentation/index.html"/>
+        <file category="doc"     name="Documentation/index.html"/>
 
         <!-- RTX system view description -->
-        <file category="other"   name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="other"   name="RTX5.scvd"/>
 
         <!-- RTX header files -->
-        <file category="header"  name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+        <file category="header"  name="Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
+        <file category="header"  name="Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source"  name="Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="source"  name="Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
 
         <!-- RTX templates -->
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+        <file category="source"  name="Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source"  name="Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source"  name="Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source"  name="Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source"  name="Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source"  name="Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source"  name="Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source"  name="Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source"  name="Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (library configuration) -->
-        <file category="source"  name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+        <file category="source"  name="Source/rtx_lib.c"/>
 
         <!-- RTX libraries (ARMCC) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V6M.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv6-M"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7M.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-M NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7MF.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-M FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MB.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MM.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMF.lib"    src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V7A.lib"      src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv7-A"/>
+        <file category="library" name="Library/ARM/RTX_V6M.lib"      src="Source" condition="ARMCC ARMv6-M"/>
+        <file category="library" name="Library/ARM/RTX_V7M.lib"      src="Source" condition="ARMCC ARMv7-M NOFP"/>
+        <file category="library" name="Library/ARM/RTX_V7MF.lib"     src="Source" condition="ARMCC ARMv7-M FP"/>
+        <file category="library" name="Library/ARM/RTX_V8MB.lib"     src="Source" condition="ARMCC ARMv8-MBL"/>
+        <file category="library" name="Library/ARM/RTX_V8MM.lib"     src="Source" condition="ARMCC ARMv8-MML NOFP"/>
+        <file category="library" name="Library/ARM/RTX_V8MMF.lib"    src="Source" condition="ARMCC ARMv8-MML FP"/>
+        <file category="library" name="Library/ARM/RTX_V7A.lib"      src="Source" condition="ARMCC ARMv7-A"/>
 
         <!-- RTX libraries (GCC) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V6M.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv6-M"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7M.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-M NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7MF.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-M FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MB.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MM.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMF.a"   src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V7A.a"     src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv7-A"/>
+        <file category="library" name="Library/GCC/libRTX_V6M.a"     src="Source" condition="GCC ARMv6-M"/>
+        <file category="library" name="Library/GCC/libRTX_V7M.a"     src="Source" condition="GCC ARMv7-M NOFP"/>
+        <file category="library" name="Library/GCC/libRTX_V7MF.a"    src="Source" condition="GCC ARMv7-M FP"/>
+        <file category="library" name="Library/GCC/libRTX_V8MB.a"    src="Source" condition="GCC ARMv8-MBL"/>
+        <file category="library" name="Library/GCC/libRTX_V8MM.a"    src="Source" condition="GCC ARMv8-MML NOFP"/>
+        <file category="library" name="Library/GCC/libRTX_V8MMF.a"   src="Source" condition="GCC ARMv8-MML FP"/>
+        <file category="library" name="Library/GCC/libRTX_V7A.a"     src="Source" condition="GCC ARMv7-A"/>
 
         <!-- RTX libraries (CLANG) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V6M.a"   src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv6-M"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V7M.a"   src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv7-M NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V7MF.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv7-M FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MB.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MM.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMF.a" src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML FP"/>
+        <file category="library" name="Library/CLANG/libRTX_V6M.a"   src="Source" condition="CLANG ARMv6-M"/>
+        <file category="library" name="Library/CLANG/libRTX_V7M.a"   src="Source" condition="CLANG ARMv7-M NOFP"/>
+        <file category="library" name="Library/CLANG/libRTX_V7MF.a"  src="Source" condition="CLANG ARMv7-M FP"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MB.a"  src="Source" condition="CLANG ARMv8-MBL"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MM.a"  src="Source" condition="CLANG ARMv8-MML NOFP"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MMF.a" src="Source" condition="CLANG ARMv8-MML FP"/>
 
         <!-- RTX libraries (IAR) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V6M.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv6-M"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7M.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-M NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7MF.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-M FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MB.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MM.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMF.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MM.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMF.a"     src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V7A.a"        src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv7-A"/>
+        <file category="library" name="Library/IAR/RTX_V6M.a"        src="Source" condition="IAR ARMv6-M"/>
+        <file category="library" name="Library/IAR/RTX_V7M.a"        src="Source" condition="IAR ARMv7-M NOFP"/>
+        <file category="library" name="Library/IAR/RTX_V7MF.a"       src="Source" condition="IAR ARMv7-M FP"/>
+        <file category="library" name="Library/IAR/RTX_V8MB.a"       src="Source" condition="IAR ARMv8-MBL"/>
+        <file category="library" name="Library/IAR/RTX_V8MM.a"       src="Source" condition="IAR ARMv8-MML NOFP"/>
+        <file category="library" name="Library/IAR/RTX_V8MMF.a"      src="Source" condition="IAR ARMv8-MML FP"/>
+        <file category="library" name="Library/IAR/RTX_V81MM.a"      src="Source" condition="IAR ARMv81-MML NOFP"/>
+        <file category="library" name="Library/IAR/RTX_V81MMF.a"     src="Source" condition="IAR ARMv81-MML FP"/>
+        <file category="library" name="Library/IAR/RTX_V7A.a"        src="Source" condition="IAR ARMv7-A"/>
       </files>
     </component>
     <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
@@ -511,53 +511,53 @@
       </RTE_Components_h>
       <files>
         <!-- RTX documentation -->
-        <file category="doc"     name="CMSIS/Documentation/index.html"/>
+        <file category="doc"     name="Documentation/index.html"/>
 
         <!-- RTX system view description -->
-        <file category="other"   name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="other"   name="RTX5.scvd"/>
 
         <!-- RTX header files -->
-        <file category="header"  name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+        <file category="header"  name="Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="header"  name="Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source"  name="Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
 
         <!-- RTX templates -->
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
-        <file category="source"  name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+        <file category="source"  name="Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source"  name="Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source"  name="Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source"  name="Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source"  name="Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source"  name="Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source"  name="Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source"  name="Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source"  name="Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (library configuration) -->
-        <file category="source"  name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+        <file category="source"  name="Source/rtx_lib.c"/>
 
         <!-- RTX libraries (ARMCC) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MBN.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMN.lib"     src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMFN.lib"    src="CMSIS/RTOS2/RTX/Source" condition="ARMCC ARMv8-MML FP"/>
+        <file category="library" name="Library/ARM/RTX_V8MBN.lib"     src="Source" condition="ARMCC ARMv8-MBL"/>
+        <file category="library" name="Library/ARM/RTX_V8MMN.lib"     src="Source" condition="ARMCC ARMv8-MML NOFP"/>
+        <file category="library" name="Library/ARM/RTX_V8MMFN.lib"    src="Source" condition="ARMCC ARMv8-MML FP"/>
 
         <!-- RTX libraries (GCC) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MBN.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMN.a"    src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/GCC/libRTX_V8MMFN.a"   src="CMSIS/RTOS2/RTX/Source" condition="GCC ARMv8-MML FP"/>
+        <file category="library" name="Library/GCC/libRTX_V8MBN.a"    src="Source" condition="GCC ARMv8-MBL"/>
+        <file category="library" name="Library/GCC/libRTX_V8MMN.a"    src="Source" condition="GCC ARMv8-MML NOFP"/>
+        <file category="library" name="Library/GCC/libRTX_V8MMFN.a"   src="Source" condition="GCC ARMv8-MML FP"/>
 
         <!-- RTX libraries (CLANG) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MBN.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMN.a"  src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/CLANG/libRTX_V8MMFN.a" src="CMSIS/RTOS2/RTX/Source" condition="CLANG ARMv8-MML FP"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MBN.a"  src="Source" condition="CLANG ARMv8-MBL"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MMN.a"  src="Source" condition="CLANG ARMv8-MML NOFP"/>
+        <file category="library" name="Library/CLANG/libRTX_V8MMFN.a" src="Source" condition="CLANG ARMv8-MML FP"/>
 
         <!-- RTX libraries (IAR) -->
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MBN.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MBL"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMN.a"       src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V8MMFN.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv8-MML FP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMN.a"      src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML NOFP"/>
-        <file category="library" name="CMSIS/RTOS2/RTX/Library/IAR/RTX_V81MMFN.a"     src="CMSIS/RTOS2/RTX/Source" condition="IAR ARMv81-MML FP"/>
+        <file category="library" name="Library/IAR/RTX_V8MBN.a"       src="Source" condition="IAR ARMv8-MBL"/>
+        <file category="library" name="Library/IAR/RTX_V8MMN.a"       src="Source" condition="IAR ARMv8-MML NOFP"/>
+        <file category="library" name="Library/IAR/RTX_V8MMFN.a"      src="Source" condition="IAR ARMv8-MML FP"/>
+        <file category="library" name="Library/IAR/RTX_V81MMN.a"      src="Source" condition="IAR ARMv81-MML NOFP"/>
+        <file category="library" name="Library/IAR/RTX_V81MMFN.a"     src="Source" condition="IAR ARMv81-MML FP"/>
       </files>
     </component>
     <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
@@ -570,60 +570,60 @@
       </RTE_Components_h>
       <files>
         <!-- RTX documentation -->
-        <file category="doc"    name="CMSIS/Documentation/index.html"/>
+        <file category="doc"    name="Documentation/index.html"/>
 
         <!-- RTX system view description -->
-        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="other"  name="RTX5.scvd"/>
 
         <!-- RTX header files -->
-        <file category="header" name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+        <file category="header" name="Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header" name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
+        <file category="header" name="Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source" name="Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="source" name="Config/handlers.c"    attr="config"   version="5.1.0" condition="ARMv7-A Device"/>
 
         <!-- RTX templates -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+        <file category="source" name="Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source" name="Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source" name="Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source" name="Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source" name="Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source" name="Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source" name="Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source" name="Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source" name="Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (core) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_kernel.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_thread.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_delay.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_timer.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evflags.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mutex.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_semaphore.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_memory.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mempool.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_msgqueue.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_system.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evr.c"/>
+        <file category="source" name="Source/rtx_kernel.c"/>
+        <file category="source" name="Source/rtx_thread.c"/>
+        <file category="source" name="Source/rtx_delay.c"/>
+        <file category="source" name="Source/rtx_timer.c"/>
+        <file category="source" name="Source/rtx_evflags.c"/>
+        <file category="source" name="Source/rtx_mutex.c"/>
+        <file category="source" name="Source/rtx_semaphore.c"/>
+        <file category="source" name="Source/rtx_memory.c"/>
+        <file category="source" name="Source/rtx_mempool.c"/>
+        <file category="source" name="Source/rtx_msgqueue.c"/>
+        <file category="source" name="Source/rtx_system.c"/>
+        <file category="source" name="Source/rtx_evr.c"/>
 
         <!-- RTX sources (library configuration) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+        <file category="source" name="Source/rtx_lib.c"/>
 
         <!-- RTX sources (handlers GAS) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv6m.S"   condition="GNUASM ARMv6-M"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv7m.S"   condition="GNUASM ARMv7-M"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mbl.S" condition="GNUASM ARMv8-MBL"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mml.S" condition="GNUASM ARMv8-MML"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv7a.S"   condition="GNUASM ARMv7-A"/>
+        <file category="source" name="Source/GCC/irq_armv6m.S"   condition="GNUASM ARMv6-M"/>
+        <file category="source" name="Source/GCC/irq_armv7m.S"   condition="GNUASM ARMv7-M"/>
+        <file category="source" name="Source/GCC/irq_armv8mbl.S" condition="GNUASM ARMv8-MBL"/>
+        <file category="source" name="Source/GCC/irq_armv8mml.S" condition="GNUASM ARMv8-MML"/>
+        <file category="source" name="Source/GCC/irq_armv7a.S"   condition="GNUASM ARMv7-A"/>
 
         <!-- RTX sources (handlers IAR) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv6m.s"   condition="IARASM ARMv6-M"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv7m.s"   condition="IARASM ARMv7-M"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
+        <file category="source" name="Source/IAR/irq_armv6m.s"   condition="IARASM ARMv6-M"/>
+        <file category="source" name="Source/IAR/irq_armv7m.s"   condition="IARASM ARMv7-M"/>
+        <file category="source" name="Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
+        <file category="source" name="Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
+        <file category="source" name="Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
       </files>
     </component>
     <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
@@ -637,60 +637,60 @@
       </RTE_Components_h>
       <files>
         <!-- RTX documentation -->
-        <file category="doc"    name="CMSIS/Documentation/index.html"/>
+        <file category="doc"    name="Documentation/index.html"/>
 
         <!-- RTX system view description -->
-        <file category="other"  name="CMSIS/RTOS2/RTX/RTX5.scvd"/>
+        <file category="other"  name="RTX5.scvd"/>
 
         <!-- RTX header files -->
-        <file category="header" name="CMSIS/RTOS2/RTX/Include/rtx_os.h"/>
+        <file category="header" name="Include/rtx_os.h"/>
 
         <!-- RTX configuration -->
-        <file category="header" name="CMSIS/RTOS2/RTX/Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
+        <file category="header" name="Config/RTX_Config.h"  attr="config"   version="5.6.0"/>
+        <file category="source" name="Config/RTX_Config.c"  attr="config"   version="5.2.0"/>
 
         <!-- RTX templates -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
+        <file category="source" name="Template/main.c"      attr="template" version="2.1.0" select="RTX 'main' function"/>
+        <file category="source" name="Template/Events.c"    attr="template" version="2.0.0" select="RTX Events"/>
+        <file category="source" name="Template/MemPool.c"   attr="template" version="2.0.0" select="RTX Memory Pool"/>
+        <file category="source" name="Template/MsgQueue.c"  attr="template" version="2.0.0" select="RTX Message Queue"/>
+        <file category="source" name="Template/Mutex.c"     attr="template" version="2.0.0" select="RTX Mutex"/>
+        <file category="source" name="Template/Semaphore.c" attr="template" version="2.0.0" select="RTX Semaphore"/>
+        <file category="source" name="Template/Thread.c"    attr="template" version="2.0.0" select="RTX Thread"/>
+        <file category="source" name="Template/Timer.c"     attr="template" version="2.0.1" select="RTX Timer"/>
+        <file category="source" name="Template/svc_user.c"  attr="template" version="1.0.0" select="RTX SVC User Table"/>
 
         <!-- RTX sources (core) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_kernel.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_thread.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_delay.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_timer.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evflags.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mutex.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_semaphore.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_memory.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_mempool.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_msgqueue.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_system.c"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_evr.c"/>
+        <file category="source" name="Source/rtx_kernel.c"/>
+        <file category="source" name="Source/rtx_thread.c"/>
+        <file category="source" name="Source/rtx_delay.c"/>
+        <file category="source" name="Source/rtx_timer.c"/>
+        <file category="source" name="Source/rtx_evflags.c"/>
+        <file category="source" name="Source/rtx_mutex.c"/>
+        <file category="source" name="Source/rtx_semaphore.c"/>
+        <file category="source" name="Source/rtx_memory.c"/>
+        <file category="source" name="Source/rtx_mempool.c"/>
+        <file category="source" name="Source/rtx_msgqueue.c"/>
+        <file category="source" name="Source/rtx_system.c"/>
+        <file category="source" name="Source/rtx_evr.c"/>
 
         <!-- RTX sources (library configuration) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/rtx_lib.c"/>
+        <file category="source" name="Source/rtx_lib.c"/>
 
         <!-- RTX sources (handlers GAS) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mbl.S" condition="GNUASM ARMv8-MBL"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/GCC/irq_armv8mml.S" condition="GNUASM ARMv8-MML"/>
+        <file category="source" name="Source/GCC/irq_armv8mbl.S" condition="GNUASM ARMv8-MBL"/>
+        <file category="source" name="Source/GCC/irq_armv8mml.S" condition="GNUASM ARMv8-MML"/>
 
         <!-- RTX sources (handlers IAR) -->
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
-        <file category="source" name="CMSIS/RTOS2/RTX/Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
+        <file category="source" name="Source/IAR/irq_armv8mbl.s" condition="IARASM ARMv8-MBL"/>
+        <file category="source" name="Source/IAR/irq_armv8mml.s" condition="IARASM ARMv8-MML"/>
       </files>
     </component>
   </components>
 
   <examples>
 
-    <example name="CMSIS-RTOS2 Blinky" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/Blinky">
+    <example name="CMSIS-RTOS2 Blinky" doc="Abstract.txt" folder="Examples/Blinky">
       <description>CMSIS-RTOS2 Blinky example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
@@ -704,7 +704,7 @@
       </attributes>
     </example>
 
-    <example name="CMSIS-RTOS2 RTX5 Memory Pool" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/MemPool">
+    <example name="CMSIS-RTOS2 RTX5 Memory Pool" doc="Abstract.txt" folder="Examples/MemPool">
       <description>CMSIS-RTOS2 Memory Pool Example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
@@ -718,7 +718,7 @@
       </attributes>
     </example>
 
-    <example name="CMSIS-RTOS2 RTX5 Message Queue" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/MsgQueue">
+    <example name="CMSIS-RTOS2 RTX5 Message Queue" doc="Abstract.txt" folder="Examples/MsgQueue">
       <description>CMSIS-RTOS2 Message Queue Example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
@@ -732,7 +732,7 @@
       </attributes>
     </example>
 
-    <example name="TrustZone for ARMv8-M No RTOS" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/NoRTOS">
+    <example name="TrustZone for ARMv8-M No RTOS" doc="Abstract.txt" folder="Examples/TrustZoneV8M/NoRTOS">
       <description>Bare-metal secure/non-secure example without RTOS</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
@@ -746,7 +746,7 @@
       </attributes>
     </example>
 
-    <example name="TrustZone for ARMv8-M RTOS" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/RTOS">
+    <example name="TrustZone for ARMv8-M RTOS" doc="Abstract.txt" folder="Examples/TrustZoneV8M/RTOS">
       <description>Secure/non-secure RTOS example with thread context management</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
@@ -760,7 +760,7 @@
       </attributes>
     </example>
 
-    <example name="TrustZone for ARMv8-M RTOS Security Tests" doc="Abstract.txt" folder="CMSIS/RTOS2/RTX/Examples/TrustZoneV8M/RTOS_Faults">
+    <example name="TrustZone for ARMv8-M RTOS Security Tests" doc="Abstract.txt" folder="Examples/TrustZoneV8M/RTOS_Faults">
       <description>Secure/non-secure RTOS example with security test cases and system recovery</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>

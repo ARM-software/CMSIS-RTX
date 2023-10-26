@@ -45,14 +45,14 @@ jobs:
           path: /home/runner/.vcpkg
 
       - name: Prepare vcpkg env
-        working-directory: ./CMSIS/RTOS2/RTX/Library
+        working-directory: ./Library
         run: |  
           . <(curl https://aka.ms/vcpkg-init.sh -L)
           vcpkg x-update-registry --all
           vcpkg activate
 
       - name: Activate Arm tool license
-        working-directory: ./CMSIS/RTOS2/RTX/Library
+        working-directory: ./Library
         run: |
           . /home/runner/.vcpkg/vcpkg-init
           vcpkg activate
@@ -63,7 +63,7 @@ jobs:
           fi
 
       - name: Build libraries
-        working-directory: ./CMSIS/RTOS2/RTX/Library
+        working-directory: ./Library
         run: |
           . /home/runner/.vcpkg/vcpkg-init
           vcpkg activate
@@ -78,7 +78,7 @@ jobs:
 
       - name: Deactivate Arm tool license
         if: always()
-        working-directory: ./CMSIS/RTOS2/RTX/Library
+        working-directory: ./Library
         run: |
           . /home/runner/.vcpkg/vcpkg-init
           vcpkg activate
@@ -89,7 +89,7 @@ jobs:
           fi
     
       - name: Archive libraries
-        working-directory: ./CMSIS/RTOS2/RTX/Library
+        working-directory: ./Library
         run: |
           tar -cvjf RTX_Lib.tar.bz2 ARM/* GCC/* CLANG/*
     
@@ -97,4 +97,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: RTX_Lib
-          path: ./CMSIS/RTOS2/RTX/Library/RTX_Lib.tar.bz2
+          path: ./Library/RTX_Lib.tar.bz2

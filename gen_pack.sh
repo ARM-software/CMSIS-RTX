@@ -29,13 +29,13 @@ DEFAULT_ARGS=(-c "v")
 # Default: empty (all folders)
 #
 PACK_DIRS="
-  CMSIS/Documentation
-  CMSIS/RTOS2/RTX/Config
-  CMSIS/RTOS2/RTX/Examples
-  CMSIS/RTOS2/RTX/Include
-  CMSIS/RTOS2/RTX/Library
-  CMSIS/RTOS2/RTX/Source
-  CMSIS/RTOS2/RTX/Template
+  Documentation
+  Config
+  Examples
+  Include
+  Library
+  Source
+  Template
 "
 
 # Specify file names to be added to pack base directory
@@ -43,7 +43,7 @@ PACK_DIRS="
 #
 PACK_BASE_FILES="
   LICENSE
-  CMSIS/RTOS2/RTX/RTX5.scvd
+  RTX5.scvd
 "
 
 # Specify file names to be deleted from pack build directory
@@ -52,7 +52,8 @@ PACK_BASE_FILES="
 PACK_DELETE_FILES="
   .gitignore
   gen_pack.sh
-  CMSIS/RTOS2/RTX/Library/fetch_libs.sh
+  Documentation/DoxyGen
+  Library/fetch_libs.sh
 "
 
 # Specify patches to be applied
@@ -90,8 +91,8 @@ PACK_CHANGELOG_MODE="tag"
 function preprocess() {
   # add custom steps here to be executed
   # before populating the pack build folder
-  ./CMSIS/DoxyGen/gen_doc.sh
-  ./CMSIS/RTOS2/RTX/Library/fetch_libs.sh
+  ./Documentation/DoxyGen/gen_doc.sh
+  ./Library/fetch_libs.sh
   return 0
 }
 

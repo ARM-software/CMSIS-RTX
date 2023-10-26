@@ -67,7 +67,7 @@ PROJECT_LOGO           = Doxygen_Templates/cmsis_logo_white_small.png
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = ../Documentation
+OUTPUT_DIRECTORY       = ../
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -933,8 +933,8 @@ INPUT                  = ./src/mainpage.md \
                          ./src/tutorial.md \
                          ./src/rtx_os.txt \
                          ./src/rtx_evr.txt \
-                         ../RTOS2/RTX/Include/rtx_os.h \
-                         ../RTOS2/RTX/Include/rtx_evr.h
+                         ../../Include/rtx_os.h \
+                         ../../Include/rtx_evr.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1067,7 +1067,7 @@ EXCLUDE_SYMBOLS        =
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = ../RTOS2/RTX/Include
+EXAMPLE_PATH           = ../../Include
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and

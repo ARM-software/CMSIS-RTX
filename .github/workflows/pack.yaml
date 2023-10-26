@@ -27,15 +27,15 @@ jobs:
 
       - name: Fetch pre-built libs
         run: |
-          ./CMSIS/RTOS2/RTX/Library/fetch_libs.sh
+          ./Library/fetch_libs.sh
 
       - uses: Open-CMSIS-Pack/gen-pack-action@main
         with:
           doxygen-version: 1.9.6
           packchk-version: 1.4.1
-          gen-doc-script: ./CMSIS/DoxyGen/gen_doc.sh
-          check-links-script: ./CMSIS/DoxyGen/check_links.sh
-          doc-path: ./CMSIS/Documentation/html
+          gen-doc-script: ./Documentation/DoxyGen/gen_doc.sh
+          check-links-script: ./Documentation/DoxyGen/check_links.sh
+          doc-path: ./Documentation/html
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output
           gh-pages-branch: gh-pages

@@ -119,6 +119,16 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>PWSTATINFO</Key>
+          <Name>200,50,700</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>EVENTREC_CNF</Key>
+          <Name>-l0 -a1 -s0 </Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -145,7 +155,7 @@
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Arm\Packs\ARM\CMSIS-RTX\1.0.0\CMSIS\RTOS2\RTX\RTX5.scvd</Filename>
+        <Filename>C:\Arm\Packs\ARM\CMSIS-RTX\1.0.0\RTX5.scvd</Filename>
         <Type>ARM.CMSIS-RTX.1.0.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
@@ -154,7 +164,7 @@
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
-        <periodic>0</periodic>
+        <periodic>1</periodic>
         <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
@@ -178,13 +188,13 @@
         <newCpu>0</newCpu>
         <uProt>0</uProt>
       </DebugFlag>
-      <LintExecutable></LintExecutable>
+      <LintExecutable>C:\tools\lint\lint-nt.exe</LintExecutable>
       <LintConfigFile></LintConfigFile>
       <bLintAuto>0</bLintAuto>
       <bAutoGenD>0</bAutoGenD>
-      <LntExFlags>0</LntExFlags>
-      <pMisraName></pMisraName>
-      <pszMrule></pszMrule>
+      <LntExFlags>59</LntExFlags>
+      <pMisraName>.\Lint\MISRA_C_2012_Config.lnt</pMisraName>
+      <pszMrule>MISRA_C_2012_Config</pszMrule>
       <pSingCmds></pSingCmds>
       <pMultCmds></pMultCmds>
       <pMisraNamep></pMisraNamep>

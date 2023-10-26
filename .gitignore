@@ -1,6 +1,6 @@
 *.bak
-CMSIS/Documentation/html
-CMSIS/DoxyGen/rtx.dxy
+Documentation/html
+Documentation/DoxyGen/rtx.dxy
 build
 output
 **.DS_STORE

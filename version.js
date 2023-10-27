@@ -1,6 +1,7 @@
 //--- list of versions ---
 const versions = {
-    "main": "1.0.0-dev60"
+    "dir_structure": "1.0.0-dev63",
+    "latest": "1.0.0-dev60"
 }
 //--- list of versions ---
 

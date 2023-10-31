@@ -3,5 +3,5 @@ function writeHeader() {
 };
 
 function writeFooter()  {
-    document.write('Generated on Fri Oct 27 2023 09:08:45 for CMSIS-RTX 1.0.0-dev63+g5f851d4. Copyright &copy; 2023 Arm Limited (or its affiliates). All rights reserved.');
+    document.write('Generated on Tue Oct 31 2023 16:06:28 for CMSIS-RTX 1.0.0-dev63+g5f851d4. Copyright &copy; 2023 Arm Limited (or its affiliates). All rights reserved.');
 };

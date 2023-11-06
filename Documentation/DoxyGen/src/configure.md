@@ -1,15 +1,16 @@
 # Configure RTX v5 {#config_rtx5}
 
 The file **RTX_Config.h** defines the configuration parameters of CMSIS-RTOS RTX and must be part of every project that is using the CMSIS-RTOS2 RTX kernel. The configuration options are explained in detail in the following sections:
-- \ref systemConfig covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.
-- \ref threadConfig provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
-- \ref timerConfig provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
-- \ref eventFlagsConfig provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
-- \ref mutexConfig provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
-- \ref semaphoreConfig provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
-- \ref memPoolConfig provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
-- \ref msgQueueConfig provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
-- \ref evtrecConfig provides several parameters to configure RTX for usage with [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html).
+
+ - \ref systemConfig covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.
+ - \ref threadConfig provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
+ - \ref timerConfig provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
+ - \ref eventFlagsConfig provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
+ - \ref mutexConfig provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
+ - \ref semaphoreConfig provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
+ - \ref memPoolConfig provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
+ - \ref msgQueueConfig provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
+ - \ref evtrecConfig provides several parameters to configure RTX for usage with [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html).
 
 The file `RTX_Config.c` contains default implementations of the functions \ref osRtxIdleThread and \ref osRtxErrorNotify. Both functions can simply be overwritten with a customized behavior by redefining them as part of the user code.
 
@@ -22,6 +23,7 @@ Depending on the development tool, the annotations might lead to a more user-fri
 Alternatively one can provide configuration options using the compiler command line.
 
 For example one can customize the used tick frequency to 100us by (overwriting) the configuration using
+
 ```
 cc -DOS_TICK_FREQ=100
 ```
@@ -51,58 +53,58 @@ SVC Function Pointer checking      | `OS_SVC_PTR_CHECK`       | Enables verifica
 \ref systemConfig_usage_counters   | `OS_OBJ_MEM_USAGE`       | Enables object memory usage counters to evaluate the maximum memory pool requirements individually for each RTOS object type. Default value is \token{0} (disabled).
 
 ### Global Dynamic Memory size [bytes] {#systemConfig_glob_mem}
+
 Refer to \ref GlobalMemoryPool.
 
 ### Round-Robin Thread Switching {#systemConfig_rr}
 
-RTX5 may be configured to use round-robin multitasking thread switching. Round-robin allows quasi-parallel execution of
-several threads of the \a same priority. Threads are not really executed concurrently, but are scheduled where the available
-CPU time is divided into time slices and RTX5 assigns a time slice to each thread. Because the time slice is typically short
-(only a few milliseconds), it appears as though threads execute simultaneously.
+RTX5 may be configured to use round-robin multitasking thread switching. Round-robin allows quasi-parallel execution of several threads of the \a same priority. Threads are not really executed concurrently, but are scheduled where the available CPU time is divided into time slices and RTX5 assigns a time slice to each thread. Because the time slice is typically short (only a few milliseconds), it appears as though threads execute simultaneously.
 
 Round-robin thread switching functions as follows:
+
 - the tick is preloaded with the timeout value when a thread switch occurs
 - the tick is decremented (if not already zero) each system tick if the same thread is still executing
-- when the tick reaches 0 it indicates that a timeout has occurred. If there is another thread ready with the \a same
-  priority, then the system switches to that thread and the tick is preloaded with timeout again.
+- when the tick reaches 0 it indicates that a timeout has occurred. If there is another thread ready with the *same* priority, then the system switches to that thread and the tick is preloaded with timeout again.
 
-In other words, threads execute for the duration of their time slice (unless a thread's time slice is given up). Then, RTX
-switches to the next thread that is in **READY** state and has the same priority. If no other thread with the same priority is
-ready to run, the current running thread resumes it execution.
+In other words, threads execute for the duration of their time slice (unless a thread's time slice is given up). Then, RTX switches to the next thread that is in **READY** state and has the same priority. If no other thread with the same priority is ready to run, the current running thread resumes it execution.
 
-Round-Robin multitasking is controlled with the `#define OS_ROBIN_ENABLE`. The time slice period is configured (in RTX
-timer ticks) with the `#define OS_ROBIN_TIMEOUT`.
+Round-Robin multitasking is controlled with the `#define OS_ROBIN_ENABLE`. The time slice period is configured (in RTX timer ticks) with the `#define OS_ROBIN_TIMEOUT`.
 
 ### Safety features (Source variant only) {#safetyConfig_safety}
 
-Safety features group in \ref systemConfig enables individual selection of safety-related functionalities.
-It requires that RTX is used in the source variant.
+Safety features group in \ref systemConfig enables individual selection of safety-related functionalities. It requires that RTX is used in the source variant.
 
 It also includes:
+
 - Thread functions: \ref osThreadProtectPrivileged
 
 **MPU Protected Zone**<br/>
 Enables \ref rtos_process_isolation_mpu functionality in the system. This includes:
+
 - Thread attributes: \ref osThreadZone
 - Thread functions: \ref osThreadGetZone, \ref osThreadTerminateZone
 - Zone Management: \ref osZoneSetup_Callback
 
 When enabled, the MPU Protected Zone values also need to be specified for the threads created by the kernel:
+
 - For Idle thread in \ref threadConfig
 - For Timer thread in \ref timerConfig
 
 **Safety class**<br/>
 Enables \ref rtos_process_isolation_safety_class functionality in the system RTOS. This includes:
+
 - Object attributes: \ref osSafetyClass
 - Kernel functions: \ref osKernelProtect, \ref osKernelDestroyClass
 - Thread functions: \ref osThreadGetClass, \ref osThreadSuspendClass, \ref osThreadResumeClass
 
 When enabled, the safety class values need to be specified for threads created  by the kernel:
+
 - For Idle thread in \ref threadConfig
 - For Timer thread in \ref timerConfig
 
 **Thread Watchdog**<br/>
 Enables \ref rtos_process_isolation_thread_wdt functionality in the system RTOS. This includes:
+
 - Thread functions: \ref osThreadFeedWatchdog
 - Handler functions: \ref osWatchdogAlarm_Handler
 
@@ -122,21 +124,14 @@ Many kernel functions are executed in SVC context. Corresponding function pointe
 
 ### ISR FIFO Queue {#systemConfig_isr_fifo}
 
-The RTX functions (\ref CMSIS_RTOS_ISR_Calls), when called from and interrupt handler, store the request type and optional
-parameter to the ISR FIFO queue buffer to be processed later, after the interrupt handler exits.
+The RTX functions (\ref CMSIS_RTOS_ISR_Calls), when called from and interrupt handler, store the request type and optional parameter to the ISR FIFO queue buffer to be processed later, after the interrupt handler exits.
 
-The scheduler is activated immediately after the IRQ handler has finished its execution to process the requests stored to the
-FIFO queue buffer. The required size of this buffer depends on the number of functions that are called within the interrupt
-handler. An insufficient queue size will be caught by \ref osRtxErrorNotify with error code \ref osRtxErrorISRQueueOverflow.
+The scheduler is activated immediately after the IRQ handler has finished its execution to process the requests stored to the FIFO queue buffer. The required size of this buffer depends on the number of functions that are called within the interrupt handler. An insufficient queue size will be caught by \ref osRtxErrorNotify with error code \ref osRtxErrorISRQueueOverflow.
 
 
 ### Object Memory Usage Counters {#systemConfig_usage_counters}
 
-Object memory usage counters help to evaluate the maximum memory pool requirements for each object type, just like stack
-watermarking does for threads. The initial setup starts with a global memory pool for all object types. Consecutive runs of
-the application with object memory usage counters enabled, help to introduce object specific memory pools for each object
-type. Normally, this is required for applications that require a functional safety certification as global memory pools are
-not allowed in this case.
+Object memory usage counters help to evaluate the maximum memory pool requirements for each object type, just like stack watermarking does for threads. The initial setup starts with a global memory pool for all object types. Consecutive runs of the application with object memory usage counters enabled, help to introduce object specific memory pools for each object type. Normally, this is required for applications that require a functional safety certification as global memory pools are not allowed in this case.
 
 
 ## Thread Configuration {#threadConfig}
@@ -165,6 +160,7 @@ Processor mode for Thread execution             | `OS_PRIVILEGE_MODE`          |
 ### Configuration of Thread Count and Stack Space {#threadConfig_countstack}
 
 The RTX5 kernel uses a separate stack space for each thread and provides two methods for defining the stack requirements:
+
  - **Static allocation**: when \ref osThreadAttr_t::stack_mem and \ref osThreadAttr_t::stack_size specify a memory area
    which is used for the thread stack. **Attention**: The stack memory provided must be 64-bit aligned, i.e. by using uint64_t for declaration.
  - **Dynamic allocation**: when \ref osThreadAttr_t is NULL or \ref osThreadAttr_t::stack_mem is NULL, the system
@@ -204,12 +200,12 @@ RTX5 allows to execute threads in unprivileged or privileged processor mode. The
 It is also possible to specify the privilege level for individual threads. For that use \ref osThreadUnprivileged and \ref osThreadPrivileged defines in the *attr_bits* of \ref osThreadAttr_t argument when creating a thread with \ref osThreadNew.
  
 In **unprivileged** processor mode, the application software:
+
 - has limited access to the MSR and MRS instructions, and cannot use the CPS instruction.
 - cannot access the system timer, NVIC, or system control block.
 - might have restricted access to memory or peripherals.
 
 In **privileged** processor mode, the application software can use all the instructions and has access to all resources.
-
 
 \section timerConfig Timer Configuration
 
@@ -236,10 +232,7 @@ See \ref ObjectMemoryPool.
 
 \subsection timerConfig_user User Timer Thread
 
-The RTX5 function **osRtxTimerThread** executes callback functions when a time period expires. The priority of the timer
-subsystem within the complete RTOS system is inherited from the priority of the **osRtxTimerThread**. This is configured by
-`OS_TIMER_THREAD_PRIO`. Stack for callback functions is supplied by **osRtxTimerThread**. `OS_TIMER_THREAD_STACK_SIZE` must
-satisfy the stack requirements of the callback function with the highest stack usage. 
+The RTX5 function **osRtxTimerThread** executes callback functions when a time period expires. The priority of the timer subsystem within the complete RTOS system is inherited from the priority of the **osRtxTimerThread**. This is configured by `OS_TIMER_THREAD_PRIO`. Stack for callback functions is supplied by **osRtxTimerThread**. `OS_TIMER_THREAD_STACK_SIZE` must satisfy the stack requirements of the callback function with the highest stack usage.
 
 
 \section eventFlagsConfig Event Flags Configuration
@@ -257,8 +250,7 @@ Number of Event Flags objects          | `OS_EVFLAGS_NUM`        | Defines maxim
 
 \subsection eventFlagsConfig_obj Object-specific memory allocation
 
-When object-specific memory is used, the pool size for all Event objects is specified by `OS_EVFLAGS_NUM`. Refer to
-\ref ObjectMemoryPool.
+When object-specific memory is used, the pool size for all Event objects is specified by `OS_EVFLAGS_NUM`. Refer to \ref ObjectMemoryPool.
 
 
 \section mutexConfig Mutex Configuration
@@ -276,8 +268,7 @@ Number of Mutex objects                | `OS_MUTEX_NUM`          | Defines maxim
 
 \subsection mutexConfig_obj Object-specific Memory Allocation
 
-When object-specific memory is used, the pool size for all Mutex objects is specified by `OS_MUTEX_NUM`. Refer to
-\ref ObjectMemoryPool.
+When object-specific memory is used, the pool size for all Mutex objects is specified by `OS_MUTEX_NUM`. Refer to \ref ObjectMemoryPool.
 
 
 \section semaphoreConfig Semaphore Configuration
@@ -295,8 +286,7 @@ Number of Semaphore objects            | `OS_SEMAPHORE_NUM`      | Defines maxim
 
 \subsection semaphoreConfig_obj Object-specific memory allocation
 
-When Object-specific Memory is used, the pool size for all Semaphore objects is specified by `OS_SEMAPHORE_NUM`. Refer to
-\ref ObjectMemoryPool.
+When Object-specific Memory is used, the pool size for all Semaphore objects is specified by `OS_SEMAPHORE_NUM`. Refer to \ref ObjectMemoryPool.
 
 
 \section memPoolConfig Memory Pool Configuration
@@ -315,8 +305,7 @@ Data Storage Memory size [bytes]       | `OS_MEMPOOL_DATA_SIZE`  | Defines the c
 
 \subsection memPoolConfig_obj Object-specific memory allocation
 
-When object-specific memory is used, the number of pools for all MemoryPool objects is specified by `OS_MEMPOOL_NUM`. The
-total storage size reserved for all pools is configured in `OS_MEMPOOL_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
+When object-specific memory is used, the number of pools for all MemoryPool objects is specified by `OS_MEMPOOL_NUM`. The total storage size reserved for all pools is configured in `OS_MEMPOOL_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
 
 
 \section msgQueueConfig Message Queue Configuration
@@ -335,8 +324,7 @@ Data Storage Memory size [bytes]       | `OS_MSGQUEUE_DATA_SIZE` | Defines the c
 
 \subsection msgQueueConfig_obj Object-specific memory allocation
 
-When Object-specific Memory is used, the number of queues for all Message Queue objects is specified by `OS_MSGQUEUE_NUM`.
-The total storage size reserved for all queues is configured in `OS_MSGQUEUE_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
+When Object-specific Memory is used, the number of queues for all Message Queue objects is specified by `OS_MSGQUEUE_NUM`. The total storage size reserved for all queues is configured in `OS_MSGQUEUE_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
 
 
 \section evtrecConfig Event Recorder Configuration
@@ -378,6 +366,7 @@ Detailed operation events | `OS_EVR_LEVEL`  | Enable detailed operation events.
 **RTOS Event Filter Setup**
 
 These event filter settings are applied to specific RTX component groups with sub-options for:
+
  - Error events
  - API function call events
  - Operation events

@@ -10,7 +10,7 @@
      ┗ 📄 pack.yml               Generation/publish of the pack and documentation
   ┣ 📂 Config                   Configuration file templates
   ┣ 📂 Documentation            Target directory for generated documentation
-     ┗ 📂 DoxyGen                Source directory for documentation
+     ┗ 📂 Doxygen                Source directory for documentation
         ┣ 📄 check_links.sh      Script to check generated html documentation for broken links
         ┗ 📄 gen_doc.sh          Documentation generation script
   ┣ 📂 Examples                 Example projects (MDK uVision and CMSIS-Toolbox)
@@ -31,13 +31,13 @@ Some helper scripts are provided to generate the release artifacts from this rep
 Generating the HTML-formatted documentation from its Doxygen-based source is done via
 
 ```bash
-CMSIS-RTX $ ./Documentation/DoxyGen/gen_doc.sh
+CMSIS-RTX $ ./Documentation/Doxygen/gen_doc.sh
 ```
 
 After generating the documentation, one can check the html output for broken links:
 
 ```bash
-CMSIS-RTX $ ./Documentation/DoxyGen/check_links.sh
+CMSIS-RTX $ ./Documentation/Doxygen/check_links.sh
 ```
 
 Prerequisites for these scripts to succeed are:

@@ -33,8 +33,8 @@ jobs:
         with:
           doxygen-version: 1.9.6
           packchk-version: 1.4.1
-          gen-doc-script: ./Documentation/DoxyGen/gen_doc.sh
-          check-links-script: ./Documentation/DoxyGen/check_links.sh
+          gen-doc-script: ./Documentation/Doxygen/gen_doc.sh
+          check-links-script: ./Documentation/Doxygen/check_links.sh
           doc-path: ./Documentation/html
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output

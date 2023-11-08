@@ -52,7 +52,7 @@ PACK_BASE_FILES="
 PACK_DELETE_FILES="
   .gitignore
   gen_pack.sh
-  Documentation/DoxyGen
+  Documentation/Doxygen
   Library/fetch_libs.sh
 "
 
@@ -91,7 +91,7 @@ PACK_CHANGELOG_MODE="tag"
 function preprocess() {
   # add custom steps here to be executed
   # before populating the pack build folder
-  ./Documentation/DoxyGen/gen_doc.sh
+  ./Documentation/Doxygen/gen_doc.sh
   ./Library/fetch_libs.sh
   return 0
 }

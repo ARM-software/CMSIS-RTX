@@ -27,7 +27,7 @@ The table below explains the content of the **ARM::CMSIS-RTX** Pack.
  📂 Documentation      | A local copy of this documentation
  📂 Examples           | Example projects (MDK uVision and CMSIS-Toolbox)
  📂 Include            | Public header files of RTX software component
- 📂 Library            | Library project files
+ 📂 Library            | Library project files and pre-built libraries
  📂 Source             | Private header and source files of RTX software component
  📂 Template           | User code templates for creating application projects with CMSIS-RTX
  📄 ARM.CMSIS-RTX.pdsc | Pack description file in CMSIS-Pack format

@@ -64,7 +64,7 @@ If you require some of the RTX specific functions in your application code, incl
 \ifnot FuSaRTS
 RTX5 interfaces to the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html) to provide event information which helps you to understand and analyze the operation.
 
- - To use the Event Recorder together with RTX5, select the software component **Compiler:Event Recorder**.
+ - To use the Event Recorder together with RTX5, select the software component **CMSIS-View:Event Recorder**.
  - Select the **Source** variant of the software component **CMSIS:RTOS2 (API):Keil RTX5**.
 
 ![Component selection for Event Recorder](./images/event_recorder_rte.png)

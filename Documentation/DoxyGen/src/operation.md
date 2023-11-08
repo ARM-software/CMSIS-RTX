@@ -5,9 +5,10 @@ Many aspects of the kernel are configurable and the configuration options are me
 ## Scheduler {#rtx_scheduler}
 
 RTX5 implements a low-latency preemptive scheduler. Major parts of RTX5 are executed in handler mode such as
-  - `SysTick_Handler` used for time-based scheduling.
-  - `SVC_Handler` used for lock-based scheduling.
-  - `PendSV_Handler` used for interrupt-based scheduling.
+
+ - `SysTick_Handler` used for time-based scheduling.
+ - `SVC_Handler` used for lock-based scheduling.
+ - `PendSV_Handler` used for interrupt-based scheduling.
 
 In order to be low-latency with respect to ISR execution those system exceptions are configured to use the lowest priority groups available. The priorities are configured such that no preemption happens between them. Thus no interrupt critical sections (i.e. interrupt locks) are needed to protect the scheduler.
 
@@ -17,7 +18,7 @@ The scheduler combines priority and round-robin based context switches. The exam
 
 Thread 2 unblocks thread 3 by an arbitrary RTOS-call (executed in \ref CMSIS_RTOS_svcFunctions "SVC" handler mode) at time index 2. The scheduler switches to thread 3 immediately because thread 3 has the highest priority. Thread 4 is still blocked.
 
-At time index 4 an interrupt (ISR) occurs and preempts the SysTick_Handler. RTX does not add any latency to the interrupt service execution. The ISR routine uses an RTOS-call that unblocks thread 4. Instead of switching to thread 4 immediately the PendSV flag is set to defer the context switching. The PendSV_Handler is executed right after the `SysTick_Handler` returns and the deferred context switch to thread 4 is carried out. As soon as highest priority thread 4 blocks again by using a blocking RTOS-call execution is switched back to thread 3 immediately during time index 5.
+At time index 4 an interrupt (ISR) occurs and preempts the `SysTick_Handler`. RTX does not add any latency to the interrupt service execution. The ISR routine uses an RTOS-call that unblocks thread 4. Instead of switching to thread 4 immediately the PendSV flag is set to defer the context switching. The `PendSV_Handler` is executed right after the `SysTick_Handler` returns and the deferred context switch to thread 4 is carried out. As soon as highest priority thread 4 blocks again by using a blocking RTOS-call execution is switched back to thread 3 immediately during time index 5.
 
 At time index 5 thread 3 uses a blocking RTOS-call as well. Thus the scheduler switches back to thread 2 for time index 6.
 
@@ -32,12 +33,10 @@ The start of the kernel need to be performed
 RTX5 objects (thread, mutex, semaphore, timer, message queue, thread and event flags, as well as memory pool) require dedicated RAM memory. Objects can be created using os<i>Object</i>New() calls and deleted using os<i>Object</i>Delete() calls. The related object memory needs to be available during the lifetime of the object.
 
 RTX5 offers three different memory allocation methods for objects:
-  - \ref GlobalMemoryPool uses a single global memory pool for all objects. It is easy to configure, but may have 
-    the disadvantage for memory fragmentation when objects with different sizes are created and destroyed.
-  - \ref ObjectMemoryPool uses a fixed-size memory pool for each object type. The method is time deterministic
-     and avoids memory fragmentation.
-  - \ref StaticObjectMemory reserves memory during compile time and completely avoids that a system can be out of memory.
-    This is typically a required for some safety critical systems.
+
+ - \ref GlobalMemoryPool uses a single global memory pool for all objects. It is easy to configure, but may have the disadvantage for memory fragmentation when objects with different sizes are created and destroyed.
+ - \ref ObjectMemoryPool uses a fixed-size memory pool for each object type. The method is time deterministic and avoids memory fragmentation.
+ - \ref StaticObjectMemory reserves memory during compile time and completely avoids that a system can be out of memory. This is typically a required for some safety critical systems.
 
 It possible to intermix all the memory allocation methods in the same application.
 
@@ -47,8 +46,7 @@ The global memory pool allocates all objects from a memory area. This method of 
 
 ![Global Memory Pool for all objects](./images/MemAllocGlob.png)
 
-When the memory pool does not provide sufficient memory, the creation of the object fails and the related
-os<i>Object</i>New() function returns \token{NULL}.
+When the memory pool does not provide sufficient memory, the creation of the object fails and the related os<i>Object</i>New() function returns \token{NULL}.
 
 Enabled in \ref systemConfig.
 
@@ -62,6 +60,7 @@ This type of memory pools are fully time deterministic, which means that object 
 
 Object-specific memory pools are selectively enabled for each object type, e.g: mutex or thread using the RTX configuration
 file:
+
  - Enabled in \ref threadConfig for thread objects.
  - Enabled in \ref timerConfig for timer objects.
  - Enabled in \ref eventFlagsConfig for event objects.
@@ -87,8 +86,7 @@ Memory Pool (osMemoryPoolAttr_t::mp_mem)     | 4-Byte alignment. Size calculated
 Message Queue (osMessageQueueAttr_t::mq_mem) | 4-Byte alignment. Size calculated with \ref osRtxMessageQueueMemSize.
 
 
-In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks these
-needs to be placed in individual memory sections, i.e. using `__attribute__((section(...)))`.
+In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks these needs to be placed in individual memory sections, i.e. using `__attribute__((section(...)))`.
 
 RTX Object    | Linker Section 
 --------------|------------------------
@@ -100,13 +98,12 @@ Semaphore     | `.bss.os.semaphore.cb`
 Memory Pool   | `.bss.os.mempool.cb`
 Message Queue | `.bss.os.msgqueue.cb`
 
-It must be assured that these sections are placed into contiguous memory. This can fail,
-i.e. sections end up being split over multiple memory segments, when assigning compilation
-units to memory segments, manually.
+It must be assured that these sections are placed into contiguous memory. This can fail, i.e. sections end up being split over multiple memory segments, when assigning compilation units to memory segments, manually.
 
 The following code example shows how to create an OS object using static memory.
 
 **Code Example:**
+
 ```c
 /*----------------------------------------------------------------------------
  * CMSIS-RTOS 'main' function template
@@ -184,17 +181,14 @@ For Cortex-M processors without floating point unit the thread context requires 
 > **Note**
 > - For Cortex-M4/M7 with FP the thread context requires 200 bytes on the local stack. For these devices the default stack space should be increased to a minimum of 300 bytes.
 
-Each thread is provided with a separate stack that holds the thread context and stack space for automatic variables and
-return addresses for function call nesting. The stack sizes of RTX threads are flexibly configurable as explained in the
-section \ref threadConfig. RTX offers a configurable checking for stack overflows and stack utilization. 
+Each thread is provided with a separate stack that holds the thread context and stack space for automatic variables and return addresses for function call nesting. The stack sizes of RTX threads are flexibly configurable as explained in the section \ref threadConfig. RTX offers a configurable checking for stack overflows and stack utilization.
 
 ## Low-Power Operation {#lowPower}
 
-The system thread `osRtxIdleThread` can be use to switch the system into a low-power mode. The easiest form to enter a
-low-power mode is the execution of the `__WFE` function that puts the processor into a sleep mode where it waits for an
-event.
+The system thread `osRtxIdleThread` can be use to switch the system into a low-power mode. The easiest form to enter a low-power mode is the execution of the `__WFE` function that puts the processor into a sleep mode where it waits for an event.
 
 **Code Example:**
+
 ```c
 #include "RTE_Components.h"
 #include CMSIS_device_header            /* Device definitions                 */
@@ -217,33 +211,23 @@ void osRtxIdleThread (void) {
 
 RTX uses the generic \ref CMSIS_RTOS_TickAPI to configure and control its periodic Kernel Tick.
 
-To use an alternative timer as the Kernel Tick Timer one simply needs to implement a custom version
-of the \ref CMSIS_RTOS_TickAPI.
+To use an alternative timer as the Kernel Tick Timer one simply needs to implement a custom version of the \ref CMSIS_RTOS_TickAPI.
 
 > **Note**
 > - The OS Tick implementation provided must assure that the used timer interrupt uses the same (low) priority group as the service interrupts, i.e. interrupts used by RTX must not preempt each other. Refer to the \ref rtx_scheduler section for more details.
 
 ### Tick-less Low-Power Operation {#TickLess}
 
-RTX5 provides extension for tick-less operation which is useful for applications that use extensively low-power modes where
-the SysTick timer is also disabled. To provide a time-tick in such power-saving modes, a wake-up timer is used to
-derive timer intervals. The CMSIS-RTOS2 functions \ref osKernelSuspend and \ref osKernelResume control the tick-less
-operation.
+RTX5 provides extension for tick-less operation which is useful for applications that use extensively low-power modes where the SysTick timer is also disabled. To provide a time-tick in such power-saving modes, a wake-up timer is used to derive timer intervals. The CMSIS-RTOS2 functions \ref osKernelSuspend and \ref osKernelResume control the tick-less operation.
 
-Using this functions allows the RTX5 thread scheduler to stop the periodic kernel tick interrupt. When all active threads
-are suspended, the system enters power-down and calculates how long it can stay in this power-down mode. In the power-down
-mode the processor and peripherals can be switched off. Only a wake-up timer must remain powered, because this timer is
-responsible to wake-up the system after the power-down period expires.
+Using this functions allows the RTX5 thread scheduler to stop the periodic kernel tick interrupt. When all active threads are suspended, the system enters power-down and calculates how long it can stay in this power-down mode. In the power-down mode the processor and peripherals can be switched off. Only a wake-up timer must remain powered, because this timer is responsible to wake-up the system after the power-down period expires.
 
-The tick-less operation is controlled from the `osRtxIdleThread` thread. The wake-up timeout value is set before the system
-enters the power-down mode. The function \ref osKernelSuspend calculates the wake-up timeout measured in RTX Timer Ticks;
-this value is used to setup the wake-up timer that runs during the power-down mode of the system.
+The tick-less operation is controlled from the `osRtxIdleThread` thread. The wake-up timeout value is set before the system enters the power-down mode. The function \ref osKernelSuspend calculates the wake-up timeout measured in RTX Timer Ticks; this value is used to setup the wake-up timer that runs during the power-down mode of the system.
 
-Once the system resumes operation (either by a wake-up time out or other interrupts) the RTX5 thread scheduler is started
-with the function \ref osKernelResume. The parameter \a sleep_time specifies the time (in RTX Timer Ticks) that the system
-was in power-down mode.
+Once the system resumes operation (either by a wake-up time out or other interrupts) the RTX5 thread scheduler is started with the function \ref osKernelResume. The parameter \a sleep_time specifies the time (in RTX Timer Ticks) that the system was in power-down mode.
 
 **Code Example:**
+
 ```c
 #include "msp.h"                        // Device header
 
@@ -309,27 +293,22 @@ The alternative using `__WFI()` has other issues, explained in the Arm Knowledge
 
 ## Timeout Value {#CMSIS_RTOS_TimeOutValue}
 
-Timeout values are an argument to several `osXxx` functions to allow time for resolving a request. A timeout value of  **0**
-means that the RTOS does not wait and the function returns instantly, even when no resource is available. A timeout value of
-\ref osWaitForever means that the RTOS waits infinitely until a resource becomes available. Or one forces the thread to resume
-using \ref osThreadResume which is discouraged.
- 
-The timeout value specifies the number of timer ticks until the time delay elapses. The value is an upper bound and 
-depends on the actual time elapsed since the last timer tick. 
+Timeout values are an argument to several `osXxx` functions to allow time for resolving a request. A timeout value of  **0** means that the RTOS does not wait and the function returns instantly, even when no resource is available. A timeout value of \ref osWaitForever means that the RTOS waits infinitely until a resource becomes available. Or one forces the thread to resume using \ref osThreadResume which is discouraged.
+
+The timeout value specifies the number of timer ticks until the time delay elapses. The value is an upper bound and depends on the actual time elapsed since the last timer tick.
 
 Examples:
-  - timeout value **0** : the system does not wait, even when no resource is available the RTOS function returns instantly. 
-  - timeout value **1** : the system waits until the next timer tick occurs; depending on the previous timer tick, it may be a
-    very short wait time.
-  - timeout value **2** : actual wait time is between 1 and 2 timer ticks.
-  - timeout value \ref osWaitForever : system waits infinite until a resource becomes available. 
-  
+
+ - timeout value **0** : the system does not wait, even when no resource is available the RTOS function returns instantly.
+ - timeout value **1** : the system waits until the next timer tick occurs; depending on the previous timer tick, it may be a very short wait time.
+ - timeout value **2** : actual wait time is between 1 and 2 timer ticks.
+ - timeout value \ref osWaitForever : system waits infinite until a resource becomes available.
+
 ![Example of timeout using osDelay()](./images/TimerValues.png)
 
 ## Using Interrupts on Cortex-M {#cre_UsingIRQs}
 
-On Cortex-M processors, the RTX5 kernel uses the following interrupt exceptions.  The table below also lists the 
-priorities that must be assigned to these interrupts.
+On Cortex-M processors, the RTX5 kernel uses the following interrupt exceptions.  The table below also lists the priorities that must be assigned to these interrupts.
 
 Handler | Priority | Interrupt/Exception
 :-------|:---------|:----------------------------
@@ -340,15 +319,15 @@ SVC     | lowest+1 | Supervisor Call used to enter the RTOS kernel from **Thread
 Other device interrupts can be used without limitation. For Arm Cortex-M3/M4/M7 \if ARMv8M /M23/M33/M35P/M55/M85 \endif  processors, interrupts are never disabled by RTX Kernel.
 
 **Usage of interrupt priority grouping**
-- The interrupt priority grouping should be configured using the CMSIS-Core function \ref NVIC_SetPriorityGrouping before calling the function 
-  \ref osKernelStart(). The RTX kernel uses the priority group value to setup the priority for SysTick and PendSV interrupts.
-- The RTX kernel sets the priority for the interrupts/exceptions listed in above table and uses the lowest two priority levels.
-- Do not change the priority used by the RTX kernel. If this cannot be avoided, ensure that the preempt priority of
-  SysTick/PendSV is lower than SVC.
-- Permitted priority group values are 0 to 6. The priority group value 7 will cause RTX to fail as there is only one priority level available.
-- The **main stack** is used to run the RTX functionality. It is therefore required to configure sufficient stack for the RTX kernel execution.
+
+ - The interrupt priority grouping should be configured using the CMSIS-Core function \ref NVIC_SetPriorityGrouping before calling the function \ref osKernelStart(). The RTX kernel uses the priority group value to setup the priority for SysTick and PendSV interrupts.
+ - The RTX kernel sets the priority for the interrupts/exceptions listed in above table and uses the lowest two priority levels.
+ - Do not change the priority used by the RTX kernel. If this cannot be avoided, ensure that the preempt priority of SysTick/PendSV is lower than SVC.
+ - Permitted priority group values are 0 to 6. The priority group value 7 will cause RTX to fail as there is only one priority level available.
+ - The **main stack** is used to run the RTX functionality. It is therefore required to configure sufficient stack for the RTX kernel execution.
 
 **Code Example**
+
 ```c
 osKernelInitialize();                            // initialize RTX
 NVIC_SetPriorityGrouping (3);                    // setup priority grouping
@@ -359,54 +338,38 @@ osKernelStart ();                                // start RTX kernel
 ## Calls from Interrupt Service Routines {#CMSIS_RTOS_ISR_Calls}
 
 The following CMSIS-RTOS2 functions can be called from threads and Interrupt Service Routines (ISR):
-  - \ref osKernelGetInfo, \ref osKernelGetState,
-    \ref osKernelGetTickCount, \ref osKernelGetTickFreq, \ref osKernelGetSysTimerCount, \ref osKernelGetSysTimerFreq
-  - \ref osThreadGetName, \ref osThreadGetId, \ref osThreadFlagsSet
-  - \ref osTimerGetName
-  - \ref osEventFlagsGetName, \ref osEventFlagsSet, \ref osEventFlagsClear, \ref osEventFlagsGet, \ref osEventFlagsWait
-  - \ref osMutexGetName
-  - \ref osSemaphoreGetName, \ref osSemaphoreAcquire, \ref osSemaphoreRelease, \ref osSemaphoreGetCount
-  - \ref osMemoryPoolGetName, \ref osMemoryPoolAlloc, \ref osMemoryPoolFree,
-    \ref osMemoryPoolGetCapacity, \ref osMemoryPoolGetBlockSize, \ref osMemoryPoolGetCount, \ref osMemoryPoolGetSpace
-  - \ref osMessageQueueGetName, \ref osMessageQueuePut, \ref osMessageQueueGet, \ref osMessageQueueGetCapacity,
-    \ref osMessageQueueGetMsgSize, \ref osMessageQueueGetCount, \ref osMessageQueueGetSpace
 
-Functions that cannot be called from an ISR are verifying the interrupt status and return the status code \ref osErrorISR, in
-case they are called from an ISR context. In some implementations, this condition might be caught using the HARD_FAULT
-vector.
+ - \ref osKernelGetInfo, \ref osKernelGetState, \ref osKernelGetTickCount, \ref osKernelGetTickFreq, \ref osKernelGetSysTimerCount, \ref osKernelGetSysTimerFreq
+ - \ref osThreadGetName, \ref osThreadGetId, \ref osThreadFlagsSet
+ - \ref osTimerGetName
+ - \ref osEventFlagsGetName, \ref osEventFlagsSet, \ref osEventFlagsClear, \ref osEventFlagsGet, \ref osEventFlagsWait
+ - \ref osMutexGetName
+ - \ref osSemaphoreGetName, \ref osSemaphoreAcquire, \ref osSemaphoreRelease, \ref osSemaphoreGetCount
+ - \ref osMemoryPoolGetName, \ref osMemoryPoolAlloc, \ref osMemoryPoolFree, \ref osMemoryPoolGetCapacity, \ref osMemoryPoolGetBlockSize, \ref osMemoryPoolGetCount, \ref osMemoryPoolGetSpace
+ - \ref osMessageQueueGetName, \ref osMessageQueuePut, \ref osMessageQueueGet, \ref osMessageQueueGetCapacity, \ref osMessageQueueGetMsgSize, \ref osMessageQueueGetCount, \ref osMessageQueueGetSpace
+
+Functions that cannot be called from an ISR are verifying the interrupt status and return the status code \ref osErrorISR, in case they are called from an ISR context. In some implementations, this condition might be caught using the HARD_FAULT vector.
 
 > **Note**
 > - RTX does not disable interrupts during critical sections for Armv7-M and Armv8-M architecture based devices, but rather uses atomic operations.
 > - Therefore, there is no need to configure interrupt priorities of interrupt service routines that use RTOS functions.
 
-
 ## SVC Functions {#CMSIS_RTOS_svcFunctions}
 
-Supervisor Calls (SVC) are exceptions targeted at software and operating systems for generating system function calls. They
-are sometimes called software interrupts. For example, instead of allowing user programs to directly access hardware, an
-operating system may provide access to hardware through an SVC. So when a user program wants to use certain hardware, it
-generates the exception using SVC instructions. The software exception handler in the operating system executes and provides
-the requested service to the user application. In this way, access to hardware is under the control of the OS, which can
-provide a more robust system by preventing the user applications from directly accessing the hardware.
+Supervisor Calls (SVC) are exceptions targeted at software and operating systems for generating system function calls. They are sometimes called software interrupts. For example, instead of allowing user programs to directly access hardware, an operating system may provide access to hardware through an SVC. So when a user program wants to use certain hardware, it generates the exception using SVC instructions. The software exception handler in the operating system executes and provides the requested service to the user application. In this way, access to hardware is under the control of the OS, which can provide a more robust system by preventing the user applications from directly accessing the hardware.
 
-SVCs can also make software more portable because the user application does not need to know the programming details of the
-underlying hardware. The user program will only need to know the application programming interface (API) function ID and
-parameters; the actual hardware-level programming is handled by device drivers.
+SVCs can also make software more portable because the user application does not need to know the programming details of the underlying hardware. The user program will only need to know the application programming interface (API) function ID and parameters; the actual hardware-level programming is handled by device drivers.
 
-SVCs run in **privileged handler** mode of the Arm Cortex-M core. SVC functions accept arguments and can return values.
-The functions are used in the same way as other functions; however, they are executed indirectly through the SVC instruction.
-When executing SVC instructions, the controller changes to the privileged handler mode.
+SVCs run in **privileged handler** mode of the Arm Cortex-M core. SVC functions accept arguments and can return values. The functions are used in the same way as other functions; however, they are executed indirectly through the SVC instruction. When executing SVC instructions, the controller changes to the privileged handler mode.
 
-Interrupts are **not disabled** in this mode. To protect SVC functions from interrupts, you need to include the
-disable/enable intrinsic functions `__disable_irq()` and `__enable_irq()` in your code.
+Interrupts are **not disabled** in this mode. To protect SVC functions from interrupts, you need to include the disable/enable intrinsic functions `__disable_irq()` and `__enable_irq()` in your code.
 
-You can use SVC functions to access protected peripherals, for example, to configure NVIC and interrupts. 
-This is required if you run threads in unprivileged (protected) mode and you need to change interrupts from the within the
-thread.
+You can use SVC functions to access protected peripherals, for example, to configure NVIC and interrupts. This is required if you run threads in unprivileged (protected) mode and you need to change interrupts from the within the thread.
 
 To implement SVC functions in your Keil RTX5 project, you need to:
--# Add the SVC User Table file **svc_user.c** to your project folder and include it into your project. This file is available as a user code template.
--# Write a function implementation. Example:
+
+ 1. Add the SVC User Table file **svc_user.c** to your project folder and include it into your project. This file is available as a user code template.
+ 2. Write a function implementation. Example:
 ```c
    uint32_t svc_atomic_inc32 (uint32_t *mem) {
      // A protected function to increment a counter. 
@@ -420,33 +383,31 @@ To implement SVC functions in your Keil RTX5 project, you need to:
      return (val);
    }
 ```
--# Add the function to the SVC function table in the **svc_user.c** module:
+
+ 3. Add the function to the SVC function table in the **svc_user.c** module:
 ```c
    void * const osRtxUserSVC[1+USER_SVC_COUNT] = {
      (void *)USER_SVC_COUNT,
      (void *)svc_atomic_inc32,
    };
 ```
--# Increment the number of user SVC functions:
+
+ 4. Increment the number of user SVC functions:
 ```c
    #define USER_SVC_COUNT  1       // Number of user SVC functions
 ```
--# Declare a function wrapper to be called by the user to execute the SVC call.\n
-   **Code Example** (Arm Compiler 6)
+
+ 5. Declare a function wrapper to be called by the user to execute the SVC call.
+ **Code Example** (Arm Compiler 6):
 ```c
    __STATIC_FORCEINLINE uint32_t atomic_inc32 (uint32_t *mem) {
      register uint32_t val;
-	  
+     
      __ASM volatile (
        "svc 1" : "=l" (val) : "l" (mem) : "cc", "memory"
      );
      return (val);
    }
-```
-   
-   **Code Example** (Arm Compiler 5 using `__svc(x)` attribute)
-```c
-   uint32_t atomic_inc32 (uint32_t *mem) __svc(1);
 ```
 
 > **Note**
@@ -457,19 +418,15 @@ To implement SVC functions in your Keil RTX5 project, you need to:
 \ifnot FuSaRTS
 ## Arm C library multi-threading protection {#cre_rtx_proj_clib_arm}
 
-RTX5 provides an interface to the [Arm C libraries](https://developer.arm.com/documentation/100073)
-to ensure static data protection in a multi-threaded application.
+RTX5 provides an interface to the [Arm C libraries](https://developer.arm.com/documentation/100073) to ensure static data protection in a multi-threaded application.
 
 The Arm C libraries use static data to store errno, floating-point status word for software floating-point operations, a pointer to the base of the heap, and other variables. The Arm C micro-library (i.e. microlib) does not support protection for multi-threaded applications. See the [Differences between microlib and the default C library](https://developer.arm.com/documentation/100073/latest/The-Arm-C-Micro-library/Differences-between-microlib-and-the-default-C-library).
 
 By default, RTX5 uses the Arm C libraries multi-thread protection for:
-- all user threads if \ref threadConfig "Object specific Memory allocation" is enabled.
-- the number of threads defined by `OS_THREAD_LIBSPACE_NUM` if \ref threadConfig "Object specific Memory allocation" is disabled. The definition `OS_THREAD_LIBSPACE_NUM` defines the number of threads that can safely call Arm C library functions and can be found in `RTX_Config.h` file or can be defined on the global scope.
 
-The default, Arm C libraries use mutex functions to
-[protect shared resources from concurrent access](https://developer.arm.com/documentation/100073/0621/The-Arm-C-and-C---Libraries/Multithreaded-support-in-Arm-C-libraries/Management-of-locks-in-multithreaded-applications). RTX5 implements these functions and uses resources from the \ref systemConfig "Global Dynamic Memory" to allocate mutex objects.
+ - all user threads if \ref threadConfig "Object specific Memory allocation" is enabled.
+ - the number of threads defined by `OS_THREAD_LIBSPACE_NUM` if \ref threadConfig "Object specific Memory allocation" is disabled. The definition `OS_THREAD_LIBSPACE_NUM` defines the number of threads that can safely call Arm C library functions and can be found in `RTX_Config.h` file or can be defined on the global scope.
+
+The default, Arm C libraries use mutex functions to [protect shared resources from concurrent access](https://developer.arm.com/documentation/100073/0621/The-Arm-C-and-C---Libraries/Multithreaded-support-in-Arm-C-libraries/Management-of-locks-in-multithreaded-applications). RTX5 implements these functions and uses resources from the \ref systemConfig "Global Dynamic Memory" to allocate mutex objects.
 
 \endif
-
-
-

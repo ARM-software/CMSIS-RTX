@@ -13,7 +13,7 @@ set -o pipefail
 # Set version of gen pack library
 # For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
 # Use the tag name without the prefix "v", e.g., 0.7.0
-REQUIRED_GEN_PACK_LIB="0.8.4"
+REQUIRED_GEN_PACK_LIB="0.8.7"
 
 DIRNAME=$(dirname $(readlink -f $0))
 GENDIR=../
@@ -85,11 +85,11 @@ echo "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 "${UTILITY_DOXYGEN}" rtx.dxy
 
 mkdir -p "${DIRNAME}/${GENDIR}/html/search/"
-cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/${GENDIR}/html/search/"
-cp -f "${DIRNAME}/Doxygen_Templates/navtree.js" "${DIRNAME}/${GENDIR}/html/"
-cp -f "${DIRNAME}/Doxygen_Templates/resize.js" "${DIRNAME}/${GENDIR}/html/"
+cp -f "${DIRNAME}/style_template/search.css" "${DIRNAME}/${GENDIR}/html/search/"
+cp -f "${DIRNAME}/style_template/navtree.js" "${DIRNAME}/${GENDIR}/html/"
+cp -f "${DIRNAME}/style_template/resize.js" "${DIRNAME}/${GENDIR}/html/"
 
-sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/Doxygen_Templates/footer.js.in" \
+sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/style_template/footer.js.in" \
   | sed -e "s/{year}/${year}/" \
   | sed -e "s/{projectName}/${projectName}/" \
   | sed -e "s/{projectNumber}/${projectNumber}/" \

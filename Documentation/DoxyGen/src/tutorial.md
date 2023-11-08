@@ -17,9 +17,9 @@ will go through each of the RTOS primitives and how they influence the design of
 It is assumed that you have Keil MDK installed on your PC. For download and installation instructions, please visit
 the [Getting Started](https://developer.arm.com/documentation/101407/latest/About-uVision/Installation) page. Once you have set up the tool,
 open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Devices** tab to look for the **STM32F103** device.
-- On the **Packs** tab, download and install the latest **Keil:STM32F1xx_DFP** pack and the latest
-  **Hitex:CMSIS_RTOS2_Turorial** pack.
+
+ - Use the **Search** box on the **Devices** tab to look for the **STM32F103** device.
+ - On the **Packs** tab, download and install the latest **Keil:STM32F1xx_DFP** pack and the latest **Hitex:CMSIS_RTOS2_Turorial** pack.
 
 > **Note**
 > - It is assumed that you are familiar with Arm Keil MDK and have basic 'C' programming knowledge.
@@ -27,10 +27,7 @@ open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Crea
 
 ## First Steps with Keil RTX5 {#rtos2_tutorial_first_steps}
 
-The RTOS itself consists of a scheduler which supports round-robin, pre-emptive and co-operative multitasking of program
-threads, as well as time and memory management services. Inter-thread communication is supported by additional RTOS objects,
-including signal thread and event flags, semaphores, mutex, message passing and a memory pool system. As we will see,
-interrupt handling can also be accomplished by prioritized threads which are scheduled by the RTOS kernel.
+The RTOS itself consists of a scheduler which supports round-robin, pre-emptive and co-operative multitasking of program threads, as well as time and memory management services. Inter-thread communication is supported by additional RTOS objects, including signal thread and event flags, semaphores, mutex, message passing and a memory pool system. As we will see, interrupt handling can also be accomplished by prioritized threads which are scheduled by the RTOS kernel.
 
 ![RTOS Components](./images/rtos_components.png)
 
@@ -42,15 +39,11 @@ To access any of the CMSIS-RTOS2 features in our application code, it is necessa
 #include <cmsis_os2.h>
 ```
 
-This header file is maintained by Arm as part of the CMSIS-RTOS2 standard. For Keil RTX5, this is the default API. Other
-RTOS will have their own proprietary API but may provide a wrapper layer to implement the CMSIS-RTOS2 API so they can be
-used where compatibility with the CMSIS standard is required.
+This header file is maintained by Arm as part of the CMSIS-RTOS2 standard. For Keil RTX5, this is the default API. Other RTOS will have their own proprietary API but may provide a wrapper layer to implement the CMSIS-RTOS2 API so they can be used where compatibility with the CMSIS standard is required.
 
 ## Threads {#rtos2_tutorial_threads}
 
-The building blocks of a typical 'C' program are functions which we call to perform a specific procedure and which then
-return to the calling function. In CMSIS-RTOS2, the basic unit of execution is a "Thread". A Thread is very similar to a 'C'
-procedure but has some very fundamental differences.
+The building blocks of a typical 'C' program are functions which we call to perform a specific procedure and which then return to the calling function. In CMSIS-RTOS2, the basic unit of execution is a "Thread". A Thread is very similar to a 'C' procedure but has some very fundamental differences.
 
 ```c
 unsigned int procedure (void) {
@@ -71,40 +64,20 @@ __NO_RETURN void Thread1(void*argument) {
 }
 ```
 
-While we always return from our 'C' function, once started an RTOS thread must contain a loop so that it never terminates
-and thus runs forever. You can think of a thread as a mini self-contained program that runs within the RTOS. With the Arm
-Compiler, it is possible to optimize a thread by using a `__NO_RETURN` macro. This attribute reduces the cost of calling a
-function that never returns.
+While we always return from our 'C' function, once started an RTOS thread must contain a loop so that it never terminates and thus runs forever. You can think of a thread as a mini self-contained program that runs within the RTOS. With the Arm Compiler, it is possible to optimize a thread by using a `__NO_RETURN` macro. This attribute reduces the cost of calling a function that never returns.
 
-An RTOS program is made up of a number of threads, which are controlled by the RTOS scheduler. This scheduler uses the
-SysTick timer to generate a periodic interrupt as a time base. The scheduler will allot a certain amount of execution time
-to each thread. So `thread1` will run for 5 ms then be de-scheduled to allow `thread2` to run for a similar period;
-`thread2` will give way to `thread3` and finally control passes back to `thread1`. By allocating these slices of runtime
-to each thread in a round-robin fashion, we get the appearance of all three threads running in parallel to each other. 
+An RTOS program is made up of a number of threads, which are controlled by the RTOS scheduler. This scheduler uses the SysTick timer to generate a periodic interrupt as a time base. The scheduler will allot a certain amount of execution time to each thread. So `thread1` will run for 5 ms then be de-scheduled to allow `thread2` to run for a similar period; `thread2` will give way to `thread3` and finally control passes back to `thread1`. By allocating these slices of runtime to each thread in a round-robin fashion, we get the appearance of all three threads running in parallel to each other. 
 
-Conceptually we can think of each thread as performing a specific functional unit of our program with all threads running
-simultaneously. This leads us to a more object-orientated design, where each functional block can be coded and tested in
-isolation and then integrated into a fully running program. This not only imposes a structure on the design of our final
-application but also aids debugging, as a particular bug can be easily isolated to a specific thread. It also aids code
-reuse in later projects. When a thread is created, it is also allocated its own thread ID. This is a variable which acts as
-a handle for each thread and is used when we want to manage the activity of the thread.
+Conceptually we can think of each thread as performing a specific functional unit of our program with all threads running simultaneously. This leads us to a more object-orientated design, where each functional block can be coded and tested in isolation and then integrated into a fully running program. This not only imposes a structure on the design of our final application but also aids debugging, as a particular bug can be easily isolated to a specific thread. It also aids code reuse in later projects. When a thread is created, it is also allocated its own thread ID. This is a variable which acts as a handle for each thread and is used when we want to manage the activity of the thread.
 
 ```c
 osThreadId_t id1, id2, id3;
 ```
 
-In order to make the thread-switching process happen, we have the code overhead of the RTOS and we have to dedicate a CPU
-hardware timer to provide the RTOS time reference. In addition, each time we switch running threads, we have to save the
-state of all the thread variables to a thread stack. Also, all the runtime information about a thread is stored in a thread
-control block, which is managed by the RTOS kernel. Thus the “context switch time”, that is, the time to save the current
-thread state and load up and start the next thread, is a crucial figure and will depend on both the RTOS kernel and the
-design of the underlying hardware.
+In order to make the thread-switching process happen, we have the code overhead of the RTOS and we have to dedicate a CPU hardware timer to provide the RTOS time reference. In addition, each time we switch running threads, we have to save the state of all the thread variables to a thread stack. Also, all the runtime information about a thread is stored in a thread
+control block, which is managed by the RTOS kernel. Thus the “context switch time”, that is, the time to save the current thread state and load up and start the next thread, is a crucial figure and will depend on both the RTOS kernel and the design of the underlying hardware.
 
-The Thread Control Block contains information about the status of a thread. Part of this information is its run state. In a
-given system, only one thread can be running and all the others will be suspended but ready to run. The RTOS has various
-methods of inter-thread communication (signals, semaphores, messages). Here, a thread may be suspended to wait to be
-signaled by another thread or interrupt before it resumes its ready state, whereupon it can be placed into running state by
-the RTOS scheduler.
+The Thread Control Block contains information about the status of a thread. Part of this information is its run state. In a given system, only one thread can be running and all the others will be suspended but ready to run. The RTOS has various methods of inter-thread communication (signals, semaphores, messages). Here, a thread may be suspended to wait to be signaled by another thread or interrupt before it resumes its ready state, whereupon it can be placed into running state by the RTOS scheduler.
 
 | State   | Description |
 |---------|-------------|
@@ -112,31 +85,21 @@ the RTOS scheduler.
 | Ready   | Threads ready to run |
 | Wait    | Blocked threads waiting for an OS event |
 
-At any given moment a single thread may be running. The remaining threads will be ready to run and will be scheduled by the
-kernel. Threads may also be waiting pending an OS event. When this occurs they will return to the ready state and be
-scheduled by the kernel.
+At any given moment a single thread may be running. The remaining threads will be ready to run and will be scheduled by the kernel. Threads may also be waiting pending an OS event. When this occurs they will return to the ready state and be scheduled by the kernel.
 
 
 ## Starting the RTOS {#rtos2_tutorial_start}
 
-To build a simple RTOS, program we declare each thread as a standard 'C' function and also declare a thread ID variable for
-each function.
+To build a simple RTOS, program we declare each thread as a standard 'C' function and also declare a thread ID variable for each function.
 
 ```c
-void thread1 (void);	
+void thread1 (void);
 void thread2 (void);
  
 osThreadId thrdID1, thrdID2;
 ```
 
-Once the processor leaves the reset vector, we will enter the `main()` function as normal. Once in `main()`, we must call
-\ref osKernelInitialize() to setup the RTOS. It is not possible to call any RTOS function before the
-\ref osKernelInitialize() function has successfully completed. Once \ref osKernelInitialize() has completed, we can create
-further threads and other RTOS objects. This can be done by creating a launcher thread, in the example below this is called
-`app_main()`. Inside the `app_main()` thread, we create all the RTOS threads and objects we need to start our application
-running. As we will see later, it is also possible to dynamically create and destroy RTOS objects as the application is
-running. Next, we can call \ref osKernelStart() to start the RTOS and the scheduler task switching. You can run any
-initializing code you want before starting the RTOS to setup peripherals and initialize the hardware.
+Once the processor leaves the reset vector, we will enter the `main()` function as normal. Once in `main()`, we must call \ref osKernelInitialize() to setup the RTOS. It is not possible to call any RTOS function before the \ref osKernelInitialize() function has successfully completed. Once \ref osKernelInitialize() has completed, we can create further threads and other RTOS objects. This can be done by creating a launcher thread, in the example below this is called `app_main()`. Inside the `app_main()` thread, we create all the RTOS threads and objects we need to start our application running. As we will see later, it is also possible to dynamically create and destroy RTOS objects as the application is running. Next, we can call \ref osKernelStart() to start the RTOS and the scheduler task switching. You can run any initializing code you want before starting the RTOS to setup peripherals and initialize the hardware.
 
 ```c
 void app_main(void *argument) {
@@ -155,28 +118,22 @@ void main(void) {
 }
 ```
 
-When threads are created they are also assigned a priority. If there are a number of threads ready to run and they all have
-the same priority, they will be allotted run time in a round-robin fashion. However, if a thread with a higher priority
-becomes ready to run, the RTOS scheduler will de-schedule the currently running thread and start the high priority thread
-running. This is called pre-emptive priority-based scheduling. When assigning priorities, you have to be careful because the
-high priority thread will continue to run until it enters a waiting state or until a thread of equal or higher priority is
-ready to run.
+When threads are created they are also assigned a priority. If there are a number of threads ready to run and they all have the same priority, they will be allotted run time in a round-robin fashion. However, if a thread with a higher priority becomes ready to run, the RTOS scheduler will de-schedule the currently running thread and start the high priority thread running. This is called pre-emptive priority-based scheduling. When assigning priorities, you have to be careful because the high priority thread will continue to run until it enters a waiting state or until a thread of equal or higher priority is ready to run.
 
 ### Exercise 1 - A First CMSIS-RTOS2 Project {#rtos2_tutorial_ex1}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
-- On the **Examples** tab, copy **Ex 01 First Project** to your PC and start Keil MDK.
-- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+
+ - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+ - On the **Examples** tab, copy **Ex 01 First Project** to your PC and start Keil MDK.
+ - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 
 ## Creating Threads {#rtos2_tutorial_thread_create}
 
-Once the RTOS is running, there are a number of system calls that are used to manage and control the active threads. The
-documentation lists \ref CMSIS_RTOS_ThreadMgmt "all thread management functions".
+Once the RTOS is running, there are a number of system calls that are used to manage and control the active threads. The documentation lists \ref CMSIS_RTOS_ThreadMgmt "all thread management functions".
 
-As we saw in the first example, the `app_main()` thread is used as a launcher thread to create the application threads.
-This is done in two stages. First a thread structure is defined; this allows us to define the thread operating parameters.
+As we saw in the first example, the `app_main()` thread is used as a launcher thread to create the application threads. This is done in two stages. First a thread structure is defined; this allows us to define the thread operating parameters.
 
 ```c
 osThreadId thread1_id; // thread handle
@@ -192,11 +149,7 @@ static const osThreadAttr_t threadAttr_thread1 = {
     reserved};
 ```
 
-The thread structure requires us to define the name of the thread function, its thread priority, any special attribute bits,
-its TrustZone_ID and its memory allocation. This is quite a lot of detail to go through but we will cover everything by the
-end of this application note. Once the thread structure has been defined, the thread can be created using the
-\ref osThreadNew API call. Then the thread is created from within the application code, this is often the within the
-`app_main()` thread but a thread can be created at any point within any thread.
+The thread structure requires us to define the name of the thread function, its thread priority, any special attribute bits, its TrustZone_ID and its memory allocation. This is quite a lot of detail to go through but we will cover everything by the end of this application note. Once the thread structure has been defined, the thread can be created using the \ref osThreadNew API call. Then the thread is created from within the application code, this is often the within the `app_main()` thread but a thread can be created at any point within any thread.
 
 ```c
 thread1_id = osThreadNew(name_Of_C_Function, argument,&threadAttr_thread1);
@@ -212,31 +165,26 @@ thread1_id = osThreadNew(name_Of_C_Function, (uint32_t)startupParameter,&threadA
 ### Exercise 2 - Creating and Managing Threads {#rtos2_tutorial_ex2}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
-- On the **Examples** tab, copy **Ex 02 Threads** to your PC and start Keil MDK.
-- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+
+ - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+ - On the **Examples** tab, copy **Ex 02 Threads** to your PC and start Keil MDK.
+ - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 
 ## Thread Management and Priority {#rtos2_tutorial_thread_mgmt}
 
-When a thread is created it is assigned a priority level. The RTOS scheduler uses a thread’s priority to decide which thread
-should be scheduled to run. If a number of threads are ready to run, the thread with the highest priority will be placed in
-the run state. If a high priority thread becomes ready to run it will preempt a running thread of lower priority.
-Importantly, a high priority thread running on the CPU will not stop running unless it blocks on an RTOS API call or is
-preempted by a higher priority thread. A thread's priority is defined in the thread structure and the following priority
-definitions are available. The default priority is `osPriorityNormal`. The \ref osPriority_t value specifies the priority
-for a thread.
+When a thread is created it is assigned a priority level. The RTOS scheduler uses a thread’s priority to decide which thread should be scheduled to run. If a number of threads are ready to run, the thread with the highest priority will be placed in the run state. If a high priority thread becomes ready to run it will preempt a running thread of lower priority.
 
-Once the threads are running, there are a small number of RTOS system calls which are used to manage the running threads. It
-is also then possible to elevate or lower a thread’s priority either from another function or from within its own code.
+Importantly, a high priority thread running on the CPU will not stop running unless it blocks on an RTOS API call or is preempted by a higher priority thread. A thread's priority is defined in the thread structure and the following priority definitions are available. The default priority is `osPriorityNormal`. The \ref osPriority_t value specifies the priority for a thread.
+
+Once the threads are running, there are a small number of RTOS system calls which are used to manage the running threads. It is also then possible to elevate or lower a thread’s priority either from another function or from within its own code.
 
 ```c
 osStatus   osThreadSetPriority(threadID, priority);
 osPriority osThreadGetPriority(threadID);
 ```
 
-As well as creating threads, it is also possible for a thread to delete another active thread from the RTOS. Again, we use
-the thread ID rather than the function name of the thread.
+As well as creating threads, it is also possible for a thread to delete another active thread from the RTOS. Again, we use the thread ID rather than the function name of the thread.
 
 ```c
 osStatus = osThreadTerminate (threadID1);
@@ -248,8 +196,7 @@ If a thread wants to terminate itself then there is a dedicated exit function.
 osThreadExit (void)
 ```
 
-Finally, there is a special case of thread switching where the running thread passes control to the next ready thread of the
-same priority. This is used to implement a third form of scheduling called co-operative thread switching.
+Finally, there is a special case of thread switching where the running thread passes control to the next ready thread of the same priority. This is used to implement a third form of scheduling called co-operative thread switching.
 
 ```c
 osStatus osThreadYield();      //switch to next ready to run thread at the same priority
@@ -257,17 +204,13 @@ osStatus osThreadYield();      //switch to next ready to run thread at the same 
 
 ## Memory Management {#rtos2_tutorial_ex2_mem_mgmt}
 
-When each thread is created, it is assigned its own stack for storing data during the context switch. This should not be
-confused with the native Cortex-M processor stack; it is really a block of memory that is allocated to the thread. A
-default stack size is defined in the RTOS configuration file (we will see this later) and this amount of memory will be
-allocated to each thread unless we override it to allocate a custom size. The default stack size will be assigned to a
-thread if the stack size value in the thread definition structure is set to zero. If necessary a thread can be given
-additional memory resources by defining a bigger stack size in the thread structure. Keil RTX5 supports several memory
-models to assign this thread memory. The default model is a global memory pool. In this model each RTOS object that is
-created (threads, message queues, semaphores etc.) are allocated memory from a single block of memory.
+When each thread is created, it is assigned its own stack for storing data during the context switch. This should not be confused with the native Cortex-M processor stack; it is really a block of memory that is allocated to the thread.
 
-If an object is destroyed the memory it has been assigned is returned to the memory pool. This has the advantage of memory
-reuse but also introduces the possible problem of memory fragmentation.
+A default stack size is defined in the RTOS configuration file (we will see this later) and this amount of memory will be allocated to each thread unless we override it to allocate a custom size. The default stack size will be assigned to a thread if the stack size value in the thread definition structure is set to zero. If necessary a thread can be given additional memory resources by defining a bigger stack size in the thread structure. 
+
+Keil RTX5 supports several memory models to assign this thread memory. The default model is a global memory pool. In this model each RTOS object that is created (threads, message queues, semaphores etc.) are allocated memory from a single block of memory.
+
+If an object is destroyed the memory it has been assigned is returned to the memory pool. This has the advantage of memory reuse but also introduces the possible problem of memory fragmentation.
 
 The size of the global memory pool is defined in the configuration file:
 
@@ -281,20 +224,16 @@ And the default stack size for each thread is defined in the threads section:
 #define OS_STACK_SIZE               256
 ```
 
-It is also possible to define object specific memory pools for each different type of RTOS object. In this model you define
-the maximum number of a specific object type and its memory requirements. The RTOS then calculates and reserves the required
-memory usage.
+It is also possible to define object specific memory pools for each different type of RTOS object. In this model you define the maximum number of a specific object type and its memory requirements. The RTOS then calculates and reserves the required memory usage.
 
-The object specific model is again defined in the RTOS configuration file by enabling the "object specific memory" option
-provided in each section of the configuration file:
+The object specific model is again defined in the RTOS configuration file by enabling the "object specific memory" option provided in each section of the configuration file:
 
 ```c
 #define OS_SEMAPHORE_OBJ_MEM        1
 #define OS_SEMAPHORE_NUM            1
 ```
 
-In the case of simple object which requires a fixed memory allocation we just need to define the maximum number of a given
-object type. In the case of more complex objects such as threads we will need to define the required memory usage:
+In the case of simple object which requires a fixed memory allocation we just need to define the maximum number of a given object type. In the case of more complex objects such as threads we will need to define the required memory usage:
 
 ```c
 #define OS_THREAD_OBJ_MEM           1
@@ -304,22 +243,22 @@ object type. In the case of more complex objects such as threads we will need to
 ```
 
 To use the object specific memory allocation model with threads we must provide details of the overall thread memory usage.
-Finally it is possible to statically allocate the thread stack memory. This is important for safety related systems where
-memory usage has to be rigorously defined.
+
+Finally it is possible to statically allocate the thread stack memory. This is important for safety related systems where memory usage has to be rigorously defined.
 
 ### Exercise 3 - Memory Model {#rtos2_tutorial_ex3}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
-- On the **Examples** tab, copy **Ex 03 Memory Model** to your PC and start Keil MDK.
-- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+
+ - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+ - On the **Examples** tab, copy **Ex 03 Memory Model** to your PC and start Keil MDK.
+ - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Multiple Instances {#rtos2_tutorial_multi_inst}
 
-One of the interesting possibilities of an RTOS is that you can create multiple running instances of the same base thread
-code. For example, you could write a thread to control a UART and then create two running instances of the same thread code.
-Here, each instance of the UART code could manage a different UART. Then we can create two instances of the thread assigned
-to different thread handles. A parameter is also passed to allow each instance to identify which UART it is responsible for.
+One of the interesting possibilities of an RTOS is that you can create multiple running instances of the same base thread code. For example, you could write a thread to control a UART and then create two running instances of the same thread code.
+
+Here, each instance of the UART code could manage a different UART. Then we can create two instances of the thread assigned to different thread handles. A parameter is also passed to allow each instance to identify which UART it is responsible for.
 
 ```c
 #define UART1 (void *) 1UL
@@ -332,18 +271,16 @@ ThreadID_1_1 = osThreadNew (thread1, UART0, &ThreadAttr_Task1);
 ### Exercise 4 - Multiple Instances {#rtos2_tutorial_multi_inst_ex4}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
-- On the **Examples** tab, copy **Ex 04 Multiple Instances** to your PC and start Keil MDK.
-- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+
+ - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+ - On the **Examples** tab, copy **Ex 04 Multiple Instances** to your PC and start Keil MDK.
+ - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Joinable Threads {#rtos2_tutorial_thread_join}
 
-A new feature in CMSIS-RTOS2 is the ability to create threads in a 'joinable' state. This allows a thead to be created and
-executed as a standard thread. In addition, a second thread can join it by calling \ref osThreadJoin(). This will cause the
-second thread to deschedule and remain in a waiting state until the thread which has been joined is terminated. This allows
-a temporary joinable thread to be created, which would acquire a block of memory from the global memory pool, this thread
-could perform some processing and then terminate, releasing the memory back to the memory pool. A joinable thread can be
-created by setting the joinable attribute bit in the thread attributes structure as shown below:
+A new feature in CMSIS-RTOS2 is the ability to create threads in a 'joinable' state. This allows a thead to be created and executed as a standard thread. In addition, a second thread can join it by calling \ref osThreadJoin(). This will cause the second thread to deschedule and remain in a waiting state until the thread which has been joined is terminated. This allows a temporary joinable thread to be created, which would acquire a block of memory from the global memory pool, this thread could perform some processing and then terminate, releasing the memory back to the memory pool.
+
+A joinable thread can be created by setting the joinable attribute bit in the thread attributes structure as shown below:
 
 ```c
 static const osThreadAttr_t ThreadAttr_worker = {
@@ -351,27 +288,25 @@ static const osThreadAttr_t ThreadAttr_worker = {
 };
 ```
 
-Once the thread has been created, it will execute following the same rules as 'normal' threads. Any other thread can then
-join it by using the OS call:
+Once the thread has been created, it will execute following the same rules as 'normal' threads. Any other thread can then join it by using the OS call:
 
 ```c
 osThreadJoin(<joinable_thread_handle>);
 ```
 
-Once \ref osThreadJoin has been called, the thread will deschedule and enter a waiting state until the joinable thread has
-terminated.
+Once \ref osThreadJoin has been called, the thread will deschedule and enter a waiting state until the joinable thread has terminated.
 
 ### Exercise 5 - Joinable Threads {#rtos2_tutorial_ex4}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
-- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
-- On the **Examples** tab, copy **Ex 05 Join** to your PC and start Keil MDK.
-- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+
+ - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+ - On the **Examples** tab, copy **Ex 05 Join** to your PC and start Keil MDK.
+ - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Time Management {#rtos2_tutorial_time_mgmt}
 
-As well as running your application code as threads, the RTOS also provides some timing services which can be accessed
-through RTOS system calls.
+As well as running your application code as threads, the RTOS also provides some timing services which can be accessed through RTOS system calls.
 
 ### Time Delay {#rtos2_tutorial_time_delay}
 
@@ -498,6 +433,7 @@ to sleep.
 ### Exercise 8 - Idle Thread {#rtos2_tutorial_ex8}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 08 Idle Thread** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.

@@ -128,7 +128,8 @@ $(document).ready(function(){initNavTree('cre_rtx_proj.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_src_project"></a> </p>
-<p>The steps to create a microcontroller application using RTX5 are:</p><ul>
+<p>The steps to create a microcontroller application using RTX5 are:</p>
+<ul>
 <li>Create a new project and select a microcontroller device.</li>
 <li>In the Manage Run-Time Environment window, select <b>CMSIS::CORE</b> and <b>CMSIS::RTOS2 (API)::Keil RTX5</b>. You can choose to either add RTX as a library (Variant: <b>Library</b>) or to add the full source code (Variant: <b>Source</b>) - required if using the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a>:</li>
 </ul>
@@ -157,12 +158,13 @@ Adding RTX template files to the project</div></div>
 </ul>
 <h1><a class="anchor" id="cre_rtx_cortexa"></a>
 Additional requirements for RTX on Cortex-A</h1>
-<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html" target="_blank">CMSIS-Core IRQ Controller (API)</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
+<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html" target="_blank">CMSIS-Core IRQ Controller (API)</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
 <div class="image">
 <img src="manage_rte_cortex-a.png" alt=""/>
 <div class="caption">
 Keil uVision Run-Time Environment for RTX5 on Cortex-A</div></div>
-    <p>The default implementations provided along with CMSIS are</p><ul>
+    <p>The default implementations provided along with CMSIS are</p>
+<ul>
 <li>Arm <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__GIC__functions.html" target="_blank">Generic Interrupt Controller (GIC)</a></li>
 <li>Arm Cortex-A5, Cortex-A9 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PTM__timer__functions.html" target="_blank">Private Timer (PTIM)</a></li>
 <li>Arm Cortex-A7 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PL1__timer__functions.html" target="_blank">Generic Physical Timer (GTIM)</a></li>
@@ -189,25 +191,13 @@ Add Event Recorder Visibility</h1>
 Component selection for Event Recorder</div></div>
     <ul>
 <li>Enable the related settings under <a class="el" href="config_rtx5.html#evtrecConfig">Event Recorder Configuration</a>.</li>
-<li>Build the application code and download it to the debug hardware. </li>
+<li>Build the application code and download it to the debug hardware.</li>
 </ul>
 <p>Once the target application generates event information, it can be viewed in the µVision debugger using the EventRecorder.</p>
 <h1><a class="anchor" id="creating_RTX5_LIB"></a>
 Building the RTX5 Library</h1>
-<p>The CMSIS Pack contains a µVision project for building the complete set of RTX5 libraries. This project can also be used as a reference for building the RTX5 libraries using a tool-chain of your choice.</p>
-<ol type="1">
-<li>Open the project <b>RTX_CM.uvprojx</b> from the pack folder <b>CMSIS/RTOS2/RTX/Library/ARM/MDK</b> in µVision.</li>
-<li>Select the project target that matches your device's processor core. <br  />
- The project provides target configuration for all supported Cortex-M targets supported by RTX5.</li>
-<li>You can find out about the required preprocessor defines in the dialogs <b>Options for Target - C/C++</b> and <b>Options for Target - Asm</b>. Note the need to use at least the C99 compiler mode when building RTX from source.</li>
-<li>From the <b>Project</b> window you find the list of source files required for a complete library build.</li>
-<li>Build the library of your choice using <b>Project</b> - <b>Build Target</b> (or press F7).</li>
-</ol>
-<div class="image">
-<img src="own_lib_projwin.png" alt=""/>
-<div class="caption">
-Project with files for Armv8-M Mainline</div></div>
-    </div></div><!-- contents -->
+<p>The CMSIS Pack contains a csolution project for building the complete set of RTX5 libraries. This project can also be used as a reference for building the RTX5 libraries using a tool-chain of your choice.</p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

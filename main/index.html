@@ -128,7 +128,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="mainpage"></a> Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/index.html" target="_blank">CMSIS-RTOS2 API</a> as its native interface.</p>
-<p>The following sections provide further details:</p><ul>
+<p>The following sections provide further details:</p>
+<ul>
 <li><a class="el" href="RTX5RevisionHistory.html">Revision History</a> lists the explains how to setup an RTX v5 project in Keil MDK.</li>
 <li><a class="el" href="rtx_system_reqs.html">System Requirements</a> lists hardware, software, and resource requirements, as well as supported toolchains.</li>
 <li><a class="el" href="theory_of_operation.html">Theory of Operation</a> provides general information about the operation of CMSIS-RTOS RTX v5.</li>
@@ -140,25 +141,25 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 <h1><a class="anchor" id="rtx_access"></a>
 Access to CMSIS-RTX</h1>
-<p>CMSIS-RTX kernel is actively maintained in <a href="https://github.com/ARM-software/CMSIS-RTX" target="_blank"><b>CMSIS-RTX GitHub repository</b></a> and is also provided as a standalone delivery in <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html" target="_blank">CMSIS-Pack format</a>.</p>
+<p>CMSIS-RTX kernel is actively maintained in <a href="https://github.com/ARM-software/CMSIS-RTX" target="_blank"><b>CMSIS-RTX GitHub repository</b></a> and is also provided as a standalone <a href="https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/" target="_blank"><b>CMSIS-RTX pack</b></a> in the <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html" target="_blank">CMSIS-Pack format</a>.</p>
 <p>The table below explains the content of the <b>ARM::CMSIS-RTX</b> Pack.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">File/Directory   </th><th class="markdownTableHeadLeft">Content    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">┣ 📂 Config   </td><td class="markdownTableBodyLeft">RTX configuration files <b>RTX_Config.h</b> and <b>RTX_Config.c</b>    </td></tr>
+<td class="markdownTableBodyLeft">📂 Config   </td><td class="markdownTableBodyLeft">RTX configuration files <b>RTX_Config.h</b> and <b>RTX_Config.c</b>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">┣ 📂 Documentation   </td><td class="markdownTableBodyLeft">A local copy of this documentation    </td></tr>
+<td class="markdownTableBodyLeft">📂 Documentation   </td><td class="markdownTableBodyLeft">A local copy of this documentation    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">┣ 📂 Examples   </td><td class="markdownTableBodyLeft">Example projects (MDK uVision and CMSIS-Toolbox)    </td></tr>
+<td class="markdownTableBodyLeft">📂 Examples   </td><td class="markdownTableBodyLeft">Example projects (MDK uVision and CMSIS-Toolbox)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">┣ 📂 Include   </td><td class="markdownTableBodyLeft">Public header files of RTX software component    </td></tr>
+<td class="markdownTableBodyLeft">📂 Include   </td><td class="markdownTableBodyLeft">Public header files of RTX software component    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">┣ 📂 Library   </td><td class="markdownTableBodyLeft">Library project files and pre-built libraries    </td></tr>
+<td class="markdownTableBodyLeft">📂 Library   </td><td class="markdownTableBodyLeft">Library project files    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">┣ 📂 Source   </td><td class="markdownTableBodyLeft">Private header and source files of RTX software component    </td></tr>
+<td class="markdownTableBodyLeft">📂 Source   </td><td class="markdownTableBodyLeft">Private header and source files of RTX software component    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">┣ 📂 Template   </td><td class="markdownTableBodyLeft">User code templates for creating application projects with CMSIS-RTX    </td></tr>
+<td class="markdownTableBodyLeft">📂 Template   </td><td class="markdownTableBodyLeft">User code templates for creating application projects with CMSIS-RTX    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">📄 ARM.CMSIS-RTX.pdsc   </td><td class="markdownTableBodyLeft">Pack description file in CMSIS-Pack format    </td></tr>
 <tr class="markdownTableRowOdd">

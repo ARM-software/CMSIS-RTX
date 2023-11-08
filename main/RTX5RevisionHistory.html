@@ -127,7 +127,9 @@ $(document).ready(function(){initNavTree('RTX5RevisionHistory.html',''); initRes
   <div class="headertitle"><div class="title">Revision History </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_src_history"></a> </p><table class="cmtable" summary="Revision History">
+<div class="textblock"><p><a class="anchor" id="md_src_history"></a> CMSIS-RTX version is offically updated upon releases of the <a href="https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/" target="_blank">CMSIS-RTX pack</a>.</p>
+<p>The table below provides information about the changes delivered with specific versions of CMSIS-RTX.</p>
+<table class="cmtable" summary="Revision History">
 <tr>
 <th>Version </th><th>Description  </th></tr>
 <tr>
@@ -152,20 +154,20 @@ $(document).ready(function(){initNavTree('RTX5RevisionHistory.html',''); initRes
 <li>Fixed potential register R1 corruption when calling OS functions from threads multiple times with same arguments (when using high level compiler optimizations).</li>
 <li>Fixed timer interval when periodic timer is restarted.</li>
 <li>Added Floating-point initialization for Arm C Library.</li>
-<li>Minor code optimizations in <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> / <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a>.   </li>
+<li>Minor code optimizations in <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> / <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a>.   </li>
 </ul>
 </td></tr>
 <tr>
 <td>V5.5.3 </td><td><ul>
 <li>CVE-2021-27431 vulnerability mitigation.</li>
 <li>Added OS Initialization for IAR.</li>
-<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> / <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> error handling.</li>
+<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> / <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> error handling.</li>
 <li>Fixed Round-Robin (timeout value is not reset when switching to higher priority threads).</li>
-<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#ga3fca90fb0679afeb968aa8c3d5874487">osThreadJoin</a> (when terminating thread which is waiting to be joined).</li>
+<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga3fca90fb0679afeb968aa8c3d5874487">osThreadJoin</a> (when terminating thread which is waiting to be joined).</li>
 <li>Fixed Message Queue Data allocation size when using object specific memory allocation.</li>
 <li>Fixed Mutex priority inversion (when mixing mutexes with and without priority inherit).</li>
 <li>Enhanced stack overrun checking.</li>
-<li>Updated <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__KernelCtrl.html#ga8c4b4d7ed34cab73c001665d9176aced">osKernelResume</a> handling (processing past sleep ticks).</li>
+<li>Updated <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga8c4b4d7ed34cab73c001665d9176aced">osKernelResume</a> handling (processing past sleep ticks).</li>
 <li>Updated configuration (Event Recorder).</li>
 <li>Reorganized and optimized IRQ modules.   </li>
 </ul>
@@ -180,8 +182,8 @@ $(document).ready(function(){initNavTree('RTX5RevisionHistory.html',''); initRes
 </td></tr>
 <tr>
 <td>V5.5.1 </td><td><ul>
-<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__MutexMgmt.html#gaea629705703580ff58776bf73c8db915">osMutexRelease</a> issue (thread owning multiple mutexes).</li>
-<li>Improved <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#ga3fca90fb0679afeb968aa8c3d5874487">osThreadJoin</a> robustness (user programing errors).   </li>
+<li>Fixed <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html#gaea629705703580ff58776bf73c8db915">osMutexRelease</a> issue (thread owning multiple mutexes).</li>
+<li>Improved <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga3fca90fb0679afeb968aa8c3d5874487">osThreadJoin</a> robustness (user programing errors).   </li>
 </ul>
 </td></tr>
 <tr>

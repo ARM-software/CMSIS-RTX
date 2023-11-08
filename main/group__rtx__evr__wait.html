@@ -150,7 +150,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga46ffa7cb290130a3b0d10dbd6c3faddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__wait.html#ga46ffa7cb290130a3b0d10dbd6c3faddd">EvrRtxDelayUntilStarted</a> (uint32_t ticks)</td></tr>
 <tr class="memdesc:ga46ffa7cb290130a3b0d10dbd6c3faddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event on delay until specified time started (Op)  <br /></td></tr>
 <tr class="separator:ga46ffa7cb290130a3b0d10dbd6c3faddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff18b7b13dc1fe87d1c9d3b23ed55208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__wait.html#gaff18b7b13dc1fe87d1c9d3b23ed55208">EvrRtxDelayCompleted</a> (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a> thread_id)</td></tr>
+<tr class="memitem:gaff18b7b13dc1fe87d1c9d3b23ed55208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__wait.html#gaff18b7b13dc1fe87d1c9d3b23ed55208">EvrRtxDelayCompleted</a> (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a> thread_id)</td></tr>
 <tr class="memdesc:gaff18b7b13dc1fe87d1c9d3b23ed55208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event on delay completed (Op)  <br /></td></tr>
 <tr class="separator:gaff18b7b13dc1fe87d1c9d3b23ed55208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -180,8 +180,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>DelayError</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html">Generic Wait Functions</a> routines complete their execution due to an error.</p>
-<p>The status parameter indicates the execution status and can be one of the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t codes</a> or one of the extended execution status codes which are summarized in the table below.</p>
+<p>The event <b>DelayError</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html">Generic Wait Functions</a> routines complete their execution due to an error.</p>
+<p>The status parameter indicates the execution status and can be one of the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t codes</a> or one of the extended execution status codes which are summarized in the table below.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Extended Status Code   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -249,7 +249,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>Delay</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> is called.</p>
+<p>The event <b>Delay</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>ticks</b> : <a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">time ticks</a> value. </li>
 </ul>
@@ -279,7 +279,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>DelayUntil</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> is called.</p>
+<p>The event <b>DelayUntil</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>ticks</b> : absolute delay time in ticks. </li>
 </ul>
@@ -309,7 +309,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>DelayStarted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> delay starts.</p>
+<p>The event <b>DelayStarted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> delay starts.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>ticks</b> : <a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">time ticks</a> value. </li>
 </ul>
@@ -339,7 +339,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>DelayUntilStarted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> delay starts.</p>
+<p>The event <b>DelayUntilStarted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> delay starts.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>ticks</b> : <a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">time ticks</a> value. </li>
 </ul>
@@ -355,7 +355,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void EvrRtxDelayCompleted </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a>&#160;</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a>&#160;</td>
           <td class="paramname"><em>thread_id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -369,7 +369,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>DelayCompleted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/html/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> delay expires.</p>
+<p>The event <b>DelayCompleted</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#gaf6055a51390ef65b6b6edc28bf47322e">osDelay</a> or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Wait.html#ga3c807924c2d6d43bc2ffb49da3f7f3a1">osDelayUntil</a> delay expires.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>thread_id</b> : thread ID. </li>
 </ul>

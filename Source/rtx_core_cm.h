@@ -190,19 +190,19 @@ __STATIC_INLINE void SVC_Setup (void) {
        (defined(__ARM_ARCH_7EM__)       && (__ARM_ARCH_7EM__       != 0)))
   uint32_t p, n;
 
-  SCB->SHP[10] = 0xFFU;
-  n = 32U - (uint32_t)__CLZ(~(SCB->SHP[10] | 0xFFFFFF00U));
+  SCB->SHPR[10] = 0xFFU;
+  n = 32U - (uint32_t)__CLZ(~(SCB->SHPR[10] | 0xFFFFFF00U));
   p = NVIC_GetPriorityGrouping();
   if (p >= n) {
     n = p + 1U;
   }
-  SCB->SHP[7] = (uint8_t)(0xFEU << n);
+  SCB->SHPR[7] = (uint8_t)(0xFEU << n);
 #elif  (defined(__ARM_ARCH_6M__)        && (__ARM_ARCH_6M__        != 0))
   uint32_t n;
 
-  SCB->SHP[1] |= 0x00FF0000U;
-  n = SCB->SHP[1];
-  SCB->SHP[0] |= (n << (8+1)) & 0xFC000000U;
+  SCB->SHPR[1] |= 0x00FF0000U;
+  n = SCB->SHPR[1];
+  SCB->SHPR[0] |= (n << (8+1)) & 0xFC000000U;
 #endif
 }
 

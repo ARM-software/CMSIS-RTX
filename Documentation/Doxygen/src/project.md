@@ -8,7 +8,7 @@ FuSa RTX5 installation and project setup are explained in \ref fusa_rtx_installa
 The steps to create a microcontroller application using RTX5 are:
 
  - Create a new project and select a microcontroller device.
- - In the Manage Run-Time Environment window, select **CMSIS\::CORE** and **CMSIS\::RTOS2 (API)\::Keil RTX5**. You can
+ - In the Manage Run-Time Environment window, select **CMSIS\::CORE**, **CMSIS\::OS Tick (API)\::SysTick** and **CMSIS\::RTOS2 (API)\::Keil RTX5**. You can
    choose to either add RTX as a library (Variant: **Library**) or to add the full source code (Variant: **Source**) - required if using the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html):
 
 ![Run-Time Environment for RTX5 in Keil uVision](./images/manage_rte_output.png)

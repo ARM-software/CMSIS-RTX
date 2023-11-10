@@ -60,7 +60,7 @@ PROJECT_BRIEF          = "Keil RTX5 Real-Time Operating System"
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = style_template/cmsis_logo_white_small.png
+PROJECT_LOGO           = ./style_template/cmsis_logo_white_small.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
@@ -802,7 +802,7 @@ FILE_VERSION_FILTER    =
 # DoxygenLayout.xml, doxygen will parse it automatically even if the LAYOUT_FILE
 # tag is left empty.
 
-LAYOUT_FILE            = ./style_template/Layout_forUser.xml
+LAYOUT_FILE            = ./style_template/layout.xml
 
 # The CITE_BIB_FILES tag can be used to specify one or more bib files containing
 # the reference definitions. This must be a list of .bib files. The .bib
@@ -1390,6 +1390,8 @@ HTML_STYLESHEET        =
 HTML_EXTRA_STYLESHEET  = ./style_template/extra_stylesheet.css \
                          ./style_template/extra_navtree.css \
                          ./style_template/extra_search.css \
+                         ./style_template/extra_tabs.css \
+                         ./style_template/version.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
@@ -1399,13 +1401,11 @@ HTML_EXTRA_STYLESHEET  = ./style_template/extra_stylesheet.css \
 # files will be copied as-is; there are no commands or markers available.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_FILES       = style_template/tabs.css \
-                         style_template/version.css \
-                         style_template/tab_b.png \
-                         style_template/printComponentTabs.js \
-                         style_template/darkmode_toggle.js \
-                         style_template/navtree.js \
-                         style_template/dropdown.png
+HTML_EXTRA_FILES       = ./style_template/tab_b.png \
+                         ./style_template/tabs.js \
+                         ./style_template/darkmode_toggle.js \
+                         ./style_template/navtree.js \
+                         ./style_template/dropdown.png
 
 # The HTML_COLORSTYLE tag can be used to specify if the generated HTML output
 # should be rendered with a dark or light theme.

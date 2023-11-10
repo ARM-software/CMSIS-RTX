@@ -34,17 +34,13 @@ Generating the HTML-formatted documentation from its Doxygen-based source is don
 CMSIS-RTX $ ./Documentation/Doxygen/gen_doc.sh
 ```
 
-After generating the documentation, one can check the html output for broken links:
-
-```bash
-CMSIS-RTX $ ./Documentation/Doxygen/check_links.sh
-```
-
 Prerequisites for these scripts to succeed are:
 
 - Doxygen 1.9.6
 - Python 3.9 or later with linkchecker package installed
   `pip install linkchecker`
+
+Also see [Documentation README](./documentation/README.md).
 
 ### CMSIS-Pack Bundle
 

@@ -8,3 +8,6 @@ output
 *.lib
 *.a
 .clangd
+
+# Output of the linkchecker tool
+linkchecker-out.csv

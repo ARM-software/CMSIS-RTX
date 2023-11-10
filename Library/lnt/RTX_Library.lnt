@@ -1,0 +1,24 @@
+// RTX Library configuration for PC-lint
+
+// MISRA Configuration file:
+MISRA_C_2012_Config.lnt
+
+// ARM Compiler Lint configuration:
+co-ARMCC-6.lnt
+
+// Additional Lint Commands:
++d__has_builtin(x)=(0)
+-esym(526,__builtin_*)
+-esym(628,__builtin_*)
+-esym(718,__builtin_*)
+-esym(746,__builtin_*)
+-sem(__CLZ, pure)
++doffsetof(t,m)=((size_t)&((t*)0)->m)
+-emacro((413,923,9078),offsetof)
+-emacro(835,osRtxConfigPrivilegedMode)
+--uEVR_RTX_DISABLE
+
+// Format Output:
+-hsfb^3
+-format="*** LINT: %(%f(%l) %)%t %n: %m"
+-width(160,4)

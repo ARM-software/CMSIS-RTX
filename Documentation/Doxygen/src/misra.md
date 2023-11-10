@@ -2,12 +2,18 @@
 
 The RTX5 C source files use [MISRA C:2012](https://misra.org.uk/) guidelines as underlying coding standard.
 
-For MISRA validation, [PC-lint](https://pclintplus.com) V9.00L is used with configuration for Arm Compiler V6.19. Refer to [Setup for PC-Lint](https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation) for more information.
+For MISRA validation, [PC-lint](https://pclintplus.com) V9.00L is used with configuration for Arm Compiler V6. Refer to [Setup for PC-Lint](https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation) for more information.
 
-The PC-Lint configuration used the following Options under **Tools - PC-Lint Setup...**:
+The PC-Lint is configured with the following configuration file: RTX_Library.lnt:
 
- - Config File: co-ARMCC-6.lnt (20-Mar-2017) with additional options:
+ - MISRA rules setup and configuration: 
+   - MISRQ_C_2012_Config.lnt; all rules enabled
+   - includes definition file: au-misra3.lnt (12-Jun-2014)
+ - Arm Compiler V6 configuration file: co-ARMCC-6.lnt (20-Mar-2017)
+
+ - Additional compiler configuration:
 ```
+   +d__has_builtin(x)=(0)
    -esym(526,__builtin_*)
    -esym(628,__builtin_*)
    -esym(718,__builtin_*)
@@ -16,18 +22,9 @@ The PC-Lint configuration used the following Options under **Tools - PC-Lint Set
    +doffsetof(t,m)=((size_t)&((t*)0)->m)
    -emacro((413,923,9078),offsetof)
 ```
- - Included Project Information: 
-   - Enable: Add 'Include' paths
-   - Enable: Add 'Software Packs' paths
-   - Enable: Verify 'Software Packs' includes
-   - Enable: Add 'Preprocessor' symbols
-   - Enable: Add 'Define' symbols
- - MISRA  Rules Setup and Configuration: 
-   - MISRQ_C_2012_Config.lnt; all rules enabled
-   - includes definition file: au-misra3.lnt (12-Jun-2014)
- - Additional Lint Commands (for both single and multiple files):
+ - Additional project configuration:
 ```
-   -emacro(835,osRtxConfigPrivilegedMode)
+  --uEVR_RTX_DISABLE
 ```
 
 The C source code is annotated with PC-Lint control comments to allows MISRA deviations. These deviations with the underlying design decisions are described in the following.

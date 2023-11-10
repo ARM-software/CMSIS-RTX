@@ -98,14 +98,14 @@ Timer Peripheral           | An arbitrary timer peripheral generates the kernel 
 Exception Handler          | RTX implements exception handlers for SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction interrupt.
 Core Registers             | The processor status is read using the following core registers: CPSR, CPACR and FPSCR.
 LDREX, STREX instruction   | Atomic execution avoids the requirement to disable interrupts and is implemented via exclusive access instructions.
-Interrupt Controller       | An interrupt controller interface is required to setup and control Timer Peripheral interrupt. The interface for Arm GIC (Generic Interrupt Controller) is implemented in %irq_ctrl_gic.c using the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html).
+Interrupt Controller       | An interrupt controller interface is required to setup and control Timer Peripheral interrupt. The interface for Arm GIC (Generic Interrupt Controller) is implemented in %irq_ctrl_gic.c using the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html).
 
 The interface files to the processor hardware are:
 
  - **irq_armv7a.S** defines SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction exception handlers.
  - **rtx_core_ca.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
  - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the timer peripheral.
- - **irq_ctrl.h** is the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html) that defines the interface functions to the interrupt controller.
+ - **irq_ctrl.h** is the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html) that defines the interface functions to the interrupt controller.
 
 > **Note**
 > - The CMSIS-Core variable `SystemCoreClock` is used by RTX to configure the timer peripheral.

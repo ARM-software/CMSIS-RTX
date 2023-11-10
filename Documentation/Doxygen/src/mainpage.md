@@ -19,6 +19,10 @@ The following sections provide further details:
 
 CMSIS-RTX kernel is actively maintained in [**CMSIS-RTX GitHub repository**](https://github.com/ARM-software/CMSIS-RTX) and is also provided as a standalone [**CMSIS-RTX pack**](https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/) in the [CMSIS-Pack format](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html).
 
+> **Note**
+> - CMSIS-RTX replaces and extends RTX5 implementation previously provided as part of *ARM::CMSIS* pack.
+> - See [Migrating projects from CMSIS v5 to CMSIS v6](https://learn.arm.com/learning-paths/microcontrollers/project-migration-cmsis-v6) for a guidance on updating existing projects to CMSIS-RTX.
+
 The table below explains the content of the **ARM::CMSIS-RTX** Pack.
 
  File/Directory        | Content

@@ -931,8 +931,8 @@ INPUT                  = ./src/mainpage.md \
                          ./src/configure.md \
                          ./src/misra.md \
                          ./src/tutorial.md \
-                         ./src/rtx_os.txt \
-                         ./src/rtx_evr.txt \
+                         ./src/ref_rtx_os.txt \
+                         ./src/ref_rtx_evr.txt \
                          ../../Include/rtx_os.h \
                          ../../Include/rtx_evr.h
 

@@ -1,4 +1,12 @@
-# RTX5 RTOS implementation
+# CMSIS-RTX RTOS implementation
+
+**CMSIS-RTX** contains Keil RTX5 RTOS - a real-time operating system for Arm Cortex-M and Cortex-A processor-based devices that implements the [CMSIS-RTOS2 API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/index.html) as its native interface.
+
+[CMSIS-RTX documentation](https://arm-software.github.io/CMSIS-RTX) explains the functionality, configuration and usage of CMSIS-RTX in embedded software projects.
+
+> **Note**
+> - CMSIS-RTX replaces and extends RTX5 implementation previously provided as part of *ARM::CMSIS* pack.
+> - See [Migrating projects from CMSIS v5 to CMSIS v6](https://learn.arm.com/learning-paths/microcontrollers/project-migration-cmsis-v6) for a guidance on updating existing projects to CMSIS-RTX.
 
 ## Repository toplevel structure
 
@@ -11,7 +19,6 @@
   ┣ 📂 Config                   Configuration file templates
   ┣ 📂 Documentation            Target directory for generated documentation
      ┗ 📂 Doxygen                Source directory for documentation
-        ┣ 📄 check_links.sh      Script to check generated html documentation for broken links
         ┗ 📄 gen_doc.sh          Documentation generation script
   ┣ 📂 Examples                 Example projects (MDK uVision and CMSIS-Toolbox)
   ┣ 📂 Include                  Public header files of RTX software component

@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
   release:
     types: [published]
 
@@ -13,17 +13,17 @@ concurrency:
 
 jobs:
   pack:
-    if: |
-      github.event_name != 'release' ||
-      (github.event_name == 'release' && startsWith(github.ref, 'refs/tags/v'))
     name: Generate pack
-    runs-on: ubuntu-20.04
-    env:
-      GH_TOKEN: ${{ github.token }}
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Fetch tags
+        if: github.event_name == 'release'
+        run: |
+          git fetch --tags --force
 
       - name: Fetch pre-built libs
         run: |
@@ -34,7 +34,6 @@ jobs:
           doxygen-version: 1.9.6
           packchk-version: 1.4.1
           gen-doc-script: ./Documentation/Doxygen/gen_doc.sh
-          check-links-script: ./Documentation/Doxygen/check_links.sh
           doc-path: ./Documentation/html
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output

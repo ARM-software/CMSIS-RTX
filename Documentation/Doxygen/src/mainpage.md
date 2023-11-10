@@ -1,6 +1,6 @@
 ﻿# Overview {#mainpage}
 
-Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the [CMSIS-RTOS2 API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/index.html) as its native interface.
+Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the [**CMSIS-RTOS2 API**](https://arm-software.github.io/CMSIS_6/latest/RTOS2/index.html) as its native interface.
 
 The following sections provide further details:
 

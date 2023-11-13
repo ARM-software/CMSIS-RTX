@@ -128,10 +128,17 @@ $(document).ready(function(){initNavTree('misraCompliance5.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_src_misra"></a> The RTX5 C source files use <a href="https://misra.org.uk/" target="_blank">MISRA C:2012</a> guidelines as underlying coding standard.</p>
-<p>For MISRA validation, <a href="https://pclintplus.com" target="_blank">PC-lint</a> V9.00L is used with configuration for Arm Compiler V6.19. Refer to <a href="https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation" target="_blank">Setup for PC-Lint</a> for more information.</p>
-<p>The PC-Lint configuration used the following Options under <b>Tools - PC-Lint Setup...</b>:</p>
+<p>For MISRA validation, <a href="https://pclintplus.com" target="_blank">PC-lint</a> V9.00L is used with configuration for Arm Compiler V6. Refer to <a href="https://developer.arm.com/documentation/101407/latest/Utilities/PC-lint-and-MISRA-Validation" target="_blank">Setup for PC-Lint</a> for more information.</p>
+<p>The PC-Lint is configured with the following configuration file: RTX_Library.lnt:</p>
 <ul>
-<li>Config File: co-ARMCC-6.lnt (20-Mar-2017) with additional options: <div class="fragment"><div class="line">-esym(526,__builtin_*)</div>
+<li>MISRA rules setup and configuration:<ul>
+<li>MISRQ_C_2012_Config.lnt; all rules enabled</li>
+<li>includes definition file: au-misra3.lnt (12-Jun-2014)</li>
+</ul>
+</li>
+<li>Arm Compiler V6 configuration file: co-ARMCC-6.lnt (20-Mar-2017)</li>
+<li>Additional compiler configuration: <div class="fragment"><div class="line">+d__has_builtin(x)=(0)</div>
+<div class="line">-esym(526,__builtin_*)</div>
 <div class="line">-esym(628,__builtin_*)</div>
 <div class="line">-esym(718,__builtin_*)</div>
 <div class="line">-esym(746,__builtin_*)</div>
@@ -139,20 +146,7 @@ $(document).ready(function(){initNavTree('misraCompliance5.html',''); initResiza
 <div class="line">+doffsetof(t,m)=((size_t)&amp;((t*)0)-&gt;m)</div>
 <div class="line">-emacro((413,923,9078),offsetof)</div>
 </div><!-- fragment --></li>
-<li>Included Project Information:<ul>
-<li>Enable: Add 'Include' paths</li>
-<li>Enable: Add 'Software Packs' paths</li>
-<li>Enable: Verify 'Software Packs' includes</li>
-<li>Enable: Add 'Preprocessor' symbols</li>
-<li>Enable: Add 'Define' symbols</li>
-</ul>
-</li>
-<li>MISRA Rules Setup and Configuration:<ul>
-<li>MISRQ_C_2012_Config.lnt; all rules enabled</li>
-<li>includes definition file: au-misra3.lnt (12-Jun-2014)</li>
-</ul>
-</li>
-<li>Additional Lint Commands (for both single and multiple files): <div class="fragment"><div class="line">-emacro(835,osRtxConfigPrivilegedMode)</div>
+<li>Additional project configuration: <div class="fragment"><div class="line">--uEVR_RTX_DISABLE</div>
 </div><!-- fragment --></li>
 </ul>
 <p>The C source code is annotated with PC-Lint control comments to allows MISRA deviations. These deviations with the underlying design decisions are described in the following.</p>

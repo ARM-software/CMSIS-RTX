@@ -135,7 +135,7 @@ Supported Toolchains</h1>
 <p>Keil RTX5 is developed and tested using the common toolchains and development environments.</p>
 <p>Current development is verified to work with the following toolchains versions:</p>
 <ul>
-<li>Arm Compiler 6.21</li>
+<li>Arm Compiler 6.20</li>
 <li>IAR Embedded Workbench 9.40.2</li>
 <li>GNU Arm Embedded Toolchain 12.3.1</li>
 <li>CLANG (LLVM): 17.0.1</li>
@@ -244,16 +244,16 @@ Stack Requirements</h1>
 Main Stack usage of RTX v5 applications</div></div>
     <p>The stack requirements depend on the compiler and the optimization level. RTX v5 supports event annotations and this configuration impacts also the stack requirement.</p>
 <p>Application note <a href="https://developer.arm.com/documentation/kan316/latest/" target="_blank">KAN316: Determining the stack usage of applications</a> describes the stack usage in RTX applications , explains how to analyze actual stack consumption and find the optimal setting.</p>
-<p><b>Arm Compiler ARMCC V6.10</b>: Main Stack requirements for PendSV/SysTick/SVC</p>
+<p><b>Arm Compiler ARMCC V6.20</b>: Main Stack requirements for PendSV/SysTick/SVC</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Optimization   </th><th class="markdownTableHeadLeft">RTX Kernel   </th><th class="markdownTableHeadLeft">RTX Kernel + Event Recorder    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">-O1 (Debug)   </td><td class="markdownTableBodyLeft">152 bytes   </td><td class="markdownTableBodyLeft">280 bytes    </td></tr>
+<td class="markdownTableBodyLeft">-O1 (Debug)   </td><td class="markdownTableBodyLeft">96 bytes   </td><td class="markdownTableBodyLeft">224 bytes    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">-Os (Balanced)   </td><td class="markdownTableBodyLeft">120 bytes   </td><td class="markdownTableBodyLeft">256 bytes    </td></tr>
+<td class="markdownTableBodyLeft">-Os (Balanced)   </td><td class="markdownTableBodyLeft">100 bytes   </td><td class="markdownTableBodyLeft">232 bytes    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">-Oz (Size)   </td><td class="markdownTableBodyLeft">112 bytes   </td><td class="markdownTableBodyLeft">248 bytes   </td></tr>
+<td class="markdownTableBodyLeft">-Oz (Size)   </td><td class="markdownTableBodyLeft">104 bytes   </td><td class="markdownTableBodyLeft">248 bytes   </td></tr>
 </table>
 <h1><a class="anchor" id="pControlBlockSizes"></a>
 Control Block Sizes</h1>

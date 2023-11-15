@@ -18,7 +18,7 @@ Keil RTX5 is developed and tested using the common toolchains and development en
 
 Current development is verified to work with the following toolchains versions:
 
- - Arm Compiler 6.21
+ - Arm Compiler 6.20
  - IAR Embedded Workbench 9.40.2
  - GNU Arm Embedded Toolchain 12.3.1
  - CLANG (LLVM): 17.0.1
@@ -131,13 +131,13 @@ The stack requirements depend on the compiler and the optimization level. RTX v5
 Application note [KAN316: Determining the stack usage of applications](https://developer.arm.com/documentation/kan316/latest/) describes the stack usage in RTX applications , explains how to analyze actual stack consumption and find the optimal setting.
 
 \ifnot FuSaRTS
-**Arm Compiler ARMCC V6.10**: Main Stack requirements for PendSV/SysTick/SVC
+**Arm Compiler ARMCC V6.20**: Main Stack requirements for PendSV/SysTick/SVC
 
 Optimization         | RTX Kernel  | RTX Kernel + Event Recorder
 :--------------------|:------------|:--------------------------------
--O1 (Debug)          | 152 bytes   | 280 bytes
--Os (Balanced)       | 120 bytes   | 256 bytes
--Oz (Size)           | 112 bytes   | 248 bytes
+-O1 (Debug)          |  96 bytes   | 224 bytes
+-Os (Balanced)       | 100 bytes   | 232 bytes
+-Oz (Size)           | 104 bytes   | 248 bytes
 
 \endif
 

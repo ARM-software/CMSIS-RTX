@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['t_0',['T',['https://arm-software.github.io/CMSIS_6/main/Core/unionxPSR__Type.html#a7eed9fe24ae8d354cd76ae1c1110a658',0,'xPSR_Type']]],
-  ['tcr_1',['TCR',['https://arm-software.github.io/CMSIS_6/main/Core/structITM__Type.html#a04b9fbc83759cb818dfa161d39628426',0,'ITM_Type']]],
-  ['ter_2',['TER',['https://arm-software.github.io/CMSIS_6/main/Core/structITM__Type.html#acd03c6858f7b678dab6a6121462e7807',0,'ITM_Type']]],
+  ['t_0',['T',['https://arm-software.github.io/CMSIS_6/latest/Core/unionxPSR__Type.html#a7eed9fe24ae8d354cd76ae1c1110a658',0,'xPSR_Type']]],
+  ['tcr_1',['TCR',['https://arm-software.github.io/CMSIS_6/latest/Core/structITM__Type.html#a04b9fbc83759cb818dfa161d39628426',0,'ITM_Type']]],
+  ['ter_2',['TER',['https://arm-software.github.io/CMSIS_6/latest/Core/structITM__Type.html#acd03c6858f7b678dab6a6121462e7807',0,'ITM_Type']]],
   ['thread_3',['thread',['../namespace_3globalScope_4.html#a6f7fcc252ea4f38383023590423c5fd1',1,'osRtxInfo_t']]],
   ['thread_5faddr_4',['thread_addr',['../group__rtx5__specific__types.html#adf2ebf46aa7018845582f1c70de83598',1,'osRtxThread_t']]],
   ['thread_5fflags_5',['thread_flags',['../group__rtx5__specific__types.html#ae757685e50b875e953f4aff67ac24b1b',1,'osRtxThread_t']]],
@@ -21,9 +21,9 @@ var searchData=
   ['timer_5fthread_18',['timer_thread',['../structosRtxConfig__t.html#ac30da0b0de7bbd8e661e47badd64d175',1,'osRtxConfig_t']]],
   ['timer_5fthread_5fattr_19',['timer_thread_attr',['../structosRtxConfig__t.html#a310b3e01cc8e274529353210db5a78c3',1,'osRtxConfig_t']]],
   ['tokens_20',['tokens',['../group__rtx5__specific__types.html#a4e2e4e1126848f81d9e943147e07f0e0',1,'osRtxSemaphore_t']]],
-  ['tpr_21',['TPR',['https://arm-software.github.io/CMSIS_6/main/Core/structITM__Type.html#ae907229ba50538bf370fbdfd54c099a2',0,'ITM_Type']]],
-  ['trigger_22',['TRIGGER',['https://arm-software.github.io/CMSIS_6/main/Core/structTPI__Type.html#a4d4cd2357f72333a82a1313228287bbd',0,'TPI_Type']]],
-  ['type_23',['TYPE',['https://arm-software.github.io/CMSIS_6/main/Core/structMPU__Type.html#aba02af87f77577c725cf73879cabb609',0,'MPU_Type::TYPE()'],['https://arm-software.github.io/CMSIS_6/main/Core/structPMU__Type.html#a1f2e763ceeeff8ff15c0bd3520b683e8',0,'PMU_Type::TYPE()']]],
+  ['tpr_21',['TPR',['https://arm-software.github.io/CMSIS_6/latest/Core/structITM__Type.html#ae907229ba50538bf370fbdfd54c099a2',0,'ITM_Type']]],
+  ['trigger_22',['TRIGGER',['https://arm-software.github.io/CMSIS_6/latest/Core/structTPI__Type.html#a4d4cd2357f72333a82a1313228287bbd',0,'TPI_Type']]],
+  ['type_23',['TYPE',['https://arm-software.github.io/CMSIS_6/latest/Core/structMPU__Type.html#aba02af87f77577c725cf73879cabb609',0,'MPU_Type::TYPE()'],['https://arm-software.github.io/CMSIS_6/latest/Core/structPMU__Type.html#a1f2e763ceeeff8ff15c0bd3520b683e8',0,'PMU_Type::TYPE()']]],
   ['tz_5fmemory_24',['tz_memory',['../group__rtx5__specific__types.html#adaa6c424a231e5f6c788532675f33e16',1,'osRtxThread_t']]],
-  ['tz_5fmodule_25',['tz_module',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394',0,'osThreadAttr_t']]]
+  ['tz_5fmodule_25',['tz_module',['https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394',0,'osThreadAttr_t']]]
 ];

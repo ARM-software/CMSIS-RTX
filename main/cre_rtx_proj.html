@@ -6,14 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>CMSIS-RTX: Create an RTX5 Project</title>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
-<link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
-<link href="extra_search.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="printComponentTabs.js"></script>
+<script type="text/javascript" src="tabs.js"></script>
 <script type="text/javascript" src="footer.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -32,7 +28,8 @@
 <link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
 <link href="extra_search.css" rel="stylesheet" type="text/css"/>
-<link href="version.css" rel="stylesheet" type="text/css" />
+<link href="extra_tabs.css" rel="stylesheet" type="text/css"/>
+<link href="version.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../version.js"></script>
 </head>
 <body>
@@ -158,16 +155,16 @@ Adding RTX template files to the project</div></div>
 </ul>
 <h1><a class="anchor" id="cre_rtx_cortexa"></a>
 Additional requirements for RTX on Cortex-A</h1>
-<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__irq__ctrl__gr.html" target="_blank">CMSIS-Core IRQ Controller (API)</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
+<p>Cortex-A based microcontrollers are less unified with respect to the interrupt and timer implementations used compared to M-class devices. Thus RTX requires additional components when an A-class device is used, namely <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html" target="_blank">CMSIS-Core IRQ Controller (API)</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick (API)</a> implementations.</p>
 <div class="image">
 <img src="manage_rte_cortex-a.png" alt=""/>
 <div class="caption">
 Keil uVision Run-Time Environment for RTX5 on Cortex-A</div></div>
     <p>The default implementations provided along with CMSIS are</p>
 <ul>
-<li>Arm <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__GIC__functions.html" target="_blank">Generic Interrupt Controller (GIC)</a></li>
-<li>Arm Cortex-A5, Cortex-A9 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PTM__timer__functions.html" target="_blank">Private Timer (PTIM)</a></li>
-<li>Arm Cortex-A7 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/html/group__PL1__timer__functions.html" target="_blank">Generic Physical Timer (GTIM)</a></li>
+<li>Arm <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/group__GIC__functions.html" target="_blank">Generic Interrupt Controller (GIC)</a></li>
+<li>Arm Cortex-A5, Cortex-A9 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/group__PTM__timer__functions.html" target="_blank">Private Timer (PTIM)</a></li>
+<li>Arm Cortex-A7 <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/group__PL1__timer__functions.html" target="_blank">Generic Physical Timer (GTIM)</a></li>
 </ul>
 <p>For devices not implementing GIC, PTIM nor GTIM please refer to the according device family pack and select the proper implementations.</p>
 <h1><a class="anchor" id="cre_rtx_proj_specifics"></a>

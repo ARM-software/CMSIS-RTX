@@ -6,14 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>CMSIS-RTX: MISRA C:2012 Compliance</title>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
-<link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
-<link href="extra_search.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="printComponentTabs.js"></script>
+<script type="text/javascript" src="tabs.js"></script>
 <script type="text/javascript" src="footer.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -32,7 +28,8 @@
 <link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
 <link href="extra_search.css" rel="stylesheet" type="text/css"/>
-<link href="version.css" rel="stylesheet" type="text/css" />
+<link href="extra_tabs.css" rel="stylesheet" type="text/css"/>
+<link href="version.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../version.js"></script>
 </head>
 <body>
@@ -213,7 +210,7 @@ Deviations</h1>
 <div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxEventFlags__t" title="Event Flags Control Block.">osRtxEventFlags_t</a>   *osRtxEventFlagsId (osEventFlags_t ef_id);</div>
 <div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxMutex__t" title="Mutex Control Block.">osRtxMutex_t</a>        *osRtxMutexId (osMutex_t mutex_id);</div>
 <div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxSemaphore__t" title="Semaphore Control Block.">osRtxSemaphore_t</a>    *osRtxSemaphoreId (osSemaphore_t semaphore_id);</div>
-<div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxMemoryPool__t" title="Memory Pool Control Block.">osRtxMemoryPool_t</a>   *osRtxMemoryPoolId (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html#ga2e44473caf338266f56800960294f960">osMemoryPoolId_t</a> mp_id);</div>
+<div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxMemoryPool__t" title="Memory Pool Control Block.">osRtxMemoryPool_t</a>   *osRtxMemoryPoolId (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__PoolMgmt.html#ga2e44473caf338266f56800960294f960">osMemoryPoolId_t</a> mp_id);</div>
 <div class="line"><a class="code hl_struct" href="group__rtx5__specific__types.html#structosRtxMessageQueue__t" title="Message Queue Control Block.">osRtxMessageQueue_t</a> *osRtxMessageQueueId(osMessageQueueId_t mq_id);</div>
 </div><!-- fragment --><h1><a class="anchor" id="MISRA_3"></a>
 [MISRA Note 3]: Conversion to unified object control blocks</h1>
@@ -277,13 +274,13 @@ Deviations</h1>
 <p>All locations in the source code are marked with:</p>
 <div class="fragment"><div class="line">//lint -e{9079} &quot;conversion from pointer to void to pointer to other type&quot; [MISRA Note 6]</div>
 </div><!-- fragment --><p>Code example:</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#gaad5409379689ee27bb0a0b56ea4a4b34">osTimerId_t</a> svcRtxTimerNew (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#gaacf768c1ec64b020598afb985d7b30be">osTimerFunc_t</a> func, <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#ga7dc24a4c2b90334427081c3da7a71915">osTimerType_t</a> type, <span class="keywordtype">void</span> *argument, <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__TimerMgmt">osTimerAttr_t</a> *attr) {</div>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#gaad5409379689ee27bb0a0b56ea4a4b34">osTimerId_t</a> svcRtxTimerNew (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#gaacf768c1ec64b020598afb985d7b30be">osTimerFunc_t</a> func, <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#ga7dc24a4c2b90334427081c3da7a71915">osTimerType_t</a> type, <span class="keywordtype">void</span> *argument, <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__TimerMgmt">osTimerAttr_t</a> *attr) {</div>
 <div class="line">  os_timer_t *timer;</div>
 <div class="line">    :</div>
 <div class="line">  <span class="keywordflow">if</span> (attr != NULL) {</div>
 <div class="line">    :</div>
 <div class="line">    <span class="comment">//lint -e{9079} &quot;conversion from pointer to void to pointer to other type&quot; [MISRA Note 6]</span></div>
-<div class="line">    timer = attr-&gt;<a class="code hl_variableRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#ga1e100dc33d403841ed3c344e3397868e">cb_mem</a>;</div>
+<div class="line">    timer = attr-&gt;<a class="code hl_variableRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#ga1e100dc33d403841ed3c344e3397868e">cb_mem</a>;</div>
 <div class="line">    :</div>
 </div><!-- fragment --><h1><a class="anchor" id="MISRA_7"></a>
 [MISRA Note 7]: Check for proper pointer alignment</h1>
@@ -296,7 +293,7 @@ Deviations</h1>
 <p>All locations in the source code are marked with:</p>
 <div class="fragment"><div class="line">//lint -e{923} -e{9078} &quot;cast from pointer to unsigned int&quot; [MISRA Note 7]</div>
 </div><!-- fragment --><p>Code example:</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a> svcRtxThreadNew (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadd51f99a6eb50b94eee75f27cae815eb">osThreadFunc_t</a> func, <span class="keywordtype">void</span> *argument, <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__ThreadMgmt">osThreadAttr_t</a> *attr) {</div>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaa6c32fe2a3e0a2e01f212d55b02e51c7">osThreadId_t</a> svcRtxThreadNew (<a class="code hl_typedefRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadd51f99a6eb50b94eee75f27cae815eb">osThreadFunc_t</a> func, <span class="keywordtype">void</span> *argument, <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__ThreadMgmt">osThreadAttr_t</a> *attr) {</div>
 <div class="line">    :</div>
 <div class="line">  <span class="keywordtype">void</span>         *stack_mem;</div>
 <div class="line">    :</div>
@@ -316,7 +313,7 @@ Deviations</h1>
 <p>All locations in the source code are marked with:</p>
 <div class="fragment"><div class="line">//lint -e{923} -e{9078} &quot;cast from pointer to unsigned int&quot; [MISRA Note 8]</div>
 </div><!-- fragment --><p>The required pointer arithmetic is implemented in <em>rtx_memory.c</em> with the following function:</p>
-<div class="fragment"><div class="line"><a class="code hl_defineRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/Core/group__compiler__conntrol__gr.html#gaba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> mem_block_t *MemBlockPtr (<span class="keywordtype">void</span> *mem, uint32_t offset) {</div>
+<div class="fragment"><div class="line"><a class="code hl_defineRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/Core/group__compiler__conntrol__gr.html#gaba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> mem_block_t *MemBlockPtr (<span class="keywordtype">void</span> *mem, uint32_t offset) {</div>
 <div class="line">  uint32_t     addr;</div>
 <div class="line">  mem_block_t *ptr;</div>
 <div class="line"> </div>
@@ -339,7 +336,7 @@ Deviations</h1>
 </div><!-- fragment --><p>Code example:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define SCS_BASE  (0xE000E000UL)</span></div>
 <div class="line"><span class="preprocessor">#define SCB      ((SCB_Type *)SCB_BASE)</span></div>
-<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{...} <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structSCB__Type">SCB_Type</a>;</div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{...} <a class="code hl_structRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/Core/namespace_3globalScope_4.html#structSCB__Type">SCB_Type</a>;</div>
 <div class="line"> </div>
 <div class="line">SCB-&gt;... = ...;</div>
 </div><!-- fragment --><h1><a class="anchor" id="MISRA_10"></a>
@@ -374,8 +371,8 @@ Deviations</h1>
 </div><!-- fragment --><p>Code example:</p>
 <div class="fragment"><div class="line"><span class="comment">//  Service Calls definitions</span></div>
 <div class="line"><span class="comment">//lint ++flb &quot;Library Begin&quot; [MISRA Note 11]</span></div>
-<div class="line">SVC0_1(Delay,      <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t</a>, uint32_t)</div>
-<div class="line">SVC0_1(DelayUntil, <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t</a>, uint32_t)</div>
+<div class="line">SVC0_1(Delay,      <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t</a>, uint32_t)</div>
+<div class="line">SVC0_1(DelayUntil, <a class="code hl_enumerationRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t</a>, uint32_t)</div>
 <div class="line"><span class="comment">//lint --flb &quot;Library End&quot;</span></div>
 </div><!-- fragment --><p>PC-lint does not process ASM input/output operand lists and therefore falsely identifies issues:</p>
 <ul>

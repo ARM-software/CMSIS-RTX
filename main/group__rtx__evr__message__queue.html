@@ -6,14 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>CMSIS-RTX: Message Queue Functions</title>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
-<link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
-<link href="extra_search.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="printComponentTabs.js"></script>
+<script type="text/javascript" src="tabs.js"></script>
 <script type="text/javascript" src="footer.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -32,7 +28,8 @@
 <link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
 <link href="extra_search.css" rel="stylesheet" type="text/css"/>
-<link href="version.css" rel="stylesheet" type="text/css" />
+<link href="extra_tabs.css" rel="stylesheet" type="text/css"/>
+<link href="version.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../version.js"></script>
 </head>
 <body>
@@ -138,7 +135,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8ded1d43703e0885a81e65251c6df405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__message__queue.html#ga8ded1d43703e0885a81e65251c6df405">EvrRtxMessageQueueError</a> (osMessageQueueId_t mq_id, int32_t status)</td></tr>
 <tr class="memdesc:ga8ded1d43703e0885a81e65251c6df405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event on message queue error (Error)  <br /></td></tr>
 <tr class="separator:ga8ded1d43703e0885a81e65251c6df405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7b18f18f3f53d6afb39ac1abe257000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__message__queue.html#gaa7b18f18f3f53d6afb39ac1abe257000">EvrRtxMessageQueueNew</a> (uint32_t msg_count, uint32_t msg_size, const <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__Message">osMessageQueueAttr_t</a> *attr)</td></tr>
+<tr class="memitem:gaa7b18f18f3f53d6afb39ac1abe257000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__message__queue.html#gaa7b18f18f3f53d6afb39ac1abe257000">EvrRtxMessageQueueNew</a> (uint32_t msg_count, uint32_t msg_size, const <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__Message">osMessageQueueAttr_t</a> *attr)</td></tr>
 <tr class="memdesc:gaa7b18f18f3f53d6afb39ac1abe257000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event on message queue create and initialization (API)  <br /></td></tr>
 <tr class="separator:gaa7b18f18f3f53d6afb39ac1abe257000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga36d6982377c1f54a227ba6fbb9458b79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rtx__evr__message__queue.html#ga36d6982377c1f54a227ba6fbb9458b79">EvrRtxMessageQueueCreated</a> (osMessageQueueId_t mq_id, const char *name)</td></tr>
@@ -237,13 +234,13 @@ Functions</h2></td></tr>
 <p>Event on message queue error (Error) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a> or NULL when ID is unknown. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a> or NULL when ID is unknown. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>extended execution status.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueError</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> routines complete their execution due to an error.</p>
-<p>The status parameter indicates the execution status and can be one of the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t codes</a> or one of the extended execution status codes which are summarized in the table below.</p>
+<p>The event <b>MessageQueueError</b> is generated when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> routines complete their execution due to an error.</p>
+<p>The status parameter indicates the execution status and can be one of the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Definitions.html#ga6c0dbe6069e4e7f47bb4cd32ae2b813e">osStatus_t codes</a> or one of the extended execution status codes which are summarized in the table below.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Extended Status Code   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -310,7 +307,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__Message">osMessageQueueAttr_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/namespace_3globalScope_4.html#group__CMSIS__RTOS__Message">osMessageQueueAttr_t</a> *&#160;</td>
           <td class="paramname"><em>attr</em>&#160;</td>
         </tr>
         <tr>
@@ -330,7 +327,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueNew</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a> is called.</p>
+<p>The event <b>MessageQueueNew</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>msg_count</b> : maximum number of messages in queue.</li>
 <li><b>msg_size</b> : maximum message size in bytes.</li>
@@ -368,12 +365,12 @@ Functions</h2></td></tr>
 <p>Event on successful message queue create (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>pointer to message queue object name.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueCreated</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a> successfully creates a message queue object.</p>
+<p>The event <b>MessageQueueCreated</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a> successfully creates a message queue object.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -409,12 +406,12 @@ Functions</h2></td></tr>
 <p>Event on message queue name retrieve(API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>pointer to message queue object name.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetName</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gae7cf7bf2b97a5ae481fb60fcce99247a">osMessageQueueGetName</a> is called and its execution result is known.</p>
+<p>The event <b>MessageQueueGetName</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gae7cf7bf2b97a5ae481fb60fcce99247a">osMessageQueueGetName</a> is called and its execution result is known.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>name</b> : retrieved memory address of name string (0 in case of a failure). </li>
@@ -463,14 +460,14 @@ Functions</h2></td></tr>
 <p>Event on message put (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer with message to put into a queue. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_prio</td><td>message priority. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td><a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">Timeout Value</a> or 0 in case of no time-out.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueuePut</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> is called.</p>
+<p>The event <b>MessageQueuePut</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of message buffer.</li>
@@ -515,13 +512,13 @@ Functions</h2></td></tr>
 <p>Event on pending message put (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer with message to put into a queue. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td><a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">Timeout Value</a> or 0 in case of no time-out.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueuePutPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> starts waiting to put message into the queue.</p>
+<p>The event <b>MessageQueuePutPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> starts waiting to put message into the queue.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of message buffer.</li>
@@ -549,11 +546,11 @@ Functions</h2></td></tr>
 <p>Event on message put timeout (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueuePutTimeout</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> fails to insert a message into the queue until timeout expires.</p>
+<p>The event <b>MessageQueuePutTimeout</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> fails to insert a message into the queue until timeout expires.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -589,12 +586,12 @@ Functions</h2></td></tr>
 <p>Event on pending message insert (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer with message to put into a queue.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueInsertPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> is called from ISR and message is registered to be put into the queue.</p>
+<p>The event <b>MessageQueueInsertPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> is called from ISR and message is registered to be put into the queue.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of message buffer. </li>
@@ -631,7 +628,7 @@ Functions</h2></td></tr>
 <p>Event on successful message insert (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer with message to put into a queue.</td></tr>
   </table>
   </dd>
@@ -673,12 +670,12 @@ Functions</h2></td></tr>
 <p>Event on unsuccessful message insert (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer with message to put into a queue.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueNotInserted</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> fails to insert a message into the queue. Usually this happens when queue is out of memory.</p>
+<p>The event <b>MessageQueueNotInserted</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaa515fc8b956f721a8f72b2c505813bfc">osMessageQueuePut</a> fails to insert a message into the queue. Usually this happens when queue is out of memory.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of message buffer. </li>
@@ -727,14 +724,14 @@ Functions</h2></td></tr>
 <p>Event on message get (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer for message to get from a queue. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_prio</td><td>message priority. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td><a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">Timeout Value</a> or 0 in case of no time-out.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGet</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called.</p>
+<p>The event <b>MessageQueueGet</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of buffer for message.</li>
@@ -779,13 +776,13 @@ Functions</h2></td></tr>
 <p>Event on pending message get (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer for message to get from a queue. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td><a class="el" href="theory_of_operation.html#CMSIS_RTOS_TimeOutValue">Timeout Value</a> or 0 in case of no time-out.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> starts waiting for message to be retrieved from the queue.</p>
+<p>The event <b>MessageQueueGetPending</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> starts waiting for message to be retrieved from the queue.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of buffer for message.</li>
@@ -813,11 +810,11 @@ Functions</h2></td></tr>
 <p>Event on message get timeout (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetTimeout</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called and there is no message available in queue until timeout expires.</p>
+<p>The event <b>MessageQueueGetTimeout</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called and there is no message available in queue until timeout expires.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -853,7 +850,7 @@ Functions</h2></td></tr>
 <p>Event on successful message get (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer for message to get from a queue.</td></tr>
   </table>
   </dd>
@@ -895,12 +892,12 @@ Functions</h2></td></tr>
 <p>Event on unsuccessful message get (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_ptr</td><td>pointer to buffer for message to get from a queue.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueNotRetrieved</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called without the wait timeout and there is no message available in queue.</p>
+<p>The event <b>MessageQueueNotRetrieved</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gad90d4959466a7a65105061da8256ab9e">osMessageQueueGet</a> is called without the wait timeout and there is no message available in queue.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_ptr</b> : memory address of buffer for message. </li>
@@ -937,12 +934,12 @@ Functions</h2></td></tr>
 <p>Event on message queue capacity retrieve (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td>maximum number of messages.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetCapacity</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gac24f87d4f395e9e9c900c320e45ade8a">osMessageQueueGetCapacity</a> is called and its execution result is known.</p>
+<p>The event <b>MessageQueueGetCapacity</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gac24f87d4f395e9e9c900c320e45ade8a">osMessageQueueGetCapacity</a> is called and its execution result is known.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>capacity</b> : retrieved maximum number of messages (0 in case of a failure). </li>
@@ -979,12 +976,12 @@ Functions</h2></td></tr>
 <p>Event on message queue message size retrieve (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg_size</td><td>maximum message size in bytes.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetMsgSize</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#ga96d3d84069b20359de48109e28a1a89e">osMessageQueueGetMsgSize</a> is called and its execution result is known.</p>
+<p>The event <b>MessageQueueGetMsgSize</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga96d3d84069b20359de48109e28a1a89e">osMessageQueueGetMsgSize</a> is called and its execution result is known.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>msg_size</b> : retrieved maximum message size in bytes (0 in case of a failure). </li>
@@ -1021,12 +1018,12 @@ Functions</h2></td></tr>
 <p>Event on message queue message count retrieve (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>number of queued messages.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetCount</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#ga6a32ac394fcff568b251c160cc3014b2">osMessageQueueGetCount</a> is called and its execution result is known.</p>
+<p>The event <b>MessageQueueGetCount</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga6a32ac394fcff568b251c160cc3014b2">osMessageQueueGetCount</a> is called and its execution result is known.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>count</b> : retrieved number of queued messages (0 in case of a failure). </li>
@@ -1063,12 +1060,12 @@ Functions</h2></td></tr>
 <p>Event on message queue message slots retrieve (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">space</td><td>number of available slots for messages.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueGetSpace</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaddf0904427436dd3880d46263c2dc9fa">osMessageQueueGetSpace</a> is called and its execution result is known.</p>
+<p>The event <b>MessageQueueGetSpace</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaddf0904427436dd3880d46263c2dc9fa">osMessageQueueGetSpace</a> is called and its execution result is known.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID.</li>
 <li><b>space</b> : retrieved number of available slots for messages (0 in case of a failure). </li>
@@ -1095,11 +1092,11 @@ Functions</h2></td></tr>
 <p>Event on message queue reset (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueReset</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gac6dce7f9ad132d266292c2e979d861b4">osMessageQueueReset</a> is called.</p>
+<p>The event <b>MessageQueueReset</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gac6dce7f9ad132d266292c2e979d861b4">osMessageQueueReset</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -1125,11 +1122,11 @@ Functions</h2></td></tr>
 <p>Event on successful message queue reset (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueResetDone</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gac6dce7f9ad132d266292c2e979d861b4">osMessageQueueReset</a> successfully completes message queue reset.</p>
+<p>The event <b>MessageQueueResetDone</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gac6dce7f9ad132d266292c2e979d861b4">osMessageQueueReset</a> successfully completes message queue reset.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -1155,11 +1152,11 @@ Functions</h2></td></tr>
 <p>Event on message queue delete (API) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueDelete</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaba987f665444e0d83fa6a3a68bc72abe">osMessageQueueDelete</a> is called.</p>
+<p>The event <b>MessageQueueDelete</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaba987f665444e0d83fa6a3a68bc72abe">osMessageQueueDelete</a> is called.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>
@@ -1185,11 +1182,11 @@ Functions</h2></td></tr>
 <p>Event on successful message queue delete (Op) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/group__CMSIS__RTOS__Message.html" target="_blank">osMessageQueueNew</a>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mq_id</td><td>message queue ID obtained by <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#ga24e895a00f9d484db33aaf784c57bfed">osMessageQueueNew</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The event <b>MessageQueueDestroyed</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#gaba987f665444e0d83fa6a3a68bc72abe">osMessageQueueDelete</a> successfully deletes the message queue object.</p>
+<p>The event <b>MessageQueueDestroyed</b> is generated when the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html#gaba987f665444e0d83fa6a3a68bc72abe">osMessageQueueDelete</a> successfully deletes the message queue object.</p>
 <p><b>Value</b> in the Event Recorder shows:</p><ul>
 <li><b>mq_id</b> : message queue ID. </li>
 </ul>

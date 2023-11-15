@@ -6,14 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>CMSIS-RTX: Overview</title>
-<link href="doxygen.css" rel="stylesheet" type="text/css"/>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
-<link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
-<link href="extra_search.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="printComponentTabs.js"></script>
+<script type="text/javascript" src="tabs.js"></script>
 <script type="text/javascript" src="footer.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -32,7 +28,8 @@
 <link href="extra_stylesheet.css" rel="stylesheet" type="text/css"/>
 <link href="extra_navtree.css" rel="stylesheet" type="text/css"/>
 <link href="extra_search.css" rel="stylesheet" type="text/css"/>
-<link href="version.css" rel="stylesheet" type="text/css" />
+<link href="extra_tabs.css" rel="stylesheet" type="text/css"/>
+<link href="version.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../version.js"></script>
 </head>
 <body>
@@ -127,7 +124,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Overview </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="mainpage"></a> Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/html/index.html" target="_blank">CMSIS-RTOS2 API</a> as its native interface.</p>
+<div class="textblock"><p><a class="anchor" id="mainpage"></a> Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-M and Cortex-A processor-based devices that implements the <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/index.html" target="_blank"><b>CMSIS-RTOS2 API</b></a> as its native interface.</p>
 <p>The following sections provide further details:</p>
 <ul>
 <li><a class="el" href="RTX5RevisionHistory.html">Revision History</a> lists the explains how to setup an RTX v5 project in Keil MDK.</li>
@@ -142,6 +139,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h1><a class="anchor" id="rtx_access"></a>
 Access to CMSIS-RTX</h1>
 <p>CMSIS-RTX kernel is actively maintained in <a href="https://github.com/ARM-software/CMSIS-RTX" target="_blank"><b>CMSIS-RTX GitHub repository</b></a> and is also provided as a standalone <a href="https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/" target="_blank"><b>CMSIS-RTX pack</b></a> in the <a href="https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/index.html" target="_blank">CMSIS-Pack format</a>.</p>
+<blockquote class="doxtable">
+<p>&zwj;<b>Note</b></p><ul>
+<li>CMSIS-RTX replaces and extends RTX5 implementation previously provided as part of <em>ARM::CMSIS</em> pack.</li>
+<li>See <a href="https://learn.arm.com/learning-paths/microcontrollers/project-migration-cmsis-v6" target="_blank">Migrating projects from CMSIS v5 to CMSIS v6</a> for a guidance on updating existing projects to CMSIS-RTX. </li>
+</ul>
+</blockquote>
 <p>The table below explains the content of the <b>ARM::CMSIS-RTX</b> Pack.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">

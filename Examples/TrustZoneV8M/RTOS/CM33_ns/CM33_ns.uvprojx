@@ -432,13 +432,13 @@
       </api>
     </apis>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.7.0" condition="ARMv6_7_8-M Device">
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.0.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </component>
-      <component Capiversion="1.0.1" Cclass="CMSIS" Cgroup="OS Tick" Csub="SysTick" Cvendor="ARM" Cversion="1.0.0" condition="OS Tick SysTick">
+      <component Capiversion="1.0.1" Cclass="CMSIS" Cgroup="OS Tick" Csub="SysTick" Cvendor="ARM" Cversion="1.0.5" condition="OS Tick SysTick">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
@@ -470,6 +470,14 @@
         <instance index="0">RTE\CMSIS\RTX_Config.h</instance>
         <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5 NS"/>
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <targetInfos>
+          <targetInfo name="FVP Simulation Model"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="linkerScript" condition="ARMCC6" name="Device\ARMCM33\Config\ARMCM33_ac6.sct" version="1.1.0">
+        <instance index="0">RTE\Device\ARMCM33\ARMCM33_ac6.sct</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>

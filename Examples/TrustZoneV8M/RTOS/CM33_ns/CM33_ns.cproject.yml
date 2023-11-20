@@ -4,9 +4,9 @@ project:
     trustzone: non-secure
 
   packs:
-    - pack: ARM::Cortex_DFP@>=1.0.0-dev0
-    - pack: ARM::CMSIS@>=6.0.0-dev0
-    - pack: ARM::CMSIS-RTX@>=1.0.0-dev0
+    - pack: ARM::Cortex_DFP@>=1.0.0-0
+    - pack: ARM::CMSIS@>=6.0.0-0
+    - pack: ARM::CMSIS-RTX@>=1.0.0-0
 
   components:
     - component: ARM::Device:Startup&C Startup

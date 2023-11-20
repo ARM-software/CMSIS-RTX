@@ -419,6 +419,12 @@
 
   <RTE>
     <apis>
+      <api Capiversion="1.0.0" Cclass="CMSIS-Compiler" Cgroup="STDOUT" condition="CortexDevice" exclusive="1">
+        <package name="CMSIS-Compiler" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="2.0.0"/>
+        <targetInfos>
+          <targetInfo name="Simulator"/>
+        </targetInfos>
+      </api>
       <api Capiversion="1.0.1" Cclass="CMSIS" Cgroup="OS Tick" exclusive="1">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
@@ -433,25 +439,31 @@
       </api>
     </apis>
     <components>
-      <component Cclass="CMSIS-Compiler" Cgroup="I/O" Csub="STDOUT" Cvariant="EVR" Cvendor="ARM" Cversion="1.0.0" condition="CortexDevice EVR">
-        <package name="CMSIS-Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+      <component Cclass="CMSIS-Compiler" Cgroup="CORE" Cvendor="ARM" Cversion="1.0.0" condition="ARMCC CortexDevice">
+        <package name="CMSIS-Compiler" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="2.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>
       </component>
-      <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.2" condition="Cortex-M Device">
-        <package name="CMSIS-View" schemaVersion="1.7.7" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+      <component Capiversion="1.0.0" Cclass="CMSIS-Compiler" Cgroup="STDOUT" Csub="Event Recorder" Cvendor="ARM" Cversion="1.0.0" condition="CORE EVR">
+        <package name="CMSIS-Compiler" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="2.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>
       </component>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.7.0" condition="ARMv6_7_8-M Device">
+      <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.3" condition="EventRecorder">
+        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <targetInfos>
+          <targetInfo name="Simulator"/>
+        </targetInfos>
+      </component>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.0.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>
       </component>
-      <component Capiversion="1.0.1" Cclass="CMSIS" Cgroup="OS Tick" Csub="SysTick" Cvendor="ARM" Cversion="1.0.0" condition="OS Tick SysTick">
+      <component Capiversion="1.0.1" Cclass="CMSIS" Cgroup="OS Tick" Csub="SysTick" Cvendor="ARM" Cversion="1.0.5" condition="OS Tick SysTick">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
@@ -463,7 +475,7 @@
           <targetInfo name="Simulator"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM3 CMSIS">
+      <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM3 CMSIS" isDefaultVariant="1">
         <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
@@ -473,8 +485,8 @@
     <files>
       <file attr="config" category="header" name="EventRecorder\Config\EventRecorderConf.h" version="1.1.0">
         <instance index="0">RTE\CMSIS-View\EventRecorderConf.h</instance>
-        <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.2" condition="Cortex-M Device"/>
-        <package name="CMSIS-View" schemaVersion="1.7.7" url="http://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.3" condition="EventRecorder"/>
+        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>
@@ -491,6 +503,14 @@
         <instance index="0">RTE\CMSIS\RTX_Config.h</instance>
         <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5"/>
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <targetInfos>
+          <targetInfo name="Simulator"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="linkerScript" condition="ARMCC6" name="Device\ARMCM3\Config\ARMCM3_ac6.sct" version="1.0.0">
+        <instance index="0">RTE\Device\ARMCM3\ARMCM3_ac6.sct</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM3 CMSIS" isDefaultVariant="1"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>

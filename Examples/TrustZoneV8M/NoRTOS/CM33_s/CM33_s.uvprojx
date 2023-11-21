@@ -371,7 +371,7 @@
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\RTE\Device\ARMCM33\ARMCM33_ac6_s.sct</ScatterFile>
+            <ScatterFile>.\RTE\Device\ARMCM33\ARMCM33_ac6.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc>--import-cmse-lib-out="..\CM33_s\Objects\CM33_s_CMSE_Lib.o"</Misc>

@@ -23,4 +23,4 @@ project:
         - file: interface.c
 
   linker:
-    - script: RTE/Device/ARMCM33/ARMCM33_ac6_s.sct
+    - script: RTE/Device/ARMCM33/ARMCM33_ac6.sct

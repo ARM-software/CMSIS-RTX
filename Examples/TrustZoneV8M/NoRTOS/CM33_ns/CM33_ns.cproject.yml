@@ -21,4 +21,4 @@ project:
         - file: $cmse-lib(CM33_s)$
 
   linker:
-    - script: RTE/Device/ARMCM33/ARMCM33_AC6.sct
+    - script: RTE/Device/ARMCM33/ARMCM33_ac6.sct

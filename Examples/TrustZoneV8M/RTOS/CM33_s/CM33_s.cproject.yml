@@ -24,4 +24,4 @@ project:
         - file: tz_context.c
 
   linker:
-    - script: RTE/Device/ARMCM33/ARMCM33_ac6_s.sct
+    - script: RTE/Device/ARMCM33/ARMCM33_ac6.sct

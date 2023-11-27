@@ -68,7 +68,7 @@ jobs:
           . /home/runner/.vcpkg/vcpkg-init
           vcpkg activate
 
-          curl -sLO https://github.com/ARM-software/CMSIS_6/releases/download/dev%2Fv6.0.0-dev53/packlist.txt
+          curl -sLO https://github.com/ARM-software/CMSIS_6/releases/download/dev%2Fv6.0.0-dev84/packlist.txt
           cpackget add -a -f packlist.txt 
   
           ./build.sh -t AC6 

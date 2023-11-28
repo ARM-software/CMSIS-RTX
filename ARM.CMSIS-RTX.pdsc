@@ -276,51 +276,55 @@
     <condition id="ARMCC ARMv8-MML NOFP">
       <description>Arm Compiler for Armv8-M main line architecture without FPU/MVE</description>
       <require condition="ARMCC"/>
-      <require condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device without FPU/MVE"/>
     </condition>
     <condition id="GCC ARMv8-MML NOFP">
       <description>GCC Compiler for Armv8-M main line architecture without FPU/MVE</description>
       <require condition="GCC"/>
-      <require condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device without FPU/MVE"/>
     </condition>
     <condition id="CLANG ARMv8-MML NOFP">
       <description>CLANG Compiler for Armv8-M main line architecture without FPU/MVE</description>
       <require condition="CLANG"/>
-      <require condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv8-MML Device without FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device without FPU/MVE"/>
     </condition>
     <condition id="IAR ARMv8-MML NOFP">
       <description>IAR Compiler for Armv8-M main line architecture without FPU/MVE</description>
       <require condition="IAR"/>
       <require condition="ARMv8-MML Device without FPU/MVE"/>
     </condition>
-
-    <condition id="ARMCC ARMv8-MML FP">
-      <description>Arm Compiler for Armv8-M main line architecture with FPU/MVE</description>
-      <require condition="ARMCC"/>
-      <require condition="ARMv8-MML Device with FPU/MVE"/>
-    </condition>
-    <condition id="GCC ARMv8-MML FP">
-      <description>GCC Compiler for Armv8-M main line architecture with FPU/MVE</description>
-      <require condition="GCC"/>
-      <require condition="ARMv8-MML Device with FPU/MVE"/>
-    </condition>
-    <condition id="CLANG ARMv8-MML FP">
-      <description>CLANG Compiler for Armv8-M main line architecture with FPU/MVE</description>
-      <require condition="CLANG"/>
-      <require condition="ARMv8-MML Device with FPU/MVE"/>
-    </condition>
-    <condition id="IAR ARMv8-MML FP">
-      <description>IAR Compiler for Armv8-M main line architecture with FPU/MVE</description>
-      <require condition="IAR"/>
-      <require condition="ARMv8-MML Device with FPU/MVE"/>
-    </condition>
-
     <condition id="IAR ARMv81-MML NOFP">
       <description>IAR Compiler for Armv8.1-M main line architecture without FPU/MVE</description>
       <require condition="IAR"/>
       <require condition="ARMv81-MML Device without FPU/MVE"/>
     </condition>
 
+    <condition id="ARMCC ARMv8-MML FP">
+      <description>Arm Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="ARMCC"/>
+      <accept  condition="ARMv8-MML Device with FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="GCC ARMv8-MML FP">
+      <description>GCC Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="GCC"/>
+      <accept  condition="ARMv8-MML Device with FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="CLANG ARMv8-MML FP">
+      <description>CLANG Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="CLANG"/>
+      <accept  condition="ARMv8-MML Device with FPU/MVE"/>
+      <accept  condition="ARMv81-MML Device with FPU/MVE"/>
+    </condition>
+    <condition id="IAR ARMv8-MML FP">
+      <description>IAR Compiler for Armv8-M main line architecture with FPU/MVE</description>
+      <require condition="IAR"/>
+      <require condition="ARMv8-MML Device with FPU/MVE"/>
+    </condition>
     <condition id="IAR ARMv81-MML FP">
       <description>IAR Compiler for Armv8.1-M main line architecture with FPU/MVE</description>
       <require condition="IAR"/>

@@ -11,7 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }}
+  CMSIS_PACK_ROOT: ${{ github.workspace }}/.packs
+  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }} 
 
 jobs:
   build-and-run:
@@ -67,37 +68,30 @@ jobs:
           restore-keys: |
               packs-
           path: /home/runner/.cache/arm/packs
-        
-      - name: Cache vcpkg
-        uses: actions/cache@v3
-        with:
-          key: vcpkg-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}-${{ matrix.compiler }}
-          restore-keys: |
-              vcpkg-${{ runner.os }}-${{ runner.arch }}-
-          path: /home/runner/.vcpkg
 
-      - name: Prepare vcpkg env
-        working-directory: ./CMSIS-RTOS2_Validation/Project
-        run: |  
-          . <(curl https://aka.ms/vcpkg-init.sh -L)
-          vcpkg x-update-registry --all
-          vcpkg activate
-          
-          echo "Patch CMSIS-Toolbox"
-          pushd $(dirname $(which cbuild))/../etc
-          curl -O https://raw.githubusercontent.com/Open-CMSIS-Pack/devtools/main/tools/buildmgr/cbuildgen/config/CLANG.17.0.1.cmake
-          popd
+      - name: Setup vcpkg environment
+        uses: JonatanAntoni/actions/vcpkg@main
+        with:
+          config: ./CMSIS-RTOS2_Validation/Project/vcpkg-configuration.json
+          cache: "-${{ matrix.compiler }}"
 
       - name: Activate Arm tool license
-        working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
           if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-              armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+            armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
           else
-              armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
+            armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
           fi
+
+      - name: Register local packs
+        run: |
+          cpackget init https://www.keil.com/pack/index.pidx
+          cpackget rm ARM::CMSIS ARM::CMSIS-RTX ARM::Cortex_DFP || echo "Ok"
+
+          cpackget add ./CMSIS_6/ARM.CMSIS.pdsc
+          cpackget add ./CMSIS-RTX/ARM.CMSIS-RTX.pdsc
+          cpackget add ./Cortex_DFP/ARM.Cortex_DFP.pdsc
+          cpackget add -an ARM.CMSIS-FreeRTOS 
 
       - uses: ammaraskar/gcc-problem-matcher@master
         if: matrix.compiler == 'GCC'
@@ -113,19 +107,6 @@ jobs:
       - name: Build
         working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
-
-          echo "Register local packs"
-          cpackget rm ARM::CMSIS ARM::CMSIS-RTX ARM::Cortex_DFP || echo "Ok"
-          cpackget add ${{ github.workspace }}/CMSIS-RTX/ARM.CMSIS-RTX.pdsc
-          cpackget add ${{ github.workspace }}/CMSIS_6/ARM.CMSIS.pdsc
-          cpackget add ${{ github.workspace }}/Cortex_DFP/ARM.Cortex_DFP.pdsc
-          cpackget add -an ARM.CMSIS-FreeRTOS 
-
-          echo "Verify packs"
-          csolution list packs Validation.csolution.yml          
-
           echo "Build test projects ..."
           ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} build || echo "::warning::=== Some configurations failed to build! ==="
 
@@ -133,9 +114,6 @@ jobs:
         if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
         working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
-      
           echo "Run test projects ..."
           ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} run || echo "::warning::==== Some configurations failed to run! ==="
 
@@ -143,12 +121,10 @@ jobs:
         if: always()
         working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
           if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-              armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
+            armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
           else
-              armlm deactivate --product KEMDK-COM0
+            armlm deactivate --product KEMDK-COM0
           fi
     
       - name: Perform CodeQL Analysis

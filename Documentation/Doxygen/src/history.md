@@ -16,6 +16,7 @@ The table below provides information about the changes delivered with specific v
        - Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.
        - Requires Device:OS Tick:SysTick component.
        - Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).
+       - Libraries for Arm Compiler 6 built with default wchar and enums size
        - Removed support for legacy Arm Compiler 5.
        - Fixed osMessageQueueGetSpace when called from ISR after osMessageQueuePut and before returning from ISR.
        </td>

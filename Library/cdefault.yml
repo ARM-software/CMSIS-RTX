@@ -4,9 +4,6 @@ default:
 
   misc:
     - for-compiler: AC6
-      C:
-        - -fshort-enums
-        - -fshort-wchar
 
     - for-compiler: GCC
       C:
@@ -21,5 +18,3 @@ default:
         - -fdata-sections
 
     - for-compiler: IAR
-      C: 
-        - -e

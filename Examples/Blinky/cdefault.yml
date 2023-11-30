@@ -5,8 +5,6 @@ default:
   misc:
     - for-compiler: AC6
       C-CPP:
-        - -fshort-enums
-        - -fshort-wchar
         - -Wno-macro-redefined
         - -Wno-pragma-pack
         - -Wno-parentheses-equality

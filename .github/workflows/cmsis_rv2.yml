@@ -20,6 +20,7 @@ jobs:
       fail-fast: true
       matrix:
         compiler: [AC6, GCC, Clang]
+        variant: [RTX5, RTX5-Lib]
     
     runs-on: ubuntu-latest
 
@@ -28,6 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: CMSIS-RTX
+          fetch-depth: 0
       
       - name: Checkout CMSIS_6
         uses: actions/checkout@v4
@@ -64,7 +66,7 @@ jobs:
       - name: Cache packs
         uses: actions/cache@v3
         with:
-          key: packs-${{ github.run_id }}-${{ matrix.compiler }}
+          key: packs-${{ github.run_id }}-${{ matrix.compiler }}-${{ matrix.variant }}
           restore-keys: |
               packs-
           path: /home/runner/.cache/arm/packs
@@ -73,7 +75,7 @@ jobs:
         uses: JonatanAntoni/actions/vcpkg@main
         with:
           config: ./CMSIS-RTOS2_Validation/Project/vcpkg-configuration.json
-          cache: "-${{ matrix.compiler }}"
+          cache: "-${{ matrix.compiler }}-${{ matrix.variant }}"
 
       - name: Activate Arm tool license
         run: |
@@ -91,7 +93,14 @@ jobs:
           cpackget add ./CMSIS_6/ARM.CMSIS.pdsc
           cpackget add ./CMSIS-RTX/ARM.CMSIS-RTX.pdsc
           cpackget add ./Cortex_DFP/ARM.Cortex_DFP.pdsc
-          cpackget add -an ARM.CMSIS-FreeRTOS 
+          cpackget add -an ARM.CMSIS-FreeRTOS
+
+      - name: Fetch pre-built RTX libraries
+        if: matrix.variant == 'RTX5-Lib'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ./CMSIS-RTX/Library/fetch_libs.sh
 
       - uses: ammaraskar/gcc-problem-matcher@master
         if: matrix.compiler == 'GCC'
@@ -108,14 +117,14 @@ jobs:
         working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
           echo "Build test projects ..."
-          ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} build || echo "::warning::=== Some configurations failed to build! ==="
+          ./build.py --verbose -r ${{ matrix.variant }} -c ${{ matrix.compiler }} build || echo "::warning::=== Some configurations failed to build! ==="
 
       - name: Execute
         if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
         working-directory: ./CMSIS-RTOS2_Validation/Project
         run: |
           echo "Run test projects ..."
-          ./build.py --verbose -r RTX5 -c ${{ matrix.compiler }} run || echo "::warning::==== Some configurations failed to run! ==="
+          ./build.py --verbose -r ${{ matrix.variant }} -c ${{ matrix.compiler }} run || echo "::warning::==== Some configurations failed to run! ==="
 
       - name: Deactivate Arm tool license
         if: always()

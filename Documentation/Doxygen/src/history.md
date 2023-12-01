@@ -14,7 +14,7 @@ The table below provides information about the changes delivered with specific v
       <td>
        - Based on CMSIS-RTOS API V2.2.0.
        - Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.
-       - Requires Device:OS Tick:SysTick component.
+       - Requires CMSIS:OS Tick:SysTick component.
        - Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).
        - Libraries for Arm Compiler 6 built with default wchar and enums size.
        - Removed support for legacy Arm Compiler 5.

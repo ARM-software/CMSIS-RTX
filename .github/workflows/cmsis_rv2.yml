@@ -106,9 +106,10 @@ jobs:
         if: matrix.compiler == 'GCC'
       
       - name: Initialize CodeQL
-        if: matrix.compiler == 'GCC'
+        if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
         uses: github/codeql-action/init@v2
         with:
+          source-root: CMSIS-RTX
           languages: cpp
           queries: security-and-quality,
             github/codeql-coding-standards/c/misra/src/codeql-suites/misra-default.qls@v2.21.0
@@ -137,8 +138,10 @@ jobs:
           fi
     
       - name: Perform CodeQL Analysis
-        if: matrix.compiler == 'GCC'
+        if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
         uses: github/codeql-action/analyze@v2
+        with:
+          checkout_path: ${{ github.workspace }}/CMSIS-RTX
 
       - name: Upload Test Reports
         if: ${{ !cancelled() && env.ARM_UBL_ACTIVATION_CODE }}

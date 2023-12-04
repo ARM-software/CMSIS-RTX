@@ -469,7 +469,7 @@
           <targetInfo name="Simulator"/>
         </targetInfos>
       </component>
-      <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5">
+      <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5">
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
@@ -493,7 +493,7 @@
       </file>
       <file attr="config" category="source" name="Config\RTX_Config.c" version="5.2.0">
         <instance index="0">RTE\CMSIS\RTX_Config.c</instance>
-        <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5"/>
+        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5"/>
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
@@ -501,7 +501,7 @@
       </file>
       <file attr="config" category="header" name="Config\RTX_Config.h" version="5.6.0">
         <instance index="0">RTE\CMSIS\RTX_Config.h</instance>
-        <component Capiversion="2.2.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.7.0" condition="RTX5"/>
+        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5"/>
         <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>

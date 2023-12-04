@@ -171,6 +171,12 @@ Access to CMSIS-RTX</h1>
 <td class="markdownTableBodyLeft">📄 RTX5.scvd   </td><td class="markdownTableBodyLeft">SCVD file for RTOS-aware debugging with <a href="https://arm-software.github.io/CMSIS-View/latest/index.html" target="_blank">Component Viewer and Event Recorder</a>   </td></tr>
 </table>
 <p>See <a href="https://arm-software.github.io/CMSIS_6/" target="_blank">CMSIS Documentation</a> for an overview of CMSIS software components, tools and specifications.</p>
+<h1><a class="anchor" id="rtx_security"></a>
+Security Considerations</h1>
+<p>RTX5 has not been designed with strong security considerations in mind. The implementation has a focus on high code quality assured by applying coding rules according to <a href="https://misra.org.uk/" target="_blank">MISRA-C:2012</a> and checking compliance using <a href="https://codeql.github.com/" target="_blank">CodeQL</a>. The analysis results are published on <a href="https://github.com/ARM-software/CMSIS-RTX/security/code-scanning" target="_blank">GitHub Code scanning page</a>.</p>
+<p>Users of RTX5 are strongly advised to run security analysis for their applications if any kind of exposure is given. The main security assumption made for RTX5 is no untrusted code is ever executed on a device. This assumption is expected to apply to the vast majority of use cases of an embedded RTOS like RTX5.</p>
+<p>For use cases (such as firmware update) where the firmware image (or parts of it) can be modified/updated by an untrusted user, the application developer must implement appropriate security measures to prevent execution of untrusted code.</p>
+<p>For use cases where executing untrusted code is required (like customizable plugins), the application developer must carfully analyze the execution sandbox boundaries. Given that untrusted code is executed within an unprivileged RTX5 thread, it must be assured that no RTOS operation can be used to run untrusted code as part of a service call nor interrupt routine, see <a class="el" href="config_rtx5.html#safetyConfig_safety">Safety features (Source variant only)</a>.</p>
 <h1><a class="anchor" id="rtx_license"></a>
 License</h1>
 <p>CMSIS-RTX is provided free of charge by Arm under the <a href="https://raw.githubusercontent.com/ARM-software/CMSIS-RTX/main/LICENSE" target="_blank">Apache 2.0 License</a>. </p>

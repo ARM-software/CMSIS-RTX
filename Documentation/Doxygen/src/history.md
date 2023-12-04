@@ -10,24 +10,19 @@ The table below provides information about the changes delivered with specific v
       <th>Description</th>
     </tr>
     <tr>
-      <td>V5.7.0</td>
+      <td>V5.8.0</td>
       <td>
-       - Based on CMSIS-RTOS API V2.2.0.
+       - Based on CMSIS-RTOS API V2.3.0 (processor affinity not supported).
        - Added support for Process Isolation: MPU Protected Zones, Safety Classes, Thread Watchdogs.
        - Requires CMSIS:OS Tick:SysTick component.
        - Reduced component variants: Library (Library_NS replacement), Source (Source_NS replacement).
        - Libraries for Arm Compiler 6 built with default wchar and enums size.
        - Removed support for legacy Arm Compiler 5.
        - Fixed osMessageQueueGetSpace when called from ISR after osMessageQueuePut and before returning from ISR.
-       </td>
-    </tr>
-    <tr>
-      <td>V5.5.5</td>
-      <td>
        - Added de-allocation of Arm C library thread data (libspace) when thread is terminated.
-       - Updated SysTick implementation for OS Tick (initial count value).
        - Added Thread Entry wrapper (compatible with GDB stack unwind).
-      </td>
+       - Updated SysTick implementation for OS Tick (initial count value).
+       </td>
     </tr>
     <tr>
       <td>V5.5.4</td>

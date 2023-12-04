@@ -431,7 +431,7 @@
   </conditions>
 
   <components>
-    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.8.0" Capiversion="2.3.0" condition="RTX5">
       <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Library)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -505,7 +505,7 @@
         <file category="library" name="Library/IAR/RTX_V7A.a"        src="Source" condition="IAR ARMv7-A"/>
       </files>
     </component>
-    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Library" Cversion="5.8.0" Capiversion="2.3.0" condition="RTX5 NS">
       <description>CMSIS-RTOS2 RTX5 for Armv8-M/Armv8.1-M Non-secure domain (Library)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -564,7 +564,7 @@
         <file category="library" name="Library/IAR/RTX_V81MMFN.a"     src="Source" condition="IAR ARMv81-MML FP"/>
       </files>
     </component>
-    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.8.0" Capiversion="2.3.0" condition="RTX5">
       <description>CMSIS-RTOS2 RTX5 for Cortex-M, SC000, SC300 and Armv7-A (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->
@@ -630,7 +630,7 @@
         <file category="source" name="Source/IAR/irq_armv7a.s"   condition="IARASM ARMv7-A"/>
       </files>
     </component>
-    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.7.0" Capiversion="2.2.0" condition="RTX5 NS">
+    <component Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cversion="5.8.0" Capiversion="2.3.0" condition="RTX5 NS">
       <description>CMSIS-RTOS2 RTX5 for Armv8-M/Armv8.1-M Non-secure domain (Source)</description>
       <RTE_Components_h>
         <!-- the following content goes into file 'RTE_Components.h' -->

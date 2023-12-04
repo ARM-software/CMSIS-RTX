@@ -2077,6 +2077,21 @@ static osStatus_t svcRtxThreadTerminateZone (uint32_t zone) {
 #endif
 }
 
+/// Set processor affinity mask of a thread.
+/// \note API identical to osThreadSetAffinityMask
+static osStatus_t svcRtxThreadSetAffinityMask (osThreadId_t thread_id, uint32_t affinity_mask) {
+  (void)thread_id;
+  (void)affinity_mask;
+  return osError;
+}
+
+/// Get current processor affinity mask of a thread.
+/// \note API identical to osThreadGetAffinityMask
+static uint32_t svcRtxThreadGetAffinityMask (osThreadId_t thread_id) {
+  (void)thread_id;
+  return 0U;
+}
+
 /// Get number of active threads.
 /// \note API identical to osThreadGetCount
 static uint32_t svcRtxThreadGetCount (void) {
@@ -2329,6 +2344,8 @@ SVC0_1 (ThreadFeedWatchdog,      osStatus_t,  uint32_t)
 SVC0_0 (ThreadProtectPrivileged, osStatus_t)
 SVC0_2 (ThreadSuspendClass,      osStatus_t,  uint32_t, uint32_t)
 SVC0_2 (ThreadResumeClass,       osStatus_t,  uint32_t, uint32_t)
+SVC0_2 (ThreadSetAffinityMask,   osStatus_t,  osThreadId_t, uint32_t)
+SVC0_1 (ThreadGetAffinityMask,   uint32_t,    osThreadId_t)
 SVC0_0 (ThreadGetCount,      uint32_t)
 SVC0_2 (ThreadEnumerate,     uint32_t,        osThreadId_t *, uint32_t)
 SVC0_2 (ThreadFlagsSet,      uint32_t,        osThreadId_t, uint32_t)
@@ -2714,6 +2731,30 @@ osStatus_t osThreadTerminateZone (uint32_t zone) {
     status   = osError;
   }
   return status;
+}
+
+/// Set processor affinity mask of a thread.
+osStatus_t osThreadSetAffinityMask (osThreadId_t thread_id, uint32_t affinity_mask) {
+  osStatus_t status;
+
+  if (IsException() || IsIrqMasked()) {
+    status = osErrorISR;
+  } else {
+    status = __svcThreadSetAffinityMask(thread_id, affinity_mask);
+  }
+  return status;
+}
+
+/// Get current processor affinity mask of a thread.
+uint32_t osThreadGetAffinityMask (osThreadId_t thread_id) {
+  uint32_t affinity_mask;
+
+  if (IsException() || IsIrqMasked()) {
+    affinity_mask = 0U;
+  } else {
+    affinity_mask = __svcThreadGetAffinityMask(thread_id);
+  }
+  return affinity_mask;
 }
 
 /// Get number of active threads.

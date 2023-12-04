@@ -254,21 +254,19 @@ static osEventFlagsId_t svcRtxEventFlagsNew (const osEventFlagsAttr_t *attr) {
   os_event_flags_t  *ef;
 #ifdef RTX_SAFETY_CLASS
   const os_thread_t *thread = osRtxThreadGetRunning();
-  uint32_t           attr_bits;
 #endif
+  uint32_t           attr_bits;
   uint8_t            flags;
   const char        *name;
 
   // Process attributes
   if (attr != NULL) {
     name      = attr->name;
-#ifdef RTX_SAFETY_CLASS
     attr_bits = attr->attr_bits;
-#endif
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     ef        = attr->cb_mem;
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread != NULL) &&
           ((thread->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -276,8 +274,12 @@ static osEventFlagsId_t svcRtxEventFlagsNew (const osEventFlagsAttr_t *attr) {
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxEventFlagsError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (ef != NULL) {
       if (!IsEventFlagsPtrValid(ef) || (attr->cb_size != sizeof(os_event_flags_t))) {
         EvrRtxEventFlagsError(NULL, osRtxErrorInvalidControlBlock);

@@ -332,8 +332,8 @@ static osMessageQueueId_t svcRtxMessageQueueNew (uint32_t msg_count, uint32_t ms
   os_message_queue_t *mq;
 #ifdef RTX_SAFETY_CLASS
   const os_thread_t  *thread = osRtxThreadGetRunning();
-  uint32_t            attr_bits;
 #endif
+  uint32_t            attr_bits;
   void               *mq_mem;
   uint32_t            mq_size;
   uint32_t            block_size;
@@ -355,16 +355,14 @@ static osMessageQueueId_t svcRtxMessageQueueNew (uint32_t msg_count, uint32_t ms
   // Process attributes
   if (attr != NULL) {
     name      = attr->name;
-#ifdef RTX_SAFETY_CLASS
     attr_bits = attr->attr_bits;
-#endif
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     mq        = attr->cb_mem;
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     mq_mem    = attr->mq_mem;
     mq_size   = attr->mq_size;
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread != NULL) &&
           ((thread->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -372,8 +370,12 @@ static osMessageQueueId_t svcRtxMessageQueueNew (uint32_t msg_count, uint32_t ms
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxMessageQueueError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (mq != NULL) {
       if (!IsMessageQueuePtrValid(mq) || (attr->cb_size != sizeof(os_message_queue_t))) {
         EvrRtxMessageQueueError(NULL, osRtxErrorInvalidControlBlock);

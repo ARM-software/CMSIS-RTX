@@ -491,11 +491,10 @@ static void svcRtxKernelResume (uint32_t sleep_ticks) {
   EvrRtxKernelResumed();
 }
 
-#ifdef RTX_SAFETY_CLASS
-
 /// Protect the RTOS Kernel scheduler access.
 /// \note API identical to osKernelProtect
 static osStatus_t svcRtxKernelProtect (uint32_t safety_class) {
+#ifdef RTX_SAFETY_CLASS
   uint32_t   thread_class;
   osStatus_t status;
 
@@ -543,11 +542,16 @@ static osStatus_t svcRtxKernelProtect (uint32_t safety_class) {
   }
 
   return status;
+#else
+  (void)safety_class;
+  return osError;
+#endif
 }
 
 /// Destroy objects for specified safety classes.
 /// \note API identical to osKernelDestroyClass
 static osStatus_t svcRtxKernelDestroyClass (uint32_t safety_class, uint32_t mode) {
+#ifdef RTX_SAFETY_CLASS
   os_thread_t *thread;
   os_thread_t *thread_next;
 
@@ -677,9 +681,12 @@ static osStatus_t svcRtxKernelDestroyClass (uint32_t safety_class, uint32_t mode
   }
 
   return osOK;
-}
-
+#else
+  (void)safety_class;
+  (void)mode;
+  return osError;
 #endif
+}
 
 /// Get the RTOS kernel tick count.
 /// \note API identical to osKernelGetTickCount
@@ -730,10 +737,8 @@ SVC0_0 (KernelUnlock,           int32_t)
 SVC0_1 (KernelRestoreLock,      int32_t, int32_t)
 SVC0_0 (KernelSuspend,          uint32_t)
 SVC0_1N(KernelResume,           void, uint32_t)
-#ifdef RTX_SAFETY_CLASS
 SVC0_1 (KernelProtect,          osStatus_t, uint32_t)
 SVC0_2 (KernelDestroyClass,     osStatus_t, uint32_t, uint32_t)
-#endif
 SVC0_0 (KernelGetState,         osKernelState_t)
 SVC0_0 (KernelGetTickCount,     uint32_t)
 SVC0_0 (KernelGetTickFreq,      uint32_t)
@@ -886,8 +891,6 @@ void osKernelResume (uint32_t sleep_ticks) {
   }
 }
 
-#ifdef RTX_SAFETY_CLASS
-
 /// Protect the RTOS Kernel scheduler access.
 osStatus_t osKernelProtect (uint32_t safety_class) {
   osStatus_t status;
@@ -919,8 +922,6 @@ osStatus_t osKernelDestroyClass (uint32_t safety_class, uint32_t mode) {
   }
   return status;
 }
-
-#endif
 
 /// Get the RTOS kernel tick count.
 uint32_t osKernelGetTickCount (void) {

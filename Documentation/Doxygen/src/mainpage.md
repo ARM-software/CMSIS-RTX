@@ -40,6 +40,26 @@ The table below explains the content of the **ARM::CMSIS-RTX** Pack.
 
 See [CMSIS Documentation](https://arm-software.github.io/CMSIS_6/) for an overview of CMSIS software components, tools and specifications.
 
+## Security Considerations {#rtx_security}
+
+RTX5 has not been designed with strong security considerations in mind. The implementation has a focus on high code
+quality assured by applying coding rules according to [MISRA-C:2012](https://misra.org.uk/) and checking compliance
+using [CodeQL](https://codeql.github.com/). The analysis results are published on
+[GitHub Code scanning page](https://github.com/ARM-software/CMSIS-RTX/security/code-scanning).
+
+Users of RTX5 are strongly advised to run security analysis for their applications if any kind of exposure is given.
+The main security assumption made for RTX5 is no untrusted code is ever executed on a device. This assumption is
+expected to apply to the vast majority of use cases of an embedded RTOS like RTX5.
+
+For use cases (such as firmware update) where the firmware image (or parts of it) can be modified/updated by an
+untrusted user, the application developer must implement appropriate security measures to prevent execution of
+untrusted code.
+
+For use cases where executing untrusted code is required (like customizable plugins), the application developer must
+carfully analyze the execution sandbox boundaries. Given that untrusted code is executed within an unprivileged
+RTX5 thread, it must be assured that no RTOS operation can be used to run untrusted code as part of a service call
+nor interrupt routine, see \ref safetyConfig_safety.
+
 ## License {#rtx_license}
 
 CMSIS-RTX is provided free of charge by Arm under the [Apache 2.0 License](https://raw.githubusercontent.com/ARM-software/CMSIS-RTX/main/LICENSE).

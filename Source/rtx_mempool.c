@@ -277,8 +277,8 @@ static osMemoryPoolId_t svcRtxMemoryPoolNew (uint32_t block_count, uint32_t bloc
   os_memory_pool_t  *mp;
 #ifdef RTX_SAFETY_CLASS
   const os_thread_t *thread = osRtxThreadGetRunning();
-  uint32_t           attr_bits;
 #endif
+  uint32_t           attr_bits;
   void              *mp_mem;
   uint32_t           mp_size;
   uint32_t           b_count;
@@ -302,16 +302,14 @@ static osMemoryPoolId_t svcRtxMemoryPoolNew (uint32_t block_count, uint32_t bloc
   // Process attributes
   if (attr != NULL) {
     name      = attr->name;
-#ifdef RTX_SAFETY_CLASS
     attr_bits = attr->attr_bits;
-#endif
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     mp        = attr->cb_mem;
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     mp_mem    = attr->mp_mem;
     mp_size   = attr->mp_size;
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread != NULL) &&
           ((thread->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -319,8 +317,12 @@ static osMemoryPoolId_t svcRtxMemoryPoolNew (uint32_t block_count, uint32_t bloc
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxMemoryPoolError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (mp != NULL) {
       if (!IsMemoryPoolPtrValid(mp) || (attr->cb_size != sizeof(os_memory_pool_t))) {
         EvrRtxMemoryPoolError(NULL, osRtxErrorInvalidControlBlock);

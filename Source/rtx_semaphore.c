@@ -218,8 +218,8 @@ static osSemaphoreId_t svcRtxSemaphoreNew (uint32_t max_count, uint32_t initial_
   os_semaphore_t    *semaphore;
 #ifdef RTX_SAFETY_CLASS
   const os_thread_t *thread = osRtxThreadGetRunning();
-  uint32_t           attr_bits;
 #endif
+  uint32_t           attr_bits;
   uint8_t            flags;
   const char        *name;
 
@@ -233,13 +233,11 @@ static osSemaphoreId_t svcRtxSemaphoreNew (uint32_t max_count, uint32_t initial_
   // Process attributes
   if (attr != NULL) {
     name      = attr->name;
-#ifdef RTX_SAFETY_CLASS
     attr_bits = attr->attr_bits;
-#endif
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     semaphore = attr->cb_mem;
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread != NULL) &&
           ((thread->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -247,8 +245,12 @@ static osSemaphoreId_t svcRtxSemaphoreNew (uint32_t max_count, uint32_t initial_
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxSemaphoreError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (semaphore != NULL) {
       if (!IsSemaphorePtrValid(semaphore) || (attr->cb_size != sizeof(os_semaphore_t))) {
         EvrRtxSemaphoreError(NULL, osRtxErrorInvalidControlBlock);

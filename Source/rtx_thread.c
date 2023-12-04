@@ -776,8 +776,8 @@ static osThreadId_t svcRtxThreadNew (osThreadFunc_t func, void *argument, const 
       //lint -e{904} "Return statement before end of function" [MISRA Note 1]
       return NULL;
     }
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread_running != NULL) &&
           ((thread_running->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -785,8 +785,12 @@ static osThreadId_t svcRtxThreadNew (osThreadFunc_t func, void *argument, const 
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxThreadError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (thread != NULL) {
       if (!IsThreadPtrValid(thread) || (attr->cb_size != sizeof(os_thread_t))) {
         EvrRtxThreadError(NULL, osRtxErrorInvalidControlBlock);
@@ -1083,10 +1087,10 @@ static const char *svcRtxThreadGetName (osThreadId_t thread_id) {
   return thread->name;
 }
 
-#ifdef RTX_SAFETY_CLASS
 /// Get safety class of a thread.
 /// \note API identical to osThreadGetClass
 static uint32_t svcRtxThreadGetClass (osThreadId_t thread_id) {
+#ifdef RTX_SAFETY_CLASS
   os_thread_t *thread = osRtxThreadId(thread_id);
 
   // Check parameters
@@ -1099,13 +1103,16 @@ static uint32_t svcRtxThreadGetClass (osThreadId_t thread_id) {
   EvrRtxThreadGetClass(thread, (uint32_t)thread->attr >> osRtxAttrClass_Pos);
 
   return ((uint32_t)thread->attr >> osRtxAttrClass_Pos);
-}
+#else
+  (void)thread_id;
+  return osErrorId;
 #endif
+}
 
-#ifdef RTX_EXECUTION_ZONE
 /// Get zone of a thread.
 /// \note API identical to osThreadGetZone
 static uint32_t svcRtxThreadGetZone (osThreadId_t thread_id) {
+#ifdef RTX_EXECUTION_ZONE
   os_thread_t *thread = osRtxThreadId(thread_id);
 
   // Check parameters
@@ -1118,8 +1125,11 @@ static uint32_t svcRtxThreadGetZone (osThreadId_t thread_id) {
   EvrRtxThreadGetZone(thread, thread->zone);
 
   return thread->zone;
-}
+#else
+  (void)thread_id;
+  return osErrorId;
 #endif
+}
 
 /// Return the thread ID of the current running thread.
 /// \note API identical to osThreadGetId
@@ -1731,10 +1741,10 @@ static osStatus_t svcRtxThreadTerminate (osThreadId_t thread_id) {
   return status;
 }
 
-#ifdef RTX_THREAD_WATCHDOG
 /// Feed watchdog of the current running thread.
 /// \note API identical to osThreadFeedWatchdog
 static osStatus_t svcRtxThreadFeedWatchdog (uint32_t ticks) {
+#ifdef RTX_THREAD_WATCHDOG
   os_thread_t *thread;
 
   // Check running thread
@@ -1751,13 +1761,16 @@ static osStatus_t svcRtxThreadFeedWatchdog (uint32_t ticks) {
   EvrRtxThreadFeedWatchdogDone();
 
   return osOK;
-}
+#else
+  (void)ticks;
+  return osError;
 #endif
+}
 
-#ifdef RTX_SAFETY_FEATURES
 /// Protect the creation of privileged threads.
 /// \note API identical to osThreadProtectPrivileged
 static osStatus_t svcRtxThreadProtectPrivileged (void) {
+#ifdef RTX_SAFETY_FEATURES
 
   // Check that Kernel is initialized
   if (osRtxKernelGetState() == osRtxKernelInactive) {
@@ -1771,14 +1784,15 @@ static osStatus_t svcRtxThreadProtectPrivileged (void) {
   EvrRtxThreadPrivilegedProtected();
 
   return osOK;
-}
+#else
+  return osError;
 #endif
-
-#ifdef RTX_SAFETY_CLASS
+}
 
 /// Suspend execution of threads for specified safety classes.
 /// \note API identical to osThreadSuspendClass
 static osStatus_t svcRtxThreadSuspendClass (uint32_t safety_class, uint32_t mode) {
+#ifdef RTX_SAFETY_CLASS
   os_thread_t *thread;
   os_thread_t *thread_next;
 
@@ -1871,11 +1885,17 @@ static osStatus_t svcRtxThreadSuspendClass (uint32_t safety_class, uint32_t mode
   }
 
   return osOK;
+#else
+  (void)safety_class;
+  (void)mode;
+  return osError;
+#endif
 }
 
 /// Resume execution of threads for specified safety classes.
 /// \note API identical to osThreadResumeClass
 static osStatus_t svcRtxThreadResumeClass (uint32_t safety_class, uint32_t mode) {
+#ifdef RTX_SAFETY_CLASS
   os_thread_t *thread;
   os_thread_t *thread_next;
 
@@ -1936,14 +1956,17 @@ static osStatus_t svcRtxThreadResumeClass (uint32_t safety_class, uint32_t mode)
   osRtxThreadDispatch(NULL);
 
   return osOK;
+#else
+  (void)safety_class;
+  (void)mode;
+  return osError;
+#endif
 }
 
-#endif
-
-#ifdef RTX_EXECUTION_ZONE
 /// Terminate execution of threads assigned to a specified MPU protected zone.
 /// \note API identical to osThreadTerminateZone
 static osStatus_t svcRtxThreadTerminateZone (uint32_t zone) {
+#ifdef RTX_EXECUTION_ZONE
   os_thread_t *thread;
   os_thread_t *thread_next;
 
@@ -2048,8 +2071,11 @@ static osStatus_t svcRtxThreadTerminateZone (uint32_t zone) {
   }
 
   return osOK;
-}
+#else
+  (void)zone;
+  return osError;
 #endif
+}
 
 /// Get number of active threads.
 /// \note API identical to osThreadGetCount
@@ -2284,12 +2310,8 @@ static uint32_t svcRtxThreadFlagsWait (uint32_t flags, uint32_t options, uint32_
 //lint ++flb "Library Begin" [MISRA Note 11]
 SVC0_3 (ThreadNew,           osThreadId_t,    osThreadFunc_t, void *, const osThreadAttr_t *)
 SVC0_1 (ThreadGetName,       const char *,    osThreadId_t)
-#ifdef RTX_SAFETY_CLASS
 SVC0_1 (ThreadGetClass,      uint32_t,        osThreadId_t)
-#endif
-#ifdef RTX_EXECUTION_ZONE
 SVC0_1 (ThreadGetZone,       uint32_t,        osThreadId_t)
-#endif
 SVC0_0 (ThreadGetId,         osThreadId_t)
 SVC0_1 (ThreadGetState,      osThreadState_t, osThreadId_t)
 SVC0_1 (ThreadGetStackSize,  uint32_t,        osThreadId_t)
@@ -2303,16 +2325,10 @@ SVC0_1 (ThreadDetach,        osStatus_t,      osThreadId_t)
 SVC0_1 (ThreadJoin,          osStatus_t,      osThreadId_t)
 SVC0_0N(ThreadExit,          void)
 SVC0_1 (ThreadTerminate,     osStatus_t,      osThreadId_t)
-#ifdef RTX_THREAD_WATCHDOG
 SVC0_1 (ThreadFeedWatchdog,      osStatus_t,  uint32_t)
-#endif
-#ifdef RTX_SAFETY_FEATURES
 SVC0_0 (ThreadProtectPrivileged, osStatus_t)
-#endif
-#ifdef RTX_SAFETY_CLASS
 SVC0_2 (ThreadSuspendClass,      osStatus_t,  uint32_t, uint32_t)
 SVC0_2 (ThreadResumeClass,       osStatus_t,  uint32_t, uint32_t)
-#endif
 SVC0_0 (ThreadGetCount,      uint32_t)
 SVC0_2 (ThreadEnumerate,     uint32_t,        osThreadId_t *, uint32_t)
 SVC0_2 (ThreadFlagsSet,      uint32_t,        osThreadId_t, uint32_t)
@@ -2423,7 +2439,6 @@ const char *osThreadGetName (osThreadId_t thread_id) {
   return name;
 }
 
-#ifdef RTX_SAFETY_CLASS
 /// Get safety class of a thread.
 uint32_t osThreadGetClass (osThreadId_t thread_id) {
   uint32_t safety_class;
@@ -2435,9 +2450,7 @@ uint32_t osThreadGetClass (osThreadId_t thread_id) {
   }
   return safety_class;
 }
-#endif
 
-#ifdef RTX_EXECUTION_ZONE
 /// Get zone of a thread.
 uint32_t osThreadGetZone (osThreadId_t thread_id) {
   uint32_t zone;
@@ -2449,7 +2462,6 @@ uint32_t osThreadGetZone (osThreadId_t thread_id) {
   }
   return zone;
 }
-#endif
 
 /// Return the thread ID of the current running thread.
 osThreadId_t osThreadGetId (void) {
@@ -2621,7 +2633,6 @@ osStatus_t osThreadTerminate (osThreadId_t thread_id) {
   return status;
 }
 
-#ifdef RTX_THREAD_WATCHDOG
 /// Feed watchdog of the current running thread.
 osStatus_t osThreadFeedWatchdog (uint32_t ticks) {
   osStatus_t status;
@@ -2635,9 +2646,7 @@ osStatus_t osThreadFeedWatchdog (uint32_t ticks) {
   }
   return status;
 }
-#endif
 
-#ifdef RTX_SAFETY_FEATURES
 /// Protect the creation of privileged threads.
 osStatus_t osThreadProtectPrivileged (void) {
   osStatus_t status;
@@ -2651,9 +2660,6 @@ osStatus_t osThreadProtectPrivileged (void) {
   }
   return status;
 }
-#endif
-
-#ifdef RTX_SAFETY_CLASS
 
 /// Suspend execution of threads for specified safety classes.
 osStatus_t osThreadSuspendClass (uint32_t safety_class, uint32_t mode) {
@@ -2691,9 +2697,6 @@ osStatus_t osThreadResumeClass (uint32_t safety_class, uint32_t mode) {
   return status;
 }
 
-#endif
-
-#ifdef RTX_EXECUTION_ZONE
 /// Terminate execution of threads assigned to a specified MPU protected zone.
 osStatus_t osThreadTerminateZone (uint32_t zone) {
   osStatus_t status;
@@ -2712,7 +2715,6 @@ osStatus_t osThreadTerminateZone (uint32_t zone) {
   }
   return status;
 }
-#endif
 
 /// Get number of active threads.
 uint32_t osThreadGetCount (void) {

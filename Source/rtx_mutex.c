@@ -267,8 +267,8 @@ static osMutexId_t svcRtxMutexNew (const osMutexAttr_t *attr) {
     attr_bits = attr->attr_bits;
     //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
     mutex     = attr->cb_mem;
-#ifdef RTX_SAFETY_CLASS
     if ((attr_bits & osSafetyClass_Valid) != 0U) {
+#ifdef RTX_SAFETY_CLASS
       if ((thread != NULL) &&
           ((thread->attr >> osRtxAttrClass_Pos) <
           (uint8_t)((attr_bits & osSafetyClass_Msk) >> osSafetyClass_Pos))) {
@@ -276,8 +276,12 @@ static osMutexId_t svcRtxMutexNew (const osMutexAttr_t *attr) {
         //lint -e{904} "Return statement before end of function" [MISRA Note 1]
         return NULL;
       }
-    }
+#else
+      EvrRtxMutexError(NULL, (int32_t)osErrorSafetyClass);
+      //lint -e{904} "Return statement before end of function" [MISRA Note 1]
+      return NULL;
 #endif
+    }
     if (mutex != NULL) {
       if (!IsMutexPtrValid(mutex) || (attr->cb_size != sizeof(os_mutex_t))) {
         EvrRtxMutexError(NULL, osRtxErrorInvalidControlBlock);

@@ -486,7 +486,7 @@
       <file attr="config" category="header" name="EventRecorder\Config\EventRecorderConf.h" version="1.1.0">
         <instance index="0">RTE\CMSIS-View\EventRecorderConf.h</instance>
         <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.3" condition="EventRecorder"/>
-        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.1"/>
+        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
         <targetInfos>
           <targetInfo name="Simulator"/>
         </targetInfos>

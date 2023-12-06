@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "CMSIS-RTX", "index.html", [
     [ "Overview", "index.html", "index" ],
-    [ "Revision History", "RTX5RevisionHistory.html", null ],
+    [ "Revision History", "rev_hist.html", null ],
     [ "System Requirements", "rtx_system_reqs.html", [
       [ "Supported Toolchains", "rtx_system_reqs.html#pToolchains", null ],
       [ "Processor Requirements", "rtx_system_reqs.html#tpProcessor", [
@@ -195,8 +195,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"RTX5RevisionHistory.html",
-"group__rtx__evr__message__queue.html#ga3bbf02128c31e5cc7ef4c78cdbec508c"
+"config_rtx5.html",
+"group__rtx__evr__message__queue.html#ga3d6348bed3937de29765ed4d7d07fac8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

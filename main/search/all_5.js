@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['evcntr_0',['EVCNTR',['https://arm-software.github.io/CMSIS_6/latest/Core/structPMU__Type.html#a08f877e8edcb1c19b81ebcf95f85e2f7',0,'PMU_Type']]],
-  ['event_20flags_1',['Event Flags',['https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__EventFlags.html',0,'']]],
+  ['evcntr_0',['EVCNTR',['https://arm-software.github.io/CMSIS_6/main/Core/structPMU__Type.html#a08f877e8edcb1c19b81ebcf95f85e2f7',0,'PMU_Type']]],
+  ['event_20flags_1',['Event Flags',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html',0,'']]],
   ['event_20flags_20functions_2',['Event Flags Functions',['../group__rtx__evr__event__flags.html',1,'']]],
   ['event_20functions_3',['Event functions',['../group__rtx__evr.html',1,'']]],
   ['event_5fflags_4',['event_flags',['../group__rtx5__specific__types.html#a7044be0679894b5daf72f19f9dd06e03',1,'osRtxEventFlags_t']]],
@@ -191,6 +191,6 @@ var searchData=
   ['evrrtxtimerstarted_188',['EvrRtxTimerStarted',['../group__rtx__evr__timer.html#gab0dbdf460fc26b25f3987c44fb0ebdeb',1,'rtx_evr.h']]],
   ['evrrtxtimerstop_189',['EvrRtxTimerStop',['../group__rtx__evr__timer.html#ga27cf05adc61d30a0e68f380c96ea5f93',1,'rtx_evr.h']]],
   ['evrrtxtimerstopped_190',['EvrRtxTimerStopped',['../group__rtx__evr__timer.html#gaccd59c7ae2351e0a1bf96cdb749c049f',1,'rtx_evr.h']]],
-  ['evtyper_191',['EVTYPER',['https://arm-software.github.io/CMSIS_6/latest/Core/structPMU__Type.html#a27682a8d2fe09d2052a4295d5b4a243b',0,'PMU_Type']]],
-  ['exccnt_192',['EXCCNT',['https://arm-software.github.io/CMSIS_6/latest/Core/structDWT__Type.html#a9fe20c16c5167ca61486caf6832686d1',0,'DWT_Type']]]
+  ['evtyper_191',['EVTYPER',['https://arm-software.github.io/CMSIS_6/main/Core/structPMU__Type.html#a27682a8d2fe09d2052a4295d5b4a243b',0,'PMU_Type']]],
+  ['exccnt_192',['EXCCNT',['https://arm-software.github.io/CMSIS_6/main/Core/structDWT__Type.html#a9fe20c16c5167ca61486caf6832686d1',0,'DWT_Type']]]
 ];

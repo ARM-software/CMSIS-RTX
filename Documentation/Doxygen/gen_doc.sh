@@ -5,6 +5,7 @@
 #
 # Pre-requisites:
 # - bash shell (for Windows: install git for Windows)
+# - curl
 # - doxygen 1.9.6
 # - mscgen 0.20
 # - linkchecker (can be skipped with -s)
@@ -14,7 +15,7 @@ set -o pipefail
 # Set version of gen pack library
 # For available versions see https://github.com/Open-CMSIS-Pack/gen-pack/tags.
 # Use the tag name without the prefix "v", e.g., 0.7.0
-REQUIRED_GEN_PACK_LIB="0.9.0"
+REQUIRED_GEN_PACK_LIB="0.9.1"
 
 DIRNAME=$(dirname "$(readlink -f "$0")")
 GENDIR=../html
@@ -22,13 +23,11 @@ REQ_DXY_VERSION="1.9.6"
 REQ_MSCGEN_VERSION="0.20"
 
 RUN_LINKCHECKER=1
-COMPONENTS=()
 
 function usage() {
   echo "Usage: $(basename "$0") [-h] [-s] [-c <comp>]"
   echo " -h,--help               Show usage"
   echo " -s,--no-linkcheck       Skip linkcheck"
-  echo " -c,--component <comp>   Select component <comp> to generate documentation for. "
   echo "                         Can be given multiple times. Defaults to all components."
 }
 
@@ -40,10 +39,6 @@ while [[ $# -gt 0 ]]; do
     ;;
     '-s'|'--no-linkcheck')
       RUN_LINKCHECKER=0
-    ;;
-    '-c'|'--component')
-      shift
-      COMPONENTS+=("$1")
     ;;
     *)
       echo "Invalid command line argument: $1" >&2
@@ -69,12 +64,33 @@ find_utility "mscgen" "-l | grep 'Mscgen version' | sed -r -e 's/Mscgen version 
 [[ ${RUN_LINKCHECKER} != 0 ]] && find_linkchecker
 
 if [ -z "${VERSION_FULL}" ]; then
-  VERSION_FULL=$(git_describe "v")
+  VERSION_FULL=$(git_describe "rtx/v")
 fi
 
-pushd "${DIRNAME}" > /dev/null
+pushd "${DIRNAME}" > /dev/null || exit 1
 
-echo "Generating documentation ..."
+echo_log "Resolving CMSIS Documentation references ..."
+
+function downloadTagFiles() {
+  local result
+  echo_log "Downloading tag files for CMSIS $1..."
+  curl --fail-with-body -sLO "https://arm-software.github.io/CMSIS_6/$1/RTOS2/cmsis_rtos2.tag" && \
+    curl --fail-with-body -sLO "https://arm-software.github.io/CMSIS_6/$1/Core/cmsis_core_m.tag"
+  result=$?
+  if [ $result -ne 0 ]; then
+    echo_err "Download tag files for CMSIS $1 failed!"
+  fi
+  return $result
+}
+
+cmsisProjectNumber=$(grep -E "<package vendor=\"ARM\" name=\"CMSIS\" version=" "${DIRNAME}/../../ARM.CMSIS-RTX.pdsc" | sed -r -e 's/.*version="([^"-]+)[^"]*".*/\1/')
+
+if ! downloadTagFiles "${cmsisProjectNumber}"; then
+  cmsisProjectNumber="main"
+  downloadTagFiles "${cmsisProjectNumber}" || exit 1
+fi
+
+echo_log "Generating documentation ..."
 
 projectName=$(grep -E "PROJECT_NAME\s+=" rtx.dxy.in | sed -r -e 's/[^"]*"([^"]+)".*/\1/')
 projectNumberFull="${VERSION_FULL}"
@@ -82,11 +98,13 @@ projectNumber="${projectNumberFull%+*}"
 datetime=$(date -u +'%a %b %e %Y %H:%M:%S')
 year=$(date -u +'%Y')
 
-sed -e "s/{projectNumber}/${projectNumber}/" rtx.dxy.in > rtx.dxy
+sed -e "s/{projectNumber}/${projectNumber}/" rtx.dxy.in \
+  | sed -e "s/{cmsisProjectNumber}/${cmsisProjectNumber}/" \
+  > rtx.dxy
 
-# git_changelog -f html -p "v" > src/history.txt
+git_changelog -f html -p "rtx/v" > src/history.txt
 
-echo "\"${UTILITY_DOXYGEN}\" rtx.dxy"
+echo_log "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 "${UTILITY_DOXYGEN}" rtx.dxy
 
 mkdir -p "${DIRNAME}/${GENDIR}/${GENDIR}/search/"
@@ -101,9 +119,8 @@ sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/style_template/footer.js.in" \
   | sed -e "s/{projectNumberFull}/${projectNumberFull}/" \
   > "${DIRNAME}/${GENDIR}/${GENDIR}/footer.js"
 
-popd > /dev/null
+popd > /dev/null || exit 1
 
 [[ ${RUN_LINKCHECKER} != 0 ]] && check_links "${DIRNAME}/../html/index.html" "${DIRNAME}"
-
 
 exit 0

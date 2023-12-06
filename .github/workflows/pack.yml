@@ -23,7 +23,6 @@ jobs:
           fetch-depth: 0
 
       - name: Fetch tags
-        if: github.event_name == 'release'
         run: |
           git fetch --tags --force
 

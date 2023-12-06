@@ -925,6 +925,7 @@ WARN_LOGFILE           =
 
 INPUT                  = ./src/mainpage.md \
                          ./src/history.md \
+                         ./src/history.txt \
                          ./src/system_reqs.md \
                          ./src/operation.md \
                          ./src/project.md \
@@ -2441,8 +2442,8 @@ SKIP_FUNCTION_MACROS   = NO
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = "./cmsis_rtos2.tag=https://arm-software.github.io/CMSIS_6/latest/RTOS2/" \
-                         "./cmsis_core_m.tag=https://arm-software.github.io/CMSIS_6/latest/Core/"
+TAGFILES               = "./cmsis_rtos2.tag=https://arm-software.github.io/CMSIS_6/{cmsisProjectNumber}/RTOS2/" \
+                         "./cmsis_core_m.tag=https://arm-software.github.io/CMSIS_6/{cmsisProjectNumber}/Core/"
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to

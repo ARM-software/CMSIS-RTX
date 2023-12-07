@@ -753,7 +753,14 @@ function createResults(resultsPath)
     srEntry.appendChild(srLink);
     if (searchData[e][1].length==2) // single result
     {
-      srLink.setAttribute('href',resultsPath+searchData[e][1][1][0]);
+      if (searchData[e][1][1][0].includes("https://"))
+      {
+       srLink.setAttribute('href',searchData[e][1][1][0]);
+      }
+      else
+      {
+        srLink.setAttribute('href',resultsPath+searchData[e][1][1][0]);
+      }
       srLink.setAttribute('onclick','searchBox.CloseResultsWindow()');
       if (searchData[e][1][1][1])
       {

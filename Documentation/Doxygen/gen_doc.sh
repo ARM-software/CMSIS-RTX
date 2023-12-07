@@ -109,6 +109,7 @@ echo_log "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 
 mkdir -p "${DIRNAME}/${GENDIR}/${GENDIR}/search/"
 cp -f "${DIRNAME}/style_template/search.css" "${DIRNAME}/${GENDIR}/${GENDIR}/search/"
+cp -f "${DIRNAME}/style_template/search.js" "${DIRNAME}/${GENDIR}/${GENDIR}/search/"
 cp -f "${DIRNAME}/style_template/navtree.js" "${DIRNAME}/${GENDIR}/${GENDIR}/"
 cp -f "${DIRNAME}/style_template/resize.js" "${DIRNAME}/${GENDIR}/${GENDIR}/"
 

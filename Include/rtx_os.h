@@ -301,7 +301,7 @@ typedef struct {
     struct {
       osRtxThread_t             *curr;  ///< Current running Thread
       osRtxThread_t             *next;  ///< Next Thread to Run
-    } run;                              ///< Thread Info
+    } run;                              ///< Thread Run Info
     osRtxObject_t               ready;  ///< Ready List Object
     osRtxThread_t               *idle;  ///< Idle Thread
     osRtxThread_t         *delay_list;  ///< Delay List
@@ -312,7 +312,7 @@ typedef struct {
       osRtxThread_t           *thread;  ///< Round Robin Thread
       uint32_t                timeout;  ///< Round Robin Timeout
     } robin;                            ///< Thread Round Robin Info
-  } thread;                             ///< Thread Run Info
+  } thread;                             ///< Thread Info
   struct {
     osRtxTimer_t                *list;  ///< Active Timer List
     osRtxThread_t             *thread;  ///< Timer Thread

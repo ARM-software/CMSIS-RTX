@@ -337,6 +337,7 @@ To obtain the size of a control block for use in \ref StaticObjectMemory it is b
 \fn uint32_t osRtxErrorNotify (uint32_t code, void *object_id);
 \param[in] code The code to identify the error condition.
 \param[in] object_id A reference to any RTX object to identify the object that caused the issue, can be \token{NULL}.
+\return 0 (reserved for future implementations)
 \details
 Some system error conditions can be detected during runtime. If the RTX kernel detects a runtime error, it calls the runtime
 error function \b osRtxErrorNotify for an object specified by parameter \a object_id.

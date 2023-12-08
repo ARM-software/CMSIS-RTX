@@ -57,8 +57,7 @@ var group__rtx5__specific__types =
       [ "owner_thread", "group__rtx5__specific__types.html#a987889d464cb2925029e135b76aa0dc9", null ],
       [ "owner_prev", "group__rtx5__specific__types.html#a50b315b9b80bafdba54a7a731be1cc30", null ],
       [ "owner_next", "group__rtx5__specific__types.html#a54be7ae32f627ee70e1af8c54203ee5a", null ],
-      [ "lock", "group__rtx5__specific__types.html#a92435efb84d6814afd444fd462802e9c", null ],
-      [ "padding", "group__rtx5__specific__types.html#a735ef00341a84c02ba561c66de3d20af", null ]
+      [ "lock", "group__rtx5__specific__types.html#a92435efb84d6814afd444fd462802e9c", null ]
     ] ],
     [ "osRtxObject_t", "group__rtx5__specific__types.html#structosRtxObject__t", [
       [ "id", "group__rtx5__specific__types.html#a1e6927fa1486224044e568f9c370519b", null ],
@@ -119,7 +118,6 @@ var group__rtx5__specific__types =
       [ "thread_addr", "group__rtx5__specific__types.html#adf2ebf46aa7018845582f1c70de83598", null ],
       [ "tz_memory", "group__rtx5__specific__types.html#adaa6c424a231e5f6c788532675f33e16", null ],
       [ "zone", "group__rtx5__specific__types.html#ac746c3d65092170bfaf5b0d9950d8438", null ],
-      [ "reserved", "group__rtx5__specific__types.html#a72aca6ea6d8153b28ea8f139b932ec3e", null ],
       [ "wdog_next", "group__rtx5__specific__types.html#a73f4e12f4f2ec40dca37b3af0fd89884", null ],
       [ "wdog_tick", "group__rtx5__specific__types.html#afcef1b922d2b9644501b0ca482c7d23b", null ]
     ] ]

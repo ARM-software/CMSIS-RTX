@@ -19,5 +19,5 @@ var searchData=
   ['dfr_16',['DFR',['https://arm-software.github.io/CMSIS_6/main/Core/structSCB__Type.html#a85dd6fe77aab17e7ea89a52c59da6004',0,'SCB_Type']]],
   ['dfsr_17',['DFSR',['https://arm-software.github.io/CMSIS_6/main/Core/structSCB__Type.html#a191579bde0d21ff51d30a714fd887033',0,'SCB_Type']]],
   ['dhcsr_18',['DHCSR',['https://arm-software.github.io/CMSIS_6/main/Core/structCoreDebug__Type.html#ad63554e4650da91a8e79929cbb63db66',0,'CoreDebug_Type']]],
-  ['dwt_5ftype_19',['DWT_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structDWT__Type',0,'']]]
+  ['dwt_5ftype_19',['DWT_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structDWT__Type.html',0,'']]]
 ];

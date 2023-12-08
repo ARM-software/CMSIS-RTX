@@ -15,7 +15,7 @@ var searchData=
   ['fpccr_12',['FPCCR',['https://arm-software.github.io/CMSIS_6/main/Core/structFPU__Type.html#af1b708c5e413739150df3d16ca3b7061',0,'FPU_Type']]],
   ['fpdscr_13',['FPDSCR',['https://arm-software.github.io/CMSIS_6/main/Core/structFPU__Type.html#a58d1989664a06db6ec2e122eefa9f04a',0,'FPU_Type']]],
   ['fpu_20functions_14',['FPU Functions',['https://arm-software.github.io/CMSIS_6/main/Core/group__fpu__functions.html',0,'']]],
-  ['fpu_5ftype_15',['FPU_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structFPU__Type',0,'']]],
+  ['fpu_5ftype_15',['FPU_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structFPU__Type.html',0,'']]],
   ['fscr_16',['FSCR',['https://arm-software.github.io/CMSIS_6/main/Core/structTPI__Type.html#ad6901bfd8a0089ca7e8a20475cf494a8',0,'TPI_Type']]],
   ['func_17',['func',['../group__rtx5__specific__types.html#aaf8577e5ddcbff356a1d27310baa8a1f',1,'osRtxTimerFinfo_t']]],
   ['function0_18',['FUNCTION0',['https://arm-software.github.io/CMSIS_6/main/Core/structDWT__Type.html#a579ae082f58a0317b7ef029b20f52889',0,'DWT_Type']]],

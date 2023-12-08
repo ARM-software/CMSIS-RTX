@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['os_5fid_0',['os_id',['../namespace_3globalScope_4.html#a7b7d02cdf33432995469f29878f7dcda',1,'osRtxInfo_t']]],
+  ['os_5fid_0',['os_id',['../structosRtxInfo__t.html#a7b7d02cdf33432995469f29878f7dcda',1,'osRtxInfo_t']]],
   ['oserror_1',['osError',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#gga6c0dbe6069e4e7f47bb4cd32ae2b813eacb77fd6a5f0f177b06847a629f6054e8',0,]]],
   ['oserrorisr_2',['osErrorISR',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#gga6c0dbe6069e4e7f47bb4cd32ae2b813ea91c2ea9c9cd03401ff7d396c636d1864',0,]]],
   ['oserrornomemory_3',['osErrorNoMemory',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#gga6c0dbe6069e4e7f47bb4cd32ae2b813ea1bccee013c5725778b750a54c4f9e57d',0,]]],

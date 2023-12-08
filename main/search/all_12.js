@@ -17,8 +17,8 @@ var searchData=
   ['scb_5finvalidatedcache_5fby_5faddr_14',['SCB_InvalidateDCache_by_Addr',['https://arm-software.github.io/CMSIS_6/main/Core/group__Dcache__functions__m7.html#ga31c2439722ab4dbd0c67b196e3377ca7',0,]]],
   ['scb_5finvalidateicache_15',['SCB_InvalidateICache',['https://arm-software.github.io/CMSIS_6/main/Core/group__Icache__functions__m7.html#ga62419cb7e6773e3d9236f14e458c1b05',0,]]],
   ['scb_5finvalidateicache_5fby_5faddr_16',['SCB_InvalidateICache_by_Addr',['https://arm-software.github.io/CMSIS_6/main/Core/group__Icache__functions__m7.html#gaeb1a2bf181afcfb837ce0502e6bfa4fb',0,]]],
-  ['scb_5ftype_17',['SCB_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structSCB__Type',0,'']]],
-  ['scnscb_5ftype_18',['SCnSCB_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structSCnSCB__Type',0,'']]],
+  ['scb_5ftype_17',['SCB_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structSCB__Type.html',0,'']]],
+  ['scnscb_5ftype_18',['SCnSCB_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structSCnSCB__Type.html',0,'']]],
   ['scr_19',['SCR',['https://arm-software.github.io/CMSIS_6/main/Core/structSCB__Type.html#a3a4840c6fa4d1ee75544f4032c88ec34',0,'SCB_Type']]],
   ['securefault_5firqn_20',['SecureFault_IRQn',['https://arm-software.github.io/CMSIS_6/main/Core/group__NVIC__gr.html#gga7e1129cd8a196f4284d41db3e82ad5c8a9cda5594d898247bfa9d16ad966724da',0,]]],
   ['semaphore_20functions_21',['Semaphore Functions',['../group__rtx__evr__semaphore.html',1,'']]],
@@ -49,5 +49,5 @@ var searchData=
   ['systick_20timer_20_28systick_29_46',['Systick Timer (SYSTICK)',['https://arm-software.github.io/CMSIS_6/main/Core/group__SysTick__gr.html',0,'']]],
   ['systick_5fconfig_47',['SysTick_Config',['https://arm-software.github.io/CMSIS_6/main/Core/group__SysTick__gr.html#gabe47de40e9b0ad465b752297a9d9f427',0,]]],
   ['systick_5firqn_48',['SysTick_IRQn',['https://arm-software.github.io/CMSIS_6/main/Core/group__NVIC__gr.html#gga7e1129cd8a196f4284d41db3e82ad5c8a6dbff8f8543325f3474cbae2446776e7',0,]]],
-  ['systick_5ftype_49',['SysTick_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structSysTick__Type',0,'']]]
+  ['systick_5ftype_49',['SysTick_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structSysTick__Type.html',0,'']]]
 ];

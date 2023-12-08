@@ -25,5 +25,5 @@ var searchData=
   ['nvic_5fsettargetstate_22',['NVIC_SetTargetState',['https://arm-software.github.io/CMSIS_6/main/Core/group__NVIC__gr.html#gaf46218d01a6a3b70666ad0492a7f950a',0,]]],
   ['nvic_5fsetvector_23',['NVIC_SetVector',['https://arm-software.github.io/CMSIS_6/main/Core/group__NVIC__gr.html#gab43c1c59d5c081f1bc725237f4b1f916',0,]]],
   ['nvic_5fsystemreset_24',['NVIC_SystemReset',['https://arm-software.github.io/CMSIS_6/main/Core/group__NVIC__gr.html#ga1b47d17e90b6a03e7bd1ec6a0d549b46',0,]]],
-  ['nvic_5ftype_25',['NVIC_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structNVIC__Type',0,'']]]
+  ['nvic_5ftype_25',['NVIC_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structNVIC__Type.html',0,'']]]
 ];

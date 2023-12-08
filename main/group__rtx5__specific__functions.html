@@ -172,10 +172,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>The code to identify the error condition. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">object_id</td><td>A reference to any RTX object to identify the object that caused the issue, can be <span class="XML-Token">NULL</span>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object_id</td><td>A reference to any RTX object to identify the object that caused the issue, can be <span class="XML-Token">NULL</span>. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 (reserved for future implementations)</dd></dl>
 <p>Some system error conditions can be detected during runtime. If the RTX kernel detects a runtime error, it calls the runtime error function <b>osRtxErrorNotify</b> for an object specified by parameter <em>object_id</em>.</p>
 <p>The parameter <em>code</em> passes the actual error code to this function: </p><table class="markdownTable">
 <tr class="markdownTableHead">

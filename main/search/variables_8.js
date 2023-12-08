@@ -16,7 +16,7 @@ var searchData=
   ['iser_13',['ISER',['https://arm-software.github.io/CMSIS_6/main/Core/structNVIC__Type.html#a9fccef5a60a0d5e81fcd7869a6274f47',0,'NVIC_Type']]],
   ['ispr_14',['ISPR',['https://arm-software.github.io/CMSIS_6/main/Core/structNVIC__Type.html#a8f731a9f428efc86e8d311b52ce823d0',0,'NVIC_Type']]],
   ['isr_15',['ISR',['https://arm-software.github.io/CMSIS_6/main/Core/unionIPSR__Type.html#ab46e5f1b2f4d17cfb9aca4fffcbb2fa5',0,'IPSR_Type::ISR()'],['https://arm-software.github.io/CMSIS_6/main/Core/unionxPSR__Type.html#a3e9120dcf1a829fc8d2302b4d0673970',0,'xPSR_Type::ISR()']]],
-  ['isr_5fqueue_16',['isr_queue',['../namespace_3globalScope_4.html#ad7b45254899fd2bf838a2f048d87c128',1,'osRtxInfo_t::isr_queue()'],['../structosRtxConfig__t.html#a1990532940da0e0c882814277f9e6c34',1,'osRtxConfig_t::isr_queue()']]],
+  ['isr_5fqueue_16',['isr_queue',['../structosRtxInfo__t.html#ad7b45254899fd2bf838a2f048d87c128',1,'osRtxInfo_t::isr_queue()'],['../structosRtxConfig__t.html#a1990532940da0e0c882814277f9e6c34',1,'osRtxConfig_t::isr_queue()']]],
   ['it_17',['IT',['https://arm-software.github.io/CMSIS_6/main/Core/unionxPSR__Type.html#a3200966922a194d84425e2807a7f1328',0,'xPSR_Type']]],
   ['itatbctr0_18',['ITATBCTR0',['https://arm-software.github.io/CMSIS_6/main/Core/structTPI__Type.html#aaa573b2e073e76e93c51ecec79c616d0',0,'TPI_Type']]],
   ['itatbctr2_19',['ITATBCTR2',['https://arm-software.github.io/CMSIS_6/main/Core/structTPI__Type.html#ab358319b969d3fed0f89bbe33e9f1652',0,'TPI_Type']]],

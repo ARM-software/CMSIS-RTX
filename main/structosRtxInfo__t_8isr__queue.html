@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CMSIS-RTX: osRtxInfo_t.timer Struct Reference</title>
+<title>CMSIS-RTX: osRtxInfo_t.isr_queue Struct Reference</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('structosRtxInfo__t_8timer.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structosRtxInfo__t_8isr__queue.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -123,35 +123,120 @@ $(document).ready(function(){initNavTree('structosRtxInfo__t_8timer.html',''); i
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">osRtxInfo_t.timer Struct Reference</div></div>
+  <div class="headertitle"><div class="title">osRtxInfo_t.isr_queue Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a10ae9fc7d453b0dd525d0edf2ede7961"><td class="memItemLeft" align="right" valign="top"><a id="a10ae9fc7d453b0dd525d0edf2ede7961" name="a10ae9fc7d453b0dd525d0edf2ede7961"></a>
-<a class="el" href="group__rtx5__specific__types.html#structosRtxTimer__t">osRtxTimer_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>list</b></td></tr>
-<tr class="memdesc:a10ae9fc7d453b0dd525d0edf2ede7961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active Timer List. <br /></td></tr>
-<tr class="separator:a10ae9fc7d453b0dd525d0edf2ede7961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc127f5d2483352fd20eaddb38feb6d2"><td class="memItemLeft" align="right" valign="top"><a id="adc127f5d2483352fd20eaddb38feb6d2" name="adc127f5d2483352fd20eaddb38feb6d2"></a>
-<a class="el" href="group__rtx5__specific__types.html#structosRtxThread__t">osRtxThread_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>thread</b></td></tr>
-<tr class="memdesc:adc127f5d2483352fd20eaddb38feb6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer Thread. <br /></td></tr>
-<tr class="separator:adc127f5d2483352fd20eaddb38feb6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d8a4975693ef1eb9ca54878098d608f"><td class="memItemLeft" align="right" valign="top"><a id="a1d8a4975693ef1eb9ca54878098d608f" name="a1d8a4975693ef1eb9ca54878098d608f"></a>
-<a class="el" href="group__rtx5__specific__types.html#structosRtxMessageQueue__t">osRtxMessageQueue_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mq</b></td></tr>
-<tr class="memdesc:a1d8a4975693ef1eb9ca54878098d608f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer Message Queue. <br /></td></tr>
-<tr class="separator:a1d8a4975693ef1eb9ca54878098d608f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69dfeafefa7851fd9524a2b32a0eff9"><td class="memItemLeft" align="right" valign="top"><a id="ae69dfeafefa7851fd9524a2b32a0eff9" name="ae69dfeafefa7851fd9524a2b32a0eff9"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> )(void)</td></tr>
-<tr class="memdesc:ae69dfeafefa7851fd9524a2b32a0eff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer Tick Function. <br /></td></tr>
-<tr class="separator:ae69dfeafefa7851fd9524a2b32a0eff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ffe4e77325d9a7152f7086ea7aa5114"><td class="memItemLeft" align="right" valign="top"><a id="a2ffe4e77325d9a7152f7086ea7aa5114" name="a2ffe4e77325d9a7152f7086ea7aa5114"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<tr class="memdesc:a2ffe4e77325d9a7152f7086ea7aa5114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Items. <br /></td></tr>
+<tr class="separator:a2ffe4e77325d9a7152f7086ea7aa5114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2817f701d5e1a1181e657251363295fd"><td class="memItemLeft" align="right" valign="top"><a id="a2817f701d5e1a1181e657251363295fd" name="a2817f701d5e1a1181e657251363295fd"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>cnt</b></td></tr>
+<tr class="memdesc:a2817f701d5e1a1181e657251363295fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item Count. <br /></td></tr>
+<tr class="separator:a2817f701d5e1a1181e657251363295fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b5bfe96f3e2fe411c9f66f4a582adf"><td class="memItemLeft" align="right" valign="top"><a id="a13b5bfe96f3e2fe411c9f66f4a582adf" name="a13b5bfe96f3e2fe411c9f66f4a582adf"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>in</b></td></tr>
+<tr class="memdesc:a13b5bfe96f3e2fe411c9f66f4a582adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incoming Item Index. <br /></td></tr>
+<tr class="separator:a13b5bfe96f3e2fe411c9f66f4a582adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68271a63ddbc431c307beb7d2918275"><td class="memItemLeft" align="right" valign="top"><a id="ac68271a63ddbc431c307beb7d2918275" name="ac68271a63ddbc431c307beb7d2918275"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>out</b></td></tr>
+<tr class="memdesc:ac68271a63ddbc431c307beb7d2918275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outgoing Item Index. <br /></td></tr>
+<tr class="separator:ac68271a63ddbc431c307beb7d2918275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d777f385d3dfec8815d20f7496026dc"><td class="memItemLeft" align="right" valign="top"><a id="a8d777f385d3dfec8815d20f7496026dc" name="a8d777f385d3dfec8815d20f7496026dc"></a>
+void **&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="memdesc:a8d777f385d3dfec8815d20f7496026dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue Data. <br /></td></tr>
+<tr class="separator:a8d777f385d3dfec8815d20f7496026dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a2ffe4e77325d9a7152f7086ea7aa5114" name="a2ffe4e77325d9a7152f7086ea7aa5114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ffe4e77325d9a7152f7086ea7aa5114">&#9670;&#160;</a></span>max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum Items. </p>
+
+</div>
+</div>
+<a id="a2817f701d5e1a1181e657251363295fd" name="a2817f701d5e1a1181e657251363295fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2817f701d5e1a1181e657251363295fd">&#9670;&#160;</a></span>cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Item Count. </p>
+
+</div>
+</div>
+<a id="a13b5bfe96f3e2fe411c9f66f4a582adf" name="a13b5bfe96f3e2fe411c9f66f4a582adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b5bfe96f3e2fe411c9f66f4a582adf">&#9670;&#160;</a></span>in</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incoming Item Index. </p>
+
+</div>
+</div>
+<a id="ac68271a63ddbc431c307beb7d2918275" name="ac68271a63ddbc431c307beb7d2918275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68271a63ddbc431c307beb7d2918275">&#9670;&#160;</a></span>out</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Outgoing Item Index. </p>
+
+</div>
+</div>
+<a id="a8d777f385d3dfec8815d20f7496026dc" name="a8d777f385d3dfec8815d20f7496026dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d777f385d3dfec8815d20f7496026dc">&#9670;&#160;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Queue Data. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="structosRtxInfo__t_8timer.html">osRtxInfo_t.timer</a></li>
+    <li class="navelem"><a class="el" href="structosRtxInfo__t_8isr__queue.html">osRtxInfo_t.isr_queue</a></li>
     <li class="footer">
       <script type="text/javascript">
         <!--

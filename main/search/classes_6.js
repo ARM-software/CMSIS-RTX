@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nvic_5ftype_0',['NVIC_Type',['https://arm-software.github.io/CMSIS_6/main/Core/namespace_3globalScope_4.html#structNVIC__Type',0,'']]]
+  ['nvic_5ftype_0',['NVIC_Type',['https://arm-software.github.io/CMSIS_6/main/Core/structNVIC__Type.html',0,'']]]
 ];

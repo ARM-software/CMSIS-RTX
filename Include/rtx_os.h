@@ -295,13 +295,13 @@ typedef struct {
     uint8_t                    pendSV;  ///< Pending SV
     uint8_t                   protect;  ///< Protect options
     uint32_t                     tick;  ///< Tick counter
-  } kernel;  ///< Kernel Info
+  } kernel;                             ///< Kernel Info
   int32_t                   tick_irqn;  ///< Tick Timer IRQ Number
   struct {
     struct {
       osRtxThread_t             *curr;  ///< Current running Thread
       osRtxThread_t             *next;  ///< Next Thread to Run
-    } run;  ///< Thread Info
+    } run;                              ///< Thread Info
     osRtxObject_t               ready;  ///< Ready List Object
     osRtxThread_t               *idle;  ///< Idle Thread
     osRtxThread_t         *delay_list;  ///< Delay List
@@ -311,34 +311,34 @@ typedef struct {
     struct {
       osRtxThread_t           *thread;  ///< Round Robin Thread
       uint32_t                timeout;  ///< Round Robin Timeout
-    } robin;  ///< Thread Round Robin Info
-  } thread;  ///< Thread Run Info
+    } robin;                            ///< Thread Round Robin Info
+  } thread;                             ///< Thread Run Info
   struct {
     osRtxTimer_t                *list;  ///< Active Timer List
     osRtxThread_t             *thread;  ///< Timer Thread
     osRtxMessageQueue_t           *mq;  ///< Timer Message Queue
     void                (*tick)(void);  ///< Timer Tick Function
-  } timer;  ///< Timer Info
+  } timer;                              ///< Timer Info
   struct {
     uint16_t                      max;  ///< Maximum Items
     uint16_t                      cnt;  ///< Item Count
     uint16_t                       in;  ///< Incoming Item Index
     uint16_t                      out;  ///< Outgoing Item Index
     void                       **data;  ///< Queue Data
-  } isr_queue;  ///< ISR Post Processing Queue
+  } isr_queue;                          ///< ISR Post Processing Queue
   struct {
     void          (*thread)(osRtxThread_t*);  ///< Thread Post Processing function
     void (*event_flags)(osRtxEventFlags_t*);  ///< Event Flags Post Processing function
     void    (*semaphore)(osRtxSemaphore_t*);  ///< Semaphore Post Processing function
     void (*memory_pool)(osRtxMemoryPool_t*);  ///< Memory Pool Post Processing function
     void        (*message)(osRtxMessage_t*);  ///< Message Post Processing function
-  } post_process;  ///< ISR Post Processing functions
+  } post_process;                             ///< ISR Post Processing functions
   struct {
     void                       *stack;  ///< Stack Memory
     void                     *mp_data;  ///< Memory Pool Data Memory
     void                     *mq_data;  ///< Message Queue Data Memory
     void                      *common;  ///< Common Memory
-  } mem;  ///< Memory Pools (Variable Block Size)
+  } mem;                                ///< Memory Pools (Variable Block Size)
   struct {
     osRtxMpInfo_t              *stack;  ///< Stack for Threads
     osRtxMpInfo_t             *thread;  ///< Thread Control Blocks
@@ -348,7 +348,7 @@ typedef struct {
     osRtxMpInfo_t          *semaphore;  ///< Semaphore Control Blocks
     osRtxMpInfo_t        *memory_pool;  ///< Memory Pool Control Blocks
     osRtxMpInfo_t      *message_queue;  ///< Message Queue Control Blocks
-  } mpi;  ///< Memory Pools (Fixed Block Size)
+  } mpi;                                ///< Memory Pools (Fixed Block Size)
 } osRtxInfo_t;
  
 extern osRtxInfo_t osRtxInfo;           ///< OS Runtime Information
@@ -427,15 +427,15 @@ extern void SysTick_Handler (void);
 //  ==== OS External Configuration ====
  
 /// OS Configuration flags
-#define osRtxConfigPrivilegedMode   (1UL<<0)  ///< Threads in Privileged mode
-#define osRtxConfigStackCheck       (1UL<<1)  ///< Stack overrun checking
-#define osRtxConfigStackWatermark   (1UL<<2)  ///< Stack usage Watermark
-#define osRtxConfigSafetyFeatures   (1UL<<3)  ///< Safety features enabled
-#define osRtxConfigSafetyClass      (1UL<<4)  ///< Safety Class feature enabled
-#define osRtxConfigExecutionZone    (1UL<<5)  ///< Execution Zone enabled
-#define osRtxConfigThreadWatchdog   (1UL<<6)  ///< Thread Watchdog enabled
-#define osRtxConfigObjPtrCheck      (1UL<<7)  ///< Object Pointer Checking enabled
-#define osRtxConfigSVCPtrCheck      (1UL<<8)  ///< SVC Pointer Checking enabled
+#define osRtxConfigPrivilegedMode   (1UL<<0)   ///< Threads in Privileged mode
+#define osRtxConfigStackCheck       (1UL<<1)   ///< Stack overrun checking
+#define osRtxConfigStackWatermark   (1UL<<2)   ///< Stack usage Watermark
+#define osRtxConfigSafetyFeatures   (1UL<<3)   ///< Safety features enabled
+#define osRtxConfigSafetyClass      (1UL<<4)   ///< Safety Class feature enabled
+#define osRtxConfigExecutionZone    (1UL<<5)   ///< Execution Zone enabled
+#define osRtxConfigThreadWatchdog   (1UL<<6)   ///< Thread Watchdog enabled
+#define osRtxConfigObjPtrCheck      (1UL<<7)   ///< Object Pointer Checking enabled
+#define osRtxConfigSVCPtrCheck      (1UL<<8)   ///< SVC Pointer Checking enabled
  
 /// OS Configuration structure
 typedef struct {
@@ -446,7 +446,7 @@ typedef struct {
     void                              **data;  ///< Queue Data
     uint16_t                             max;  ///< Maximum Items
     uint16_t                         padding;  ///< Padding
-  } isr_queue;  ///< ISR Post Processing Queue
+  } isr_queue;                                 ///< ISR Post Processing Queue
   struct {
     void                         *stack_addr;  ///< Stack Memory Address
     uint32_t                      stack_size;  ///< Stack Memory Size
@@ -456,7 +456,7 @@ typedef struct {
     uint32_t                    mq_data_size;  ///< Message Queue Data Memory Size
     void                        *common_addr;  ///< Common Memory Address
     uint32_t                     common_size;  ///< Common Memory Size
-  } mem;  ///< Memory Pools (Variable Block Size)
+  } mem;                                       ///< Memory Pools (Variable Block Size)
   struct {
     osRtxMpInfo_t                     *stack;  ///< Stack for Threads
     osRtxMpInfo_t                    *thread;  ///< Thread Control Blocks
@@ -466,7 +466,7 @@ typedef struct {
     osRtxMpInfo_t                 *semaphore;  ///< Semaphore Control Blocks
     osRtxMpInfo_t               *memory_pool;  ///< Memory Pool Control Blocks
     osRtxMpInfo_t             *message_queue;  ///< Message Queue Control Blocks
-  } mpi;  ///< Memory Pools (Fixed Block Size)
+  } mpi;                                       ///< Memory Pools (Fixed Block Size)
   uint32_t                 thread_stack_size;  ///< Default Thread Stack Size
   const
   osThreadAttr_t           *idle_thread_attr;  ///< Idle Thread Attributes

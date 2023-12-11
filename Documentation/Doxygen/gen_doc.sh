@@ -64,7 +64,7 @@ find_utility "mscgen" "-l | grep 'Mscgen version' | sed -r -e 's/Mscgen version 
 [[ ${RUN_LINKCHECKER} != 0 ]] && find_linkchecker
 
 if [ -z "${VERSION_FULL}" ]; then
-  VERSION_FULL=$(git_describe "rtx/v")
+  VERSION_FULL=$(git_describe "v")
 fi
 
 pushd "${DIRNAME}" > /dev/null || exit 1
@@ -102,7 +102,7 @@ sed -e "s/{projectNumber}/${projectNumber}/" rtx.dxy.in \
   | sed -e "s/{cmsisProjectNumber}/${cmsisProjectNumber}/" \
   > rtx.dxy
 
-git_changelog -f html -p "rtx/v" > src/history.txt
+git_changelog -f html -p "v" > src/history.txt
 
 echo_log "\"${UTILITY_DOXYGEN}\" rtx.dxy"
 "${UTILITY_DOXYGEN}" rtx.dxy

@@ -4,14 +4,14 @@ Keil RTX version 5 (RTX5) is a real-time operating system (RTOS) for Arm Cortex-
 
 The following sections provide further details:
 
- - \ref rev_hist lists the  explains how to setup an RTX v5 project in Keil MDK.
+ - \ref rev_hist lists the changes made in each version of CMSIS-RTX.
  - \ref rtx_system_reqs lists hardware, software, and resource requirements, as well as supported toolchains.
  - \ref theory_of_operation provides general information about the operation of CMSIS-RTOS RTX v5.
- - \ref config_rtx5 describes configuration parameters of CMSIS-RTOS RTX v5.
  - \ref cre_rtx_proj explains how to setup an RTX v5 project in Keil MDK.
 \ifnot FuSaRTS
  - \ref creating_RTX5_LIB explains how to build your own CMSIS-RTOS RTX v5 library.
 \endif
+ - \ref config_rtx5 describes configuration parameters of CMSIS-RTOS RTX v5.
  - \ref misraCompliance5 describes the violations to the MISRA standard.
  - \ref rtos2_tutorial is an introduction into the usage of Keil RTX5 based on real-life examples.
 

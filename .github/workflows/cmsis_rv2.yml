@@ -147,7 +147,7 @@ jobs:
         if: ${{ !cancelled() && env.ARM_UBL_ACTIVATION_CODE }}
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ matrix.compiler }}
+          name: test-results-${{ matrix.compiler }}-${{ matrix.variant }}
           path: ./CMSIS-RTOS2_Validation/Project/*.junit
 
 

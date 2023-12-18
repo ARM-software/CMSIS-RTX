@@ -127,13 +127,13 @@ $(document).ready(function(){initNavTree('config_rtx5.html',''); initResizable()
 <div class="textblock"><p><a class="anchor" id="md_src_configure"></a> The file <b>RTX_Config.h</b> defines the configuration parameters of CMSIS-RTOS RTX and must be part of every project that is using the CMSIS-RTOS2 RTX kernel. The configuration options are explained in detail in the following sections:</p>
 <ul>
 <li><a class="el" href="config_rtx5.html#systemConfig">System Configuration</a> covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.</li>
-<li><a class="el" href="config_rtx5.html#threadConfig">Thread Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#timerConfig">Timer Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#eventFlagsConfig">Event Flags Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#mutexConfig">Mutex Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#semaphoreConfig">Semaphore Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#memPoolConfig">Memory Pool Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a> functions.</li>
-<li><a class="el" href="config_rtx5.html#msgQueueConfig">Message Queue Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#threadConfig">Thread Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#timerConfig">Timer Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#eventFlagsConfig">Event Flags Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#mutexConfig">Mutex Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#semaphoreConfig">Semaphore Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#memPoolConfig">Memory Pool Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a> functions.</li>
+<li><a class="el" href="config_rtx5.html#msgQueueConfig">Message Queue Configuration</a> provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> functions.</li>
 <li><a class="el" href="config_rtx5.html#evtrecConfig">Event Recorder Configuration</a> provides several parameters to configure RTX for usage with <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a>.</li>
 </ul>
 <p>The file <code>RTX_Config.c</code> contains default implementations of the functions <a class="el" href="group__rtx5__specific__functions.html#ga074068b8efa7074cee68a71481d0b072">osRtxIdleThread</a> and <a class="el" href="group__rtx5__specific__functions.html#gaf1745a88f9cc60b609ab1c8076bd346d">osRtxErrorNotify</a>. Both functions can simply be overwritten with a customized behavior by redefining them as part of the user code.</p>
@@ -168,11 +168,11 @@ RTX_Config.h: System Configuration</div></div>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="config_rtx5.html#safetyConfig_safety">Safety features (Source variant only)</a>   </td><td class="markdownTableBodyNone"><code>OS_SAFETY_FEATURES</code>   </td><td class="markdownTableBodyNone">Enables safety-related features as configured in this group. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Safety class   </td><td class="markdownTableBodyNone"><code>OS_SAFETY_CLASS</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_safety_class.html">Safety Classes</a> functionality. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
+<td class="markdownTableBodyNone">Safety class   </td><td class="markdownTableBodyNone"><code>OS_SAFETY_CLASS</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_safety_class.html">Safety Classes</a> functionality. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">MPU Protected Zone   </td><td class="markdownTableBodyNone"><code>OS_EXECUTION_ZONE</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zones</a>. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
+<td class="markdownTableBodyNone">MPU Protected Zone   </td><td class="markdownTableBodyNone"><code>OS_EXECUTION_ZONE</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zones</a>. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Thread Watchdog   </td><td class="markdownTableBodyNone"><code>OS_THREAD_WATCHDOG</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_thread_wdt.html">Thread Watchdogs</a> functionality. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
+<td class="markdownTableBodyNone">Thread Watchdog   </td><td class="markdownTableBodyNone"><code>OS_THREAD_WATCHDOG</code>   </td><td class="markdownTableBodyNone">Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_thread_wdt.html">Thread Watchdogs</a> functionality. Default value is <span class="XML-Token">1</span> (enabled).    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Object Pointer checking   </td><td class="markdownTableBodyNone"><code>OS_OBJ_PTR_CHECK</code>   </td><td class="markdownTableBodyNone">Enables verification of object pointer alignment and memory region. Default value is <span class="XML-Token">0</span> (disabled).    </td></tr>
 <tr class="markdownTableRowEven">
@@ -201,14 +201,14 @@ Safety features (Source variant only)</h2>
 <p>Safety features group in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a> enables individual selection of safety-related functionalities. It requires that RTX is used in the source variant.</p>
 <p>It also includes:</p>
 <ul>
-<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaee8e6bed82cd58dad31bb90156182032">osThreadProtectPrivileged</a></li>
+<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaee8e6bed82cd58dad31bb90156182032">osThreadProtectPrivileged</a></li>
 </ul>
 <p><b>MPU Protected Zone</b><br  />
- Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zones</a> functionality in the system. This includes:</p>
+ Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zones</a> functionality in the system. This includes:</p>
 <ul>
-<li>Thread attributes: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaefca370070d0b1616421bc3311acfecc">osThreadZone</a></li>
-<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4101737fa4fd303d4b41fdca6b994f8e">osThreadGetZone</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga99ce311cc620c65fbac043d04dc7d755">osThreadTerminateZone</a></li>
-<li>Zone Management: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga79d4b26de0bfcdaf142f83e585532f93">osZoneSetup_Callback</a></li>
+<li>Thread attributes: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gaefca370070d0b1616421bc3311acfecc">osThreadZone</a></li>
+<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4101737fa4fd303d4b41fdca6b994f8e">osThreadGetZone</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga99ce311cc620c65fbac043d04dc7d755">osThreadTerminateZone</a></li>
+<li>Zone Management: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga79d4b26de0bfcdaf142f83e585532f93">osZoneSetup_Callback</a></li>
 </ul>
 <p>When enabled, the MPU Protected Zone values also need to be specified for the threads created by the kernel:</p>
 <ul>
@@ -216,11 +216,11 @@ Safety features (Source variant only)</h2>
 <li>For Timer thread in <a class="el" href="config_rtx5.html#timerConfig">Timer Configuration</a></li>
 </ul>
 <p><b>Safety class</b><br  />
- Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_safety_class.html">Safety Classes</a> functionality in the system RTOS. This includes:</p>
+ Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_safety_class.html">Safety Classes</a> functionality in the system RTOS. This includes:</p>
 <ul>
-<li>Object attributes: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Definitions.html#ga604fce4f5205f92c347eb62fcc216861">osSafetyClass</a></li>
-<li>Kernel functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gac7e3b012c15c55bda68e0dd96ad9cd72">osKernelProtect</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga2065364d1bc805a40e749430377df1e1">osKernelDestroyClass</a></li>
-<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga1bfbef7da94ed4147d231e8d6eeb5f3e">osThreadGetClass</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadadb56627094dbb07f6aeddf7d713fd9">osThreadSuspendClass</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadd0a06b459925eb5cdeab67b380a3970">osThreadResumeClass</a></li>
+<li>Object attributes: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Definitions.html#ga604fce4f5205f92c347eb62fcc216861">osSafetyClass</a></li>
+<li>Kernel functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gac7e3b012c15c55bda68e0dd96ad9cd72">osKernelProtect</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga2065364d1bc805a40e749430377df1e1">osKernelDestroyClass</a></li>
+<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga1bfbef7da94ed4147d231e8d6eeb5f3e">osThreadGetClass</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadadb56627094dbb07f6aeddf7d713fd9">osThreadSuspendClass</a>, <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#gadd0a06b459925eb5cdeab67b380a3970">osThreadResumeClass</a></li>
 </ul>
 <p>When enabled, the safety class values need to be specified for threads created by the kernel:</p>
 <ul>
@@ -228,10 +228,10 @@ Safety features (Source variant only)</h2>
 <li>For Timer thread in <a class="el" href="config_rtx5.html#timerConfig">Timer Configuration</a></li>
 </ul>
 <p><b>Thread Watchdog</b><br  />
- Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_thread_wdt.html">Thread Watchdogs</a> functionality in the system RTOS. This includes:</p>
+ Enables <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_thread_wdt.html">Thread Watchdogs</a> functionality in the system RTOS. This includes:</p>
 <ul>
-<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga8f4455b06afb95c1915f15266818a8c6">osThreadFeedWatchdog</a></li>
-<li>Handler functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga5a02770aaf65c7a3c7562c109884176a">osWatchdogAlarm_Handler</a></li>
+<li>Thread functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga8f4455b06afb95c1915f15266818a8c6">osThreadFeedWatchdog</a></li>
+<li>Handler functions: <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga5a02770aaf65c7a3c7562c109884176a">osWatchdogAlarm_Handler</a></li>
 </ul>
 <p><b>Object Pointer checking</b><br  />
  Enables verification of object pointer alignment and memory region.</p>
@@ -250,7 +250,7 @@ Object Memory Usage Counters</h2>
 <p>Object memory usage counters help to evaluate the maximum memory pool requirements for each object type, just like stack watermarking does for threads. The initial setup starts with a global memory pool for all object types. Consecutive runs of the application with object memory usage counters enabled, help to introduce object specific memory pools for each object type. Normally, this is required for applications that require a functional safety certification as global memory pools are not allowed in this case.</p>
 <h1><a class="anchor" id="threadConfig"></a>
 Thread Configuration</h1>
-<p>The RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a> functions.</p>
+<p>The RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a> functions.</p>
 <p><b>Thread Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_threads.png" alt=""/>
@@ -272,36 +272,36 @@ RTX_Config.h: Thread Configuration</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Idle Thread Stack size [bytes]   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_STACK_SIZE</code>   </td><td class="markdownTableBodyLeft">Defines stack size for Idle thread. Default value is <span class="XML-Token">512</span>. Value range is <span class="XML-Token">[72-1073741824]</span> bytes, in multiples of <span class="XML-Token">8</span>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Idle Thread TrustZone Module ID   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_TZ_MOD_ID</code>   </td><td class="markdownTableBodyLeft">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394">TrustZone Module ID</a> the Idle Thread shall use. This needs to be set to a non-zero value if the Idle Thread need to call secure functions. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyLeft">Idle Thread TrustZone Module ID   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_TZ_MOD_ID</code>   </td><td class="markdownTableBodyLeft">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394">TrustZone Module ID</a> the Idle Thread shall use. This needs to be set to a non-zero value if the Idle Thread need to call secure functions. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Idle Thread Safety Class   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_CLASS</code>   </td><td class="markdownTableBodyLeft">Defines the the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_safety_class.html">Safety Class</a> for the Idle thread. Applied only if Safety Class functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyLeft">Idle Thread Safety Class   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_CLASS</code>   </td><td class="markdownTableBodyLeft">Defines the the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_safety_class.html">Safety Class</a> for the Idle thread. Applied only if Safety Class functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Idle Thread Zone   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_ZONE</code>   </td><td class="markdownTableBodyLeft">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zone</a> for the Idle thread. Applied only if MPU protected Zone functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyLeft">Idle Thread Zone   </td><td class="markdownTableBodyLeft"><code>OS_IDLE_THREAD_ZONE</code>   </td><td class="markdownTableBodyLeft">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zone</a> for the Idle thread. Applied only if MPU protected Zone functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Stack overrun checking   </td><td class="markdownTableBodyLeft"><code>OS_STACK_CHECK</code>   </td><td class="markdownTableBodyLeft">Enable stack overrun checks at thread switch.    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Stack usage watermark   </td><td class="markdownTableBodyLeft"><code>OS_STACK_WATERMARK</code>   </td><td class="markdownTableBodyLeft">Initialize thread stack with watermark pattern for analyzing stack usage. Enabling this option increases significantly the execution time of thread creation.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Processor mode for Thread execution   </td><td class="markdownTableBodyLeft"><code>OS_PRIVILEGE_MODE</code>   </td><td class="markdownTableBodyLeft">Controls the default processor mode when not specified through thread attributes <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4c028e5c3f4d86d237a1e09ceaf84792">osThreadUnprivileged</a> or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga7c2b7db42d23e4f56132e0ed739d02e5">osThreadPrivileged</a>. Default value is <span class="XML-Token">Unprivileged</span> mode. Value range is <span class="XML-Token">[0=Unprivileged; 1=Privileged]</span> mode.   </td></tr>
+<td class="markdownTableBodyLeft">Processor mode for Thread execution   </td><td class="markdownTableBodyLeft"><code>OS_PRIVILEGE_MODE</code>   </td><td class="markdownTableBodyLeft">Controls the default processor mode when not specified through thread attributes <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4c028e5c3f4d86d237a1e09ceaf84792">osThreadUnprivileged</a> or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga7c2b7db42d23e4f56132e0ed739d02e5">osThreadPrivileged</a>. Default value is <span class="XML-Token">Unprivileged</span> mode. Value range is <span class="XML-Token">[0=Unprivileged; 1=Privileged]</span> mode.   </td></tr>
 </table>
 <h2><a class="anchor" id="threadConfig_countstack"></a>
 Configuration of Thread Count and Stack Space</h2>
 <p>The RTX5 kernel uses a separate stack space for each thread and provides two methods for defining the stack requirements:</p>
 <ul>
-<li><b>Static allocation</b>: when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ad7c9b42355a4c8b9467130ab3fb19e43">osThreadAttr_t::stack_mem</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> specify a memory area which is used for the thread stack. <b>Attention</b>: The stack memory provided must be 64-bit aligned, i.e. by using uint64_t for declaration.</li>
-<li><b>Dynamic allocation</b>: when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is NULL or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ad7c9b42355a4c8b9467130ab3fb19e43">osThreadAttr_t::stack_mem</a> is NULL, the system allocates the stack memory from:<ul>
+<li><b>Static allocation</b>: when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ad7c9b42355a4c8b9467130ab3fb19e43">osThreadAttr_t::stack_mem</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> specify a memory area which is used for the thread stack. <b>Attention</b>: The stack memory provided must be 64-bit aligned, i.e. by using uint64_t for declaration.</li>
+<li><b>Dynamic allocation</b>: when <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is NULL or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ad7c9b42355a4c8b9467130ab3fb19e43">osThreadAttr_t::stack_mem</a> is NULL, the system allocates the stack memory from:<ul>
 <li>Object-specific Memory Pool (default Stack size) when "Object specific Memory allocation" is enabled and "Number of
-       user Threads with default Stack size" is not <span class="XML-Token">0</span> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is <span class="XML-Token">0</span> (or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is NULL).</li>
+       user Threads with default Stack size" is not <span class="XML-Token">0</span> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is <span class="XML-Token">0</span> (or <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is NULL).</li>
 <li>Object-specific Memory Pool (user-provided Stack size) when "Object specific Memory allocation" is enabled and "Total
-       Stack size for user..." is not <span class="XML-Token">0</span> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is not <span class="XML-Token">0</span>.</li>
-<li>Global Memory Pool when "Object specific Memory allocation" is disabled or (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is not <span class="XML-Token">0</span> and "Total Stack size for user..." is <span class="XML-Token">0</span>) or (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is <span class="XML-Token">0</span> and "Number of user Threads with default Stack size" is <span class="XML-Token">0</span>).</li>
+       Stack size for user..." is not <span class="XML-Token">0</span> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is not <span class="XML-Token">0</span>.</li>
+<li>Global Memory Pool when "Object specific Memory allocation" is disabled or (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is not <span class="XML-Token">0</span> and "Total Stack size for user..." is <span class="XML-Token">0</span>) or (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#aacbc9a219f2d6870e9ce89bb93f975c9">osThreadAttr_t::stack_size</a> is <span class="XML-Token">0</span> and "Number of user Threads with default Stack size" is <span class="XML-Token">0</span>).</li>
 </ul>
 </li>
 </ul>
-<p><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is a parameter of the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a>.</p>
+<p><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> is a parameter of the function <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a>.</p>
 <blockquote class="doxtable">
 <p>&zwj;<b>Note</b></p><ul>
-<li>Before the RTX kernel is started by the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga9ae2cc00f0d89d7b6a307bba942b5221">osKernelStart()</a> function, the main stack defined in startup_<em>device</em>.s is used. The main stack is also used for:<ul>
+<li>Before the RTX kernel is started by the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga9ae2cc00f0d89d7b6a307bba942b5221">osKernelStart()</a> function, the main stack defined in startup_<em>device</em>.s is used. The main stack is also used for:<ul>
 <li>user application calls to RTX functions in <b>thread mode</b> using SVC calls</li>
 <li>interrupt/exception handlers. </li>
 </ul>
@@ -315,11 +315,11 @@ Stack Overflow Checking</h2>
 <h2><a class="anchor" id="threadConfig_watermark"></a>
 Stack Usage Watermark</h2>
 <p>RTX5 initializes thread stack with a watermark pattern (0xCC) when a thread is created. This allows the debugger to determine the maximum stack usage for each thread. It is typically used during development but removed from the final application. Stack usage watermark is controlled with the define <code>OS_STACK_WATERMARK</code>.</p>
-<p>Enabling this option significantly increases the execution time of <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a> (depends on thread stack size).</p>
+<p>Enabling this option significantly increases the execution time of <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a> (depends on thread stack size).</p>
 <h2><a class="anchor" id="threadConfig_procmode"></a>
 Processor Mode for Thread Execution</h2>
 <p>RTX5 allows to execute threads in unprivileged or privileged processor mode. The processor mode is configured for all threads with the define <code>OS_PRIVILEGE_MODE</code>.</p>
-<p>It is also possible to specify the privilege level for individual threads. For that use <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4c028e5c3f4d86d237a1e09ceaf84792">osThreadUnprivileged</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga7c2b7db42d23e4f56132e0ed739d02e5">osThreadPrivileged</a> defines in the <em>attr_bits</em> of <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> argument when creating a thread with <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a>.</p>
+<p>It is also possible to specify the privilege level for individual threads. For that use <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga4c028e5c3f4d86d237a1e09ceaf84792">osThreadUnprivileged</a> and <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga7c2b7db42d23e4f56132e0ed739d02e5">osThreadPrivileged</a> defines in the <em>attr_bits</em> of <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">osThreadAttr_t</a> argument when creating a thread with <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#ga48d68b8666d99d28fa646ee1d2182b8f">osThreadNew</a>.</p>
 <p>In <b>unprivileged</b> processor mode, the application software:</p>
 <ul>
 <li>has limited access to the MSR and MRS instructions, and cannot use the CPS instruction.</li>
@@ -329,7 +329,7 @@ Processor Mode for Thread Execution</h2>
 <p>In <b>privileged</b> processor mode, the application software can use all the instructions and has access to all resources.</p>
 <h1><a class="anchor" id="timerConfig"></a>
 Timer Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a> functions.</p>
 <p><b>Timer Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_timer.png" alt=""/>
@@ -347,11 +347,11 @@ RTX_Config.h: Timer Configuration</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Timer Thread Stack size [bytes]   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_STACK_SIZE</code>   </td><td class="markdownTableBodyNone">Defines stack size for Timer thread. May be set to 0 when timers are not used. Default value is <span class="XML-Token">512</span>. Value range is <span class="XML-Token">[0-1073741824]</span>, in multiples of <span class="XML-Token">8</span>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Timer Thread TrustZone Module ID   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_TZ_MOD_ID</code>   </td><td class="markdownTableBodyNone">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394">TrustZone Module ID</a> the Timer Thread shall use. This needs to be set to a non-zero value if any Timer Callbacks need to call secure functions. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyNone">Timer Thread TrustZone Module ID   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_TZ_MOD_ID</code>   </td><td class="markdownTableBodyNone">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a697f2aad6119d655d212ea10245ae394">TrustZone Module ID</a> the Timer Thread shall use. This needs to be set to a non-zero value if any Timer Callbacks need to call secure functions. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Timer Thread Safety Class   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_CLASS</code>   </td><td class="markdownTableBodyNone">Defines the the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_safety_class.html">Safety Class</a> for the Timer thread. Applied only if Safety class functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyNone">Timer Thread Safety Class   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_CLASS</code>   </td><td class="markdownTableBodyNone">Defines the the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_safety_class.html">Safety Class</a> for the Timer thread. Applied only if Safety class functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Timer Thread Zone   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_ZONE</code>   </td><td class="markdownTableBodyNone">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zone</a> for the Timer thread. Applied only if MPU protected Zone functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
+<td class="markdownTableBodyNone">Timer Thread Zone   </td><td class="markdownTableBodyNone"><code>OS_TIMER_THREAD_ZONE</code>   </td><td class="markdownTableBodyNone">Defines the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/rtos_process_isolation_mpu.html">MPU Protected Zone</a> for the Timer thread. Applied only if MPU protected Zone functionality is enabled in <a class="el" href="config_rtx5.html#systemConfig">System Configuration</a>. Default value is <span class="XML-Token">0</span>.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Timer Callback Queue entries   </td><td class="markdownTableBodyNone"><code>OS_TIMER_CB_QUEUE</code>   </td><td class="markdownTableBodyNone">Number of concurrent active timer callback functions. May be set to 0 when timers are not used. Default value is <span class="XML-Token">4</span>. Value range is <span class="XML-Token">[0-256]</span>.   </td></tr>
 </table>
@@ -363,7 +363,7 @@ User Timer Thread</h2>
 <p>The RTX5 function <b>osRtxTimerThread</b> executes callback functions when a time period expires. The priority of the timer subsystem within the complete RTOS system is inherited from the priority of the <b>osRtxTimerThread</b>. This is configured by <code>OS_TIMER_THREAD_PRIO</code>. Stack for callback functions is supplied by <b>osRtxTimerThread</b>. <code>OS_TIMER_THREAD_STACK_SIZE</code> must satisfy the stack requirements of the callback function with the highest stack usage.</p>
 <h1><a class="anchor" id="eventFlagsConfig"></a>
 Event Flags Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a> functions.</p>
 <p><b>Event Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_eventFlags.png" alt=""/>
@@ -382,7 +382,7 @@ Object-specific memory allocation</h2>
 <p>When object-specific memory is used, the pool size for all Event objects is specified by <code>OS_EVFLAGS_NUM</code>. Refer to <a class="el" href="theory_of_operation.html#ObjectMemoryPool">Object-specific Memory Pools</a>.</p>
 <h1><a class="anchor" id="mutexConfig"></a>
 Mutex Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a> functions.</p>
 <p><b>Mutex Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_mutex.png" alt=""/>
@@ -401,7 +401,7 @@ Object-specific Memory Allocation</h2>
 <p>When object-specific memory is used, the pool size for all Mutex objects is specified by <code>OS_MUTEX_NUM</code>. Refer to <a class="el" href="theory_of_operation.html#ObjectMemoryPool">Object-specific Memory Pools</a>.</p>
 <h1><a class="anchor" id="semaphoreConfig"></a>
 Semaphore Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a> functions.</p>
 <p><b>Semaphore Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_semaphore.png" alt=""/>
@@ -420,7 +420,7 @@ Object-specific memory allocation</h2>
 <p>When Object-specific Memory is used, the pool size for all Semaphore objects is specified by <code>OS_SEMAPHORE_NUM</code>. Refer to <a class="el" href="theory_of_operation.html#ObjectMemoryPool">Object-specific Memory Pools</a>.</p>
 <h1><a class="anchor" id="memPoolConfig"></a>
 Memory Pool Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a> functions.</p>
 <p><b>Memory Pool Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_memPool.png" alt=""/>
@@ -441,7 +441,7 @@ Object-specific memory allocation</h2>
 <p>When object-specific memory is used, the number of pools for all MemoryPool objects is specified by <code>OS_MEMPOOL_NUM</code>. The total storage size reserved for all pools is configured in <code>OS_MEMPOOL_DATA_SIZE</code>. Refer to <a class="el" href="theory_of_operation.html#ObjectMemoryPool">Object-specific Memory Pools</a>.</p>
 <h1><a class="anchor" id="msgQueueConfig"></a>
 Message Queue Configuration</h1>
-<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> functions.</p>
+<p>RTX5 provides several parameters to configure the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a> functions.</p>
 <p><b>MessageQueue Configuration Options</b></p>
 <div class="image">
 <img src="config_wizard_msgQueue.png" alt=""/>
@@ -465,7 +465,7 @@ Event Recorder Configuration</h1>
 <p>This section describes the configuration settings for the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a> annotations. The usage requires the source variant of RTX5; refer to <a class="el" href="cre_rtx_proj.html#cre_rtx_proj_er">Add Event Recorder Visibility</a> for more information.</p>
 <h2><a class="anchor" id="evtrecConfigGlobIni"></a>
 Global Configuration</h2>
-<p>Initialize Event Recorder during the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gae818f6611d25ba3140bede410a52d659">osKernelInitialize</a> and optionally start event recording.</p>
+<p>Initialize Event Recorder during the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gae818f6611d25ba3140bede410a52d659">osKernelInitialize</a> and optionally start event recording.</p>
 <div class="image">
 <img src="config_wizard_evtrecGlobIni.png" alt=""/>
 <div class="caption">
@@ -474,7 +474,7 @@ RTX_Config.h: Global Configuration</div></div>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Name   </th><th class="markdownTableHeadNone">#define   </th><th class="markdownTableHeadNone">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Global Initialization   </td><td class="markdownTableBodyNone"><code>OS_EVR_INIT</code>   </td><td class="markdownTableBodyNone">Initialize Event Recorder during <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gae818f6611d25ba3140bede410a52d659">osKernelInitialize</a>.    </td></tr>
+<td class="markdownTableBodyNone">Global Initialization   </td><td class="markdownTableBodyNone"><code>OS_EVR_INIT</code>   </td><td class="markdownTableBodyNone">Initialize Event Recorder during <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#gae818f6611d25ba3140bede410a52d659">osKernelInitialize</a>.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Start Recording   </td><td class="markdownTableBodyNone"><code>OS_EVR_START</code>   </td><td class="markdownTableBodyNone">Start event recording after initialization.   </td></tr>
 </table>

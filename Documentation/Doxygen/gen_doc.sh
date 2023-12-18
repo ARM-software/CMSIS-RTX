@@ -84,6 +84,7 @@ function downloadTagFiles() {
 }
 
 cmsisProjectNumber=$(grep -E "<package vendor=\"ARM\" name=\"CMSIS\" version=" "${DIRNAME}/../../ARM.CMSIS-RTX.pdsc" | sed -r -e 's/.*version="([^"-]+)[^"]*".*/\1/')
+cmsisProjectNumber="v${cmsisProjectNumber}"
 
 if ! downloadTagFiles "${cmsisProjectNumber}"; then
   cmsisProjectNumber="main"

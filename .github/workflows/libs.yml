@@ -94,7 +94,7 @@ jobs:
           tar -cvjf RTX_Lib.tar.bz2 ARM/* GCC/* CLANG/*
     
       - name: Upload Library archive
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RTX_Lib
           path: ./Library/RTX_Lib.tar.bz2

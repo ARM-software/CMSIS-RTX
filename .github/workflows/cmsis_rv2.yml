@@ -50,7 +50,7 @@ jobs:
           path: Cortex_DFP
   
       - name: Setup Python 3.10
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'    
 
@@ -107,7 +107,7 @@ jobs:
       
       - name: Initialize CodeQL
         if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           source-root: CMSIS-RTX
           languages: cpp
@@ -139,15 +139,15 @@ jobs:
     
       - name: Perform CodeQL Analysis
         if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
         with:
           checkout_path: ${{ github.workspace }}/CMSIS-RTX
 
       - name: Upload Test Reports
         if: ${{ !cancelled() && env.ARM_UBL_ACTIVATION_CODE }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ matrix.compiler }}
+          name: test-results-${{ matrix.compiler }}-${{ matrix.variant }}
           path: ./CMSIS-RTOS2_Validation/Project/*.junit
 
 
@@ -162,7 +162,7 @@ jobs:
     steps:
       - name: Download Test Reports
         if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: artifacts
 

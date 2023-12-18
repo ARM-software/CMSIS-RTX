@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['oseventflagsattr_5ft_0',['osEventFlagsAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html',0,'']]],
-  ['osmemorypoolattr_5ft_1',['osMemoryPoolAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html',0,'']]],
-  ['osmessagequeueattr_5ft_2',['osMessageQueueAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html',0,'']]],
-  ['osmutexattr_5ft_3',['osMutexAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html',0,'']]],
+  ['oseventflagsattr_5ft_0',['osEventFlagsAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__EventFlags.html',0,'']]],
+  ['osmemorypoolattr_5ft_1',['osMemoryPoolAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__PoolMgmt.html',0,'']]],
+  ['osmessagequeueattr_5ft_2',['osMessageQueueAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html',0,'']]],
+  ['osmutexattr_5ft_3',['osMutexAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__MutexMgmt.html',0,'']]],
   ['osrtxconfig_5ft_4',['osRtxConfig_t',['../structosRtxConfig__t.html',1,'']]],
   ['osrtxconfig_5ft_2eisr_5fqueue_5',['osRtxConfig_t.isr_queue',['../structosRtxConfig__t_8isr__queue.html',1,'']]],
   ['osrtxconfig_5ft_2emem_6',['osRtxConfig_t.mem',['../structosRtxConfig__t_8mem.html',1,'']]],
@@ -30,8 +30,8 @@ var searchData=
   ['osrtxthread_5ft_27',['osRtxThread_t',['../group__rtx5__specific__types.html#structosRtxThread__t',1,'']]],
   ['osrtxtimer_5ft_28',['osRtxTimer_t',['../group__rtx5__specific__types.html#structosRtxTimer__t',1,'']]],
   ['osrtxtimerfinfo_5ft_29',['osRtxTimerFinfo_t',['../group__rtx5__specific__types.html#structosRtxTimerFinfo__t',1,'']]],
-  ['ossemaphoreattr_5ft_30',['osSemaphoreAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html',0,'']]],
-  ['osthreadattr_5ft_31',['osThreadAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html',0,'']]],
-  ['ostimerattr_5ft_32',['osTimerAttr_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html',0,'']]],
-  ['osversion_5ft_33',['osVersion_t',['https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html',0,'']]]
+  ['ossemaphoreattr_5ft_30',['osSemaphoreAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html',0,'']]],
+  ['osthreadattr_5ft_31',['osThreadAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html',0,'']]],
+  ['ostimerattr_5ft_32',['osTimerAttr_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TimerMgmt.html',0,'']]],
+  ['osversion_5ft_33',['osVersion_t',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html',0,'']]]
 ];

@@ -150,7 +150,7 @@ Cortex-M0/M0+/M23 device</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Hardware Requirement   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">SysTick timer   </td><td class="markdownTableBodyLeft">The SysTick timer generates the kernel tick interrupts and the interface is implemented in os_systick.c using the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a>    </td></tr>
+<td class="markdownTableBodyLeft">SysTick timer   </td><td class="markdownTableBodyLeft">The SysTick timer generates the kernel tick interrupts and the interface is implemented in os_systick.c using the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a>    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Exception Handler   </td><td class="markdownTableBodyLeft">RTX implements exception handlers for SVC, PendSV, and SysTick interrupt    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -164,11 +164,11 @@ Cortex-M0/M0+/M23 device</h2>
 <li><b>irq_armv6m.S</b> defines exception handlers for Cortex-M0/M0+ </li>
 <li><b>irq_armv8mbl.S</b> defines exception handlers for Cortex-M23 </li>
 <li><b>rtx_core_cm.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.</li>
-<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the SysTick timer.</li>
+<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the SysTick timer.</li>
 </ul>
 <blockquote class="doxtable">
 <p>&zwj;<b>Note</b></p><ul>
-<li>The CMSIS-Core variable <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/Core/group__system__init__gr.html#gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</a> is used by RTX to configure the SysTick timer. </li>
+<li>The CMSIS-Core variable <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__system__init__gr.html#gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</a> is used by RTX to configure the SysTick timer. </li>
 </ul>
 </blockquote>
 <h2><a class="anchor" id="tpCortexM3_M4_M7_M33_M35P"></a>
@@ -195,11 +195,11 @@ Cortex-M3/M4/M7/M33/M35P/M55/M85 device</h2>
 <li><b>irq_armv7m.S</b> defines exception handlers for Cortex-M3 and Cortex-M4/M7. </li>
 <li><b>irq_armv8mml.S</b> defines exception handlers for Cortex-M33/M35P/M55 and Cortex-M85 </li>
 <li><b>rtx_core_cm.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.</li>
-<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the SysTick timer.</li>
+<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the SysTick timer.</li>
 </ul>
 <blockquote class="doxtable">
 <p>&zwj;<b>Note</b></p><ul>
-<li>The CMSIS-Core variable <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/Core/group__system__init__gr.html#gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</a> is used by RTX to configure the SysTick timer. </li>
+<li>The CMSIS-Core variable <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__system__init__gr.html#gaa3cd3e43291e81e795d642b79b6088e6">SystemCoreClock</a> is used by RTX to configure the SysTick timer. </li>
 </ul>
 </blockquote>
 <h2><a class="anchor" id="tpCortexA5_A7_A9"></a>
@@ -208,7 +208,7 @@ Cortex-A5/A7/A9 target processor</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Hardware Requirement   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Timer Peripheral   </td><td class="markdownTableBodyLeft">An arbitrary timer peripheral generates the kernel tick interrupts. The interfaces for Cortex-A Generic Timer and Private Timer are implemented in os_tick_gtim.c and os_tick_ptim.c using the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a>    </td></tr>
+<td class="markdownTableBodyLeft">Timer Peripheral   </td><td class="markdownTableBodyLeft">An arbitrary timer peripheral generates the kernel tick interrupts. The interfaces for Cortex-A Generic Timer and Private Timer are implemented in os_tick_gtim.c and os_tick_ptim.c using the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a>    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Exception Handler   </td><td class="markdownTableBodyLeft">RTX implements exception handlers for SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction interrupt.    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -222,7 +222,7 @@ Cortex-A5/A7/A9 target processor</h2>
 <ul>
 <li><b>irq_armv7a.S</b> defines SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction exception handlers.</li>
 <li><b>rtx_core_ca.h</b> defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.</li>
-<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the timer peripheral.</li>
+<li><b>os_tick.h</b> is the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html">OS Tick API</a> that defines the interface functions to the timer peripheral.</li>
 <li><b>irq_ctrl.h</b> is the <a href="https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html" target="_blank">IRQ Controller API</a> that defines the interface functions to the interrupt controller.</li>
 </ul>
 <blockquote class="doxtable">
@@ -237,7 +237,7 @@ Device Memory Requirements</h2>
 <h1><a class="anchor" id="pStackRequirements"></a>
 Stack Requirements</h1>
 <p>Keil RTX v5 kernel functions are executed in handler mode (using PendSV/SysTick/SVC) and the table below lists the maximum stack requirements for the Main Stack (MSP) that the user should consider.</p>
-<p>The stack for the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga9ae2cc00f0d89d7b6a307bba942b5221">osKernelStart</a> function is referred as "Startup" and RTX v5 uses 32 bytes (with Arm Compiler). However the user should also consider additional stack that might be allocated by the <code>main</code> function of the embedded application. The following picture shows a worst-case memory allocation of the Main Stack.</p>
+<p>The stack for the <a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html#ga9ae2cc00f0d89d7b6a307bba942b5221">osKernelStart</a> function is referred as "Startup" and RTX v5 uses 32 bytes (with Arm Compiler). However the user should also consider additional stack that might be allocated by the <code>main</code> function of the embedded application. The following picture shows a worst-case memory allocation of the Main Stack.</p>
 <div class="image">
 <img src="KernelStackUsage.png" alt=""/>
 <div class="caption">
@@ -266,19 +266,19 @@ Control Block Sizes</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Category   </th><th class="markdownTableHeadLeft">Control Block Size Attribute   </th><th class="markdownTableHeadLeft">Size   </th><th class="markdownTableHeadLeft">#define symbol    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a1e100dc33d403841ed3c344e3397868e">osThreadAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">80 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga30d19272204231956582ebfff69567f6">osRtxThreadCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html">Thread Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__ThreadMgmt.html#a1e100dc33d403841ed3c344e3397868e">osThreadAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">80 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga30d19272204231956582ebfff69567f6">osRtxThreadCbSize</a>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#a1e100dc33d403841ed3c344e3397868e">osTimerAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">32 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gaf8a145fdeb24fd912971f0671b1a3603">osRtxTimerCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TimerMgmt.html">Timer Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TimerMgmt.html#a1e100dc33d403841ed3c344e3397868e">osTimerAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">32 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gaf8a145fdeb24fd912971f0671b1a3603">osRtxTimerCbSize</a>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__EventFlags.html#a1e100dc33d403841ed3c344e3397868e">osEventFlagsAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">16 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga68100c8c44931f03547973294c433075">osRtxEventFlagsCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__EventFlags.html">Event Flags</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__EventFlags.html#a1e100dc33d403841ed3c344e3397868e">osEventFlagsAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">16 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga68100c8c44931f03547973294c433075">osRtxEventFlagsCbSize</a>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__MutexMgmt.html#a1e100dc33d403841ed3c344e3397868e">osMutexAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">28 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga188bfaaf7477cf24cbc9f207feaeb53a">osRtxMutexCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__MutexMgmt.html">Mutex Management</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__MutexMgmt.html#a1e100dc33d403841ed3c344e3397868e">osMutexAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">28 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga188bfaaf7477cf24cbc9f207feaeb53a">osRtxMutexCbSize</a>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html#a1e100dc33d403841ed3c344e3397868e">osSemaphoreAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">16 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga0949b67063d0bd427fbee9c816b5d45a">osRtxSemaphoreCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html">Semaphores</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__SemaphoreMgmt.html#a1e100dc33d403841ed3c344e3397868e">osSemaphoreAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">16 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#ga0949b67063d0bd427fbee9c816b5d45a">osRtxSemaphoreCbSize</a>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__PoolMgmt.html#a1e100dc33d403841ed3c344e3397868e">osMemoryPoolAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">36 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gab8e49e9e1eea5a015f2a3114cabceb48">osRtxMemoryPoolCbSize</a>    </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__PoolMgmt.html">Memory Pool</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__PoolMgmt.html#a1e100dc33d403841ed3c344e3397868e">osMemoryPoolAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">36 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gab8e49e9e1eea5a015f2a3114cabceb48">osRtxMemoryPoolCbSize</a>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS__Message.html#a1e100dc33d403841ed3c344e3397868e">osMessageQueueAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">52 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gaa8d067c476faa6bfc8e5e21f3b3c844e">osRtxMessageQueueCbSize</a>   </td></tr>
+<td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html">Message Queue</a>   </td><td class="markdownTableBodyLeft"><a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html#a1e100dc33d403841ed3c344e3397868e">osMessageQueueAttr_t::cb_mem</a>   </td><td class="markdownTableBodyLeft">52 bytes   </td><td class="markdownTableBodyLeft"><a class="el" href="group__rtx5__specific__defines.html#gaa8d067c476faa6bfc8e5e21f3b3c844e">osRtxMessageQueueCbSize</a>   </td></tr>
 </table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

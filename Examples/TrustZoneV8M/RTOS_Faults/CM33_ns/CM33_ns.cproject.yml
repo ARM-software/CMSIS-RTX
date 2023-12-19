@@ -6,7 +6,7 @@ project:
   packs:
     - pack: ARM::Cortex_DFP@>=1.0.0-0
     - pack: ARM::CMSIS@>=6.0.0-0
-    - pack: ARM::CMSIS-RTX@>=1.0.0-0
+    - pack: ARM::CMSIS-RTX@>=5.8.0-0
 
   components:
     - component: ARM::Device:Startup&C Startup

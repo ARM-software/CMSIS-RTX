@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.27" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.27/schema/PACK.xsd">
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
   <name>CMSIS-RTX</name>
   <description>RTX RTOS implementation of CMSIS-RTOS2 API</description>
   <vendor>ARM</vendor>
@@ -108,6 +108,7 @@
     <condition id="ARMv81-MML Device">
       <description>Armv8.1-M main line architecture based device</description>
       <accept Dcore="ARMV81MML"/>
+      <accept Dcore="Cortex-M52"/>
       <accept Dcore="Cortex-M55"/>
       <accept Dcore="Cortex-M85"/>
     </condition>

@@ -423,7 +423,6 @@
       <require condition="Compiler"/>
       <require Cclass="CMSIS"  Cgroup="CORE"/>
       <require Cclass="CMSIS"  Cgroup="OS Tick"/>
-      <require Cclass="Device" Cgroup="Startup"/>
     </condition>
     <condition id="RTX5 NS">
       <description>Components required for RTX5 in Non-secure domain</description>
@@ -431,7 +430,6 @@
       <require condition="Compiler"/>
       <require Cclass="CMSIS"  Cgroup="CORE"/>
       <require Cclass="CMSIS"  Cgroup="OS Tick"/>
-      <require Cclass="Device" Cgroup="Startup"/>
     </condition>
 
   </conditions>

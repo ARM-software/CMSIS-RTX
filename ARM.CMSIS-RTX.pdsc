@@ -707,7 +707,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>
@@ -721,7 +720,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>
@@ -735,7 +733,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>
@@ -749,7 +746,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>
@@ -763,7 +759,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>
@@ -777,7 +772,6 @@
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
         <component Cclass="CMSIS" Cgroup="RTOS2"/>
-        <component Cclass="Device" Cgroup="Startup"/>
         <category>Getting Started</category>
       </attributes>
     </example>

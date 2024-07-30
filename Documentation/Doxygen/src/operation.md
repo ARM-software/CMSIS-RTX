@@ -38,7 +38,7 @@ RTX5 offers three different memory allocation methods for objects:
  - \ref ObjectMemoryPool uses a fixed-size memory pool for each object type. The method is time deterministic and avoids memory fragmentation.
  - \ref StaticObjectMemory reserves memory during compile time and completely avoids that a system can be out of memory. This is typically a required for some safety critical systems.
 
-It possible to intermix all the memory allocation methods in the same application.
+It's possible to intermix all the memory allocation methods in the same application.
 
 ### Global Memory Pool {#GlobalMemoryPool}
 
@@ -86,7 +86,7 @@ Memory Pool (osMemoryPoolAttr_t::mp_mem)     | 4-Byte alignment. Size calculated
 Message Queue (osMessageQueueAttr_t::mq_mem) | 4-Byte alignment. Size calculated with \ref osRtxMessageQueueMemSize.
 
 
-In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks these needs to be placed in individual memory sections, i.e. using `__attribute__((section(...)))`.
+In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks, they need to be placed in individual memory sections by using `__attribute__((section(...)))`.
 
 RTX Object    | Linker Section 
 --------------|------------------------

@@ -11,6 +11,9 @@ project:
   add-path:
     - ../Include
 
+  add-path-asm:
+    - ../Include
+
   groups:
     - group: Configuration
       files:
@@ -29,7 +32,7 @@ project:
         - file: ../Source/rtx_msgqueue.c
         - file: ../Source/rtx_system.c
         - file: ../Source/rtx_evr.c
-    - group: Handlers (GCC)
+    - group: Handlers GCC
       for-compiler:
         - AC6
         - GCC
@@ -55,7 +58,7 @@ project:
         - file: ../Source/GCC/irq_armv7a.S
           for-context:
             - +ARMv7A
-    - group: Handlers (IAR)
+    - group: Handlers IAR
       for-compiler:
         - IAR
       files:

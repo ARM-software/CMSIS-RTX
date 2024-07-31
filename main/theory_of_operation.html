@@ -155,7 +155,7 @@ Memory Allocation</h1>
 <li><a class="el" href="theory_of_operation.html#ObjectMemoryPool">Object-specific Memory Pools</a> uses a fixed-size memory pool for each object type. The method is time deterministic and avoids memory fragmentation.</li>
 <li><a class="el" href="theory_of_operation.html#StaticObjectMemory">Static Object Memory</a> reserves memory during compile time and completely avoids that a system can be out of memory. This is typically a required for some safety critical systems.</li>
 </ul>
-<p>It possible to intermix all the memory allocation methods in the same application.</p>
+<p>It's possible to intermix all the memory allocation methods in the same application.</p>
 <h2><a class="anchor" id="GlobalMemoryPool"></a>
 Global Memory Pool</h2>
 <p>The global memory pool allocates all objects from a memory area. This method of memory allocation is the default configuration setting of RTX5.</p>
@@ -204,7 +204,7 @@ Statically allocated memory for all objects</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Message Queue (<a class="elRef" target="_blank" href="https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html#a4e208dc0fb049b42c4b90cbd2791c5ad">osMessageQueueAttr_t::mq_mem</a>)   </td><td class="markdownTableBodyNone">4-Byte alignment. Size calculated with <a class="el" href="group__rtx5__specific__defines.html#ga47eb1e21f1bf9a42281c6c89c7473e99">osRtxMessageQueueMemSize</a>.   </td></tr>
 </table>
-<p>In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks these needs to be placed in individual memory sections, i.e. using <code>__attribute__((section(...)))</code>.</p>
+<p>In order to allow RTX5 aware debugging, i.e. Component Viewer, to recognize control blocks, they need to be placed in individual memory sections by using <code>__attribute__((section(...)))</code>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">RTX Object   </th><th class="markdownTableHeadNone">Linker Section    </th></tr>

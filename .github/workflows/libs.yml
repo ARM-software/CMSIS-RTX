@@ -36,26 +36,13 @@ jobs:
               packs-
           path: /home/runner/.cache/arm/packs
 
-      - name: Cache vcpkg
-        uses: actions/cache@v4
-        with:
-          key: vcpkg-${{ runner.os }}-${{ runner.arch }}-${{ github.run_id }}
-          restore-keys: |
-              vcpkg-${{ runner.os }}-${{ runner.arch }}-
-          path: /home/runner/.vcpkg
-
       - name: Prepare vcpkg env
-        working-directory: ./Library
-        run: |  
-          . <(curl https://aka.ms/vcpkg-init.sh -L)
-          vcpkg x-update-registry --all
-          vcpkg activate
+        uses: ARM-software/cmsis-actions/vcpkg@main
+        with:
+          config: ./Library/vcpkg-configuration.json
 
       - name: Activate Arm tool license
-        working-directory: ./Library
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
           if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
               armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
           else
@@ -65,23 +52,14 @@ jobs:
       - name: Build libraries
         working-directory: ./Library
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
-
-          curl -sLO https://github.com/ARM-software/CMSIS_6/releases/download/dev%2Fv6.0.0-dev84/packlist.txt
-          cpackget add -a -f packlist.txt 
-  
-          ./build.sh -t AC6 
+          ./build.sh -t AC6
           ./build.sh -t GCC
-          ./build.sh -t CLANG 
+          ./build.sh -t CLANG
           # ./build.sh -t IAR
 
       - name: Deactivate Arm tool license
         if: always()
-        working-directory: ./Library
         run: |
-          . /home/runner/.vcpkg/vcpkg-init
-          vcpkg activate
           if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
               armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
           else

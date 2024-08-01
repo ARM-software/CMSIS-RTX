@@ -65,7 +65,7 @@ build_lib() {
   done
 
   # Build libraries
-  cbuild RTX_Library.csolution.yml --update-rte $context --toolchain $toolchain
+  cbuild RTX_Library.csolution.yml --packs --update-rte $context --toolchain $toolchain
 
   # Copy built libraries
   find out/ -name "*.$lib_ext" -exec cp -r {} "./$lib_dir" \;
@@ -74,9 +74,7 @@ build_lib() {
   rm -rf out/
   rm -rf tmp/
   rm -rf RTE/
-  rm RTX_Library*.cprj
-  rm RTX_Library*.cbuild.yml
-  rm RTX_Library.cbuild-idx.yml
+  rm RTX_Library*.cbuild*.yml
 }
 
 # Check if no input arguments were provided

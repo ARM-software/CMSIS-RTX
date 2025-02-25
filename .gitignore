@@ -3,6 +3,11 @@ Documentation/html
 Documentation/Doxygen/rtx.dxy
 Documentation/Doxygen/*.tag
 Documentation/Doxygen/src/history.txt
+Examples/**/tmp
+Examples/Blinky/*.cbuild.yml
+Examples/Blinky/*.cbuild-*.yml
+Examples/Blinky/RTE/Device/ARMCM3/ac6_linker_script.sct.src
+Examples/Blinky/out/Blinky/Simulator/compile_commands.json
 build
 output
 **.DS_STORE
@@ -16,3 +21,4 @@ output
 
 # Output of the linkchecker tool
 linkchecker-out.csv
+.vscode/settings.json

@@ -22,7 +22,7 @@ jobs:
         compiler: [AC6, GCC, Clang]
         variant: [RTX5, RTX5-Lib]
     
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout CMSIS-RTX
@@ -57,7 +57,7 @@ jobs:
       - name: Install system packages
         run: |
           sudo add-apt-repository ppa:deadsnakes/ppa
-          sudo apt-get install libpython3.9 libtinfo5
+          sudo apt-get install libpython3.9 libtinfo6
 
       - name: Python requirements
         run: |
@@ -153,7 +153,7 @@ jobs:
 
   publish-test-results:
     needs: [build-and-run]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
 
     env:

@@ -10,6 +10,9 @@ output
 *.lib
 *.a
 .clangd
+**/out
+**/tmp
+.vscode
 
 # Output of the linkchecker tool
 linkchecker-out.csv

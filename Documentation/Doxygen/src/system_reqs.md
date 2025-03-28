@@ -2,9 +2,9 @@
 
 The following section contains technical information about RTX v5.
 
- - \ref pToolchains lists the compiler toolchains verified to work with RTX v5 kernel.
- - \ref tpProcessor lists the hardware requirements of the target processor for running the RTX v5 kernel.
- - \ref pStackRequirements lists the memory requirements for the main stack when running the RTX v5 kernel.
+- \ref pToolchains lists the compiler toolchains verified to work with RTX v5 kernel.
+- \ref tpProcessor lists the hardware requirements of the target processor for running the RTX v5 kernel.
+- \ref pStackRequirements lists the memory requirements for the main stack when running the RTX v5 kernel.
 
 ## Supported Toolchains {#pToolchains}
 
@@ -18,10 +18,10 @@ Keil RTX5 is developed and tested using the common toolchains and development en
 
 Current development is verified to work with the following toolchains versions:
 
- - Arm Compiler 6.20
- - IAR Embedded Workbench 9.40.2
- - GNU Arm Embedded Toolchain 12.3.1
- - CLANG (LLVM): 17.0.1
+- Arm Compiler 6.20
+- IAR Embedded Workbench 9.40.2
+- GNU Arm Embedded Toolchain 12.3.1
+- CLANG (LLVM): 17.0.1
 
 But in most cases, RTX would work well with other versions of these toolchains as well.
 
@@ -29,13 +29,13 @@ But in most cases, RTX would work well with other versions of these toolchains a
 
 ## Processor Requirements {#tpProcessor}
 
-RTX assumes a fully functionable processor and uses the following hardware features. It does not implement any confidence test for processor validation which should be provided by an user-supplied software test library.
+RTX assumes a fully functional processor and uses the following hardware features. It does not implement any confidence test for processor validation which should be provided by an user-supplied software test library.
 
 \if ARMv8M
 ### Cortex-M0/M0+/M23 device {#tpCortexM0_M0P_M23}
 \endif
 
-\ifnot ARMv8M 
+\ifnot ARMv8M
 ### Cortex-M0/M0+ device {#tpCortexM0_M0P_M23}
 \endif
 
@@ -48,25 +48,27 @@ System Control Block (SBC) | To control and setup the processor exceptions inclu
 Interrupt Control          | The CMSIS-Core functions `__disable_irq` and `__enable_irq` to control the interrupt system via the CPSR core register.
 
 The RTX implements interfaces to the processor hardware in following files:
- - **irq_armv6m.S** defines exception handlers for Cortex-M0/M0+
+
+- **irq_armv6m.S** defines exception handlers for Cortex-M0/M0+
 \if ARMv8M
- - **irq_armv8mbl.S** defines exception handlers for Cortex-M23
+- **irq_armv8mbl.S** defines exception handlers for Cortex-M23
 \endif
- - **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
+- **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
+- **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
 
 > **Note**
+>
 > - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
 
 \if ARMv8M
-###  Cortex-M3/M4/M7/M33/M35P/M55/M85 device {#tpCortexM3_M4_M7_M33_M35P}
+### Cortex-M3/M4/M7/M33/M35P/M55/M85 device {#tpCortexM3_M4_M7_M33_M35P}
 \endif
 
 \ifnot ARMv8M
 ### Cortex-M3/M4/M7 device {#tpCortexM3_M4_M7_M33_M35P}
 \endif
 
-RTX assumes a fully functionable processor and uses the following hardware features:
+RTX assumes a fully functional processor and uses the following hardware features:
 
 Hardware Item              | Requirement Description
 :--------------------------|:------------------------------------------------------
@@ -79,14 +81,15 @@ LDREX, STREX instructions  | Exclusive access instructions LDREX and STREX are u
 
 The interface files to the processor hardware are:
 
- - **irq_armv7m.S** defines exception handlers for Cortex-M3 and Cortex-M4/M7.
+- **irq_armv7m.S** defines exception handlers for Cortex-M3 and Cortex-M4/M7.
 \if ARMv8M
- - **irq_armv8mml.S** defines exception handlers for Cortex-M33/M35P/M55 and Cortex-M85
+- **irq_armv8mml.S** defines exception handlers for Cortex-M33/M35P/M55 and Cortex-M85
 \endif
- - **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
+- **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
+- **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
 
 > **Note**
+>
 > - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
 
 \if ARMCA
@@ -102,12 +105,13 @@ Interrupt Controller       | An interrupt controller interface is required to se
 
 The interface files to the processor hardware are:
 
- - **irq_armv7a.S** defines SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction exception handlers.
- - **rtx_core_ca.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
- - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the timer peripheral.
- - **irq_ctrl.h** is the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html) that defines the interface functions to the interrupt controller.
+- **irq_armv7a.S** defines SVC, IRQ, Data Abort, Prefetch Abort and Undefined Instruction exception handlers.
+- **rtx_core_ca.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
+- **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the timer peripheral.
+- **irq_ctrl.h** is the [IRQ Controller API](https://arm-software.github.io/CMSIS_6/latest/Core_A/group__irq__ctrl__gr.html) that defines the interface functions to the interrupt controller.
 
 > **Note**
+>
 > - The CMSIS-Core variable `SystemCoreClock` is used by RTX to configure the timer peripheral.
 
 \endif

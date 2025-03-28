@@ -2,15 +2,15 @@
 
 The file **RTX_Config.h** defines the configuration parameters of CMSIS-RTOS RTX and must be part of every project that is using the CMSIS-RTOS2 RTX kernel. The configuration options are explained in detail in the following sections:
 
- - \ref systemConfig covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.
- - \ref threadConfig provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
- - \ref timerConfig provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
- - \ref eventFlagsConfig provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
- - \ref mutexConfig provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
- - \ref semaphoreConfig provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
- - \ref memPoolConfig provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
- - \ref msgQueueConfig provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
- - \ref evtrecConfig provides several parameters to configure RTX for usage with [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html).
+- \ref systemConfig covers system-wide settings for the global memory pool, tick frequency, ISR event buffer and round-robin thread switching as well as process isolation-related features.
+- \ref threadConfig provides several parameters to configure the \ref CMSIS_RTOS_ThreadMgmt functions.
+- \ref timerConfig provides several parameters to configure the \ref CMSIS_RTOS_TimerMgmt functions.
+- \ref eventFlagsConfig provides several parameters to configure the \ref CMSIS_RTOS_EventFlags functions.
+- \ref mutexConfig provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
+- \ref semaphoreConfig provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
+- \ref memPoolConfig provides several parameters to configure the \ref CMSIS_RTOS_PoolMgmt functions.
+- \ref msgQueueConfig provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
+- \ref evtrecConfig provides several parameters to configure RTX for usage with [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html).
 
 The file `RTX_Config.c` contains default implementations of the functions \ref osRtxIdleThread and \ref osRtxErrorNotify. Both functions can simply be overwritten with a customized behavior by redefining them as part of the user code.
 
@@ -128,11 +128,9 @@ The RTX functions (\ref CMSIS_RTOS_ISR_Calls), when called from and interrupt ha
 
 The scheduler is activated immediately after the IRQ handler has finished its execution to process the requests stored to the FIFO queue buffer. The required size of this buffer depends on the number of functions that are called within the interrupt handler. An insufficient queue size will be caught by \ref osRtxErrorNotify with error code \ref osRtxErrorISRQueueOverflow.
 
-
 ### Object Memory Usage Counters {#systemConfig_usage_counters}
 
 Object memory usage counters help to evaluate the maximum memory pool requirements for each object type, just like stack watermarking does for threads. The initial setup starts with a global memory pool for all object types. Consecutive runs of the application with object memory usage counters enabled, help to introduce object specific memory pools for each object type. Normally, this is required for applications that require a functional safety certification as global memory pools are not allowed in this case.
-
 
 ## Thread Configuration {#threadConfig}
 
@@ -147,13 +145,13 @@ Option                                          | \#define               | Descr
 Object specific Memory allocation               | `OS_THREAD_OBJ_MEM`   | Enables object specific memory allocation. See \ref ObjectMemoryPool.
 Number of user Threads                          | `OS_THREAD_NUM`       | Defines maximum number of user threads that can be active at the same time. Applies to user threads with system provided memory for control blocks. Default value is \token{1}. Value range is \token{[1-1000]}.
 Number of user Threads with default Stack size  | `OS_THREAD_DEF_STACK_NUM`     | Defines maximum number of user threads with default stack size and applies to user threads with \token{0} stack size specified. Value range is \token{[0-1000]}.
-Total Stack size [bytes] for user Threads with user-provided Stack size    | `OS_THREAD_USER_STACK_SIZE` | Defines the combined stack size for user threads with user-provided stack size. Default value is \token{0}. Value range is \token{[0-1073741824]} Bytes, in multiples of \token{8}. 
-Default Thread Stack size [bytes]               | `OS_STACK_SIZE`    | Defines stack size for threads with zero stack size specified. Default value is \token{3072}. Value range is \token{[96-1073741824]} Bytes, in multiples of \token{8}. 
-Idle Thread Stack size [bytes]                  | `OS_IDLE_THREAD_STACK_SIZE`  | Defines stack size for Idle thread. Default value is \token{512}. Value range is \token{[72-1073741824]} bytes, in multiples of \token{8}. 
+Total Stack size [bytes] for user Threads with user-provided Stack size    | `OS_THREAD_USER_STACK_SIZE` | Defines the combined stack size for user threads with user-provided stack size. Default value is \token{0}. Value range is \token{[0-1073741824]} Bytes, in multiples of \token{8}.
+Default Thread Stack size [bytes]               | `OS_STACK_SIZE`    | Defines stack size for threads with zero stack size specified. Default value is \token{3072}. Value range is \token{[96-1073741824]} Bytes, in multiples of \token{8}.
+Idle Thread Stack size [bytes]                  | `OS_IDLE_THREAD_STACK_SIZE`  | Defines stack size for Idle thread. Default value is \token{512}. Value range is \token{[72-1073741824]} bytes, in multiples of \token{8}.
 Idle Thread TrustZone Module ID                 | `OS_IDLE_THREAD_TZ_MOD_ID`   | Defines the \ref osThreadAttr_t::tz_module "TrustZone Module ID" the Idle Thread shall use. This needs to be set to a non-zero value if the Idle Thread need to call secure functions. Default value is \token{0}.
 Idle Thread Safety Class                        | `OS_IDLE_THREAD_CLASS`       | Defines the the \ref rtos_process_isolation_safety_class "Safety Class" for the Idle thread. Applied only if Safety Class functionality is enabled in \ref systemConfig. Default value is \token{0}.
 Idle Thread Zone                                | `OS_IDLE_THREAD_ZONE`        | Defines the \ref rtos_process_isolation_mpu "MPU Protected Zone" for the Idle thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
-Stack overrun checking                          | `OS_STACK_CHECK`             | Enable stack overrun checks at thread switch. 
+Stack overrun checking                          | `OS_STACK_CHECK`             | Enable stack overrun checks at thread switch.
 Stack usage watermark                           | `OS_STACK_WATERMARK`         | Initialize thread stack with watermark pattern for analyzing stack usage. Enabling this option increases significantly the execution time of thread creation.
 Processor mode for Thread execution             | `OS_PRIVILEGE_MODE`          | Controls the default processor mode when not specified through thread attributes \ref osThreadUnprivileged or \ref osThreadPrivileged. Default value is \token{Unprivileged} mode. Value range is \token{[0=Unprivileged; 1=Privileged]} mode.
 
@@ -161,30 +159,31 @@ Processor mode for Thread execution             | `OS_PRIVILEGE_MODE`          |
 
 The RTX5 kernel uses a separate stack space for each thread and provides two methods for defining the stack requirements:
 
- - **Static allocation**: when \ref osThreadAttr_t::stack_mem and \ref osThreadAttr_t::stack_size specify a memory area
-   which is used for the thread stack. **Attention**: The stack memory provided must be 64-bit aligned, i.e. by using uint64_t for declaration.
- - **Dynamic allocation**: when \ref osThreadAttr_t is NULL or \ref osThreadAttr_t::stack_mem is NULL, the system
-   allocates the stack memory from:
-     - Object-specific Memory Pool (default Stack size) when "Object specific Memory allocation" is enabled and "Number of
-       user Threads with default Stack size" is not \token{0} and \ref osThreadAttr_t::stack_size is \token{0} (or
-       \ref osThreadAttr_t is NULL).
-     - Object-specific Memory Pool (user-provided Stack size) when "Object specific Memory allocation" is enabled and "Total
-       Stack size for user..."  is not \token{0} and \ref osThreadAttr_t::stack_size is not \token{0}.
-     - Global Memory Pool when "Object specific Memory allocation" is disabled or (\ref osThreadAttr_t::stack_size is not
-       \token{0} and "Total Stack size for user..." is \token{0}) or (\ref osThreadAttr_t::stack_size is \token{0} and
-       "Number of user Threads with default Stack size" is \token{0}).
+- **Static allocation**: when \ref osThreadAttr_t::stack_mem and \ref osThreadAttr_t::stack_size specify a memory area
+  which is used for the thread stack. **Attention**: The stack memory provided must be 64-bit aligned, i.e. by using uint64_t for declaration.
+- **Dynamic allocation**: when \ref osThreadAttr_t is NULL or \ref osThreadAttr_t::stack_mem is NULL, the system
+  allocates the stack memory from:
+  - Object-specific Memory Pool (default Stack size) when "Object specific Memory allocation" is enabled and "Number of
+    user Threads with default Stack size" is not \token{0} and \ref osThreadAttr_t::stack_size is \token{0} (or
+    \ref osThreadAttr_t is NULL).
+  - Object-specific Memory Pool (user-provided Stack size) when "Object specific Memory allocation" is enabled and "Total
+    Stack size for user..."  is not \token{0} and \ref osThreadAttr_t::stack_size is not \token{0}.
+  - Global Memory Pool when "Object specific Memory allocation" is disabled or (\ref osThreadAttr_t::stack_size is not
+    \token{0} and "Total Stack size for user..." is \token{0}) or (\ref osThreadAttr_t::stack_size is \token{0} and
+    "Number of user Threads with default Stack size" is \token{0}).
 
 \ref osThreadAttr_t is a parameter of the function \ref osThreadNew.
 
 > **Note**
+>
 > - Before the RTX kernel is started by the \ref osKernelStart() function, the main stack defined in startup_<i>device</i>.s is used. The main stack is also used for:
->  - user application calls to RTX functions in **thread mode** using SVC calls
->  - interrupt/exception handlers.
+> - user application calls to RTX functions in **thread mode** using SVC calls
+> - interrupt/exception handlers.
 
 \subsection threadConfig_ovfcheck Stack Overflow Checking
 
 RTX5 implements a software stack overflow checking that traps stack overruns. Stack is used for return addresses and automatic variables. Extensive usage or incorrect stack configuration may cause a stack overflow. Software stack overflow checking is controlled with the define `OS_STACK_CHECK`.
- 
+
 If a stack overflow is detected, the function \ref osRtxErrorNotify with error code \ref osRtxErrorStackOverflow is called. By default, this function is implemented as an endless loop and will practically stop code execution.
 
 \subsection threadConfig_watermark Stack Usage Watermark
@@ -198,7 +197,7 @@ Enabling this option significantly increases the execution time of \ref osThread
 RTX5 allows to execute threads in unprivileged or privileged processor mode. The processor mode is configured for all threads with the define `OS_PRIVILEGE_MODE`.
 
 It is also possible to specify the privilege level for individual threads. For that use \ref osThreadUnprivileged and \ref osThreadPrivileged defines in the *attr_bits* of \ref osThreadAttr_t argument when creating a thread with \ref osThreadNew.
- 
+
 In **unprivileged** processor mode, the application software:
 
 - has limited access to the MSR and MRS instructions, and cannot use the CPS instruction.
@@ -219,7 +218,7 @@ Name                                   | \#define                 | Description
 ---------------------------------------|--------------------------------|----------------------------------------------------------------
 Object specific Memory allocation      | `OS_TIMER_OBJ_MEM`      | Enables object specific memory allocation.
 Number of Timer objects                | `OS_TIMER_NUM`          | Defines maximum number of objects that can be active at the same time. Applies to objects with system provided memory for control blocks. Value range is \token{[1-1000]}.
-Timer Thread Priority                  | `OS_TIMER_THREAD_PRIO`        | Defines priority for timer thread. Default value is \token{40}. Value range is \token{[8-48]}, in multiples of \token{8}. The numbers have the following priority correlation: \token{8=Low}; \token{16=Below Normal}; \token{24=Normal}; \token{32=Above Normal}; \token{40=High}; \token{48=Realtime} 
+Timer Thread Priority                  | `OS_TIMER_THREAD_PRIO`        | Defines priority for timer thread. Default value is \token{40}. Value range is \token{[8-48]}, in multiples of \token{8}. The numbers have the following priority correlation: \token{8=Low}; \token{16=Below Normal}; \token{24=Normal}; \token{32=Above Normal}; \token{40=High}; \token{48=Realtime}
 Timer Thread Stack size [bytes]        | `OS_TIMER_THREAD_STACK_SIZE`  | Defines stack size for Timer thread. May be set to 0 when timers are not used. Default value is \token{512}. Value range is \token{[0-1073741824]}, in multiples of \token{8}.
 Timer Thread TrustZone Module ID       | `OS_TIMER_THREAD_TZ_MOD_ID`   | Defines the \ref osThreadAttr_t::tz_module "TrustZone Module ID" the Timer Thread shall use. This needs to be set to a non-zero value if any Timer Callbacks need to call secure functions. Default value is \token{0}.
 Timer Thread Safety Class              | `OS_TIMER_THREAD_CLASS`        | Defines the the \ref rtos_process_isolation_safety_class "Safety Class" for the Timer thread. Applied only if Safety class functionality is enabled in \ref systemConfig. Default value is \token{0}.
@@ -233,7 +232,6 @@ See \ref ObjectMemoryPool.
 \subsection timerConfig_user User Timer Thread
 
 The RTX5 function **osRtxTimerThread** executes callback functions when a time period expires. The priority of the timer subsystem within the complete RTOS system is inherited from the priority of the **osRtxTimerThread**. This is configured by `OS_TIMER_THREAD_PRIO`. Stack for callback functions is supplied by **osRtxTimerThread**. `OS_TIMER_THREAD_STACK_SIZE` must satisfy the stack requirements of the callback function with the highest stack usage.
-
 
 \section eventFlagsConfig Event Flags Configuration
 
@@ -252,7 +250,6 @@ Number of Event Flags objects          | `OS_EVFLAGS_NUM`        | Defines maxim
 
 When object-specific memory is used, the pool size for all Event objects is specified by `OS_EVFLAGS_NUM`. Refer to \ref ObjectMemoryPool.
 
-
 \section mutexConfig Mutex Configuration
 
 RTX5 provides several parameters to configure the \ref CMSIS_RTOS_MutexMgmt functions.
@@ -270,7 +267,6 @@ Number of Mutex objects                | `OS_MUTEX_NUM`          | Defines maxim
 
 When object-specific memory is used, the pool size for all Mutex objects is specified by `OS_MUTEX_NUM`. Refer to \ref ObjectMemoryPool.
 
-
 \section semaphoreConfig Semaphore Configuration
 
 RTX5 provides several parameters to configure the \ref CMSIS_RTOS_SemaphoreMgmt functions.
@@ -287,7 +283,6 @@ Number of Semaphore objects            | `OS_SEMAPHORE_NUM`      | Defines maxim
 \subsection semaphoreConfig_obj Object-specific memory allocation
 
 When Object-specific Memory is used, the pool size for all Semaphore objects is specified by `OS_SEMAPHORE_NUM`. Refer to \ref ObjectMemoryPool.
-
 
 \section memPoolConfig Memory Pool Configuration
 
@@ -307,7 +302,6 @@ Data Storage Memory size [bytes]       | `OS_MEMPOOL_DATA_SIZE`  | Defines the c
 
 When object-specific memory is used, the number of pools for all MemoryPool objects is specified by `OS_MEMPOOL_NUM`. The total storage size reserved for all pools is configured in `OS_MEMPOOL_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
 
-
 \section msgQueueConfig Message Queue Configuration
 
 RTX5 provides several parameters to configure the \ref CMSIS_RTOS_Message functions.
@@ -326,7 +320,6 @@ Data Storage Memory size [bytes]       | `OS_MSGQUEUE_DATA_SIZE` | Defines the c
 
 When Object-specific Memory is used, the number of queues for all Message Queue objects is specified by `OS_MSGQUEUE_NUM`. The total storage size reserved for all queues is configured in `OS_MSGQUEUE_DATA_SIZE`. Refer to \ref ObjectMemoryPool.
 
-
 \section evtrecConfig Event Recorder Configuration
 
 This section describes the configuration settings for the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html) annotations. The usage requires the source variant of RTX5; refer to \ref cre_rtx_proj_er for more information.
@@ -343,9 +336,9 @@ Global Initialization | `OS_EVR_INIT`  | Initialize Event Recorder during \ref o
 Start Recording       | `OS_EVR_START` | Start event recording after initialization.
 
 > **Note**
+>
 > - If **Global Initialization** (`OS_EVR_INIT`) is set, an explicit call to `EventRecorderInitialize` is not required.
 > - If **Start Recording** (`OS_EVR_START`) is set, an explicit call to `EventRecorderStart` is not required. You may call the function `EventRecorderStop` to stop recording.
-
 
 **Global Event Filter Setup**
 
@@ -361,16 +354,17 @@ Operation events          | `OS_EVR_LEVEL`  | Enable operation events.
 Detailed operation events | `OS_EVR_LEVEL`  | Enable detailed operation events.
 
 > **Note**
+>
 > - You may disable event recording for specific software components by calling the function `EventRecorderDisable`.
 
 **RTOS Event Filter Setup**
 
 These event filter settings are applied to specific RTX component groups with sub-options for:
 
- - Error events
- - API function call events
- - Operation events
- - Detailed operation events
+- Error events
+- API function call events
+- Operation events
+- Detailed operation events
 
 The generation of events must be enabled as explained under \ref evtrecConfigEvtGen.
 
@@ -411,8 +405,8 @@ Memory Pool       | `OS_EVR_MEMPOOL`        | Enables Memory Pool events generat
 Message Queue     | `OS_EVR_MSGQUEUE`       | Enables Message Queue events generation.
 
 > **Note**
+>
 > - If event generation for a component is disabled, the code that generates the related events is not included. Thus, \ref evtrecConfigGlobIni "filters" for this component will have no effect and the debugger is unable to display any events for the related component group.
-
 
 \subsection systemConfig_event_recording Manual event configuration
 

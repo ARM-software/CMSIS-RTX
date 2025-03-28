@@ -6,13 +6,14 @@ For MISRA validation, [PC-lint](https://pclintplus.com) V9.00L is used with conf
 
 The PC-Lint is configured with the following configuration file: RTX_Library.lnt:
 
- - MISRA rules setup and configuration: 
-   - MISRQ_C_2012_Config.lnt; all rules enabled
-   - includes definition file: au-misra3.lnt (12-Jun-2014)
- - Arm Compiler V6 configuration file: co-ARMCC-6.lnt (20-Mar-2017)
+- MISRA rules setup and configuration:
+  - MISRQ_C_2012_Config.lnt; all rules enabled
+  - includes definition file: au-misra3.lnt (12-Jun-2014)
+- Arm Compiler V6 configuration file: co-ARMCC-6.lnt (20-Mar-2017)
 
- - Additional compiler configuration:
-```
+- Additional compiler configuration:
+
+  ```
    +d__has_builtin(x)=(0)
    -esym(526,__builtin_*)
    -esym(628,__builtin_*)
@@ -21,11 +22,13 @@ The PC-Lint is configured with the following configuration file: RTX_Library.lnt
    -sem(__CLZ, pure)
    +doffsetof(t,m)=((size_t)&((t*)0)->m)
    -emacro((413,923,9078),offsetof)
-```
- - Additional project configuration:
-```
-  --uEVR_RTX_DISABLE
-```
+  ```
+
+- Additional project configuration:
+
+  ```
+    --uEVR_RTX_DISABLE
+  ```
 
 The C source code is annotated with PC-Lint control comments to allows MISRA deviations. These deviations with the underlying design decisions are described in the following.
 
@@ -33,33 +36,33 @@ The C source code is annotated with PC-Lint control comments to allows MISRA dev
 
 The RTX source code has the following deviations from MISRA:
 
- - \ref MISRA_1
- - \ref MISRA_2
- - \ref MISRA_3
- - \ref MISRA_4
- - \ref MISRA_5
- - \ref MISRA_6
- - \ref MISRA_7
- - \ref MISRA_8
- - \ref MISRA_9
- - \ref MISRA_10
- - \ref MISRA_11
- - \ref MISRA_12
- - \ref MISRA_13
+- \ref MISRA_1
+- \ref MISRA_2
+- \ref MISRA_3
+- \ref MISRA_4
+- \ref MISRA_5
+- \ref MISRA_6
+- \ref MISRA_7
+- \ref MISRA_8
+- \ref MISRA_9
+- \ref MISRA_10
+- \ref MISRA_11
+- \ref MISRA_12
+- \ref MISRA_13
 
 All source code deviations are clearly marked and in summary these deviations affect the following MISRA rules:
 
- - [MISRA 2012 Directive  4.9,  advisory]: A function should be used in preference to a function-like macro where yet are interchangeable
- - [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
- - [MISRA 2012 Rule      10.3,  required]: Expression assigned to a narrower or different essential type
- - [MISRA 2012 Rule      10.5,  advisory]: Impermissible cast; cannot cast from 'essentially unsigned' to 'essentially enum\<i\>'
- - [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
- - [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
- - [MISRA 2012 Rule      15.5,  advisory]: A function should have a single point of exit at the end
- - [MISRA 2012 Rule      20.10, advisory]: The # and ## preprocessor operators should not be used
+- [MISRA 2012 Directive  4.9,  advisory]: A function should be used in preference to a function-like macro where yet are interchangeable
+- [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
+- [MISRA 2012 Rule      10.3,  required]: Expression assigned to a narrower or different essential type
+- [MISRA 2012 Rule      10.5,  advisory]: Impermissible cast; cannot cast from 'essentially unsigned' to 'essentially enum\<i\>'
+- [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
+- [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      15.5,  advisory]: A function should have a single point of exit at the end
+- [MISRA 2012 Rule      20.10, advisory]: The # and ## preprocessor operators should not be used
 
 In the following all deviations are described in detail.
 
@@ -71,7 +74,7 @@ The function returns immediately without any side-effects and typically an error
 
 This design decision implies the following MISRA deviation:
 
- - [MISRA 2012 Rule      15.5,  advisory]: A function should have a single point of exit at the end
+- [MISRA 2012 Rule      15.5,  advisory]: A function should have a single point of exit at the end
 
 All locations in the source code are marked with:
 
@@ -79,20 +82,19 @@ All locations in the source code are marked with:
   //lint -e{904} "Return statement before end of function" [MISRA Note 1]
 ```
 
-
 ## [MISRA Note 2]: Object identifiers are void pointers {#MISRA_2}
 
 CMSIS-RTOS is independent of an underlying RTOS implementation. The object identifiers are therefore defined as void pointers to:
 
- - allow application programs that are agnostic from an underlying RTOS implementation.
- - avoid accidentally accesses an RTOS control block from an application program.
+- allow application programs that are agnostic from an underlying RTOS implementation.
+- avoid accidentally accesses an RTOS control block from an application program.
 
 This design decisions imply the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
- - [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
+- [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
+- [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
 
-All locations in the source code are marked with: 
+All locations in the source code are marked with:
 
 ```
   //lint -e{9079} -e{9087} "cast from pointer to void to pointer to object type" [MISRA Note 2]
@@ -118,8 +120,8 @@ The unified control blocks use a fixed layout at the beginning of the structure 
 
 This design decisions imply the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
- - [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
+- [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
+- [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
 
 All locations in the source code are marked with:
 
@@ -141,12 +143,12 @@ To process specific control block data, pointer conversions are required.
 
 This design decisions imply the following MISRA deviations:
 
- - [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
- - [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
- 
+- [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
+- [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
+
 In addition PC-Lint issues:
 
- - Info  826: Suspicious pointer-to-pointer conversion (area too small)
+- Info  826: Suspicious pointer-to-pointer conversion (area too small)
 
 All locations in the source code are marked with:
 
@@ -173,7 +175,7 @@ The RTX5 kernel has common memory management functions that use void pointers. T
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
+- [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
 
 All locations in the source code are marked with:
 
@@ -197,14 +199,14 @@ required to cast the void pointer to underlying storage types. Alignment restric
 
 This design decisions imply the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
- - [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
+- [MISRA 2012 Rule      11.3,  required]: A cast shall not be performed between a pointer to object type and a pointer to a different object type
+- [MISRA 2012 Rule      11.5,  advisory]: A conversion should not be performed from pointer to void into pointer to object
 
 All locations in the source code are marked with:
 
 ```
   //lint -e{9079} "conversion from pointer to void to pointer to other type" [MISRA Note 6]
-``` 
+```
 
 Code example:
 
@@ -225,8 +227,8 @@ RTX5 verifies the alignment of user provided storage for object control blocks, 
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
 
 All locations in the source code are marked with:
 
@@ -255,8 +257,8 @@ The structure with the type \em mem_block_t that is used to menage memory alloca
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
 
 All locations in the source code are marked with:
 
@@ -285,8 +287,8 @@ The CMSIS-Core peripheral register blocks are accessed using a structure. The me
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
 
 All locations in the source code are marked with:
 
@@ -312,9 +314,9 @@ The SVC function call mechanism is implemented with assembly instructions to con
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Directive  4.9,  advisory]: A function should be used in preference to a function-like macro where yet are interchangeable
- - [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
- - [MISRA 2012 Rule      20.10, advisory]: The # and ## preprocessor operators should not be used
+- [MISRA 2012 Directive  4.9,  advisory]: A function should be used in preference to a function-like macro where yet are interchangeable
+- [MISRA 2012 Rule       1.3,  required]: There shall be no occurrence of undefined or critical unspecified behavior
+- [MISRA 2012 Rule      20.10, advisory]: The # and ## preprocessor operators should not be used
 
 The relevant source code is in the file \em rtx_core_cm.h and is marked with:
 
@@ -332,11 +334,11 @@ It has been verified that this method has no side-effects and is well defined.
 
 This design decision implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      10.3,  required]: Expression assigned to a narrower or different essential type
- - [MISRA 2012 Rule      10.5,  advisory]: Impermissible cast; cannot cast from 'essentially unsigned' to 'essentially enum\<i\>'
- - [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      10.3,  required]: Expression assigned to a narrower or different essential type
+- [MISRA 2012 Rule      10.5,  advisory]: Impermissible cast; cannot cast from 'essentially unsigned' to 'essentially enum\<i\>'
+- [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
 
 SVC functions are marked as library modules and not processed by PC-lint. The relevant source code is marked with:
 
@@ -358,11 +360,10 @@ SVC0_1(DelayUntil, osStatus_t, uint32_t)
 
 PC-lint does not process ASM input/output operand lists and therefore falsely identifies issues:
 
- - Last value assigned to variable not used
- - Symbol not subsequently referenced
+- Last value assigned to variable not used
+- Symbol not subsequently referenced
 
 \todo: what has been done to mitigate that?
-
 
 ## [MISRA Note 12]: Usage of exclusive access instructions {#MISRA_12}
 
@@ -372,10 +373,10 @@ These atomic operations eliminate the requirement for interrupt lock-outs. The a
 
 PC-lint cannot process assembler instructions including the input/output operand lists and therefore falsely identifies issues:
 
- - Symbol not initialized
- - Symbol not subsequently referenced
- - Symbol not referenced
- - Pointer parameter could be declared as pointing to const
+- Symbol not initialized
+- Symbol not subsequently referenced
+- Symbol not referenced
+- Pointer parameter could be declared as pointing to const
 
 It has been verified that atomic operations have no side-effects and are well defined.
 
@@ -391,20 +392,20 @@ The functions that implement atomic instructions are marked as library modules a
 
 The Event Recorder is a generic event logger and the related functions are called to record an event.
 
-The function parameters are 32-bit id, 32-bit values, pointer to void (data) and are recorded as 32-bit numbers. The parameters for the Event Recorder may require cast operations to unsigned int which however has no side-effects and is well defined. 
+The function parameters are 32-bit id, 32-bit values, pointer to void (data) and are recorded as 32-bit numbers. The parameters for the Event Recorder may require cast operations to unsigned int which however has no side-effects and is well defined.
 
 The return value indicates success or failure. There is no need to check the return value since no action is taken when an Event Recorder function fail. The EventID macro (part of external Event Recorder) constructs the ID based on input parameters which are shifted, masked with '&' and combined with '|'. Zero value input parameters are valid and cause zero used with '&' and '|'.
 
 The usage of the Event Recorder implies the following MISRA deviations:
 
- - [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
- - [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
- - [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
+- [MISRA 2012 Rule      11.1,  required]: Conversions shall not be performed between a pointer to a function and any other type
+- [MISRA 2012 Rule      11.4,  advisory]: A conversion should not be performed between a pointer to object and an integer type
+- [MISRA 2012 Rule      11.6,  required]: A cast shall not be performed between pointer to void and an arithmetic type
 
 In addition PC-Lint issues:
 
- - Info  835: A zero has been given as left argument to operator '&'
- - Info  845: The right argument to operator '|' is certain to be 0
+- Info  835: A zero has been given as left argument to operator '&'
+- Info  845: The right argument to operator '|' is certain to be 0
 
 The functions that call the Event Recorder are in the module \em rtx_evr.c and the related PC-Lint messages are disabled with:
 

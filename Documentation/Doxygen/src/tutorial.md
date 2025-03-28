@@ -11,19 +11,18 @@ The tradeoff for this is that an RTOS has additional memory requirements and inc
 We will first look at setting up an introductory RTOS project for a Cortex-M based microcontroller. Next, we
 will go through each of the RTOS primitives and how they influence the design of our application code. Finally, when we have a clear understanding of the RTOS features, we will take a closer look at the RTOS configuration options. If you are used to programming a microcontroller without using an RTOS i.e. bare metal, there are two key things to understand as you work through this tutorial. In the first section, we will focus on creating and managing Threads. The key concept here is to consider them running as parallel concurrent objects. In the second section, we will look at how to communicate between threads. In this section the key concept is synchronization of the concurrent threads.
 
-
 ## Prerequisites {#rtos2_tutorial_pre}
 
 It is assumed that you have Keil MDK installed on your PC. For download and installation instructions, please visit
 the [Getting Started](https://developer.arm.com/documentation/101407/latest/About-uVision/Installation) page. Once you have set up the tool,
 open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Devices** tab to look for the **STM32F103** device.
- - On the **Packs** tab, download and install the latest **Keil:STM32F1xx_DFP** pack and the latest **Hitex:CMSIS_RTOS2_Turorial** pack.
+- Use the **Search** box on the **Devices** tab to look for the **STM32F103** device.
+- On the **Packs** tab, download and install the latest **Keil:STM32F1xx_DFP** pack and the latest **Hitex:CMSIS_RTOS2_Turorial** pack.
 
 > **Note**
+>
 > - It is assumed that you are familiar with Arm Keil MDK and have basic 'C' programming knowledge.
-
 
 ## First Steps with Keil RTX5 {#rtos2_tutorial_first_steps}
 
@@ -66,7 +65,7 @@ __NO_RETURN void Thread1(void*argument) {
 
 While we always return from our 'C' function, once started an RTOS thread must contain a loop so that it never terminates and thus runs forever. You can think of a thread as a mini self-contained program that runs within the RTOS. With the Arm Compiler, it is possible to optimize a thread by using a `__NO_RETURN` macro. This attribute reduces the cost of calling a function that never returns.
 
-An RTOS program is made up of a number of threads, which are controlled by the RTOS scheduler. This scheduler uses the SysTick timer to generate a periodic interrupt as a time base. The scheduler will allot a certain amount of execution time to each thread. So `thread1` will run for 5 ms then be de-scheduled to allow `thread2` to run for a similar period; `thread2` will give way to `thread3` and finally control passes back to `thread1`. By allocating these slices of runtime to each thread in a round-robin fashion, we get the appearance of all three threads running in parallel to each other. 
+An RTOS program is made up of a number of threads, which are controlled by the RTOS scheduler. This scheduler uses the SysTick timer to generate a periodic interrupt as a time base. The scheduler will allot a certain amount of execution time to each thread. So `thread1` will run for 5 ms then be de-scheduled to allow `thread2` to run for a similar period; `thread2` will give way to `thread3` and finally control passes back to `thread1`. By allocating these slices of runtime to each thread in a round-robin fashion, we get the appearance of all three threads running in parallel to each other.
 
 Conceptually we can think of each thread as performing a specific functional unit of our program with all threads running simultaneously. This leads us to a more object-orientated design, where each functional block can be coded and tested in isolation and then integrated into a fully running program. This not only imposes a structure on the design of our final application but also aids debugging, as a particular bug can be easily isolated to a specific thread. It also aids code reuse in later projects. When a thread is created, it is also allocated its own thread ID. This is a variable which acts as a handle for each thread and is used when we want to manage the activity of the thread.
 
@@ -86,7 +85,6 @@ The Thread Control Block contains information about the status of a thread. Part
 | Wait    | Blocked threads waiting for an OS event |
 
 At any given moment a single thread may be running. The remaining threads will be ready to run and will be scheduled by the kernel. Threads may also be waiting pending an OS event. When this occurs they will return to the ready state and be scheduled by the kernel.
-
 
 ## Starting the RTOS {#rtos2_tutorial_start}
 
@@ -124,10 +122,9 @@ When threads are created they are also assigned a priority. If there are a numbe
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
- - On the **Examples** tab, copy **Ex 01 First Project** to your PC and start Keil MDK.
- - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
+- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+- On the **Examples** tab, copy **Ex 01 First Project** to your PC and start Keil MDK.
+- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Creating Threads {#rtos2_tutorial_thread_create}
 
@@ -166,10 +163,9 @@ thread1_id = osThreadNew(name_Of_C_Function, (uint32_t)startupParameter,&threadA
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
- - On the **Examples** tab, copy **Ex 02 Threads** to your PC and start Keil MDK.
- - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
+- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+- On the **Examples** tab, copy **Ex 02 Threads** to your PC and start Keil MDK.
+- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Thread Management and Priority {#rtos2_tutorial_thread_mgmt}
 
@@ -206,7 +202,7 @@ osStatus osThreadYield();      //switch to next ready to run thread at the same 
 
 When each thread is created, it is assigned its own stack for storing data during the context switch. This should not be confused with the native Cortex-M processor stack; it is really a block of memory that is allocated to the thread.
 
-A default stack size is defined in the RTOS configuration file (we will see this later) and this amount of memory will be allocated to each thread unless we override it to allocate a custom size. The default stack size will be assigned to a thread if the stack size value in the thread definition structure is set to zero. If necessary a thread can be given additional memory resources by defining a bigger stack size in the thread structure. 
+A default stack size is defined in the RTOS configuration file (we will see this later) and this amount of memory will be allocated to each thread unless we override it to allocate a custom size. The default stack size will be assigned to a thread if the stack size value in the thread definition structure is set to zero. If necessary a thread can be given additional memory resources by defining a bigger stack size in the thread structure.
 
 Keil RTX5 supports several memory models to assign this thread memory. The default model is a global memory pool. In this model each RTOS object that is created (threads, message queues, semaphores etc.) are allocated memory from a single block of memory.
 
@@ -250,9 +246,9 @@ Finally it is possible to statically allocate the thread stack memory. This is i
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
- - On the **Examples** tab, copy **Ex 03 Memory Model** to your PC and start Keil MDK.
- - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+- On the **Examples** tab, copy **Ex 03 Memory Model** to your PC and start Keil MDK.
+- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Multiple Instances {#rtos2_tutorial_multi_inst}
 
@@ -272,9 +268,9 @@ ThreadID_1_1 = osThreadNew (thread1, UART0, &ThreadAttr_Task1);
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
- - On the **Examples** tab, copy **Ex 04 Multiple Instances** to your PC and start Keil MDK.
- - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+- On the **Examples** tab, copy **Ex 04 Multiple Instances** to your PC and start Keil MDK.
+- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Joinable Threads {#rtos2_tutorial_thread_join}
 
@@ -300,9 +296,9 @@ Once \ref osThreadJoin has been called, the thread will deschedule and enter a w
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
 
- - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
- - On the **Examples** tab, copy **Ex 05 Join** to your PC and start Keil MDK.
- - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
+- Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
+- On the **Examples** tab, copy **Ex 05 Join** to your PC and start Keil MDK.
+- In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
 
 ## Time Management {#rtos2_tutorial_time_mgmt}
 
@@ -327,7 +323,6 @@ running when the scheduler moves it to the RUNNING state. If the thread then con
 blocking OS calls, it will be descheduled at the end of its time slice and be placed in the ready state, assuming another
 thread of the same priority is ready to run.
 
-
 ### Absolute Time Delay {#rtos2_tutorial_abs_time_delay}
 
 In addition to the \ref osDelay function which gives a relative time delay starting from the instant it is called, there
@@ -350,10 +345,10 @@ number of kernel functions that allow you to read both the current SysTick count
 ### Exercise 6 - Time Management {#rtos2_tutorial_ex6}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 06 Time Management** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ### Virtual Timers {#rtos2_tutorial_virtual_timers}
 
@@ -388,14 +383,13 @@ osTimerStart (timer0_handle,0x100);
 The timer can then be started at any point in a thread the timer start function invokes the timer by its handle and defines
 a count period in kernel ticks.
 
-
 ### Exercise 7 - Virtual Timer {#rtos2_tutorial_ex7}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 07 Virtual Timers** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ### Idle Thread {#rtos2_tutorial_idle_thread}
 
@@ -483,10 +477,10 @@ int32_t osThreadFlagsClear (int32_t signals);
 #### Exercise 9 - Thread Flags {#rtos2_tutorial_ex9}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 09 Thread Flags** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ### Event Flags {#rtos2_tutorial_event_flags}
 
@@ -520,14 +514,13 @@ EventFlag_LED = osEventFlagsNew(&EventFlagAttr_LED);
 
 Refer to \ref CMSIS_RTOS_EventFlags for more information.
 
-
 #### Exercise 10 - Event Flags {#rtos2_tutorial_ex10}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 10 Event Flags** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ### Semaphores {#rtos2_tutorial_semaphores}
 
@@ -543,7 +536,7 @@ initialized with an initial token count. In this case the semaphore is initializ
 run and reach a point in their code where they will attempt to acquire a token from the semaphore. The first thread to reach
 this point will acquire the token from the semaphore and continue execution. The second thread will also attempt to acquire
 a token, but as the semaphore is empty it will halt execution and be placed into a waiting state until a semaphore token is
-available. 
+available.
 
 Meanwhile, the executing thread can release a token back to the semaphore. When this happens, the waiting thread will
 acquire the token and leave the waiting state for the ready state. Once in the ready state the scheduler will place the
@@ -552,6 +545,7 @@ one of the more difficult OS objects to fully understand. In this section, we wi
 RTOS program and then go on to look at the most useful semaphore applications.
 
 To use a semaphore in the CMSIS-RTOS you must first declare a semaphore attributes:
+
 ```c
 osSemaphoreAttr_t {
   const char *name;   ///< name of the semaphore
@@ -562,11 +556,13 @@ osSemaphoreAttr_t {
 ```
 
 Next declare the semaphore handle:
+
 ```c
 osSemaphoreId_t sem1;
 ```
 
 Then within a thread the semaphore container can be initialised with a number of tokens:
+
 ```c
 sem1 = osSemaphoreNew(maxTokenCount,initalTokencount,&osSemaphoreAttr_t);
 ```
@@ -578,17 +574,18 @@ removes them. This allows you to design threads as producer and consumer threads
 Once the semaphore is initialized, tokens may be acquired and sent to the semaphore in a similar fashion to event flags. The
 \ref osSemaphoreAcquire() call is used to block a thread until a semaphore token is available. A timeout period may also be
 specified with 0xFFFF being an infinite wait.
+
 ```c
 osStatus osSemaphoreAcquire(osSemaphoreId_t semaphore_id, uint32_t ticks);
 ```
 
 Once the thread has finished using the semaphore resource, it can send a token to the semaphore container:
+
 ```c
 osStatus osSemaphoreRelease(osSemaphoreId_t semaphore_id);
 ```
 
 All semaphore functions are listed in the \ref CMSIS_RTOS_SemaphoreMgmt "API reference".
-
 
 #### Using Semaphores {#rtos2_tutorial_sem_usage}
 
@@ -599,6 +596,7 @@ These are taken from free book [The Little Book Of Semaphores](https://greenteap
 #### Signalling {#rtos2_tutorial_sem_sig}
 
 Synchronizing the execution of two threads is the simplest use of a semaphore:
+
 ```c
 osSemaphoreId_t sem1;
 static const osSemaphoreAttr_t semAttr_SEM1 = {
@@ -623,19 +621,19 @@ void task2(void) {
 
 In this case the semaphore is used to ensure that the code in `FuncA()` is executed before the code in `FuncB()`.
 
-
 #### Exercise 11 - Semaphore Signalling {#rtos2_tutorial_ex11}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 11 Semaphore Signalling** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 #### Multiplex {#rtos2_tutorial_sem_multi}
 
 A multiplex is used to limit the number of threads that can access a critical section of code. For example, this could be a
 routine that accesses memory resources and can only support a limited number of calls.
+
 ```c
 osSemaphoreId_t multiplex;
 static const osSemaphoreAttr_t semAttr_Multiplex = {
@@ -658,10 +656,10 @@ more than five threads are attempting to call `processBuffer()`, the sixth must 
 `processBuffer()` and returns its token. Thus, the multiplex semaphore ensures that a maximum of five threads can call the
 `processBuffer()` function "simultaneously".
 
-
 #### Exercise 12 - Multiplex {#rtos2_tutorial_ex12}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 12 Multiplex** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
@@ -670,6 +668,7 @@ Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Crea
 
 A more generalised form of semaphore signalling is a rendezvous. A rendezvous ensures that two threads reach a certain point
 of execution. Neither may continue until both have reached the rendezvous point.
+
 ```c
 osSemaphoreId_t arrived1, arrived2;
 static const osSemaphoreAttr_t semAttr_Arrived1 = {
@@ -707,6 +706,7 @@ and `FuncB2()`.
 #### Exercise 13 - Rendezvous {#rtos2_tutorial_sem_rend_ex13}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 13 Rendezvous** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
@@ -715,6 +715,7 @@ Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Crea
 
 Although a rendezvous is very useful for synchronising the execution of code, it only works for two functions. A barrier is
 a more generalised form of rendezvous which works to synchronise multiple threads.
+
 ```c
 osSemaphoreId_t count, barrier;
 static const osSemaphoreAttr_t semAttr_Counter = {
@@ -752,7 +753,7 @@ In this code, we use a global variable to count the number of threads which have
 arrives at the barrier it will wait until it can acquire a token from the counter semaphore. Once acquired, the count
 variable will be incremented by one. Once we have incremented the count variable, a token is sent to the counter semaphore
 so that other waiting threads can proceed. Next, the barrier code reads the count variable. If this is equal to the number
-of threads which are waiting to arrive at the barrier, we send a token to the barrier semaphore. 
+of threads which are waiting to arrive at the barrier, we send a token to the barrier semaphore.
 
 In the example above we are synchronising five threads. The first four threads will increment the count variable and then
 wait at the barrier semaphore. The fifth and last thread to arrive will increment the count variable and send a token to the
@@ -764,14 +765,13 @@ barrier. In our model of concurrent execution this means that each thread waits 
 the all resume simultaneously. In the following exercise we create five instances of one thread containing barrier code.
 However, the barrier could be used to synchronise five unique threads.
 
-
 #### Exercise 14 - Semaphore Barrier {#rtos2_tutorial_ex14}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 14 Barrier** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 #### Semaphore Caveats {#rtos2_tutorial_sem_caveats}
 
@@ -781,7 +781,6 @@ Sometimes this is useful, but if your code depends on having a fixed number of t
 very careful to always return tokens back to it. You should also rule out the possibility of accidently creating additional
 new tokens.
 
-
 ### Mutex {#rtos2_tutorial_mutex}
 
 Mutex stands for “Mutual Exclusion”. In reality, a mutex is a specialized version of semaphore. Like a semaphore, a mutex is
@@ -789,6 +788,7 @@ a container for tokens. The difference is that a mutex can only contain one toke
 principle use of a mutex is to control access to a chip resource such as a peripheral. For this reason a mutex token is
 binary and bounded. Apart from this it really works in the same way as a semaphore. First of all we must declare the mutex
 container and initialize the mutex:
+
 ```c
 osMutexId_t uart_mutex;
  
@@ -801,6 +801,7 @@ osMutexAttr_t {
 ```
 
 When a mutex is created its functionality can be modified by setting the following attribute bits:
+
 | Bitmask                 | Description |
 |-------------------------|-------------|
 | \ref osMutexRecursive   | The same thread can consume a mutex multiple times without locking itself.        |
@@ -808,16 +809,19 @@ When a mutex is created its functionality can be modified by setting the followi
 | \ref osMutexRobust      | Notify threads that acquire a mutex that the previous owner was terminated.       |
 
 Once declared the mutex must be created in a thread.
+
 ```c
 uart_mutex = osMutexNew(&MutexAttr);
 ```
 
 Then any thread needing to access the peripheral must first acquire the mutex token:
+
 ```c
 osMutexAcquire(osMutexId_t mutex_id,uint32_t ticks);
 ```
 
 Finally, when we are finished with the peripheral the mutex must be released:
+
 ```c
 osMutexRelease(osMutexId_t mutex_id);
 ```
@@ -828,10 +832,10 @@ underlying chip registers.
 #### Exercise 15 - Mutex {#rtos2_tutorial_ex15}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 15 Mutex** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 #### Mutex Caveats {#rtos2_tutorial_mutex_caveats}
 
@@ -842,14 +846,13 @@ so that it can run on even the very small Cortex-M microcontrollers. Consequentl
 means that if you delete a thread which is controlling a mutex token, you will destroy the mutex token and prevent any
 further access to the guarded peripheral.
 
-
 ### Data Exchange {#rtos2_tutorial_data_exchange}
 
 So far, all of the inter-thread communication methods have only been used to trigger execution of threads; they do not
 upport the exchange of program data between threads. Clearly, in a real program we will need to move data between threads.
 This could be done by reading and writing to globally declared variables. In anything but a very simple program, trying to
 guarantee data integrity would be extremely difficult and prone to unforeseen errors. The exchange of data between threads
-needs a more formal asynchronous method of communication. 
+needs a more formal asynchronous method of communication.
 
 CMSIS-RTOS provides two methods of data transfer between threads. The first method is a message queue which creates a
 buffered data 'pipe' between two threads. The message queue is designed to transfer integer values.
@@ -864,10 +867,10 @@ system level design based on threads connected by mail and message queues allows
 project, especially useful if you are working in a team. Also as each thread has well defined inputs and outputs it is easy
 to isolate for testing and code reuse.
 
-
 #### Message Queue {#rtos2_tutorial_msg_queue}
 
 To setup a message queue we first need to allocate the memory resources:
+
 ```c
 osMessageQId_t Q_LED;
  
@@ -882,34 +885,37 @@ osMessageQueueAttr_t {
 ```
 
 Once the message queue handle and attributes have been declared we can create the message queue in a thread:
+
 ```c
 Q_LED = osMessageNew(DepthOfMesageQueue,WidthOfMessageQueue,&osMessageQueueAttr);
 ```
 
 Once the message queue has been created we can put data into the queue from one thread:
+
 ```c
 osMessageQueuePut(Q_LED,&dataIn,messagePrioriy,osWaitForever);
 ```
 
 and then read if from the queue in another:
+
 ```c
 result = osMessageQueueGet(Q_LED,&dataOut,messagePriority,osWaitForever);
 ```
 
-
 #### Exercise 16 - Message Queue {#rtos2_tutorial_ex16}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 16 Message Queue** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 #### Extended Message Queue {#rtos2_tutorial_ext_msg_queue}
 
 In the last example we defined a word wide message queue. If you need to send a larger amount of data it is also possible to
 define a message queue where each slot can hold more complex data. First, we can define a structure to hold our message
 data:
+
 ```c
 typedef struct {
   uint32_t duration;
@@ -919,17 +925,18 @@ typedef struct {
 ```
 
 Then we can define a message queue which is formatted to receive this type of message:
+
 ```c
-Q_LED = osMessageQueueNew(16,sizeof(message_t),&queueAttr_Q_LED );	
+Q_LED = osMessageQueueNew(16,sizeof(message_t),&queueAttr_Q_LED );
 ```
 
 #### Exercise 17 - Message Queue {# rtos2_tutorial_ex17}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 17 Extended Message Queue** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ### Memory Pool {#rtos2_tutorial_mem_pool}
 
@@ -937,6 +944,7 @@ We can design a message queue to support the transfer of large amounts of data. 
 we are "moving" the data in the queue. In this section, we will look at designing a more efficient "zero copy" mailbox where
 the data remains static. CMSIS-RTOS2 supports the dynamic allocation of memory in the form of a fixed block memory pool.
 First, we can declare the memory pool attributes:
+
 ```c
 osMemoryPoolAttr_t {
   const char *name;   ///< name of the memory pool
@@ -949,12 +957,14 @@ osMemoryPoolAttr_t {
 ```
 
 And a handle for the memory pool:
+
 ```c
 osMemoryPoolId_t mpool;
 ```
 
 For the memory pool itself, we need to declare a structure which contains the memory elements we require in each memory pool
 lot:
+
 ```c
 typedef struct {
   uint8_t LED0;
@@ -965,17 +975,20 @@ typedef struct {
 ```
 
 Then we can create a memory pool in our application code:
+
 ```c
 mpool = osMemoryPoolNew(16, sizeof(message_t),&memorypoolAttr_mpool);
 ```
 
 Now we can allocate a memory pool slot within a thread:
+
 ```c
 memory_block_t *led_data;
 *led_data = (memory_block_t *) osMemoryPoolAlloc(mPool,osWaitForever);
 ```
 
 and then populate it with data:
+
 ```c
     led_data->LED0 = 0;
     led_data->LED1 = 1;
@@ -984,11 +997,13 @@ and then populate it with data:
 ```
 
 It is then possible to place the pointer to the memory block in a message queue:
+
 ```c
 osMessagePut(Q_LED,(uint32_t)led_data,osWaitForever);
 ```
 
 The data can now be accessed by another task:
+
 ```c
 osEvent event;
 memory_block_t *received;
@@ -998,6 +1013,7 @@ led_on(received->LED0);
 ```
 
 Once the data in the memory block has been used, the block must be released back to the memory pool for reuse.
+
 ```c
 osPoolFree(led_pool,received);
 ```
@@ -1009,10 +1025,10 @@ threads.
 #### Exercise 18 - Zero Copy Mailbox {#rtos2_tutorial_ex18}
 
 Open [Pack Installer](https://developer.arm.com/documentation/101407/latest/Creating-Applications/Software-Components/Pack-Installer):
+
 - Use the **Search** box on the **Boards** tab to look for the **CMSIS_RTOS2_Tutorial (V2.1)** "board".
 - On the **Examples** tab, copy **Ex 18 Zero Copy Mailbox** to your PC and start Keil MDK.
 - In the project folder, you will find a file called "Instructions.pdf" that explains the setup and the steps you need to take to successfully finish the exercise.
-
 
 ## Configuration {#rtos2_tutorial_config}
 
@@ -1023,7 +1039,6 @@ at the configuration file.
 RTX_Config.h is the central configuration file for all of the Cortex-M based microcontrollers.  Like the other configuration
 files, it is a template file which presents all the necessary configurations as a set of menu options (when viewed in
 Configuration Wizard view).
-
 
 ### System Configuration {#rtos2_tutorial_config_sys}
 
@@ -1044,7 +1059,6 @@ to control the range of messages sent to the event recorder as the RTOS runs.
 Finally, if we are setting thread flags from an interrupt they are held in a queue until they are processed. Depending on
 your application you may need to increase the size of this queue.
 
-
 ### Thread Configuration {#rtos2_tutorial_config_thread}
 
 In the Thread Configuration section, we define the basic resources which will be required by the CMSIS-RTOS2 threads. For
@@ -1063,6 +1077,7 @@ is located in the RTX_Config.c file. This function gets an error code and then s
 option is intended for use during debugging and should be disabled on the final application to minimize the kernel overhead.
 However, it is possible to modify the \ref osRtxErrorNotify() function if enhanced error protection is required in the final
 release.
+
 ```c
 // OS Error Callback function
 __WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
@@ -1099,13 +1114,12 @@ __WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
 It is also possible to monitor the maximum stack memory usage during run time. If you check the "Stack Usage Watermark"
 option, a pattern (0xCC) is written into each stack space. During runtime, this watermark is used to calculate the maximum
 memory usage. In Arm Keil MDK, this figure is reported in the threads section of the View - Watch Window - RTX RTOS window.
- 
+
 This section also allows us to select whether the threads are running in privileged or unprivileged mode. The last option
 allows us to define the processor operating mode for the user threads. If you want an easy life, leave this set to
 "privileged mode" and you will have full access to all the processor features. However, if you are writing a safety critical
 or secure application then "unprivileged mode" can be used to prevent thread access to critical processor registers limiting
 run time errors or attempts at intrusion.
-
 
 ### System Timer Configuration {#rtos2_tutorial_config_sys_timer}
 
@@ -1113,8 +1127,7 @@ The default timer for use with CMSIS-RTOS is the Cortex-M SysTick timer which is
 The input to the SysTick timer will generally be the CPU clock. It is possible to use a different timer by overloading the
 kernel timer functions as outlined explained in the \ref CMSIS_RTOS_TickAPI documentation.
 
-
 ## Conclusion {#rtos2_tutorial_conclusion}
 
 In this tutorial, we have worked our way through the CMSIS-RTOS2 API and introduced some of the key concepts associated with
-using an RTOS. The only real way to learn how to develop with an RTOS is to actually use one in a real project. 
+using an RTOS. The only real way to learn how to develop with an RTOS is to actually use one in a real project.

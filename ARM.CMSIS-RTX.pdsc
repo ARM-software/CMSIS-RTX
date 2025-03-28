@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
+<package schemaVersion="1.7.40" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.40/schema/PACK.xsd">
   <name>CMSIS-RTX</name>
   <description>RTX RTOS implementation of CMSIS-RTOS2 API</description>
   <vendor>ARM</vendor>
@@ -35,6 +35,11 @@
       <description>TrustZone (Disabled)</description>
       <require Dtz="TZ"/>
       <require Dsecure="TZ-disabled"/>
+    </condition>
+    <condition id="TZ Secure Only">
+      <description>TrustZone (Secure Only)</description>
+      <require Dtz="TZ"/>
+      <require Dsecure="Secure-only"/>
     </condition>
     <condition id="TZ Secure">
       <description>TrustZone (Secure)</description>
@@ -144,6 +149,11 @@
       <description>Armv8-M architecture based device with TrustZone (Disabled)</description>
       <require condition="ARMv8-M Device"/>
       <require condition="TZ Disabled"/>
+    </condition>
+    <condition id="ARMv8-M Device with TZ Secure Only">
+      <description>Armv8-M architecture based device with TrustZone (Secure Only)</description>
+      <require condition="ARMv8-M Device"/>
+      <require condition="TZ Secure Only"/>
     </condition>
     <condition id="ARMv8-M Device with TZ Secure">
       <description>Armv8-M architecture based device with TrustZone (Secure)</description>
@@ -418,6 +428,7 @@
       <accept  condition="ARMv7-M Device"/>
       <accept  condition="ARMv8-M Device without TrustZone"/>
       <accept  condition="ARMv8-M Device with TZ Disabled"/>
+      <accept  condition="ARMv8-M Device with TZ Secure Only"/>
       <accept  condition="ARMv8-M Device with TZ Secure"/>
       <accept  condition="ARMv7-A Device"/>
       <require condition="Compiler"/>

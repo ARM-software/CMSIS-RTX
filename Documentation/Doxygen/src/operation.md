@@ -292,6 +292,7 @@ void osRtxIdleThread (void) {
 > **Note**
 >
 > - `__WFE()` is not available in every Arm Cortex-M implementation. Check device manuals for availability.
+
 The alternative using `__WFI()` has other issues, explained in the Arm Knowledge Based Article [Low Power RTX Applications on Cortex-M Devices](https://developer.arm.com/documentation/ka002948/latest).
 
 ## Timeout Value {#CMSIS_RTOS_TimeOutValue}

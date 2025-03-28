@@ -176,9 +176,10 @@ The RTX5 kernel uses a separate stack space for each thread and provides two met
 
 > **Note**
 >
-> - Before the RTX kernel is started by the \ref osKernelStart() function, the main stack defined in startup_<i>device</i>.s is used. The main stack is also used for:
-> - user application calls to RTX functions in **thread mode** using SVC calls
-> - interrupt/exception handlers.
+> - Before the RTX kernel is started by the \ref osKernelStart() function, the main stack defined in startup_<i>device</i>.s is used.
+>   The main stack is also used for:
+>   - user application calls to RTX functions in **thread mode** using SVC calls
+>   - interrupt/exception handlers.
 
 \subsection threadConfig_ovfcheck Stack Overflow Checking
 

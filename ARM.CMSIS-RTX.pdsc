@@ -13,8 +13,8 @@
   <url>https://www.keil.com/pack/</url>
 
   <releases>
-    <release version="1.0.0">
-        Initial pack release ...
+    <release version="5.9.1-dev">
+      - Add support for TrustZone Secure-only mode
     </release>
   </releases>
 

@@ -93,7 +93,7 @@ fi
 
 echo_log "Generating documentation ..."
 
-projectName=$(grep -E "PROJECT_NAME\s+=" rtx.dxy.in | sed -r -e 's/[^"]*"([^"]+)".*/\1/')
+projectName=$(grep -E "PROJECT_NAME\s+=" rtx.dxy.in | sed -r -e 's/^PROJECT_NAME\s*=\s*"?([^"]*)"?/\1/')
 projectNumberFull="${VERSION_FULL}"
 projectNumber="${projectNumberFull%+*}"
 datetime=$(date -u +'%a %b %e %Y %H:%M:%S')

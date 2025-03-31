@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kernel_20functions_0',['Kernel Functions',['../group__rtx__evr__kernel.html',1,'']]],
-  ['kernel_20information_20and_20control_1',['Kernel Information and Control',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__KernelCtrl.html',0,'']]]
+  ['generic_20definitions_0',['Generic Definitions',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Definitions.html',0,'']]],
+  ['generic_20wait_20functions_1',['Generic Wait Functions',['../group__rtx__evr__wait.html',1,'Generic Wait Functions'],['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Wait.html',0,'Generic Wait Functions']]]
 ];

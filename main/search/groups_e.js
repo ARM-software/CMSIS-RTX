@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['version_20control_0',['Version Control',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__version__control__gr.html',0,'']]]
+  ['queue_0',['Message Queue',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html',0,'']]],
+  ['queue_20functions_1',['Message Queue Functions',['../group__rtx__evr__message__queue.html',1,'']]]
 ];

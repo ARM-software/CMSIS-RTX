@@ -189,7 +189,7 @@ var NAVTREE =
       ] ],
       [ "Conclusion", "rtos2_tutorial.html#rtos2_tutorial_conclusion", null ]
     ] ],
-    [ "API Reference", "modules.html", "modules" ]
+    [ "API Reference", "topics.html", "topics" ]
   ] ]
 ];
 
@@ -199,5 +199,5 @@ var NAVTREEINDEX =
 "group__rtx__evr__message__queue.html#ga4b1b6191c6ca87dff4714e25b5845828"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';

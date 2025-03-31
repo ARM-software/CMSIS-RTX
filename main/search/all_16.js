@@ -1,8 +1,20 @@
 var searchData=
 [
-  ['w_0',['w',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/unionAPSR__Type.html#ae4c2ef8c9430d7b7bef5cbfbbaed3a94',0,'APSR_Type::w()'],['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/unionCONTROL__Type.html#a6b642cca3d96da660b1198c133ca2a1f',0,'CONTROL_Type::w()'],['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/unionIPSR__Type.html#a4adca999d3a0bc1ae682d73ea7cfa879',0,'IPSR_Type::w()'],['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/unionxPSR__Type.html#a1a47176768f45f79076c4f5b1b534bc2',0,'xPSR_Type::w()']]],
-  ['wait_5fflags_1',['wait_flags',['../group__rtx5__specific__types.html#a3c7b4f24d9527394f4b5a1135d117691',1,'osRtxThread_t']]],
-  ['wdog_5fnext_2',['wdog_next',['../group__rtx5__specific__types.html#a73f4e12f4f2ec40dca37b3af0fd89884',1,'osRtxThread_t']]],
-  ['wdog_5ftick_3',['wdog_tick',['../group__rtx5__specific__types.html#afcef1b922d2b9644501b0ca482c7d23b',1,'osRtxThread_t']]],
-  ['wwdg_5fstm_5firqn_4',['WWDG_STM_IRQn',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__NVIC__gr.html#gga7e1129cd8a196f4284d41db3e82ad5c8aa62e040960b4beb6cba107e4703c12d2',0,]]]
+  ['lar_0',['LAR',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structITM__Type.html#a7f9c2a2113a11c7f3e98915f95b669d5',0,'ITM_Type']]],
+  ['less_20low_20power_20operation_1',['Tick-less Low-Power Operation',['../theory_of_operation.html#TickLess',1,'']]],
+  ['level_201_2',['Cache Functions (Level-1)',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__cache__functions__m7.html',0,'']]],
+  ['library_3',['Building the RTX5 Library',['../cre_rtx_proj.html#creating_RTX5_LIB',1,'']]],
+  ['library_20multi_20threading_20protection_4',['Arm C library multi-threading protection',['../theory_of_operation.html#cre_rtx_proj_clib_arm',1,'']]],
+  ['license_5',['License',['../index.html#rtx_license',1,'']]],
+  ['like_20macros_6',['[MISRA Note 10]: SVC calls use function-like macros',['../misraCompliance5.html#MISRA_10',1,'']]],
+  ['list_7',['list',['../structosRtxInfo__t_8timer.html#a10ae9fc7d453b0dd525d0edf2ede7961',1,'osRtxInfo_t.timer']]],
+  ['load_8',['LOAD',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structSysTick__Type.html#a4780a489256bb9f54d0ba8ed4de191cd',0,'SysTick_Type']]],
+  ['load_9',['load',['../group__rtx5__specific__types.html#aee4a6239f04d660fc90663dd6b39ca95',1,'osRtxTimer_t']]],
+  ['loading_20description_20file_20lt_20device_20gt_20_5fac6_20sct_10',['Scatter-Loading description file &amp;lt;device&amp;gt;_ac6.sct',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/linker_sct_pg.html',0,'']]],
+  ['lock_11',['lock',['../group__rtx5__specific__types.html#a92435efb84d6814afd444fd462802e9c',1,'osRtxMutex_t']]],
+  ['low_20power_20operation_12',['Low Power Operation',['../theory_of_operation.html#lowPower',1,'Low-Power Operation'],['../theory_of_operation.html#TickLess',1,'Tick-less Low-Power Operation']]],
+  ['lsr_13',['LSR',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structITM__Type.html#a3861c67933a24dd6632288c4ed0b80c8',0,'ITM_Type']]],
+  ['lsucnt_14',['LSUCNT',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structDWT__Type.html#acc05d89bdb1b4fe2fa499920ec02d0b1',0,'DWT_Type']]],
+  ['lt_20device_20gt_20_5fac6_20sct_15',['Scatter-Loading description file &amp;lt;device&amp;gt;_ac6.sct',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/linker_sct_pg.html',0,'']]],
+  ['lt_20device_20gt_20c_16',['Startup File startup_&amp;lt;Device&amp;gt;.c',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/startup_c_pg.html',0,'']]]
 ];

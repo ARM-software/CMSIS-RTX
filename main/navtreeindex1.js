@@ -116,8 +116,8 @@ var NAVTREEINDEX1 =
 "group__rtx__evr__wait.html#gad489decd779491c1f247214e541cd4e8":[8,1,3,3,3],
 "group__rtx__evr__wait.html#gaec642f6e093f6c1c9b9d7609c4b0d174":[8,1,3,3,1],
 "group__rtx__evr__wait.html#gaff18b7b13dc1fe87d1c9d3b23ed55208":[8,1,3,3,5],
-"index.html":[0],
 "index.html":[],
+"index.html":[0],
 "index.html#rtx_access":[0,0],
 "index.html#rtx_license":[0,2],
 "index.html#rtx_security":[0,1],
@@ -136,7 +136,6 @@ var NAVTREEINDEX1 =
 "misraCompliance5.html#MISRA_8":[6,8],
 "misraCompliance5.html#MISRA_9":[6,9],
 "misraCompliance5.html#misra_deviations":[6,0],
-"modules.html":[8],
 "pages.html":[],
 "rev_hist.html":[1],
 "rtos2_tutorial.html":[7],
@@ -218,5 +217,6 @@ var NAVTREEINDEX1 =
 "theory_of_operation.html#lowPower":[3,4],
 "theory_of_operation.html#rtx_MemoryAllocation":[3,2],
 "theory_of_operation.html#rtx_SystemStartup":[3,1],
-"theory_of_operation.html#rtx_scheduler":[3,0]
+"theory_of_operation.html#rtx_scheduler":[3,0],
+"topics.html":[8]
 };

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rtos_20context_20management_0',['RTOS Context Management',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__context__trustzone__functions.html',0,'']]],
-  ['rtx_20v5_20specific_20api_1',['RTX v5 Specific API',['../group__rtx5__specific.html',1,'']]]
+  ['nvic_0',['Interrupts and Exceptions (NVIC)',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__NVIC__gr.html',0,'']]],
+  ['nvic_20functions_1',['NVIC Functions',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__nvic__trustzone__functions.html',0,'']]]
 ];

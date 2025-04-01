@@ -27,7 +27,7 @@
 
 
 //  Memory Pool Header structure
-typedef struct {
+typedef struct mem_head_s {
   uint32_t size;                // Memory Pool size
   uint32_t used;                // Used Memory
 } mem_head_t;

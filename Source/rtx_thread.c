@@ -2409,6 +2409,9 @@ bool_t osRtxThreadStartup (void) {
   osRtxInfo.thread.idle = osRtxThreadId(
     svcRtxThreadNew(osRtxIdleThread, NULL, osRtxConfig.idle_thread_attr)
   );
+  if (osRtxInfo.thread.idle == NULL) {
+    return FALSE;
+  }
 
   // Create Timer Thread
   if (osRtxConfig.timer_setup != NULL) {

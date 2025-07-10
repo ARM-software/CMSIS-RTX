@@ -1,7 +1,5 @@
 default:
 
-  compiler: AC6
-
   misc:
     - for-compiler: AC6
       C-CPP:
@@ -15,7 +13,6 @@ default:
         - -masm=auto
       Link:
         - --entry=Reset_Handler
-        - --map
         - --info summarysizes
         - --summary_stderr
         - --diag_suppress=L6314W
@@ -31,8 +28,9 @@ default:
       Link:
         - --specs=nano.specs
         - --specs=rdimon.specs
-        - -Wl,-Map=$elf()$.map
+        - -Wl,-print-memory-usage
         - -Wl,--gc-sections
+        - -Wl,--no-warn-rwx-segments   # suppress incorrect linker warning
 
     - for-compiler: CLANG
       C-CPP:
@@ -42,9 +40,8 @@ default:
       C:
         - -std=gnu11
       Link:
-        - -lcrt0-semihost
         - -lsemihost
-        - -Wl,-Map=$elf()$.map
+        - -Wl,-print-memory-usage
         - -Wl,--gc-sections
 
     - for-compiler: IAR
@@ -53,4 +50,3 @@ default:
         - --dlib_config DLib_Config_Full.h
       Link:
         - --semihosting
-        - --map=$elf()$.map

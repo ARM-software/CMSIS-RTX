@@ -5,7 +5,6 @@ Documentation/Doxygen/*.tag
 Documentation/Doxygen/src/history.txt
 
 # Ignored IDE and cbuild outputs
-**/_*
 **/out
 **/tmp
 **.cbuild*.yml

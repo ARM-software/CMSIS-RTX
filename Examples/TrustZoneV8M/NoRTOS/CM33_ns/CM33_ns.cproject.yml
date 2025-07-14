@@ -4,12 +4,12 @@ project:
     trustzone: non-secure
 
   packs:
-    - pack: ARM::Cortex_DFP@>=1.0.0-0
-    - pack: ARM::CMSIS@>=6.0.0-0
+    - pack: ARM::Cortex_DFP@^1.0.0-0
+    - pack: ARM::CMSIS@^6.0.0-0
 
   components:
-    - component: ARM::Device:Startup&C Startup
-    - component: ARM::CMSIS:CORE
+    - component: Device:Startup&C Startup
+    - component: CMSIS:CORE
 
   groups:
     - group: Non-secure Code
@@ -20,5 +20,7 @@ project:
         - file: ../CM33_s/interface.h
         - file: $cmse-lib(CM33_s)$
 
-  linker:
-    - script: RTE/Device/ARMCM33/ARMCM33_ac6.sct
+  output:
+    type:
+    - elf
+    - map

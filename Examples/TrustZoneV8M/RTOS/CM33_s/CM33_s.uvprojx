@@ -10,13 +10,13 @@
       <TargetName>FVP Simulation Model</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6210000::V6.21::ARMCLANG</pCCUsed>
+      <pCCUsed>6230000::V6.23::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>ARMCM33</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.Cortex_DFP.1.0.0</PackID>
+          <PackID>ARM.Cortex_DFP.1.1.0</PackID>
           <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IRAM2(0x20200000,0x00020000) IROM(0x00000000,0x00200000) IROM2(0x00200000,0x00200000) CPUTYPE("Cortex-M33") FPU3(SFPU) DSP TZ CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -376,7 +376,7 @@
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
             <LinkerInputFile></LinkerInputFile>
-            <DisabledWarnings></DisabledWarnings>
+            <DisabledWarnings>6314</DisabledWarnings>
           </LDads>
         </TargetArmAds>
       </TargetOption>
@@ -446,7 +446,7 @@
       <file attr="config" category="linkerScript" condition="ARMCC6" name="Device\ARMCM33\Config\ARMCM33_ac6.sct" version="1.1.0">
         <instance index="0">RTE\Device\ARMCM33\ARMCM33_ac6.sct</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.33" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
@@ -454,7 +454,7 @@
       <file attr="config" category="header" condition="TZ Secure" name="Device\ARMCM33\Config\partition_ARMCM33.h" version="1.1.1">
         <instance index="0">RTE\Device\ARMCM33\partition_ARMCM33.h</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.33" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
@@ -462,7 +462,7 @@
       <file attr="config" category="sourceC" name="Device\ARMCM33\Source\startup_ARMCM33.c" version="3.0.0">
         <instance index="0">RTE\Device\ARMCM33\startup_ARMCM33.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.33" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
@@ -470,7 +470,7 @@
       <file attr="config" category="sourceC" name="Device\ARMCM33\Source\system_ARMCM33.c" version="2.0.0">
         <instance index="0">RTE\Device\ARMCM33\system_ARMCM33.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cvendor="ARM" Cversion="2.2.0" condition="ARMCM33 CMSIS" isDefaultVariant="1"/>
-        <package name="Cortex_DFP" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="1.0.0"/>
+        <package name="Cortex_DFP" schemaVersion="1.7.33" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>

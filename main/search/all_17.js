@@ -54,7 +54,7 @@ var searchData=
   ['message_20queue_51',['Message Queue',['../rtos2_tutorial.html#rtos2_tutorial_ex16',1,'Exercise 16 - Message Queue'],['../rtos2_tutorial.html#rtos2_tutorial_ext_msg_queue',1,'Extended Message Queue'],['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__Message.html',0,'Message Queue'],['../rtos2_tutorial.html#rtos2_tutorial_msg_queue',1,'Message Queue']]],
   ['message_20queue_20configuration_52',['Message Queue Configuration',['../config_rtx5.html#msgQueueConfig',1,'']]],
   ['message_20queue_20functions_53',['Message Queue Functions',['../group__rtx__evr__message__queue.html',1,'']]],
-  ['message_20queue_20rtos2_5ftutorial_5fex17_54',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md0',1,'']]],
+  ['message_20queue_20rtos2_5ftutorial_5fex17_54',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md3',1,'']]],
   ['message_5fqueue_55',['message_queue',['../structosRtxInfo__t_8mpi.html#ac8a94d8dcb13e89d5886dabf7cd9945a',1,'osRtxInfo_t.mpi::message_queue'],['../structosRtxConfig__t_8mpi.html#ac8a94d8dcb13e89d5886dabf7cd9945a',1,'osRtxConfig_t.mpi::message_queue']]],
   ['misra_20c_20deviations_56',['MISRA-C Deviations',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/coreMISRA_Exceptions_pg.html',0,'']]],
   ['misra_20c_3a2012_20compliance_57',['MISRA C:2012 Compliance',['../misraCompliance5.html',1,'']]],

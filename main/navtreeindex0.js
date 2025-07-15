@@ -30,6 +30,9 @@ var NAVTREEINDEX0 =
 "config_rtx5.html#timerConfig_obj":[5,2,0],
 "config_rtx5.html#timerConfig_user":[5,2,1],
 "cre_rtx_proj.html":[4],
+"cre_rtx_proj.html#autotoc_md0":[4,4,0],
+"cre_rtx_proj.html#autotoc_md1":[4,4,1],
+"cre_rtx_proj.html#autotoc_md2":[4,4,2],
 "cre_rtx_proj.html#cre_rtx_cortexa":[4,0],
 "cre_rtx_proj.html#cre_rtx_proj_er":[4,3],
 "cre_rtx_proj.html#cre_rtx_proj_specifics":[4,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "group__rtx__evr__message__queue.html#ga22bfb7d1c2f6e3e9fea9d3267b2d6988":[8,1,3,10,14],
 "group__rtx__evr__message__queue.html#ga2922125d8ac63fd800dc3b7888fd3f3c":[8,1,3,10,9],
 "group__rtx__evr__message__queue.html#ga36d6982377c1f54a227ba6fbb9458b79":[8,1,3,10,2],
-"group__rtx__evr__message__queue.html#ga3947d4a7ac86ee7a50052c9eb4cd5432":[8,1,3,10,20],
-"group__rtx__evr__message__queue.html#ga3bbf02128c31e5cc7ef4c78cdbec508c":[8,1,3,10,22],
-"group__rtx__evr__message__queue.html#ga3d6348bed3937de29765ed4d7d07fac8":[8,1,3,10,16],
-"group__rtx__evr__message__queue.html#ga401536a603e5a805cc6089b4de11d3d3":[8,1,3,10,4]
+"group__rtx__evr__message__queue.html#ga3947d4a7ac86ee7a50052c9eb4cd5432":[8,1,3,10,20]
 };

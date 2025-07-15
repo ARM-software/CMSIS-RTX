@@ -15,6 +15,6 @@ var searchData=
   ['14_20semaphore_20barrier_12',['Exercise 14 - Semaphore Barrier',['../rtos2_tutorial.html#rtos2_tutorial_ex14',1,'']]],
   ['15_20mutex_13',['Exercise 15 - Mutex',['../rtos2_tutorial.html#rtos2_tutorial_ex15',1,'']]],
   ['16_20message_20queue_14',['Exercise 16 - Message Queue',['../rtos2_tutorial.html#rtos2_tutorial_ex16',1,'']]],
-  ['17_20message_20queue_20rtos2_5ftutorial_5fex17_15',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md0',1,'']]],
+  ['17_20message_20queue_20rtos2_5ftutorial_5fex17_15',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md3',1,'']]],
   ['18_20zero_20copy_20mailbox_16',['Exercise 18 - Zero Copy Mailbox',['../rtos2_tutorial.html#rtos2_tutorial_ex18',1,'']]]
 ];

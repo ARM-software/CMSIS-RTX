@@ -199,6 +199,69 @@ Component selection for Event Recorder</div></div>
 <h1><a class="anchor" id="creating_RTX5_LIB"></a>
 Building the RTX5 Library</h1>
 <p>The CMSIS Pack contains a csolution project for building the complete set of RTX5 libraries. This project can also be used as a reference for building the RTX5 libraries using a tool-chain of your choice.</p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Build Process</h2>
+<p>The build process is managed using the following files:</p>
+<ul>
+<li><code>RTX_Library.csolution.yml</code>: Defines the solution configuration.</li>
+<li><code>RTX_Library.cproject.yml</code>: Specifies the project settings.</li>
+<li><code>build.sh</code>: Script that triggers the library build process.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Libraries Built</h2>
+<p>The following table lists the files available in the build output directory, its target architecture with additional attributes and target toolchain.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Library Name   </th><th class="markdownTableHeadNone">Target Architecture (attributes)   </th><th class="markdownTableHeadNone">AC6   </th><th class="markdownTableHeadNone">GCC   </th><th class="markdownTableHeadNone">IAR   </th><th class="markdownTableHeadNone">CLANG    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V6M</code>   </td><td class="markdownTableBodyNone">Arm v6-M   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V7A</code>   </td><td class="markdownTableBodyNone">Arm v7-A   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">NO    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V7M</code>   </td><td class="markdownTableBodyNone">Arm v7-M   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V7MF</code>   </td><td class="markdownTableBodyNone">Arm v7-M (FP)   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V8MB</code>   </td><td class="markdownTableBodyNone">Arm v8M Base Line   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V8MBN</code>   </td><td class="markdownTableBodyNone">Arm v8M Base Line (non-secure)   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V8MM</code>   </td><td class="markdownTableBodyNone">Arm v8M Main Line   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V8MMF</code>   </td><td class="markdownTableBodyNone">Arm v8M Main Line (FP)   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V8MMFN</code>   </td><td class="markdownTableBodyNone">Arm v8M Main Line (FP, non-secure)   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V8MMN</code>   </td><td class="markdownTableBodyNone">Arm v8M Main Line (non-secure)   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">YES    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V81MM</code>   </td><td class="markdownTableBodyNone">Arm v8.1M Main Line   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">NO    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V81MMF</code>   </td><td class="markdownTableBodyNone">Arm v8.1M Main Line (FP)   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">NO    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>RTX_V81MMFN</code>   </td><td class="markdownTableBodyNone">Arm v8.1M Main Line (FP, non-secure)   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">NO    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>RTX_V81MMN</code>   </td><td class="markdownTableBodyNone">Arm v8.1M Main Line (non-secure)   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">NO   </td><td class="markdownTableBodyNone">YES   </td><td class="markdownTableBodyNone">NO   </td></tr>
+</table>
+<ul>
+<li><b>FP</b>: library built with Floating Point support</li>
+<li><b>non-secure</b>: library built for TrustZone non-secure domain</li>
+</ul>
+<p>All RTX5 libraries are built with debug information produced for use by a debugger.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Optimization</h2>
+<p>The build process optimizes RTX5 libraries for size, which translates to the following per compiler compiler options:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Compiler   </th><th class="markdownTableHeadNone">Optimization Option    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">AC6   </td><td class="markdownTableBodyNone">-Oz    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">GCC   </td><td class="markdownTableBodyNone">-Os    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">IAR   </td><td class="markdownTableBodyNone">-Ohz    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">CLANG   </td><td class="markdownTableBodyNone">-Os   </td></tr>
+</table>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

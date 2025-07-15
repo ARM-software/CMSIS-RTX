@@ -1,14 +1,25 @@
 solution:
-  created-for: CMSIS-Toolbox@2.0.0
-
+  created-for: CMSIS-Toolbox@2.10.0
   cdefault:
+
+  select-compiler:
+    - compiler: AC6
+    - compiler: GCC
+    - compiler: IAR
+    - compiler: CLANG
 
   target-types:
     - type: FVP
       device: ARMCM33
 
-  optimize: size
-  debug: on
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
 
   projects:
     - project: CM33_s/CM33_s.cproject.yml

@@ -4,15 +4,15 @@ project:
     trustzone: non-secure
 
   packs:
-    - pack: ARM::Cortex_DFP@>=1.0.0-0
-    - pack: ARM::CMSIS@>=6.0.0-0
-    - pack: ARM::CMSIS-RTX@>=5.8.0-0
+    - pack: ARM::Cortex_DFP@^1.0.0-0
+    - pack: ARM::CMSIS@^6.0.0-0
+    - pack: ARM::CMSIS-RTX@^5.8.0-0
 
   components:
-    - component: ARM::Device:Startup&C Startup
-    - component: ARM::CMSIS:CORE
-    - component: ARM::CMSIS:OS Tick:SysTick
-    - component: ARM::CMSIS:RTOS2:Keil RTX5&Source
+    - component: Device:Startup&C Startup
+    - component: CMSIS:CORE
+    - component: CMSIS:OS Tick:SysTick
+    - component: CMSIS:RTOS2:Keil RTX5&Source
 
   groups:
     - group: Non-secure Code
@@ -22,5 +22,7 @@ project:
       files:
         - file: $cmse-lib(CM33_s)$
 
-  linker:
-    - script: RTE/Device/ARMCM33/ARMCM33_ac6.sct
+  output:
+    type:
+    - elf
+    - map

@@ -1,16 +1,20 @@
+# A project translates into one executable or library.
 project:
 
   processor:
     trustzone: non-secure
 
+  # List packs that define software components.
   packs:
-    - pack: ARM::Cortex_DFP@^1.0.0-0
     - pack: ARM::CMSIS@^6.0.0-0
 
+  # List components to use for your application.
+  # A software component is a re-usable unit that may be configurable.
   components:
     - component: Device:Startup&C Startup
     - component: CMSIS:CORE
 
+  # List files that are part of the project.
   groups:
     - group: Non-secure Code
       files:
@@ -20,7 +24,9 @@ project:
         - file: ../CM33_s/interface.h
         - file: $cmse-lib(CM33_s)$
 
+  # List executable file formats to be generated.
   output:
     type:
     - elf
+    - hex
     - map

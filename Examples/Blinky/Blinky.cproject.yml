@@ -1,11 +1,14 @@
+# A project translates into one executable or library.
 project:
 
+  # List packs that define software components.
   packs:
-    - pack: ARM::Cortex_DFP@^1.1.0-0
     - pack: ARM::CMSIS@^6.0.0-0
     - pack: ARM::CMSIS-RTX@^5.8.0-0
     - pack: ARM::CMSIS-View@^1.0.0-0
 
+  # List components to use for your application.
+  # A software component is a re-usable unit that may be configurable.
   components:
     - component: Device:Startup&C Startup
     - component: CMSIS:CORE
@@ -13,13 +16,22 @@ project:
     - component: CMSIS:RTOS2:Keil RTX5&Source
     - component: CMSIS-View:Event Recorder&Semihosting
 
+  # List files that are part of the project.
   groups:
     - group: Documentation
       files:
-        - file: Abstract.txt
+        - file: README.md
     - group: Source Files
       files:
         - file: Blinky.c
 
+  # List instructions for the linker.
   linker:
     - regions: ./RTE/Device/ARMCM3/regions_ARMCM3.h
+
+  # List executable file formats to be generated.
+  output:
+    type:
+    - elf
+    - hex
+    - map

@@ -711,9 +711,9 @@
 
     <example name="CMSIS-RTOS2 Blinky" doc="Abstract.txt" folder="Examples/Blinky">
       <description>CMSIS-RTOS2 Blinky example</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="Blinky.uvprojx"/>
+        <environment name="uv"        load="Blinky.uvprojx"/>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -724,9 +724,9 @@
 
     <example name="CMSIS-RTOS2 RTX5 Memory Pool" doc="Abstract.txt" folder="Examples/MemPool">
       <description>CMSIS-RTOS2 Memory Pool Example</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="MemPool.uvprojx"/>
+        <environment name="uv"        load="MemPool.uvprojx"/>
+        <environment name="csolution" load="MemPool.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -737,9 +737,9 @@
 
     <example name="CMSIS-RTOS2 RTX5 Message Queue" doc="Abstract.txt" folder="Examples/MsgQueue">
       <description>CMSIS-RTOS2 Message Queue Example</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="MsgQueue.uvprojx"/>
+        <environment name="uv"        load="MsgQueue.uvprojx"/>
+        <environment name="csolution" load="MsgQueue.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -750,9 +750,9 @@
 
     <example name="TrustZone for ARMv8-M No RTOS" doc="Abstract.txt" folder="Examples/TrustZoneV8M/NoRTOS">
       <description>Bare-metal secure/non-secure example without RTOS</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="NoRTOS.uvmpw"/>
+        <environment name="uv"        load="NoRTOS.uvmpw"/>
+        <environment name="csolution" load="NoRTOS.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -763,9 +763,9 @@
 
     <example name="TrustZone for ARMv8-M RTOS" doc="Abstract.txt" folder="Examples/TrustZoneV8M/RTOS">
       <description>Secure/non-secure RTOS example with thread context management</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="RTOS.uvmpw"/>
+        <environment name="uv"        load="RTOS.uvmpw"/>
+        <environment name="csolution" load="RTOS.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -776,9 +776,9 @@
 
     <example name="TrustZone for ARMv8-M RTOS Security Tests" doc="Abstract.txt" folder="Examples/TrustZoneV8M/RTOS_Faults">
       <description>Secure/non-secure RTOS example with security test cases and system recovery</description>
-      <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="RTOS_Faults.uvmpw"/>
+        <environment name="uv"        load="RTOS_Faults.uvmpw"/>
+        <environment name="csolution" load="RTOS_Faults.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>

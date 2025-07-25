@@ -24,6 +24,9 @@ project:
         - file: main_ns.c
     - group: CMSE Library
       files:
+        - file: ../CM33_s/interface.h
+        - file: ../CM33_s/IncidentLog_s.h
+        - file: ../CM33_s/SysTick_s.h
         - file: $cmse-lib(CM33_s)$
 
   # List executable file formats to be generated.

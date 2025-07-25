@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019 ARM Limited. All rights reserved.
+ * Copyright (c) 2013-2025 ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -26,10 +26,12 @@
 #include "RTE_Components.h"
 #include CMSIS_device_header
 
-#include "..\CM33_s\interface.h"        // Interface API
-#include "..\CM33_s\IncidentLog_s.h"
-#include "..\CM33_s\SysTick_s.h"
 #include "cmsis_os2.h"                  // ARM::CMSIS:RTOS2:Keil RTX5
+
+/* Include CM33_s interfaces */
+#include "interface.h"                  // Interface API
+#include "IncidentLog_s.h"
+#include "SysTick_s.h"
 
 static osStatus_t Status;
 

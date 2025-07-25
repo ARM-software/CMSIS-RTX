@@ -1,17 +1,44 @@
+# A solution is a collection of related projects that share same base configuration.
 solution:
   created-for: CMSIS-Toolbox@2.10.0
-  cdefault:
+  cdefault: # use CMSIS-Toolbox default Compiler options
 
+  # Compilers that can be selected.
   select-compiler:
     - compiler: AC6
     - compiler: GCC
     - compiler: IAR
     - compiler: CLANG
 
+  # List of miscellaneous tool-specific controls.
+  misc:
+    - for-compiler: AC6 # GDB requires DWARF 5, remove when using uVision Debugger
+      C-CPP:
+        - -gdwarf-5
+      ASM:
+        - -gdwarf-5
+    - for-compiler: GCC # Enable semihosting for GCC
+      Link:
+        - --specs=rdimon.specs
+    - for-compiler: CLANG # Enable semihosting for CLANG
+      Link:
+        - -lsemihost
+    - for-compiler: IAR # Enable semihosting and extensions for embedded for IAR
+      Link:
+        - --semihosting
+      C-CPP:
+        - -e
+
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: ARM::Cortex_DFP@^1.1.0-0
+
+  # List different hardware targets that are used to deploy the solution.
   target-types:
     - type: FVP
       device: ARMCM3
 
+  # List of different build configurations.
   build-types:
     - type: Debug
       debug: on
@@ -21,5 +48,6 @@ solution:
       debug: off
       optimize: balanced
 
+  # List related projects.
   projects:
     - project: MsgQueue.cproject.yml

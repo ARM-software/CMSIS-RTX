@@ -107,7 +107,7 @@ jobs:
       
       - name: Initialize CodeQL
         if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           source-root: CMSIS-RTX
           languages: cpp
@@ -139,7 +139,7 @@ jobs:
     
       - name: Perform CodeQL Analysis
         if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           checkout_path: ${{ github.workspace }}/CMSIS-RTX
 

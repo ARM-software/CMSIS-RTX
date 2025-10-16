@@ -111,8 +111,7 @@ jobs:
         with:
           source-root: CMSIS-RTX
           languages: cpp
-          queries: security-and-quality
-            # TODO: github/codeql-coding-standards/c/misra/src/codeql-suites/misra-default.qls@v2.21.0
+          queries: security-and-quality, github/codeql-coding-standards/c/misra/src/codeql-suites/misra-default.qls@v2.25.0
 
       - name: Build
         working-directory: ./CMSIS-RTOS2_Validation/Project

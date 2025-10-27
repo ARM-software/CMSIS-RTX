@@ -162,7 +162,7 @@ jobs:
     steps:
       - name: Download Test Reports
         if: ${{ env.ARM_UBL_ACTIVATION_CODE }}
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           path: artifacts
 

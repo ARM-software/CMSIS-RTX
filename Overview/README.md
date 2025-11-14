@@ -34,6 +34,7 @@ The following sections of the documentation provide further details:
   ┣ 📂 Library                  Project files to build pre-built libraries
   ┣ 📂 Source                   Private header and source files of RTX software component
   ┣ 📂 Template                 User code template files
+  ┣ 📂 Overview                 Contains this README
   ┣ 📄 ARM.CMSIS-RTX.pdsc       Pack description file
   ┣ 📄 ARM.CMSIS-RTX.sha1       Checksums of all the files
   ┣ 📄 LICENSE                  Apache 2.0 license file

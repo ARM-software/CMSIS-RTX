@@ -36,6 +36,7 @@ PACK_DIRS="
   Library
   Source
   Template
+  Overview
 "
 
 # Specify file names to be added to pack base directory

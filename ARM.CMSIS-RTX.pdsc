@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.40" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.40/schema/PACK.xsd">
+<package schemaVersion="1.7.54" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.54/schema/PACK.xsd">
   <name>CMSIS-RTX</name>
-  <description>RTX RTOS implementation of CMSIS-RTOS2 API</description>
+  <description overview="Overview/README.md">Keil RTX5 RTOS implementation of CMSIS-RTOS2 API</description>
   <vendor>ARM</vendor>
   <license>LICENSE</license>
   <licenseSets>

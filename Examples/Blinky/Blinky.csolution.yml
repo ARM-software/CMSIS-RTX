@@ -1,6 +1,6 @@
 # A solution is a collection of related projects that share same base configuration.
 solution:
-  created-for: CMSIS-Toolbox@2.10.0
+  created-for: CMSIS-Toolbox@2.12.0
   cdefault: # use CMSIS-Toolbox default Compiler options
 
   # Compilers that can be selected.
@@ -23,11 +23,9 @@ solution:
     - for-compiler: CLANG # Enable semihosting for CLANG
       Link:
         - -lsemihost
-    - for-compiler: IAR # Enable semihosting and extensions for embedded for IAR
+    - for-compiler: IAR # Enable semihosting for IAR
       Link:
         - --semihosting
-      C-CPP:
-        - -e
 
   # List the packs that define the device and/or board.
   packs:

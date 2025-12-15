@@ -23,6 +23,8 @@
  *    Initial Release
  *---------------------------------------------------------------------------*/
 
+#include <stdio.h>
+
 #include "RTE_Components.h"
 #include CMSIS_device_header
 
@@ -226,6 +228,8 @@ static const osThreadAttr_t ThreadAttr = {
 };
 
 int main (void) {
+
+  printf("Hello from the Non-secure World!\n");
 
   Status = osKernelInitialize();
 

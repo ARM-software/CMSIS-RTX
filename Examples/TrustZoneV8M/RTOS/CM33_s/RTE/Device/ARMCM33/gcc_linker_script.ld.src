@@ -1,48 +1,56 @@
 /*
- *-------- <<< Use Configuration Wizard in Context Menu >>> -------------------
+ * Copyright (c) 2023 Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the License); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-/*---------------------- Flash Configuration ----------------------------------
-  <h> Flash Configuration
-    <o0> Flash Base Address <0x0-0xFFFFFFFF:8>
-    <o1> Flash Size (in Bytes) <0x0-0xFFFFFFFF:8>
-  </h>
-  -----------------------------------------------------------------------------*/
-__ROM_BASE = 0x00000000;
-__ROM_SIZE = 0x00040000;
+/* ----------------------------------------------------------------------------
+  Stack seal size definition
+ *----------------------------------------------------------------------------*/
+#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
+#define __STACKSEAL_SIZE   ( 8 )
+#else
+#define __STACKSEAL_SIZE   ( 0 )
+#endif
 
-/*--------------------- Embedded RAM Configuration ----------------------------
-  <h> RAM Configuration
-    <o0> RAM Base Address    <0x0-0xFFFFFFFF:8>
-    <o1> RAM Size (in Bytes) <0x0-0xFFFFFFFF:8>
-  </h>
- -----------------------------------------------------------------------------*/
-__RAM_BASE = 0x20000000;
-__RAM_SIZE = 0x00020000;
-
-/*--------------------- Stack / Heap Configuration ----------------------------
-  <h> Stack / Heap Configuration
-    <o0> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
-    <o1> Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-  </h>
-  -----------------------------------------------------------------------------*/
-__STACK_SIZE = 0x00000400;
-__HEAP_SIZE  = 0x00000C00;
-
-/*
- *-------------------- <<< end of configuration section >>> -------------------
- */
-
-/* ARMv8-M stack sealing:
-   to use ARMv8-M stack sealing set __STACKSEAL_SIZE to 8 otherwise keep 0
- */
-__STACKSEAL_SIZE = 0;
-
-
+/* ----------------------------------------------------------------------------
+  Memory definition
+ *----------------------------------------------------------------------------*/
 MEMORY
 {
-  FLASH (rx)  : ORIGIN = __ROM_BASE, LENGTH = __ROM_SIZE
-  RAM   (rwx) : ORIGIN = __RAM_BASE, LENGTH = __RAM_SIZE
+  ROM0  (rx)  : ORIGIN = __ROM0_BASE, LENGTH = __ROM0_SIZE
+#if __ROM1_SIZE > 0
+  ROM1  (rx)  : ORIGIN = __ROM1_BASE, LENGTH = __ROM1_SIZE
+#endif
+#if __ROM2_SIZE > 0
+  ROM2  (rx)  : ORIGIN = __ROM2_BASE, LENGTH = __ROM2_SIZE
+#endif
+#if __ROM3_SIZE > 0
+  ROM3  (rx)  : ORIGIN = __ROM3_BASE, LENGTH = __ROM3_SIZE
+#endif
+
+  RAM0  (rwx) : ORIGIN = __RAM0_BASE, LENGTH = __RAM0_SIZE
+#if __RAM1_SIZE > 0
+  RAM1  (rwx) : ORIGIN = __RAM1_BASE, LENGTH = __RAM1_SIZE
+#endif
+#if __RAM2_SIZE > 0
+  RAM2  (rwx) : ORIGIN = __RAM2_BASE, LENGTH = __RAM2_SIZE
+#endif
+#if __RAM3_SIZE > 0
+  RAM3  (rwx) : ORIGIN = __RAM3_BASE, LENGTH = __RAM3_SIZE
+#endif
 }
 
 /* Linker script to place sections and symbol values. Should be used together
@@ -68,13 +76,14 @@ MEMORY
  *   __data_end__
  *   __bss_start__
  *   __bss_end__
+ *   __noinit_start
+ *   __noinit_end
  *   __end__
  *   end
  *   __HeapLimit
  *   __StackLimit
  *   __StackTop
  *   __stack
- *   __StackSeal      (only if ARMv8-M stack sealing is used)
  */
 ENTRY(Reset_Handler)
 
@@ -105,30 +114,25 @@ SECTIONS
     *(.rodata*)
 
     KEEP(*(.eh_frame*))
-  } > FLASH
+  } > ROM0
 
-  /*
-   * SG veneers:
-   * All SG veneers are placed in the special output section .gnu.sgstubs. Its start address
-   * must be set, either with the command line option '--section-start' or in a linker script,
-   * to indicate where to place these veneers in memory.
-   */
-/*
+#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
   .gnu.sgstubs :
   {
     . = ALIGN(32);
-  } > FLASH
-*/
+  } > ROM0
+#endif
+
   .ARM.extab :
   {
     *(.ARM.extab* .gnu.linkonce.armextab.*)
-  } > FLASH
+  } > ROM0
 
   __exidx_start = .;
   .ARM.exidx :
   {
     *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-  } > FLASH
+  } > ROM0
   __exidx_end = .;
 
   .copy.table :
@@ -147,7 +151,7 @@ SECTIONS
     LONG (SIZEOF(.data2) / 4)
 */
     __copy_table_end__ = .;
-  } > FLASH
+  } > ROM0
 
   .zero.table :
   {
@@ -165,7 +169,7 @@ SECTIONS
     LONG (SIZEOF(.bss2) / 4)
 */
     __zero_table_end__ = .;
-  } > FLASH
+  } > ROM0
 
   /*
    * This __etext variable is kept for backward compatibility with older,
@@ -205,7 +209,7 @@ SECTIONS
     /* All data end */
     __data_end__ = .;
 
-  } > RAM AT > FLASH
+  } > RAM0 AT > ROM0
 
   /*
    * Secondary data section, optional
@@ -224,7 +228,7 @@ SECTIONS
     . = ALIGN(4);
     __data2_end__ = .;
 
-  } > RAM2 AT > FLASH
+  } > RAM1 AT > ROM0 
 */
 
   .bss :
@@ -236,7 +240,7 @@ SECTIONS
     *(COMMON)
     . = ALIGN(4);
     __bss_end__ = .;
-  } > RAM AT > RAM
+  } > RAM0 AT > RAM0
 
   /*
    * Secondary bss section, optional
@@ -254,8 +258,20 @@ SECTIONS
     *(.bss2.*)
     . = ALIGN(4);
     __bss2_end__ = .;
-  } > RAM2 AT > RAM2
+  } > RAM1 AT > RAM1
 */
+
+  /* This section contains data that is not initialized during load,
+     or during the application's initialization sequence. */
+  .noinit (NOLOAD) :
+  {
+    . = ALIGN(4);
+    __noinit_start = .;
+    *(.noinit)
+    *(.noinit.*)
+    . = ALIGN(4);
+    __noinit_end = .;
+  } > RAM0
 
   .heap (NOLOAD) :
   {
@@ -265,30 +281,27 @@ SECTIONS
     . = . + __HEAP_SIZE;
     . = ALIGN(8);
     __HeapLimit = .;
-  } > RAM
+  } > RAM0
 
-  .stack (ORIGIN(RAM) + LENGTH(RAM) - __STACK_SIZE - __STACKSEAL_SIZE) (NOLOAD) :
+  .stack (ORIGIN(RAM0) + LENGTH(RAM0) - __STACK_SIZE - __STACKSEAL_SIZE) (NOLOAD) :
   {
     . = ALIGN(8);
     __StackLimit = .;
     . = . + __STACK_SIZE;
     . = ALIGN(8);
     __StackTop = .;
-  } > RAM
+  } > RAM0
   PROVIDE(__stack = __StackTop);
 
-  /* ARMv8-M stack sealing:
-     to use ARMv8-M stack sealing uncomment '.stackseal' section
-   */
-/*
-  .stackseal (ORIGIN(RAM) + LENGTH(RAM) - __STACKSEAL_SIZE) (NOLOAD) :
+#if __STACKSEAL_SIZE > 0
+  .stackseal (ORIGIN(RAM0) + LENGTH(RAM0) - __STACKSEAL_SIZE) (NOLOAD) :
   {
     . = ALIGN(8);
     __StackSeal = .;
     . = . + 8;
     . = ALIGN(8);
-  } > RAM
-*/
+  } > RAM0
+#endif
 
   /* Check if data + heap + stack exceeds RAM limit */
   ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")

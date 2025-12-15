@@ -23,6 +23,8 @@
  *    Initial Release
  *---------------------------------------------------------------------------*/
 
+#include <stdio.h>
+
 #include "interface.h"                  // Interface API
 #include "cmsis_os2.h"                  // ARM::CMSIS:RTOS2:Keil RTX5
 
@@ -67,7 +69,7 @@ static int callbackB (int val)  {
   flags = osThreadFlagsWait (1U, osFlagsWaitAny, osWaitForever);
   if (flags == 1U)  {
     return (val+1);
-  }  else {
+  } else {
     return (0);
   }
 }
@@ -102,6 +104,8 @@ static const osThreadAttr_t ThreadAttr = {
 
 int main (void) {
 
+  printf("Hello from the Non-secure World!\n");
+
   Status = osKernelInitialize();
 
   ThreadA_Id = osThreadNew(ThreadA, NULL, &ThreadAttr);
@@ -112,4 +116,3 @@ int main (void) {
 
   for (;;);
 }
-

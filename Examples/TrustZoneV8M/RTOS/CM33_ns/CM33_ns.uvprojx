@@ -10,7 +10,7 @@
       <TargetName>FVP Simulation Model</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6230000::V6.23::ARMCLANG</pCCUsed>
+      <pCCUsed>6240000::V6.24::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -340,7 +340,7 @@
               <MiscControls>-Wno-unsafe-buffer-usage</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\CM33_s</IncludePath>
+              <IncludePath>../CM33_s/</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -460,16 +460,16 @@
     <files>
       <file attr="config" category="source" name="Config\RTX_Config.c" version="5.2.0">
         <instance index="0">RTE\CMSIS\RTX_Config.c</instance>
-        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5 NS"/>
-        <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.9.0" condition="RTX5 NS"/>
+        <package name="CMSIS-RTX" schemaVersion="1.7.40" url="https://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
       </file>
       <file attr="config" category="header" name="Config\RTX_Config.h" version="5.6.0">
         <instance index="0">RTE\CMSIS\RTX_Config.h</instance>
-        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5 NS"/>
-        <package name="CMSIS-RTX" schemaVersion="1.7.27" url="https://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
+        <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.9.0" condition="RTX5 NS"/>
+        <package name="CMSIS-RTX" schemaVersion="1.7.40" url="https://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
         <targetInfos>
           <targetInfo name="FVP Simulation Model"/>
         </targetInfos>
@@ -500,14 +500,5 @@
       </file>
     </files>
   </RTE>
-
-  <LayerInfo>
-    <Layers>
-      <Layer>
-        <LayName>CM33_ns</LayName>
-        <LayPrjMark>1</LayPrjMark>
-      </Layer>
-    </Layers>
-  </LayerInfo>
 
 </Project>

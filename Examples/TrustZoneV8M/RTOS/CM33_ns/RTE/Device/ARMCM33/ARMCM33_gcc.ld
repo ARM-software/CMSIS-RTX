@@ -8,8 +8,8 @@
     <o1> Flash Size (in Bytes) <0x0-0xFFFFFFFF:8>
   </h>
   -----------------------------------------------------------------------------*/
-__ROM_BASE = 0x00200000;
-__ROM_SIZE = 0x00200000;
+__ROM_BASE = 0x00000000;
+__ROM_SIZE = 0x00040000;
 
 /*--------------------- Embedded RAM Configuration ----------------------------
   <h> RAM Configuration
@@ -17,8 +17,8 @@ __ROM_SIZE = 0x00200000;
     <o1> RAM Size (in Bytes) <0x0-0xFFFFFFFF:8>
   </h>
  -----------------------------------------------------------------------------*/
-__RAM_BASE = 0x20200000;
-__RAM_SIZE = 0x00200000;
+__RAM_BASE = 0x20000000;
+__RAM_SIZE = 0x00020000;
 
 /*--------------------- Stack / Heap Configuration ----------------------------
   <h> Stack / Heap Configuration

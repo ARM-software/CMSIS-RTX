@@ -29,6 +29,10 @@ project:
         - file: ../CM33_s/SysTick_s.h
         - file: $cmse-lib(CM33_s)$
 
+  # List instructions for the linker.
+  linker:
+    - regions: ./RTE/Device/ARMCM33/regions_ARMCM33.h
+
   # List executable file formats to be generated.
   output:
     type:

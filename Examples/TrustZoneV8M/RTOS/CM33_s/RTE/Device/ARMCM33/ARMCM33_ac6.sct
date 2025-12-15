@@ -1,4 +1,4 @@
-#! armclang -E --target=arm-arm-none-eabi -mcpu=cortex-m33 -xc -mcmse
+#! armclang -E --target=arm-arm-none-eabi -mcpu=cortex-m33 -xc
 ; command above MUST be in first line (no comment above!)
 
 ;Note: Add '-mcmse' to first line if your software model is "Secure Mode".
@@ -16,7 +16,7 @@
 ; </h>
  *----------------------------------------------------------------------------*/
 #define __ROM_BASE      0x00000000
-#define __ROM_SIZE      0x00200000
+#define __ROM_SIZE      0x00080000
 
 /*--------------------- Embedded RAM Configuration ---------------------------
 ; <h> RAM Configuration
@@ -25,7 +25,7 @@
 ; </h>
  *----------------------------------------------------------------------------*/
 #define __RAM_BASE      0x20000000
-#define __RAM_SIZE      0x00020000
+#define __RAM_SIZE      0x00040000
 
 /*--------------------- Stack / Heap Configuration ---------------------------
 ; <h> Stack / Heap Configuration
@@ -33,7 +33,7 @@
 ;   <o1> Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
  *----------------------------------------------------------------------------*/
-#define __STACK_SIZE    0x00000400
+#define __STACK_SIZE    0x00000200
 #define __HEAP_SIZE     0x00000C00
 
 /*--------------------- CMSE Veneer Configuration ---------------------------

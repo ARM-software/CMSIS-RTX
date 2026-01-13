@@ -713,7 +713,8 @@
       <description>CMSIS-RTOS2 Blinky example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="Blinky.uvprojx"/>
+        <environment name="uv"        load="Blinky.uvprojx"/>
+        <environment name="csolution" load="Blinky.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -726,7 +727,8 @@
       <description>CMSIS-RTOS2 Memory Pool Example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="MemPool.uvprojx"/>
+        <environment name="uv"        load="MemPool.uvprojx"/>
+        <environment name="csolution" load="MemPool.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -739,7 +741,8 @@
       <description>CMSIS-RTOS2 Message Queue Example</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="MsgQueue.uvprojx"/>
+        <environment name="uv"        load="MsgQueue.uvprojx"/>
+        <environment name="csolution" load="MsgQueue.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -752,7 +755,8 @@
       <description>Bare-metal secure/non-secure example without RTOS</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="NoRTOS.uvmpw"/>
+        <environment name="uv"        load="NoRTOS.uvmpw"/>
+        <environment name="csolution" load="NoRTOS.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -765,7 +769,8 @@
       <description>Secure/non-secure RTOS example with thread context management</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="RTOS.uvmpw"/>
+        <environment name="uv"        load="RTOS.uvmpw"/>
+        <environment name="csolution" load="RTOS.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>
@@ -778,7 +783,8 @@
       <description>Secure/non-secure RTOS example with security test cases and system recovery</description>
       <board name="uVision Simulator" vendor="Keil"/>
       <project>
-        <environment name="uv" load="RTOS_Faults.uvmpw"/>
+        <environment name="uv"        load="RTOS_Faults.uvmpw"/>
+        <environment name="csolution" load="RTOS_Faults.csolution.yml"/>
       </project>
       <attributes>
         <component Cclass="CMSIS" Cgroup="CORE"/>

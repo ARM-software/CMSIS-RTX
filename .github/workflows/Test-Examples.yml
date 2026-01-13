@@ -1,0 +1,103 @@
+name: Test-Examples
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/Test-Examples.yml  # Execute this workflow when workflow is being modified
+      - Examples/**                          # Execute this workflow when there are modifications inside Examples directory
+  push:
+    branches: [main]                         # Execute this workflow when main branch is updated
+
+jobs:
+  Test-Examples:
+    strategy:
+      matrix:
+        test: [
+          { tool: AC6,   dir: Examples/Blinky,                    proj: Blinky,       artifact: Blinky,                   model: FVP_MPS2_Cortex-M3, out: Blinky, ext: axf },
+          { tool: GCC,   dir: Examples/Blinky,                    proj: Blinky,       artifact: Blinky,                   model: FVP_MPS2_Cortex-M3, out: Blinky, ext: elf },
+          { tool: CLANG, dir: Examples/Blinky,                    proj: Blinky,       artifact: Blinky,                   model: FVP_MPS2_Cortex-M3, out: Blinky, ext: elf },
+        # { tool: IAR,   dir: Examples/Blinky,                    proj: Blinky,       artifact: Blinky,                   model: FVP_MPS2_Cortex-M3, out: Blinky, ext: out },
+                  
+          { tool: AC6,   dir: Examples/MemPool,                   proj: MemPool,      artifact: MemPool,                  model: FVP_MPS2_Cortex-M3, out: MemPool, ext: axf },
+          { tool: GCC,   dir: Examples/MemPool,                   proj: MemPool,      artifact: MemPool,                  model: FVP_MPS2_Cortex-M3, out: MemPool, ext: elf },
+          { tool: CLANG, dir: Examples/MemPool,                   proj: MemPool,      artifact: MemPool,                  model: FVP_MPS2_Cortex-M3, out: MemPool, ext: elf },
+       #  { tool: IAR,   dir: Examples/MemPool,                   proj: MemPool,      artifact: MemPool,                  model: FVP_MPS2_Cortex-M3, out: MemPool, ext: out },
+                                  
+          { tool: AC6,   dir: Examples/MsgQueue,                  proj: MsgQueue,     artifact: MsgQueue,                 model: FVP_MPS2_Cortex-M3, out: MsgQueue, ext: axf },
+          { tool: GCC,   dir: Examples/MsgQueue,                  proj: MsgQueue,     artifact: MsgQueue,                 model: FVP_MPS2_Cortex-M3, out: MsgQueue, ext: elf },
+          { tool: CLANG, dir: Examples/MsgQueue,                  proj: MsgQueue,     artifact: MsgQueue,                 model: FVP_MPS2_Cortex-M3, out: MsgQueue, ext: elf },
+       #  { tool: IAR,   dir: Examples/MsgQueue,                  proj: MsgQueue,     artifact: MsgQueue,                 model: FVP_MPS2_Cortex-M3, out: MsgQueue, ext: out },
+
+          { tool: AC6,   dir: Examples/TrustZoneV8M/NoRTOS,       proj: NoRTOS,       artifact: TrustZoneV8M_NoRTOS,      model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: axf },
+          { tool: GCC,   dir: Examples/TrustZoneV8M/NoRTOS,       proj: NoRTOS,       artifact: TrustZoneV8M_NoRTOS,      model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+          { tool: CLANG, dir: Examples/TrustZoneV8M/NoRTOS,       proj: NoRTOS,       artifact: TrustZoneV8M_NoRTOS,      model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+       #  { tool: IAR,   dir: Examples/TrustZoneV8M/NoRTOS,       proj: NoRTOS,       artifact: TrustZoneV8M_NoRTOS,      model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: out },
+
+          { tool: AC6,   dir: Examples/TrustZoneV8M/RTOS,         proj: RTOS,         artifact: TrustZoneV8M_RTOS,        model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: axf },
+          { tool: GCC,   dir: Examples/TrustZoneV8M/RTOS,         proj: RTOS,         artifact: TrustZoneV8M_RTOS,        model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+          { tool: CLANG, dir: Examples/TrustZoneV8M/RTOS,         proj: RTOS,         artifact: TrustZoneV8M_RTOS,        model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+       #  { tool: IAR,   dir: Examples/TrustZoneV8M/RTOS,         proj: RTOS,         artifact: TrustZoneV8M_RTOS,        model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: out },
+
+          { tool: AC6,   dir: Examples/TrustZoneV8M/RTOS_Faults,  proj: RTOS_Faults,  artifact: TrustZoneV8M_RTOS_Faults, model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: axf },
+          { tool: GCC,   dir: Examples/TrustZoneV8M/RTOS_Faults,  proj: RTOS_Faults,  artifact: TrustZoneV8M_RTOS_Faults, model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+          { tool: CLANG, dir: Examples/TrustZoneV8M/RTOS_Faults,  proj: RTOS_Faults,  artifact: TrustZoneV8M_RTOS_Faults, model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: elf },
+       #  { tool: IAR,   dir: Examples/TrustZoneV8M/RTOS_Faults,  proj: RTOS_Faults,  artifact: TrustZoneV8M_RTOS_Faults, model: FVP_MPS2_Cortex-M33, out_ns: CM33_ns, out_s: CM33_s, ext: out }
+          ]
+
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        uses: ARM-software/cmsis-actions/vcpkg@v1
+        with:
+          config: "./.ci/vcpkg-configuration.json"
+
+      - name: Activate Arm tool license
+        uses: ARM-software/cmsis-actions/armlm@v1
+
+      - name: Initialize CMSIS pack root folder
+        run: |
+          cpackget init https://www.keil.com/pack/index.pidx
+          cpackget update-index
+
+      - name: Add local CMSIS packs
+        run: |
+          cpackget add ./ARM.CMSIS-RTX.pdsc
+
+      - name: Copy example to .ci folder
+        working-directory: ./
+        run: |
+          mkdir -p ./.ci/${{ matrix.test.dir }}
+          cp -a ./${{ matrix.test.dir }}/* ./.ci/${{ matrix.test.dir }}/
+
+      - name: Build example
+        working-directory: ./.ci/${{ matrix.test.dir }}
+        run: |
+          cbuild ./${{ matrix.test.proj }}.csolution.yml --packs --toolchain ${{ matrix.test.tool }}
+
+      # Conditionally execute based on whether it's a TrustZone example or not
+      - name: Execute example
+        working-directory: ./.ci/${{ matrix.test.dir }}
+        run: |
+          if [[ "${{ matrix.test.model }}" == *"FVP_MPS2_Cortex-M33"* ]]; then
+            echo "Running TrustZoneV8M example with secure and non-secure binaries"
+            ${{ matrix.test.model }} -f ./fvp_config.txt -a ./out/${{ matrix.test.out_ns }}/FVP/Debug/${{ matrix.test.out_ns }}.${{ matrix.test.ext }} -a ./out/${{ matrix.test.out_s }}/FVP/Debug/${{ matrix.test.out_s }}.${{ matrix.test.ext }} --simlimit 10
+          else
+            echo "Running standard example"
+            ${{ matrix.test.model }} -f ./fvp_config.txt -a ./out/${{ matrix.test.out }}/FVP/Debug/${{ matrix.test.out }}.${{ matrix.test.ext }} --simlimit 10
+          fi
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.test.artifact }}_${{ matrix.test.tool }}
+          path: |
+            ./.ci/${{ matrix.test.dir }}/
+            !./.ci/${{ matrix.test.dir }}/tmp/
+          retention-days: 1

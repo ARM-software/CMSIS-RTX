@@ -35,6 +35,11 @@ solution:
   target-types:
     - type: FVP
       device: ARMCM33
+      target-set:
+        - set:
+          images:
+            - project-context: CM33_ns.Debug
+            - project-context: CM33_s.Debug
 
   # List of different build configurations.
   build-types:

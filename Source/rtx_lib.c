@@ -130,7 +130,7 @@ static const osThreadAttr_t os_idle_thread_attr = {
 #if defined(OS_IDLE_THREAD_NAME)
   OS_IDLE_THREAD_NAME,
 #else
-  NULL,
+  "osRtxIdle",
 #endif
 #ifdef RTX_SAFETY_CLASS
   osSafetyClass((uint32_t)OS_IDLE_THREAD_CLASS) |
@@ -194,7 +194,7 @@ static const osThreadAttr_t os_timer_thread_attr = {
 #if defined(OS_TIMER_THREAD_NAME)
   OS_TIMER_THREAD_NAME,
 #else
-  NULL,
+  "osRtxTimer",
 #endif
 #ifdef RTX_SAFETY_CLASS
   osSafetyClass((uint32_t)OS_TIMER_THREAD_CLASS) |

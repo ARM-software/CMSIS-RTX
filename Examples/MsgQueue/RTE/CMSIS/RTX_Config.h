@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023 Arm Limited. All rights reserved.
+ * Copyright (c) 2013-2026 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -17,7 +17,7 @@
  *
  * -----------------------------------------------------------------------------
  *
- * $Revision:   V5.6.0
+ * $Revision:   V5.6.1
  *
  * Project:     CMSIS-RTOS RTX
  * Title:       RTX Configuration definitions
@@ -228,9 +228,9 @@
 //   <o>Default Processor mode for Thread execution
 //     <0=> Unprivileged mode
 //     <1=> Privileged mode
-//   <i> Default: Unprivileged mode
+//   <i> Default: Privileged mode
 #ifndef OS_PRIVILEGE_MODE
-#define OS_PRIVILEGE_MODE           0
+#define OS_PRIVILEGE_MODE           1
 #endif
  
 // </h>

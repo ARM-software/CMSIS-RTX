@@ -1,0 +1,13 @@
+# Parameters:
+# instance.parameter=value       #(type, mode) default = 'def value' : description : [min..max]
+#------------------------------------------------------------------------------
+cpu0.INITNSVTOR=0x0                                   # (int   , init-time) default = '0x0'    : Non-Secure vector-table offset at reset : [0x0:0xffffff80]
+cpu0.INITSVTOR=0x00000000                             # (int   , init-time) default = '0x10000000' : Secure vector-table offset at reset : [0x0:0xffffff80]
+cpu0.semihosting-enable=1                             # (bool  , init-time) default = '1'      : Enable semihosting SVC traps. Applications that do not use semihosting must set this parameter to false.
+cpu0.semihosting-heap_base=0                          # (int   , init-time) default = '0x0'    : Virtual address of heap base : [0x0:0xffffffff]
+cpu0.semihosting-heap_limit=0                         # (int   , init-time) default = '0x20700000' : Virtual address of top of heap : [0x0:0xffffffff]
+cpu0.semihosting-stack_base=0                         # (int   , init-time) default = '0x20800000' : Virtual address of base of descending stack : [0x0:0xffffffff]
+cpu0.semihosting-stack_limit=0                        # (int   , init-time) default = '0x20700000' : Virtual address of stack limit : [0x0:0xffffffff]
+fvp_mps2.DISABLE_GATING=1                             # (bool  , init-time) default = '0'      : Disable Memory gating logic
+fvp_mps2.mps2_visualisation.disable-visualisation=1   # (bool  , init-time) default = '0'      : Enable/disable visualisation
+#------------------------------------------------------------------------------

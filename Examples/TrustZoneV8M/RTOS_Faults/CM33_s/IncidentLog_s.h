@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2016 ARM Limited. All rights reserved.
+ * Copyright (c) 2013-2025 ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -52,7 +52,7 @@ typedef enum  {
 typedef struct  {
   IncidentReason_t       Reason;  // incident reason 
   uint8_t                 Flags;  // secure / non-secure state
-	uint16_t             Reserved;  // reserved (not used)
+  uint16_t             Reserved;  // reserved (not used)
   uint32_t                 Time;  // time stamp
   uint32_t             Location;  // PC address of incident
 } IncidentLogEntry_t;

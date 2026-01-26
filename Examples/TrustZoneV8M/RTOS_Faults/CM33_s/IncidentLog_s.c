@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2016 ARM Limited. All rights reserved.
+ * Copyright (c) 2013-2025 ARM Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -29,7 +29,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <arm_cmse.h>
-#include <arm_compat.h>
 
 // locate IncidentLog buffer in uninitialized section
 // and use the linker scatter file to ensure that it is not initialized
@@ -44,7 +43,7 @@ extern unsigned int Seconds ;
 
 uint32_t InitIncidentLog (void) {
   if (INCIDENT_LOG_MAGIC_NUMBER != IncidentLog.MagicNumber) {
-    /* magig number not there, so initialization required */
+    /* magic number not there, so initialization required */
     memset( &IncidentLog, 0, sizeof( IncidentLog ));
     IncidentLog.MagicNumber = INCIDENT_LOG_MAGIC_NUMBER;
   }
@@ -82,8 +81,8 @@ void GetIncidentLog_s (IncidentLog_t *IncidentLog_p) {
     memcpy (IncidentLog_p_ok, &IncidentLog, sizeof (IncidentLog_t));
   }
   else
-  {  /* requested copy range is not comnpletely in non-secure memory */
-    LogIncident (IR_SECDAT, __current_pc(), IS_SECURE);
+  {  /* requested copy range is not completely in non-secure memory */
+    LogIncident (IR_SECDAT, (uint32_t)__builtin_return_address(0), IS_SECURE);
     PerformReset ();
   }
 }

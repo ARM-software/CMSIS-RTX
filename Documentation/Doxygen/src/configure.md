@@ -153,7 +153,7 @@ Idle Thread Safety Class                        | `OS_IDLE_THREAD_CLASS`       |
 Idle Thread Zone                                | `OS_IDLE_THREAD_ZONE`        | Defines the \ref rtos_process_isolation_mpu "MPU Protected Zone" for the Idle thread. Applied only if MPU protected Zone functionality is enabled in \ref systemConfig. Default value is \token{0}.
 Stack overrun checking                          | `OS_STACK_CHECK`             | Enable stack overrun checks at thread switch.
 Stack usage watermark                           | `OS_STACK_WATERMARK`         | Initialize thread stack with watermark pattern for analyzing stack usage. Enabling this option increases significantly the execution time of thread creation.
-Processor mode for Thread execution             | `OS_PRIVILEGE_MODE`          | Controls the default processor mode when not specified through thread attributes \ref osThreadUnprivileged or \ref osThreadPrivileged. Default value is \token{Unprivileged} mode. Value range is \token{[0=Unprivileged; 1=Privileged]} mode.
+Processor mode for Thread execution             | `OS_PRIVILEGE_MODE`          | Controls the default processor mode when not specified through thread attributes \ref osThreadUnprivileged or \ref osThreadPrivileged. Default value is \token{Privileged} mode. Value range is \token{[0=Unprivileged; 1=Privileged]} mode.
 
 ### Configuration of Thread Count and Stack Space {#threadConfig_countstack}
 

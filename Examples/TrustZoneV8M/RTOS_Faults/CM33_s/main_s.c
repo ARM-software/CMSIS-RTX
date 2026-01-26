@@ -25,6 +25,7 @@
  *
  *---------------------------------------------------------------------------*/
  
+#include <stdio.h>
 /* Use CMSE intrinsics */
 #include <arm_cmse.h>
  
@@ -46,6 +47,7 @@ int main(void) {
   funcptr_void NonSecure_ResetHandler;
  
   /* Add user setup code for secure part here*/
+  printf("Hello from the Secure World!\n");
  
   /* Set non-secure main stack (MSP_NS) */
   __TZ_set_MSP_NS(*((uint32_t *)(TZ_START_NS)));

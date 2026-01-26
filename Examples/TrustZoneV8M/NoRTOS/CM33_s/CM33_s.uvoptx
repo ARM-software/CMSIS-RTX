@@ -125,7 +125,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DbgFMv8M</Key>
-          <Name>-I -S -L"cpu0" -O4102 -C0 -MC"$KARM\VHT\VHT_MPS2_Cortex-M33.exe" -MF"..\ARMCM33_config.txt" -PF -MA</Name>
+          <Name>-I -S -L"cpu0" -O4102 -C0 -MC"$KARM\avh-fvp\bin\models\FVP_MPS2_Cortex-M33.exe" -MF"..\ARMCM33_config.txt" -PF -MA</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>

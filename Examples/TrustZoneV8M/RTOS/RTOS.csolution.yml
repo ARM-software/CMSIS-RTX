@@ -1,15 +1,57 @@
+# A solution is a collection of related projects that share same base configuration.
 solution:
-  created-for: CMSIS-Toolbox@2.0.0
+  created-for: CMSIS-Toolbox@2.12.0
+  cdefault: # use CMSIS-Toolbox default Compiler options
 
-  cdefault:
+  # Compilers that can be selected.
+  select-compiler:
+    - compiler: AC6
+    - compiler: GCC
+    - compiler: IAR
+    - compiler: CLANG
 
+  # List of miscellaneous tool-specific controls.
+  misc:
+    - for-compiler: AC6 # GDB requires DWARF 5, remove when using uVision Debugger
+      C-CPP:
+        - -gdwarf-5
+      ASM:
+        - -gdwarf-5
+    - for-compiler: GCC # Enable semihosting for GCC
+      Link:
+        - --specs=rdimon.specs
+    - for-compiler: CLANG # Enable semihosting for CLANG
+      Link:
+        - -lsemihost
+    - for-compiler: IAR # Enable semihosting for IAR
+      Link:
+        - --semihosting
+
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: ARM::Cortex_DFP@^1.1.0-0
+
+  # List different hardware targets that are used to deploy the solution.
   target-types:
     - type: FVP
       device: ARMCM33
+      target-set:
+        - set:
+          images:
+            - project-context: CM33_ns.Debug
+            - project-context: CM33_s.Debug
 
-  optimize: size
-  debug: on
+  # List of different build configurations.
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
 
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  # List related projects.
   projects:
     - project: CM33_s/CM33_s.cproject.yml
     - project: CM33_ns/CM33_ns.cproject.yml

@@ -7,16 +7,52 @@ FuSa RTX5 installation and project setup are explained in \ref fusa_rtx_installa
 \ifnot FuSaRTS
 The steps to create a microcontroller application using RTX5 are:
 
-- Create a new project and select a microcontroller device.
+- \ref inst_pack "Install" the pack.
+- In your IDE, create a new project and select a microcontroller device.
+- \ref comp-sel "Add the Keil RTX5 software components" to your project.
+
+## Pack installation {#inst_pack}
+
+Add the ARM::CMSIS-RTX pack to your installation:
+
+```
+cpackget add ARM::CMSIS-RTX
+```
+
+Alternatively, you can download the latest version from the
+[CMSIS-RTX](https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/) page.
+
+## Component selection {#comp-sel}
+
+### In the Arm CMSIS Solution extension
+
+In your IDE, open the
+[Manage software components](https://mdk-packs.github.io/vscode-cmsis-solution-docs/create_app.html#software-components)
+dialog.
+
+1. If you cannot see the **CMSIS:RTOS2 (API):Keil RTX5** component, select to display **All installed packs**.
+2. Select the component. Choose to use the **Library** or the **Source** variant.
+3. Add the **CMSIS:OS Tick (API):SysTick** component.
+4. **Save** the selection.
+
+![Component selection in Arm CMSIS Solution extension](./images/comp-sel-ext.png)
+
+In the **CMSIS** view, you can add template files to the project:
+
+1. Click on the `+` next to a group.
+2. Select **Add From Component Code Template**.
+3. Select one of the templates that are shown:
+
+![Add code template](./images/code-temp-ext.png)
+
+### In uVision
+
 - In the Manage Run-Time Environment window, select **CMSIS\::CORE**, **CMSIS\::OS Tick (API)\::SysTick** and **CMSIS\::RTOS2 (API)\::Keil RTX5**. You can choose to either add RTX as a library (Variant: **Library**) or to add the full source code (Variant: **Source**) - required if using the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html):
 
 ![Run-Time Environment for RTX5 in Keil uVision](./images/manage_rte_output.png)
 
 - If the **Validation Output** requires other components to be present, try to use the **Resolve** button.
-- Click **OK**. In the **Project** window, you will see the files that have been automatically added to you project, such as **%RTX_Config.h**, **%RTX_Config.c**, the library or the source code files, as well as the system and startup files:
-
-![RTX5 Project Window in Keil uVision](./images/project_window.png)
-
+- Click **OK**.
 - If using the Variant: **Source** as stated above, you have to assure to use at least C99 compiler mode (Project Options -> C/C++ -> C99 Mode).
 - You can add template files to the project by right-clicking on **Source Group 1** and selecting **Add New Item to 'Source Group 1'**. In the new window, click on **User Code Template**. On the right-hand side you will see all available template files for CMSIS-RTOS RTX:
 
@@ -60,19 +96,18 @@ If you require some of the RTX specific functions in your application code, incl
 ## Add Event Recorder Visibility {#cre_rtx_proj_er}
 
 \ifnot FuSaRTS
-RTX5 interfaces to the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html) to provide event information which helps you to understand and analyze the operation.
+RTX5 interfaces to the [Event Recorder](https://arm-software.github.io/CMSIS-View/latest/evr.html) to provide event
+information which helps you to understand and analyze the operation.
 
 - To use the Event Recorder together with RTX5, select the software component **CMSIS-View:Event Recorder**.
 - Select the **Source** variant of the software component **CMSIS:RTOS2 (API):Keil RTX5**.
-
-![Component selection for Event Recorder](./images/event_recorder_rte.png)
-
 - Enable the related settings under \ref evtrecConfig.
 - Build the application code and download it to the debug hardware.
 
 \endif
 
-Once the target application generates event information, it can be viewed in the µVision debugger using the EventRecorder.
+Once the target application generates event information, it can be viewed for example with the
+[eventlist](https://github.com/ARM-software/CMSIS-View/tree/main/tools/eventlist) tool.
 
 \ifnot FuSaRTS
 ## Building the RTX5 Library {#creating_RTX5_LIB}

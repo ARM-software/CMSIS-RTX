@@ -215,7 +215,7 @@ var searchData=
   ['exercise_2014_20semaphore_20barrier_212',['Exercise 14 - Semaphore Barrier',['../rtos2_tutorial.html#rtos2_tutorial_ex14',1,'']]],
   ['exercise_2015_20mutex_213',['Exercise 15 - Mutex',['../rtos2_tutorial.html#rtos2_tutorial_ex15',1,'']]],
   ['exercise_2016_20message_20queue_214',['Exercise 16 - Message Queue',['../rtos2_tutorial.html#rtos2_tutorial_ex16',1,'']]],
-  ['exercise_2017_20message_20queue_20rtos2_5ftutorial_5fex17_215',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md3',1,'']]],
+  ['exercise_2017_20message_20queue_20rtos2_5ftutorial_5fex17_215',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md5',1,'']]],
   ['exercise_2018_20zero_20copy_20mailbox_216',['Exercise 18 - Zero Copy Mailbox',['../rtos2_tutorial.html#rtos2_tutorial_ex18',1,'']]],
   ['exercise_202_20creating_20and_20managing_20threads_217',['Exercise 2 - Creating and Managing Threads',['../rtos2_tutorial.html#rtos2_tutorial_ex2',1,'']]],
   ['exercise_203_20memory_20model_218',['Exercise 3 - Memory Model',['../rtos2_tutorial.html#rtos2_tutorial_ex3',1,'']]],
@@ -225,5 +225,6 @@ var searchData=
   ['exercise_207_20virtual_20timer_222',['Exercise 7 - Virtual Timer',['../rtos2_tutorial.html#rtos2_tutorial_ex7',1,'']]],
   ['exercise_208_20idle_20thread_223',['Exercise 8 - Idle Thread',['../rtos2_tutorial.html#rtos2_tutorial_ex8',1,'']]],
   ['exercise_209_20thread_20flags_224',['Exercise 9 - Thread Flags',['../rtos2_tutorial.html#rtos2_tutorial_ex9',1,'']]],
-  ['extended_20message_20queue_225',['Extended Message Queue',['../rtos2_tutorial.html#rtos2_tutorial_ext_msg_queue',1,'']]]
+  ['extended_20message_20queue_225',['Extended Message Queue',['../rtos2_tutorial.html#rtos2_tutorial_ext_msg_queue',1,'']]],
+  ['extension_226',['In the Arm CMSIS Solution extension',['../cre_rtx_proj.html#autotoc_md0',1,'']]]
 ];

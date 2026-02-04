@@ -20,5 +20,6 @@ var searchData=
   ['using_20semaphores_17',['Using Semaphores',['../rtos2_tutorial.html#rtos2_tutorial_sem_usage',1,'']]],
   ['using_20trustzone_20for_20armv8_20m_18',['Using TrustZone for Armv8-M',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/using_TrustZone_pg.html',0,'']]],
   ['using_2emd_19',['using.md',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/using_8md.html',0,'']]],
-  ['using_5ftz_2emd_20',['using_tz.md',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/using__tz_8md.html',0,'']]]
+  ['using_5ftz_2emd_20',['using_tz.md',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/using__tz_8md.html',0,'']]],
+  ['uvision_21',['In uVision',['../cre_rtx_proj.html#autotoc_md1',1,'']]]
 ];

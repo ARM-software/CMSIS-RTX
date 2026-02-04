@@ -132,7 +132,43 @@ $(function(){initNavTree('cre_rtx_proj.html',''); initResizable(true); });
 <div class="textblock"><p><a class="anchor" id="md_src_2project"></a></p>
 <p>The steps to create a microcontroller application using RTX5 are:</p>
 <ul>
-<li>Create a new project and select a microcontroller device.</li>
+<li><a class="el" href="#inst_pack">Install</a> the pack.</li>
+<li>In your IDE, create a new project and select a microcontroller device.</li>
+<li><a class="el" href="#comp-sel">Add the Keil RTX5 software components</a> to your project.</li>
+</ul>
+<h1><a class="anchor" id="inst_pack"></a>
+Pack installation</h1>
+<p>Add the ARM::CMSIS-RTX pack to your installation:</p>
+<div class="fragment"><div class="line">cpackget add ARM::CMSIS-RTX</div>
+</div><!-- fragment --><p>Alternatively, you can download the latest version from the <a href="https://www.keil.arm.com/packs/cmsis-rtx-arm/versions/" target="_blank">CMSIS-RTX</a> page.</p>
+<h1><a class="anchor" id="comp-sel"></a>
+Component selection</h1>
+<h2><a class="anchor" id="autotoc_md0"></a>
+In the Arm CMSIS Solution extension</h2>
+<p>In your IDE, open the <a href="https://mdk-packs.github.io/vscode-cmsis-solution-docs/create_app.html#software-components" target="_blank">Manage software components</a> dialog.</p>
+<ol type="1">
+<li>If you cannot see the <b>CMSIS:RTOS2 (API):Keil RTX5</b> component, select to display <b>All installed packs</b>.</li>
+<li>Select the component. Choose to use the <b>Library</b> or the <b>Source</b> variant.</li>
+<li>Add the <b>CMSIS:OS Tick (API):SysTick</b> component.</li>
+<li><b>Save</b> the selection.</li>
+</ol>
+<div class="image">
+<img src="comp-sel-ext.png" alt=""/>
+<div class="caption">
+Component selection in Arm CMSIS Solution extension</div></div>
+    <p>In the <b>CMSIS</b> view, you can add template files to the project:</p>
+<ol type="1">
+<li>Click on the <code>+</code> next to a group.</li>
+<li>Select <b>Add From Component Code Template</b>.</li>
+<li>Select one of the templates that are shown:</li>
+</ol>
+<div class="image">
+<img src="code-temp-ext.png" alt=""/>
+<div class="caption">
+Add code template</div></div>
+    <h2><a class="anchor" id="autotoc_md1"></a>
+In uVision</h2>
+<ul>
 <li>In the Manage Run-Time Environment window, select <b>CMSIS::CORE</b>, <b>CMSIS::OS Tick (API)::SysTick</b> and <b>CMSIS::RTOS2 (API)::Keil RTX5</b>. You can choose to either add RTX as a library (Variant: <b>Library</b>) or to add the full source code (Variant: <b>Source</b>) - required if using the <a href="https://arm-software.github.io/CMSIS-View/latest/evr.html" target="_blank">Event Recorder</a>:</li>
 </ul>
 <div class="image">
@@ -141,13 +177,7 @@ $(function(){initNavTree('cre_rtx_proj.html',''); initResizable(true); });
 Run-Time Environment for RTX5 in Keil uVision</div></div>
     <ul>
 <li>If the <b>Validation Output</b> requires other components to be present, try to use the <b>Resolve</b> button.</li>
-<li>Click <b>OK</b>. In the <b>Project</b> window, you will see the files that have been automatically added to you project, such as <b>RTX_Config.h</b>, <b>RTX_Config.c</b>, the library or the source code files, as well as the system and startup files:</li>
-</ul>
-<div class="image">
-<img src="project_window.png" alt=""/>
-<div class="caption">
-RTX5 Project Window in Keil uVision</div></div>
-    <ul>
+<li>Click <b>OK</b>.</li>
 <li>If using the Variant: <b>Source</b> as stated above, you have to assure to use at least C99 compiler mode (Project Options -&gt; C/C++ -&gt; C99 Mode).</li>
 <li>You can add template files to the project by right-clicking on <b>Source Group 1</b> and selecting <b>Add New Item to 'Source Group 1'</b>. In the new window, click on <b>User Code Template</b>. On the right-hand side you will see all available template files for CMSIS-RTOS RTX:</li>
 </ul>
@@ -186,20 +216,14 @@ Add Event Recorder Visibility</h1>
 <ul>
 <li>To use the Event Recorder together with RTX5, select the software component <b>CMSIS-View:Event Recorder</b>.</li>
 <li>Select the <b>Source</b> variant of the software component <b>CMSIS:RTOS2 (API):Keil RTX5</b>.</li>
-</ul>
-<div class="image">
-<img src="event_recorder_rte.png" alt=""/>
-<div class="caption">
-Component selection for Event Recorder</div></div>
-    <ul>
 <li>Enable the related settings under <a class="el" href="config_rtx5.html#evtrecConfig">Event Recorder Configuration</a>.</li>
 <li>Build the application code and download it to the debug hardware.</li>
 </ul>
-<p>Once the target application generates event information, it can be viewed in the µVision debugger using the EventRecorder.</p>
+<p>Once the target application generates event information, it can be viewed for example with the <a href="https://github.com/ARM-software/CMSIS-View/tree/main/tools/eventlist" target="_blank">eventlist</a> tool.</p>
 <h1><a class="anchor" id="creating_RTX5_LIB"></a>
 Building the RTX5 Library</h1>
 <p>The CMSIS Pack contains a csolution project for building the complete set of RTX5 libraries. This project can also be used as a reference for building the RTX5 libraries using a tool-chain of your choice.</p>
-<h2><a class="anchor" id="autotoc_md0"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Build Process</h2>
 <p>The build process is managed using the following files:</p>
 <ul>
@@ -207,7 +231,7 @@ Build Process</h2>
 <li><code>RTX_Library.cproject.yml</code>: Specifies the project settings.</li>
 <li><code>build.sh</code>: Script that triggers the library build process.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Libraries Built</h2>
 <p>The following table lists the files available in the build output directory, its target architecture with additional attributes and target toolchain.</p>
 <table class="markdownTable">
@@ -247,7 +271,7 @@ Libraries Built</h2>
 <li><b>non-secure</b>: library built for TrustZone non-secure domain</li>
 </ul>
 <p>All RTX5 libraries are built with debug information produced for use by a debugger.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Optimization</h2>
 <p>The build process optimizes RTX5 libraries for size, which translates to the following per compiler compiler options:</p>
 <table class="markdownTable">

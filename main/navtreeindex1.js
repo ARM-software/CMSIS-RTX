@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"group__rtx__evr__message__queue.html#ga22bfb7d1c2f6e3e9fea9d3267b2d6988":[8,1,3,10,14],
+"group__rtx__evr__message__queue.html#ga2922125d8ac63fd800dc3b7888fd3f3c":[8,1,3,10,9],
+"group__rtx__evr__message__queue.html#ga36d6982377c1f54a227ba6fbb9458b79":[8,1,3,10,2],
+"group__rtx__evr__message__queue.html#ga3947d4a7ac86ee7a50052c9eb4cd5432":[8,1,3,10,20],
 "group__rtx__evr__message__queue.html#ga3bbf02128c31e5cc7ef4c78cdbec508c":[8,1,3,10,22],
 "group__rtx__evr__message__queue.html#ga3d6348bed3937de29765ed4d7d07fac8":[8,1,3,10,16],
 "group__rtx__evr__message__queue.html#ga401536a603e5a805cc6089b4de11d3d3":[8,1,3,10,4],
@@ -142,7 +146,7 @@ var NAVTREEINDEX1 =
 "pages.html":[],
 "rev_hist.html":[1],
 "rtos2_tutorial.html":[7],
-"rtos2_tutorial.html#autotoc_md3":[7,11,4,3],
+"rtos2_tutorial.html#autotoc_md5":[7,11,4,3],
 "rtos2_tutorial.html#rtos2_tutorial_abs_time_delay":[7,10,1],
 "rtos2_tutorial.html#rtos2_tutorial_access":[7,2],
 "rtos2_tutorial.html#rtos2_tutorial_conclusion":[7,13],

@@ -16,7 +16,7 @@ var searchData=
   ['on_20cortex_20m_13',['Using Interrupts on Cortex-M',['../theory_of_operation.html#cre_UsingIRQs',1,'']]],
   ['only_14',['Safety features (Source variant only)',['../config_rtx5.html#safetyConfig_safety',1,'']]],
   ['operation_15',['Operation',['../theory_of_operation.html#lowPower',1,'Low-Power Operation'],['../theory_of_operation.html',1,'Theory of Operation'],['../theory_of_operation.html#TickLess',1,'Tick-less Low-Power Operation']]],
-  ['optimization_16',['Optimization',['../cre_rtx_proj.html#autotoc_md2',1,'']]],
+  ['optimization_16',['Optimization',['../cre_rtx_proj.html#autotoc_md4',1,'']]],
   ['os_20tick_20api_17',['OS Tick API',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html',0,'']]],
   ['os_5fid_18',['os_id',['../structosRtxInfo__t.html#a7b7d02cdf33432995469f29878f7dcda',1,'osRtxInfo_t']]],
   ['os_5ftick_5facknowledgeirq_19',['OS_Tick_AcknowledgeIRQ',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS__TickAPI.html#ga14c430d2b363ebd9f904b0822a9314e7',0,]]],

@@ -64,7 +64,7 @@ var searchData=
   ['rtos2_20api_61',['RTOS2 API',['../rtos2_tutorial.html#rtos2_tutorial_access',1,'Accessing the CMSIS-RTOS2 API'],['../group__rtos2__api.html',1,'CMSIS-RTOS2 API'],['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/group__CMSIS__RTOS.html',0,'CMSIS-RTOS2 API']]],
   ['rtos2_20interface_62',['Using CMSIS-RTOS2 Interface',['https://arm-software.github.io/CMSIS_6/v6.0.0/RTOS2/usingOS2.html',0,'']]],
   ['rtos2_20project_63',['Exercise 1 - A First CMSIS-RTOS2 Project',['../rtos2_tutorial.html#rtos2_tutorial_ex1',1,'']]],
-  ['rtos2_5ftutorial_5fex17_64',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md3',1,'']]],
+  ['rtos2_5ftutorial_5fex17_64',['Exercise 17 - Message Queue {# rtos2_tutorial_ex17}',['../rtos2_tutorial.html#autotoc_md5',1,'']]],
   ['rtx_65',['Access to CMSIS-RTX',['../index.html#rtx_access',1,'']]],
   ['rtx_20kernel_20timer_20tick_66',['RTX Kernel Timer Tick',['../theory_of_operation.html#kernelTimer',1,'']]],
   ['rtx_20on_20cortex_20a_67',['Additional requirements for RTX on Cortex-A',['../cre_rtx_proj.html#cre_rtx_cortexa',1,'']]],

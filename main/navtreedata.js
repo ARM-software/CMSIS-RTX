@@ -58,14 +58,19 @@ var NAVTREE =
       [ "Arm C library multi-threading protection", "theory_of_operation.html#cre_rtx_proj_clib_arm", null ]
     ] ],
     [ "Create an RTX5 Project", "cre_rtx_proj.html", [
+      [ "Pack installation", "cre_rtx_proj.html#inst_pack", null ],
+      [ "Component selection", "cre_rtx_proj.html#comp-sel", [
+        [ "In the Arm CMSIS Solution extension", "cre_rtx_proj.html#autotoc_md0", null ],
+        [ "In uVision", "cre_rtx_proj.html#autotoc_md1", null ]
+      ] ],
       [ "Additional requirements for RTX on Cortex-A", "cre_rtx_proj.html#cre_rtx_cortexa", null ],
       [ "Add support for RTX specific functions", "cre_rtx_proj.html#cre_rtx_proj_specifics", null ],
       [ "RTX5 Header File", "cre_rtx_proj.html#rtx_os_h", null ],
       [ "Add Event Recorder Visibility", "cre_rtx_proj.html#cre_rtx_proj_er", null ],
       [ "Building the RTX5 Library", "cre_rtx_proj.html#creating_RTX5_LIB", [
-        [ "Build Process", "cre_rtx_proj.html#autotoc_md0", null ],
-        [ "Libraries Built", "cre_rtx_proj.html#autotoc_md1", null ],
-        [ "Optimization", "cre_rtx_proj.html#autotoc_md2", null ]
+        [ "Build Process", "cre_rtx_proj.html#autotoc_md2", null ],
+        [ "Libraries Built", "cre_rtx_proj.html#autotoc_md3", null ],
+        [ "Optimization", "cre_rtx_proj.html#autotoc_md4", null ]
       ] ]
     ] ],
     [ "Configure RTX v5", "config_rtx5.html", [
@@ -180,7 +185,7 @@ var NAVTREE =
           [ "Message Queue", "rtos2_tutorial.html#rtos2_tutorial_msg_queue", null ],
           [ "Exercise 16 - Message Queue", "rtos2_tutorial.html#rtos2_tutorial_ex16", null ],
           [ "Extended Message Queue", "rtos2_tutorial.html#rtos2_tutorial_ext_msg_queue", null ],
-          [ "Exercise 17 - Message Queue {# rtos2_tutorial_ex17}", "rtos2_tutorial.html#autotoc_md3", null ]
+          [ "Exercise 17 - Message Queue {# rtos2_tutorial_ex17}", "rtos2_tutorial.html#autotoc_md5", null ]
         ] ],
         [ "Memory Pool", "rtos2_tutorial.html#rtos2_tutorial_mem_pool", [
           [ "Exercise 18 - Zero Copy Mailbox", "rtos2_tutorial.html#rtos2_tutorial_ex18", null ]
@@ -200,7 +205,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "config_rtx5.html",
-"group__rtx__evr__message__queue.html#ga3bbf02128c31e5cc7ef4c78cdbec508c"
+"group__rtx__evr__message__queue.html#ga22bfb7d1c2f6e3e9fea9d3267b2d6988"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

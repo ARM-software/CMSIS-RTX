@@ -13,6 +13,8 @@
 ```txt
   📦
   ┣ 📂 .github/workflows        GitHub Action workflows
+     ┣ 📄 Test-Examples.yml      Build and execution test for pre-configured examples
+     ┣ 📄 cmsis_rv2.yml          Executes CMSIS-RTOS2 validation test suite
      ┣ 📄 gh-pages.yml           Deployment of static documentation from gh-pages branch to GitHub Pages
      ┣ 📄 libs.yml               Build of the RTX libraries
      ┗ 📄 pack.yml               Generation/publish of the pack and documentation
@@ -23,6 +25,7 @@
   ┣ 📂 Examples                 Example projects (MDK uVision and CMSIS-Toolbox)
   ┣ 📂 Include                  Public header files of RTX software component
   ┣ 📂 Library                  Project files to build pre-built libraries
+  ┣ 📂 Overview                 Contains a top-level description of the pack contents
   ┣ 📂 Source                   Private header and source files of RTX software component
   ┣ 📂 Template                 User code template files
   ┣ 📄 ARM.CMSIS-RTX.pdsc        Pack description file
@@ -43,11 +46,11 @@ CMSIS-RTX $ ./Documentation/Doxygen/gen_doc.sh
 
 Prerequisites for these scripts to succeed are:
 
-- Doxygen 1.9.6
+- Doxygen 1.13.2
 - Python 3.9 or later with linkchecker package installed
   `pip install linkchecker`
 
-Also see [Documentation README](./documentation/README.md).
+Also see [Documentation README](./Documentation/README.md).
 
 ### CMSIS-Pack Bundle
 

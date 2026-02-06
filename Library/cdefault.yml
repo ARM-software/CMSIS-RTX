@@ -1,12 +1,11 @@
 default:
 
-  compiler: GCC
-
   misc:
     - for-compiler: AC6
 
     - for-compiler: GCC
       C:
+        - -masm-syntax-unified
         - -fomit-frame-pointer
         - -ffunction-sections
         - -fdata-sections
@@ -18,3 +17,5 @@ default:
         - -fdata-sections
 
     - for-compiler: IAR
+      C: 
+        - -e

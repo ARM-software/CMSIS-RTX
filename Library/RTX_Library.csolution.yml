@@ -1,6 +1,5 @@
 solution:
-  created-for: cmsis-toolbox@2.5.0
-
+  created-for: cmsis-toolbox@2.12.0
   cdefault:
 
   packs:

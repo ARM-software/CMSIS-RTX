@@ -6,10 +6,11 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-    
+
 env:
   ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }}
-  
+  IAR_LMS_BEARER_TOKEN: ${{ secrets.IAR_LMS_BEARER_TOKEN }}
+
 jobs:
   libs:
     if: |
@@ -36,18 +37,15 @@ jobs:
               packs-
           path: /home/runner/.cache/arm/packs
 
-      - name: Prepare vcpkg env
-        uses: ARM-software/cmsis-actions/vcpkg@main
+      - name: Setup build environment
+        uses: ARM-software/cmsis-actions/vcpkg@v1.1
         with:
           config: ./Library/vcpkg-configuration.json
 
       - name: Activate Arm tool license
-        run: |
-          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-              armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
-          else
-              armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
-          fi
+        uses: ARM-software/cmsis-actions/armlm@v1.1
+        with:
+          code: ${{ env.ARM_UBL_ACTIVATION_CODE }}
 
       - name: Build libraries
         working-directory: ./Library
@@ -55,21 +53,12 @@ jobs:
           ./build.sh -t AC6
           ./build.sh -t GCC
           ./build.sh -t CLANG
-          # ./build.sh -t IAR
+          ./build.sh -t IAR
 
-      - name: Deactivate Arm tool license
-        if: always()
-        run: |
-          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-              armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
-          else
-              armlm deactivate --product KEMDK-COM0
-          fi
-    
       - name: Archive libraries
         working-directory: ./Library
         run: |
-          tar -cvjf RTX_Lib.tar.bz2 ARM/* GCC/* CLANG/*
+          tar -cvjf RTX_Lib.tar.bz2 ARM/* GCC/* CLANG/* IAR/*
     
       - name: Upload Library archive
         uses: actions/upload-artifact@v6

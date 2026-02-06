@@ -13,6 +13,7 @@ The build process is managed using the following files:
 - `RTX_Library.csolution.yml`: Defines the solution configuration.
 - `RTX_Library.cproject.yml`: Specifies the project settings.
 - `build.sh`: Script that triggers the library build process.
+- `vcpkg-configuration.json`: Defines the build environment.
 
 ## Libraries Built
 

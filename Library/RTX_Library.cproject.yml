@@ -1,7 +1,7 @@
 project:
 
   packs:
-    - pack: ARM::CMSIS@>=6.0.0-0
+    - pack: ARM::CMSIS@6.1.0
 
   # language-C: c99
 

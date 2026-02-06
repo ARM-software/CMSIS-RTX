@@ -12,14 +12,15 @@ concurrency:
 
 env:
   CMSIS_PACK_ROOT: ${{ github.workspace }}/.packs
-  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }} 
+  ARM_UBL_ACTIVATION_CODE: ${{ secrets.ARM_UBL_ACTIVATION_CODE }}
+  IAR_LMS_BEARER_TOKEN: ${{ secrets.IAR_LMS_BEARER_TOKEN }}
 
 jobs:
   build-and-run:
     strategy:
       fail-fast: true
       matrix:
-        compiler: [AC6, GCC, Clang]
+        compiler: [AC6, GCC, Clang, IAR]
         variant: [RTX5, RTX5-Lib]
     
     runs-on: ubuntu-24.04
@@ -72,18 +73,15 @@ jobs:
           path: /home/runner/.cache/arm/packs
 
       - name: Setup vcpkg environment
-        uses: JonatanAntoni/actions/vcpkg@main
+        uses: ARM-software/cmsis-actions/vcpkg@v1.1
         with:
           config: ./CMSIS-RTOS2_Validation/Project/vcpkg-configuration.json
           cache: "-${{ matrix.compiler }}-${{ matrix.variant }}"
 
       - name: Activate Arm tool license
-        run: |
-          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-            armlm activate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
-          else
-            armlm activate --server https://mdk-preview.keil.arm.com --product KEMDK-COM0
-          fi
+        uses: ARM-software/cmsis-actions/armlm@v1.1
+        with:
+          code: ${{ env.ARM_UBL_ACTIVATION_CODE }}
 
       - name: Register local packs
         run: |
@@ -126,17 +124,7 @@ jobs:
         run: |
           echo "Run test projects ..."
           ./build.py --verbose -r ${{ matrix.variant }} -c ${{ matrix.compiler }} run || echo "::warning::==== Some configurations failed to run! ==="
-
-      - name: Deactivate Arm tool license
-        if: always()
-        working-directory: ./CMSIS-RTOS2_Validation/Project
-        run: |
-          if [[ -n "${{ env.ARM_UBL_ACTIVATION_CODE }}" ]]; then
-            armlm deactivate --code ${{ env.ARM_UBL_ACTIVATION_CODE }}
-          else
-            armlm deactivate --product KEMDK-COM0
-          fi
-    
+   
       - name: Perform CodeQL Analysis
         if: matrix.compiler == 'GCC' && matrix.variant == 'RTX5'
         uses: github/codeql-action/analyze@v4

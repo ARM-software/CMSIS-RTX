@@ -13,6 +13,7 @@
   "arm:compilers/arm/arm-none-eabi-gcc": "14.3.1",
   "arm:tools/kitware/cmake": "3.31.5",
   "arm:compilers/arm/llvm-embedded": "21.1.1",
-  "arm:tools/ninja-build/ninja": "1.12.1"
+  "arm:tools/ninja-build/ninja": "1.12.1",
+  "arm:compilers/iar/cxarm": "9.70.2"
  }
 }

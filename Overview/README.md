@@ -22,7 +22,7 @@ and message exchange. The following image shows the services of Keil RTX5.
 - Shipped under the permissive Apache 2.0 license.
 - Configurable with no restrictions.
 - Publicly developed on
-  [GitHub with full source code](https://github.com/ARM-software/CMSIS_5/tree/develop/CMSIS/RTOS2/RTX) available.
+  [GitHub with full source code](https://github.com/ARM-software/CMSIS-RTX) available.
 
 ### Easy to use
 
@@ -32,15 +32,15 @@ and message exchange. The following image shows the services of Keil RTX5.
 
 ### Safe and secure
 
-- Keil RTX5 is [PSA certified](https://www.psacertified.org/functional-api-certification/), integrating with the
+- Keil RTX5 is [PSA certified](https://www.psacertified.org/getting-certified/functional-api-certification), integrating with the
   Platform Security Architecture API.
 - The safety-certified variant FuSa RTX RTOS is available as part of the
-  [Arm Functional Safety Run-Time System (FuSa RTS)](https://developer.arm.com/tools-and-software/embedded/fusa-run-time-system)
+  [Arm Run-Time System for Functional Safety (FuSa RTS)](https://developer.arm.com/tools-and-software/embedded/fusa-run-time-system)
 
 ### Flexible scheduling
 
 Keil RTX5 offers various
-[kernel scheduling](https://arm-software.github.io/CMSIS_5/develop/RTOS2/html/theory_of_operation.html#Scheduler)
+[kernel scheduling](https://arm-software.github.io/CMSIS-RTX/main/theory_of_operation.html#rtx_scheduler)
 options, allowing you to choose the best scheduling for your application.
 
 #### Pre-emptive
@@ -68,7 +68,7 @@ Co-operative multi-tasking can be seen in applications that require a fixed orde
 
 ### Low-power mode
 
-- [Tick-less operation mode](https://arm-software.github.io/CMSIS_5/develop/RTOS2/html/theory_of_operation.html#TickLess)
+- [Tick-less operation mode](https://arm-software.github.io/CMSIS-RTX/main/theory_of_operation.html#TickLess)
   for low-power devices.
 
 ### Designed for embedded systems
@@ -80,7 +80,6 @@ Co-operative multi-tasking can be seen in applications that require a fixed orde
 ## Links
 
 - [Documentation](https://arm-software.github.io/CMSIS-RTX/latest/index.html)
-- [Tutorial](https://arm-software.github.io/CMSIS_5/develop/RTOS2/html/rtos2_tutorial.html)
-- [Examples](https://github.com/Arm-Examples/#cmsis-toolbox-examples)
-- [Repository](https://github.com/ARM-software/CMSIS-RTX)
+- [Tutorial](https://arm-software.github.io/CMSIS-RTX/latest/rtos2_tutorial.html)
+- [Examples](https://github.com/ARM-software/CMSIS-RTX/tree/main/Examples)
 - [Issues](https://github.com/ARM-software/CMSIS-RTX/issues)

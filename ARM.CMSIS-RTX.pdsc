@@ -14,9 +14,8 @@
   <repository type="git">https://github.com/ARM-software/CMSIS-RTX.git</repository>
 
   <releases>
-    <release version="5.9.1-dev">
-      - Add support for TrustZone Secure-only mode
-      - Change "Default Processor mode for Thread execution" to Privileged mode
+    <release version="5.9.2-dev">
+      Active Development ...
     </release>
   </releases>
 

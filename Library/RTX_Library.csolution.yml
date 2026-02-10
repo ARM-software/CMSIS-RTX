@@ -2,6 +2,12 @@ solution:
   created-for: cmsis-toolbox@2.12.0
   cdefault:
 
+  select-compiler:
+    - compiler: AC6
+    - compiler: GCC
+    - compiler: CLANG
+    - compiler: IAR
+
   packs:
     - pack: ARM::Cortex_DFP@>=1.0.0-0
 

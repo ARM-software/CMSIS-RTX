@@ -1,3 +1,10 @@
+[![License Apache--2.0](https://img.shields.io/badge/License-Apache--2.0-green?label=License)](https://github.com/Arm-Software/CMSIS-RTX/blob/main/LICENSE)
+[![Build libs](https://img.shields.io/github/actions/workflow/status/Arm-Software/CMSIS-RTX/libs.yml?logo=arm&logoColor=0091bd&label=Build%20Libs)](./.github/workflows/libs.yml)
+[![Test Examples](https://img.shields.io/github/actions/workflow/status/Arm-Software/CMSIS-RTX/Test-Examples.yml?logo=arm&logoColor=0091bd&label=Test%20Examples)](./.github/workflows/Test-Examples.yml)
+[![RTOS2 Validation](https://img.shields.io/github/actions/workflow/status/Arm-Software/CMSIS-RTX/cmsis_rv2.yml?logo=arm&logoColor=0091bd&label=RTOS2%20Validation)](./.github/workflows/cmsis_rv2.yml)
+[![Build pack](https://img.shields.io/github/actions/workflow/status/Arm-Software/CMSIS-RTX/pack.yml?logo=arm&logoColor=0091bd&label=Build%20pack)](./.github/workflows/pack.yml)
+
+
 # CMSIS-RTX RTOS implementation
 
 **CMSIS-RTX** contains Keil RTX5 RTOS - a real-time operating system for Arm Cortex-M and Cortex-A processor-based devices that implements the [CMSIS-RTOS2 API](https://arm-software.github.io/CMSIS_6/latest/RTOS2/index.html) as its native interface.

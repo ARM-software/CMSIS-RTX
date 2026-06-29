@@ -1,7 +1,7 @@
 function writeHeader() {
-    document.write('Version 5.9.2-dev4');
+    document.write('Version 5.9.2-dev5');
 };
 
 function writeFooter()  {
-    document.write('Generated on Wed May  6 2026 13:04:51 for CMSIS-RTX 5.9.2-dev4+g2eff12a. Copyright &copy; 2026 Arm Limited (or its affiliates). All rights reserved.');
+    document.write('Generated on Mon Jun 29 2026 08:38:13 for CMSIS-RTX 5.9.2-dev5+ge6db876. Copyright &copy; 2026 Arm Limited (or its affiliates). All rights reserved.');
 };

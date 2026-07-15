@@ -23,7 +23,7 @@ jobs:
         compiler: [AC6, GCC, Clang, IAR]
         variant: [RTX5, RTX5-Lib]
     
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout CMSIS-RTX
@@ -68,13 +68,13 @@ jobs:
           path: /home/runner/.cache/arm/packs
 
       - name: Setup vcpkg environment
-        uses: ARM-software/cmsis-actions/vcpkg@v1.1
+        uses: ARM-software/cmsis-actions/vcpkg@v1.3
         with:
           config: ./CMSIS-RTOS2_Validation/.ci/vcpkg-configuration.json
           cache: "-${{ matrix.compiler }}-${{ matrix.variant }}"
 
       - name: Activate Arm tool license
-        uses: ARM-software/cmsis-actions/armlm@v1.1
+        uses: ARM-software/cmsis-actions/armlm@v1.3
         with:
           code: ${{ env.ARM_UBL_ACTIVATION_CODE }}
 
@@ -136,7 +136,7 @@ jobs:
 
   publish-test-results:
     needs: [build-and-run]
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
 
     env:

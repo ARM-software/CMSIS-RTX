@@ -53,7 +53,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Python requirements
         run: |
@@ -68,13 +68,13 @@ jobs:
           path: /home/runner/.cache/arm/packs
 
       - name: Setup vcpkg environment
-        uses: ARM-software/cmsis-actions/vcpkg@v1.1
+        uses: ARM-software/cmsis-actions/vcpkg@v1
         with:
           config: ./CMSIS-RTOS2_Validation/.ci/vcpkg-configuration.json
           cache: "-${{ matrix.compiler }}-${{ matrix.variant }}"
 
       - name: Activate Arm tool license
-        uses: ARM-software/cmsis-actions/armlm@v1.1
+        uses: ARM-software/cmsis-actions/armlm@v1
         with:
           code: ${{ env.ARM_UBL_ACTIVATION_CODE }}
 
@@ -93,7 +93,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ./CMSIS-RTX/Library/fetch_libs.sh
+          if [[ "$GITHUB_REPOSITORY" == "ARM-software/CMSIS-RTX" ]]; then
+            ./CMSIS-RTX/Library/fetch_libs.sh
+          else
+            ./CMSIS-RTX/Library/fetch_libs.sh --latest
+          fi
 
       - uses: ammaraskar/gcc-problem-matcher@master
         if: matrix.compiler == 'GCC'

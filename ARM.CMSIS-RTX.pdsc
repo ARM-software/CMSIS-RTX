@@ -181,13 +181,15 @@
       <accept  Tcompiler="GCC"/>
       <accept  Tcompiler="CLANG"/>
       <accept  Tcompiler="IAR"/>
+      <accept  Tcompiler="XC"/>
     </condition>
     <condition id="ARMCC">
       <accept  Tcompiler="ARMCC" Toptions="AC6"/>
       <accept  Tcompiler="ARMCC" Toptions="AC6LTO"/>
     </condition>
     <condition id="GCC">
-      <require Tcompiler="GCC"/>
+      <accept  Tcompiler="GCC"/>
+      <accept  Tcompiler="XC"/>
     </condition>
     <condition id="CLANG">
       <require Tcompiler="CLANG"/>
@@ -200,6 +202,7 @@
       <accept  Tcompiler="ARMCC" Toptions="AC6LTO"/>
       <accept  Tcompiler="GCC"/>
       <accept  Tcompiler="CLANG"/>
+      <accept  Tcompiler="XC"/>
     </condition>
     <condition id="IARASM">
       <require Tcompiler="IAR"/>

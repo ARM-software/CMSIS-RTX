@@ -98,7 +98,7 @@ var searchData=
   ['cortex_20a5_20a7_20a9_20target_20processor_95',['Cortex-A5/A7/A9 target processor',['../rtx_system_reqs.html#tpCortexA5_A7_A9',1,'']]],
   ['cortex_20m_96',['Using Interrupts on Cortex-M',['../theory_of_operation.html#cre_UsingIRQs',1,'']]],
   ['cortex_20m0_20m0_20m23_20device_97',['Cortex-M0/M0+/M23 device',['../rtx_system_reqs.html#tpCortexM0_M0P_M23',1,'']]],
-  ['cortex_20m3_20m4_20m7_20m33_20m35p_20m55_20m85_20device_98',['Cortex-M3/M4/M7/M33/M35P/M55/M85 device',['../rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P',1,'']]],
+  ['cortex_20m3_20m4_20m7_20m33_20m35p_20m42_20m55_20m85_20device_98',['Cortex-M3/M4/M7/M33/M35P/M42/M55/M85 device',['../rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P',1,'']]],
   ['cortex_20m55_99',['PMU Events for Cortex-M55',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__pmu8__events__armcm55.html',0,'']]],
   ['cortex_20m85_100',['PMU Events for Cortex-M85',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__pmu8__events__armcm85.html',0,'']]],
   ['count_20and_20stack_20space_101',['Configuration of Thread Count and Stack Space',['../config_rtx5.html#threadConfig_countstack',1,'']]],

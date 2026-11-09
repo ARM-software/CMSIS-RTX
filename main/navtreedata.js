@@ -31,7 +31,7 @@ var NAVTREE =
       [ "Supported Toolchains", "rtx_system_reqs.html#pToolchains", null ],
       [ "Processor Requirements", "rtx_system_reqs.html#tpProcessor", [
         [ "Cortex-M0/M0+/M23 device", "rtx_system_reqs.html#tpCortexM0_M0P_M23", null ],
-        [ "Cortex-M3/M4/M7/M33/M35P/M55/M85 device", "rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P", null ],
+        [ "Cortex-M3/M4/M7/M33/M35P/M42/M55/M85 device", "rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P", null ],
         [ "Cortex-A5/A7/A9 target processor", "rtx_system_reqs.html#tpCortexA5_A7_A9", null ],
         [ "Device Memory Requirements", "rtx_system_reqs.html#rMemory", null ]
       ] ],

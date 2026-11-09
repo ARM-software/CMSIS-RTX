@@ -20,7 +20,7 @@ var searchData=
   ['description_20file_20lt_20device_20gt_20_5fac6_20sct_17',['Scatter-Loading description file &amp;lt;device&amp;gt;_ac6.sct',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/linker_sct_pg.html',0,'']]],
   ['devarch_18',['DEVARCH',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structITM__Type.html#a2372a4ebb63e36d1eb3fcf83a74fd537',0,'ITM_Type::DEVARCH'],['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/structPMU__Type.html#a439c7a309f02c41a6581d0819e896fdc',0,'PMU_Type::DEVARCH']]],
   ['deviations_19',['Deviations',['../misraCompliance5.html#misra_deviations',1,'Deviations'],['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/coreMISRA_Exceptions_pg.html',0,'MISRA-C Deviations']]],
-  ['device_20',['device',['../rtx_system_reqs.html#tpCortexM0_M0P_M23',1,'Cortex-M0/M0+/M23 device'],['../rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P',1,'Cortex-M3/M4/M7/M33/M35P/M55/M85 device']]],
+  ['device_20',['device',['../rtx_system_reqs.html#tpCortexM0_M0P_M23',1,'Cortex-M0/M0+/M23 device'],['../rtx_system_reqs.html#tpCortexM3_M4_M7_M33_M35P',1,'Cortex-M3/M4/M7/M33/M35P/M42/M55/M85 device']]],
   ['device_20c_20and_20system_5f_20device_20h_21',['System Configuration Files system_&lt;Device&gt;.c and system_&lt;Device&gt;.h',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/system_c_pg.html',0,'']]],
   ['device_20capabilitiy_20defines_22',['Device capabilitiy defines',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/group__device__config.html',0,'']]],
   ['device_20files_23',['CMSIS-Core Device Files',['https://arm-software.github.io/CMSIS_6/v6.0.0/Core/cmsis_device_files.html',0,'']]],

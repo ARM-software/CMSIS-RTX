@@ -61,7 +61,7 @@ The RTX implements interfaces to the processor hardware in following files:
 > - The CMSIS-Core variable \ref SystemCoreClock is used by RTX to configure the SysTick timer.
 
 \if ARMv8M
-### Cortex-M3/M4/M7/M33/M35P/M55/M85 device {#tpCortexM3_M4_M7_M33_M35P}
+### Cortex-M3/M4/M7/M33/M35P/M42/M55/M85 device {#tpCortexM3_M4_M7_M33_M35P}
 \endif
 
 \ifnot ARMv8M
@@ -83,7 +83,7 @@ The interface files to the processor hardware are:
 
 - **irq_armv7m.S** defines exception handlers for Cortex-M3 and Cortex-M4/M7.
 \if ARMv8M
-- **irq_armv8mml.S** defines exception handlers for Cortex-M33/M35P/M55 and Cortex-M85
+- **irq_armv8mml.S** defines exception handlers for Cortex-M33/M35P/M42/M55 and Cortex-M85
 \endif
 - **rtx_core_cm.h** defines processor specific helper functions and the interfaces to Core Registers and Core Peripherals.
 - **os_tick.h** is the \ref CMSIS_RTOS_TickAPI that defines the interface functions to the SysTick timer.
